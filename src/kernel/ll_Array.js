@@ -383,15 +383,23 @@ Array.prototype.include$U = function(){
 }
  /**
  * @method  assoc
- * Searches for an object of an array from an array index and returns the array where the method finds the object passed as a parameter
- * @param  {Object} Array that contains the index of an array from where the method searches
- * @return {Array} Array that will be selected if the object parsed as parameter is found
+ *
+ * search at the first element of an array that contains arrays, compares the first element with the given parameter, and returns the array wrapper
+ * 
+ * @param  {Object} object that is searched
+ * 
+ * @return {Array} array 
+ * 
  * ###Example
+ *     
  *     var coupleOne = ["David", "Homer"]
  *     var coupleTwo = ["John", "Steve"]
  *     var index = [a,b]
- *     var winnerCouple = index.assoc("John")
- *     //The result will be = ["John", "Steve"]
+ *     var winnerCouple = index.assoc("John")    #=> ["John","Steve"]
+ *     var winnerCouple = index.assoc(["John"])  #=> ["John","Steve"]
+ *     var winnerCouple = index.assoc("Homer")   #=> nil
+ *
+ *
  */
 
 Array.prototype.assoc = function(){

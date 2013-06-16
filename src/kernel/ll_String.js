@@ -280,7 +280,8 @@ String.prototype.swapcase= function(){
  * @ return     {Boolean} Boolean 
  * true = this is empty  
  * false = this is not empty
- * ###Comments:     asks if the variable contains values
+ * ###Comments:     
+ * asks if the variable contains values
  * See example:
  *      "hello".empty$U()   // false
  *      "".empty$U()        // true
@@ -296,7 +297,8 @@ String.prototype.empty$U = function(){
 /**
  * Returns a copy of string with all uppercase letters replaced with their lowercase counterparts.
  * The operation is locale insensitive—only characters "A" to "Z" are affected. 
- * Note: case replacement is effective only in ASCII region
+ * ###Note: 
+ * Case replacement is effective only in ASCII region
  * Ths method use a "toLowerCase()" function
  *
  * @member     String
@@ -356,7 +358,8 @@ String.prototype.casecmp = function(){
  * @param       {String}  One letter only from ASCII code. 
  * @return      {String}     
  *
- * ###Comments:   This function works using a javascript function(.charCodeAt).
+ * ###Comments:   
+ * This function works using a javascript function(.charCodeAt).
  */
 
 String.prototype.ord = function(){
@@ -371,7 +374,8 @@ String.prototype.ord = function(){
  * @param        {String}     Number between -7 and 7 and discard the rest.
  * @return       {String}     Return an octal value .
  *
- * ###Comments: This function works using a javascript function(parseInt).Returns
+ * ###Comments: 
+ * This function works using a javascript function(parseInt).Returns
  * a copy of str with uppercase alphabetic characters converted to lowercase and
  * lowercase characters converted to uppercase. Note: case conversion is effective
  * only in ASCII region.
@@ -394,7 +398,8 @@ String.prototype.oct = function(){
  * @param        {String}    
  * @return       {String}     Return the reverse from a string.
  *
- * ###Comments: This function use a ".reverse" from array class.
+ * ###Comments: 
+ * This function use a ".reverse" from array class.
  */
 
 String.prototype.reverse = function(){
@@ -454,7 +459,8 @@ String.prototype.rindex = function(){
  * @param        {String} 
  * @return       {String}     Return the a string with a word center.
  *
- * ###Comments: If integer is greater than the length of str, 
+ * ###Comments: 
+ * If integer is greater than the length of str, 
  * returns a new String of length integer with str centered and padded with padstr; otherwise, returns str.
  * 
  *  
@@ -496,7 +502,8 @@ String.prototype.center = function(){
  * @param        {String} This
  * @return       {String}
  *
- * ###Comments: Returns a new String with the given record separator removed from the end of str (if present). 
+ * ###Comments: 
+ * Returns a new String with the given record separator removed from the end of str (if present). 
  * If $/ has not been changed from the default Ruby record separator, 
  * then chomp also removes carriage return characters (that is it will remove \n, \r, and \r\n).
  *
