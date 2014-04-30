@@ -29,9 +29,10 @@ Levels.prototype.do_onmouseover = function(ev, el){
 }
 
 Levels.prototype.do_onmouseout = function(ev, el){
-    var levels_container= document.getElementById('level_option_container')
-    levels_container.style.display='none'
     this.device.fireEvent(this.device.newMessage("sync", "get_menu_in", this))
+	//alert(ev.toSource() + ", " + el.toSource())
+    level_option_container.style.display='none' //le puedes pasar el id del div a piñon y te lo coge sin hacer getDocumentById
+    //instructions_option.style.background='red'
 }
 
 

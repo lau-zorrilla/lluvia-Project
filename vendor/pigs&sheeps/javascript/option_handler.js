@@ -11,17 +11,17 @@ function OptionHandler(view) {
 		
 		that.newGate("level_option_container", Levels)
 
-        that.newGate("level1", Gate, {do_onclick: function(event, element) {
-            alert("You are in level 1!")
-        } })
+        // that.newGate("level1", Gate, {do_onclick: function(event, element) {
+        //     alert("You are in level 1!")
+        // } })
 
-        that.newGate("level2", Gate, {do_onclick: function(event, element) {
-            alert("You are in level 2!")
-        } })
+        // that.newGate("level2", Gate, {do_onclick: function(event, element) {
+        //     alert("You are in level 2!")
+        // } })
 
-        that.newGate("level3", Gate, {do_onclick: function(event, element) {
-            alert("You are in level 3")
-        } })
+        // that.newGate("level3", Gate, {do_onclick: function(event, element) {
+        //     alert("You are in level 3")
+        // } })
 	}
 
 	if (arguments.length)

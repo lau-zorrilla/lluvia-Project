@@ -10,7 +10,7 @@ function MenuHandler(view) {
 	     Device.call(that, view)
 
 	    that.menu_effects = that.newGate("menu", Animation)
-	    that.menu_effects[view].menu_automata = that.menu_effects.new_effect(new MenuAutomata(that.menu_effects.device, that.menu_effects))
+	    that.menu_effects[that.menu_effects.element].menu_automata = that.menu_effects.new_effect(new MenuAutomata(that.menu_effects.device, that.menu_effects))
 
 	    that.newGate("instructions_option", Gate, {do_onclick: function(event, element) {
 	        alert("Move the little pig to place sheeps into the barnyard")
@@ -32,10 +32,10 @@ function MenuHandler(view) {
 
 MenuHandler.prototype.attend_keep_menu_out = function(date, msg) {
     //alert(this.menu_effects.menu_automata.toSource())
-    this.menu_effects.menu_automata.currentState.requested = this[this.view].menu_automata.state.out
+    this.menu_effects[this.menu_effects.element].menu_automata.currentState.requested = this.menu_effects[this.menu_effects.element].menu_automata.state.out
 }
 
 MenuHandler.prototype.attend_get_menu_in = function(date, msg) {
-    //this[this.element].menu_automata.currentState.requested = this[this.element].menu_automata.state.getting_in
-    alert("aqui llego")
+    this.menu_effects[this.menu_effects.element].menu_automata.currentState.requested = this.menu_effects[this.menu_effects.element].menu_automata.state.getting_in
+    //alert("aqui llego")
 }
