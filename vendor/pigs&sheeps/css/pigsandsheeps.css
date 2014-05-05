@@ -93,11 +93,11 @@ margin-right: 144px;
 }
 
 #level_option_container{
-	width:190px;
+	width:155px;
 	height:170px;
 	position:absolute;
 	left: 153px;
-	top:158px;
+	top:159px;
 	display:none;
 	border:3px solid #bdae68;
 	background-color: #ffff99;
@@ -110,13 +110,14 @@ margin-right: 144px;
 	background-repeat: no-repeat;
     background-position: top center;
 	display: inline-block;
-	margin-bottom: 5px;
-	border: solid 1px red;
+	margin-right: -10px;
+	margin-bottom: -5px;
 }
 
 #level1{
-	background-image: none;
-	text-align:center;
+	background-image: url("../images/one.png");
+	background-repeat: no-repeat;
+    background-position: top center;
 }
 
 /*#level1{

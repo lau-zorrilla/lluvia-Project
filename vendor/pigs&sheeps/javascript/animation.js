@@ -34,7 +34,7 @@ Animation.prototype.do_onmouseover = function(ev, el){
 Animation.prototype.do_onmouseout = function(ev, el){
     //alert(this.element)
     this[this.element].menu_automata.currentState.requested = this[this.element].menu_automata.state.getting_in
-
+    level_option_container.style.display='none' //le puedes pasar el id del div a piñon y te lo coge sin hacer getDocumentById
 }
 
 

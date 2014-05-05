@@ -29,10 +29,9 @@ Levels.prototype.do_onmouseover = function(ev, el){
 }
 
 Levels.prototype.do_onmouseout = function(ev, el){
-	if (ev.target != ev.currentTarget)
+	if (ev.target != ev.currentTarget || ev.eventPhase == 1)
 		return 
 	 
-    level_option_container.style.display='none' //le puedes pasar el id del div a piñon y te lo coge sin hacer getDocumentById
     this.device.fireEvent(this.device.newMessage("sync", "get_menu_in", this))
 }
 
