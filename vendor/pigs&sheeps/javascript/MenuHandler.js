@@ -17,7 +17,7 @@ function MenuHandler(view) {
 	    } })
 
 	    that.newGate("restart_option", Gate, { do_onclick: function(event, element) {
-	        this.device.fireEvent(this.device.newMessage("sync", "restart_game", this))
+	        this.device.fireEvent(this.device.newMessage("sync", "restart_game", this))	        
 	    } })
 
 	    that.newGate("level_option", Gate, {do_onclick: function(event, element){

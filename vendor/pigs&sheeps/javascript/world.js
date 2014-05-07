@@ -21,7 +21,7 @@ World.prototype.super = Device
 function World(screen, width, height){
 
     var that = this
-    this.self_events = ["focus_boid", "new_boid", "restart_game"]
+    this.self_events = ["focus_boid", "new_boid"]
 
     this.screen = []
     this.width   = width  || 100 //meters
@@ -30,6 +30,7 @@ function World(screen, width, height){
     this.acceleration_max = 30
     this.velocity_max = 200
     this.boids = {total: 0}
+
 
     /* We have a HTMLElement, a string holding the id, or the page has a canvas */
 
@@ -124,6 +125,7 @@ World.prototype.each_boid = function(){
 World.prototype.start = function(){
     var that = this
     var ctx  = that.screen[0].context
+
     this.draw_background(ctx)
     this.background = ctx.getImageData(0, 0, 850, 500)
 
@@ -137,6 +139,7 @@ World.prototype.start = function(){
     })
     /* Please don't add more boids */
     this.boids_list = this.get_boids()
+    this.newGate("screener", MouseCoordinates)
     this.draw()
 
 }
@@ -189,7 +192,7 @@ World.prototype.show_boids = function(){
     var boids = 0
     this.each_boid(function(boid){
         boids++
-            logger.innerHTML += "<h3>Boid " + boids + "</h3>"
+        logger.innerHTML += "<h3>Boid " + boids + "</h3>"
         logger.innerHTML += "Pos: " + boid.position() + "<br/>"
         logger.innerHTML += "Vel: " + boid.velocity() + "<br/>"
         logger.innerHTML += "Acc: " + boid.acceleration() + "<br/>"
@@ -257,10 +260,11 @@ World.prototype.attend_focus_boid = function(date, mssg) {
     mssg.current++;
 }
 
-World.prototype.attend_restart_game = function(date, mssg) {
-    //Aqui o en start_game() de main habria que limpiar la pantalla de los datos que ya pueda contener
-    start_game(this)
-}
+// World.prototype.attend_restart_game = function(date, mssg) {
+//     //var gal = new Galactus(universal_handler, game)
+//     //gal.start_game()
+//     this.fireEvent(this.device.newMessage("sync", "new_world", this))         
+// }
 
 World.prototype.new_boid_of = function(class_name, config){
     var b = new class_name(config)
@@ -273,7 +277,7 @@ World.prototype.new_boid_of = function(class_name, config){
     return b
 }
 
-World.prototype.method_missing= function(method, obj, params){
+World.prototype.method_missing = function(method, obj, params){
 
     if ( /new_boid_as_/.test(method) ){
         var subtype = method.match(/new_boid_as_(\w*)/ )[1].capitalize()

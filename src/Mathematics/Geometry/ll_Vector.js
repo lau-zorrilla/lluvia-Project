@@ -356,7 +356,7 @@ Vector.prototype.dot = function(vectors){
 			dt += aux
 		}
 	else
-	  throw "Ther must be at least two vectors for the scalar product"
+	  throw "There must be at least two vectors for the scalar product"
         
     return dt
 }
@@ -374,7 +374,7 @@ function _simple_cross(vector1, vectorArray){
 }
 
 /**
- * This fuction return the vector product of 2 vectors size 3.
+ * This function return the vector product of 2 vectors size 3.
  *
  * @memberOf 	{vector}
  * @method 		cross        returns a vector which is the result of 2 vector product

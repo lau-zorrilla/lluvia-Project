@@ -93,14 +93,20 @@ margin-right: 144px;
 }
 
 #level_option_container{
-	width:155px;
-	height:170px;
+	width:165px;
+	height:165px;
 	position:absolute;
 	left: 153px;
 	top:159px;
 	display:none;
 	border:3px solid #bdae68;
 	background-color: #ffff99;
+}
+
+#space_box{
+	width:150px;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 
 .level{
@@ -208,6 +214,6 @@ margin-top: -42px;
 margin-right: 20px;
 }
 
-#ll_logger{
+/*#ll_logger{
 	display: none;
-}
+}*/

@@ -11,8 +11,6 @@ function Levels(element) {
 	        	that.element = element
 	        	that[element] = {}
 	            Gate.call(that, element)	// Call to the super constructor (it does all the work).
-                //threadAutomata aqui
-                //that[element].menu_automata = that.new_effect(new MenuAutomata(that.device, that))
 	        }
 	    } catch (e) {
 	        if ($K_debug_level >= $KC_dl.DEVELOPER)
@@ -29,9 +27,10 @@ Levels.prototype.do_onmouseover = function(ev, el){
 }
 
 Levels.prototype.do_onmouseout = function(ev, el){
-	if (ev.target != ev.currentTarget || ev.eventPhase == 1)
+	if (ev.target != ev.currentTarget || ev.eventPhase == 3)
 		return 
-	 
+	
+	level_option_container.style.display='none' //le puedes pasar el id del div a piñon y te lo coge sin hacer getDocumentById
     this.device.fireEvent(this.device.newMessage("sync", "get_menu_in", this))
 }
 
