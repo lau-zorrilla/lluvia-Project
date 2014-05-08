@@ -163,6 +163,7 @@ Boid.prototype.run = function(current_time){
     this.update_physics(current_time)
 }
 
+
 Boid.prototype.first_draw = function() {
     var canvas = document.createElement('canvas');
     canvas.width = 24;
@@ -212,6 +213,7 @@ Boid.prototype.draw = function(ctx){
 
     ctx.restore()
 }
+
 
 /**
  * @method heading
