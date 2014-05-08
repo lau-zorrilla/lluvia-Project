@@ -28,17 +28,16 @@ function MouseCoordinates(element) {
 MouseCoordinates.prototype.do_onmousemove = function(ev, el){
     this.X = ev.pageX - screener.offsetLeft
     this.Y = ev.pageY - screener.offsetTop
-
-    //alert(this.X + " : " + this.Y)
- //   	this.world.new_boid( function(config) {
-	// 	config.colour = "pink"
-	// 	config.geo_data = {
- //            position: new Vector(this.X, this.Y),
- //            velocity: new Vector(10, 10),
- //            acceleration: new Vector(0, 0)
-	// })
 }
 
 MouseCoordinates.prototype.get_mouse_coordinates = function() {
 	return new Vector(this.X, this.Y)
+}
+
+MouseCoordinates.prototype.get_mouse_X = function() {
+	this.mousex = this.get_mouse_coordinates().get_coord(0)
+}
+
+MouseCoordinates.prototype.get_mouse_Y = function() {
+	this.mousey = this.get_mouse_coordinates().get_coord(1)
 }
