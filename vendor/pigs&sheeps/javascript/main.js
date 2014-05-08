@@ -19,6 +19,8 @@ function main(){
 
 
 	var maker = new Galactus( menu_handler, 'screener')
+	/*var clock= new Clock('timer');
+	countdown = clock.get_string();*/
 }
 
 

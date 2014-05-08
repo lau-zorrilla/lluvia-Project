@@ -152,6 +152,7 @@ height: 502px;
 margin: auto;
 background-color: #ffff99;
 border: 1px solid black;
+
 }
 
 #timer{
@@ -172,6 +173,7 @@ width: 300px;
 margin: auto;
 margin-top: -300px;
 margin-bottom: 50px;
+cursor: url('images/cerditog.png'), move;
 }
 
 #main_screen input{

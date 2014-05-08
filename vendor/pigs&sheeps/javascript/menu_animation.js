@@ -7,6 +7,9 @@ function first_image(){
 }
 
 function countdown(device){
+	/*var clock= new Clock("timer", 120);
+	document.getElementById("timer")= clock.get_string();*/
+	
     sec =0;
     min =2;
     seconds = document.getElementById("seconds");
