@@ -31,6 +31,7 @@ function World(screen, width, height){
     this.velocity_max = 200
     this.boids = {total: 0}
     this.transform_already = false
+    this.mouse_coordinates = this.newGate("screener", MouseCoordinates)
 
 
     /* We have a HTMLElement, a string holding the id, or the page has a canvas */
@@ -133,13 +134,13 @@ World.prototype.start = function(){
     if(this.transform_already)
        ctx.transform(1, 0, 0, -1, -425, 500)
 
-        this.draw_background(ctx)
-        this.background = ctx.getImageData(0, 0, 850, 500)
+    this.draw_background(ctx)
+    this.background = ctx.getImageData(0, 0, 850, 500)
 
     // Change the origin to the middle x, bottom y,  and invert y axis
-        alert(this.transform_already)
-        ctx.transform(1, 0, 0, -1, 425, 500)
-        this.transform_already = true
+        //alert(this.transform_already)
+    ctx.transform(1, 0, 0, -1, 425, 500)
+    this.transform_already = true
     this.start_time = new Date()
     this.currentState.requested = Device.STATE.running
     this.get_boids().each( function(el) {
@@ -148,6 +149,7 @@ World.prototype.start = function(){
     })
     /* Please don't add more boids */
     this.boids_list = this.get_boids()
+    //this.mouse_coordinates = this.newGate("screener", MouseCoordinates)
     this.draw()
 
 }

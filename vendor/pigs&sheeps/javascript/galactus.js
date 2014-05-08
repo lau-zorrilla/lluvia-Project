@@ -3,6 +3,7 @@ Galactus.prototype.contructor = Galactus
 
 function Galactus(handler, view){
 	var that = this
+	this.sheeps = []
 
 	var args = []
 	for (var i=0; i<arguments.length; i++)
@@ -32,15 +33,18 @@ Galactus.prototype.attend_restart_game = function(date, mssg) {
 
 	countdown(this.world);
 
-	this.world.new_boid( function(config) {
-		config.colour = "pink"
-	})
+	// this.world.new_boid( function(config) {
+	// 	config.colour = "pink"
+	// })
 
-	var sheeps = []
-	for (var i=0; i<10; i++)
-	sheeps.push( this.world.new_boid( function(config) {
-		config.colour = "white"
-	}))
+	//var sheeps = []
+	// for (var i=0; i<10; i++)
+	// sheeps.push( this.world.new_boid( function(config) {
+	// 	config.colour = "white"
+	// }))
+    for (var i=0; i<this.sheeps.length; i++)
+    	this.sheeps[i].geo_data.position = new Vector(Math.random() * 150 + 80, Math.random() * 100 + 200)
+
 
     this.world.start()
 }
@@ -48,8 +52,7 @@ Galactus.prototype.attend_restart_game = function(date, mssg) {
 Galactus.prototype.destroy_world = function() {
 	//Destroys a world if there is one created
 	this.world.currentState.requested = this.world.state.suspended
-	//alert(this.world.boids.toSource())
-	var list = this.world.get_boids()
+	//this.world.boids_list = []
 	this.world = new World(this.view)
 	this.world.is_initalized(true)
 }
@@ -62,20 +65,29 @@ Galactus.prototype.start_world = function() {
 	    
 	this.handler.addPort("restart_game", this)
 	countdown(this.world);
+
+	// var x1 = this.world.mouse_coordinate.get_coord(0)
+	// var y1 = this.world.mouse_coordinate.get_coord(1)
     
     var pig = this.world.new_boid( function(config) {
     	config.colour = "pink"
+    	// config.geo_data =  {
+    	// 	position: new Vector(x1, y1),
+     //        velocity: new Vector(10, 10),
+     //        acceleration: new Vector(0, 0)
+    	// }
     })
     
     var x = 0
     var y = 0
+	this.sheeps.push(pig)
 
-	var sheeps = []
+	//var sheeps = []
 	for (var i=0; i<10; i++){
 		x = Math.random() * 150 + 80
 		y = Math.random() * 100 + 200
 		
-	    sheeps.push( this.world.new_boid( function(config) {
+	    this.sheeps.push( this.world.new_boid( function(config) {
 	        config.colour = "white"
 	        config.brain.activate("seek", pig)
  			config.geo_data = {

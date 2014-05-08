@@ -26,8 +26,8 @@ function MouseCoordinates(element) {
 }
 
 MouseCoordinates.prototype.do_onmousemove = function(ev, el){
-    this.X = ev.pageX
-    this.Y = ev.pageY
+    this.X = ev.pageX - screener.offsetLeft
+    this.Y = ev.pageY - screener.offsetTop
 
     //alert(this.X + " : " + this.Y)
  //   	this.world.new_boid( function(config) {
@@ -37,4 +37,8 @@ MouseCoordinates.prototype.do_onmousemove = function(ev, el){
  //            velocity: new Vector(10, 10),
  //            acceleration: new Vector(0, 0)
 	// })
+}
+
+MouseCoordinates.prototype.get_mouse_coordinates = function() {
+	return new Vector(this.X, this.Y)
 }
