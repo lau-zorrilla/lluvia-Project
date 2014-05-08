@@ -98,9 +98,7 @@ function Device(view, state, currentState, parent){
 	var that    = this
 	this._class = that
 
-	var state = state
-	if (!state)
-	  state = Device.STATE
+	state = state || Device.STATE
 
       state.self_keys().each(function(key){  // Define overridable functions
 		   ["up", "steady", "down"].each(function(substate){
@@ -128,7 +126,8 @@ function Device(view, state, currentState, parent){
 				/* TO DO */ ;
 				this.gateRunner(this.now)
 				this.childRunner(this.now);
-				this.running_steady(this.now)
+				if (this.running_steady)
+				  this.running_steady(this.now)
 			},
 			function(){
 				;
@@ -176,9 +175,9 @@ function Device(view, state, currentState, parent){
 	this.lookup = new Lookup();
 	this.eventDispatcher = new EventDispatcher(this.lookup);
 	this.currentState = currentState ||
-						{ 	previous:  state.suspended,
-							current:   state.suspended,
-							requested: state.running
+						{ 	previous:  Device.STATE.suspended,
+							current:   Device.STATE.suspended,
+							requested: Device.STATE.running
 						}
 	this.gates		   = []
 
@@ -278,12 +277,12 @@ Device.prototype.childRunner = function(){
  * @param {String | HTMLElement} el See (@link Gate)
  * @param {Function} ClassCons Class constructor deriving from Gate.
  */
-Device.prototype.newGate = function(el, ClassCons){
+Device.prototype.newGate = function(el, ClassCons, config){
 	try {
 		var Cons = this.openDevice(ClassCons)
 		var view = this.view || null
-		var ob = new Cons(el, view)
-                ob.device = this
+		var ob = new Cons(el, view, config)
+        ob.device = this
 		this.gates.push( ob )
 		return ob
 	} catch (e) {

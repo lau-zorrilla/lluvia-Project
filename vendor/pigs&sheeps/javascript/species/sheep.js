@@ -25,6 +25,14 @@
  			steering: 50,
  			braking: 70
  		}
+ 		args.push(function(config){
+ 			config.brain.activate("alignment")
+ 			config.geo_data = {
+                              position: new Vector(100, 100),
+                              velocity: new Vector(0, 0),
+                              acceleration: new Vector(0, 0)
+                           }
+ 		})
       Sheep.super.apply(that, args)
  	}
 
@@ -42,7 +50,7 @@
 
  	function initialize(){
  		Brain.apply(that, arguments)
- 		that.add_behaviors(["cohesion", "alignment"])
+
  	}
 
  	if (arguments.length)
