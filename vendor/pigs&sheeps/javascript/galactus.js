@@ -28,7 +28,6 @@ function Galactus(handler, view){
 }
 
 Galactus.prototype.attend_restart_game = function(date, mssg) {
-	alert("llego")
 	this.destroy_world()
 
 	countdown(this.world);
@@ -48,8 +47,11 @@ Galactus.prototype.attend_restart_game = function(date, mssg) {
 
 Galactus.prototype.destroy_world = function() {
 	//Destroys a world if there is one created
-	this.world.state.requested = this.world.state.suspended
+	this.world.currentState.requested = this.world.state.suspended
+	//alert(this.world.boids.toSource())
+	var list = this.world.get_boids()
 	this.world = new World(this.view)
+	this.world.is_initalized(true)
 }
 
 Galactus.prototype.start_world = function() {
@@ -67,9 +69,6 @@ Galactus.prototype.start_world = function() {
     
     var x = 0
     var y = 0
-    // var r = 10.00
-    // var PI = 3.141516
-    // var area = r * r * PI
 
 	var sheeps = []
 	for (var i=0; i<10; i++){

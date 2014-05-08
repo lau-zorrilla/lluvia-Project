@@ -30,6 +30,7 @@ function World(screen, width, height){
     this.acceleration_max = 30
     this.velocity_max = 200
     this.boids = {total: 0}
+    this.transform_already = false
 
 
     /* We have a HTMLElement, a string holding the id, or the page has a canvas */
@@ -125,12 +126,20 @@ World.prototype.each_boid = function(){
 World.prototype.start = function(){
     var that = this
     var ctx  = that.screen[0].context
+    // ctx.initialized = true
+    // alert(ctx.initialized)
 
-    this.draw_background(ctx)
-    this.background = ctx.getImageData(0, 0, 850, 500)
+        //alert(this.transform_already)
+    if(this.transform_already)
+       ctx.transform(1, 0, 0, -1, -425, 500)
+
+        this.draw_background(ctx)
+        this.background = ctx.getImageData(0, 0, 850, 500)
 
     // Change the origin to the middle x, bottom y,  and invert y axis
-    ctx.transform(1, 0, 0, -1, 425, 500)
+        alert(this.transform_already)
+        ctx.transform(1, 0, 0, -1, 425, 500)
+        this.transform_already = true
     this.start_time = new Date()
     this.currentState.requested = Device.STATE.running
     this.get_boids().each( function(el) {
@@ -139,9 +148,12 @@ World.prototype.start = function(){
     })
     /* Please don't add more boids */
     this.boids_list = this.get_boids()
-    this.newGate("screener", MouseCoordinates)
     this.draw()
 
+}
+
+World.prototype.is_initalized = function(init) {
+    this.transform_already = init
 }
 
 // World.prototype.restart = function(){
@@ -255,16 +267,9 @@ World.prototype.start_and_run = function(){
     this.run()
 }
 
-
 World.prototype.attend_focus_boid = function(date, mssg) {
     mssg.current++;
 }
-
-// World.prototype.attend_restart_game = function(date, mssg) {
-//     //var gal = new Galactus(universal_handler, game)
-//     //gal.start_game()
-//     this.fireEvent(this.device.newMessage("sync", "new_world", this))         
-// }
 
 World.prototype.new_boid_of = function(class_name, config){
     var b = new class_name(config)

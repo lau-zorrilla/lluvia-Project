@@ -27,7 +27,7 @@ Levels.prototype.do_onmouseover = function(ev, el){
 }
 
 Levels.prototype.do_onmouseout = function(ev, el){
-	if (ev.target != ev.currentTarget || ev.eventPhase == 3)
+	if (ev.target != ev.currentTarget)
 		return 
 	
 	level_option_container.style.display='none' //le puedes pasar el id del div a piñon y te lo coge sin hacer getDocumentById
