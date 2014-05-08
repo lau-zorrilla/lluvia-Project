@@ -225,10 +225,10 @@ World.prototype.running_steady = function(processors_time){
     this.now = processors_time || new Date()
     //this.eventDispatcher.shift()
 
-    this.x1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(0)
-    this.y1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(1)
+    // this.x1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(0)
+    // this.y1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(1)
 
-    this.draw_boid_on_cursor()
+    // this.draw_boid_on_cursor()
 
     this.draw()
     //setTimeout(this.run.bind(this), 100)
