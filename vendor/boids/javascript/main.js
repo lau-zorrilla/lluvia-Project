@@ -40,8 +40,8 @@ function main(){
     }))
 
    /* Example: seek behavior */
-   var seeker = []
-    var t = w.new_boid( function(config) {
+  var seeker = []
+  var t = w.new_boid( function(config) {
                            /* Here you can interact with the outer scope */
                            config.colour   = "red"
                            config.geo_data = {
@@ -50,52 +50,52 @@ function main(){
                               acceleration: new Vector(0, 0)
                            }
                            return config
-    })
+  })
 
-   var first = t
-   seeker.push(t)
+  var first = t
+  seeker.push(t)
 
-   for(var i=0; i<5; i++)
-     seeker.push( t = w.new_boid( function(config) {
-       config.brain.activate('seek', t)
-     }) )
+  for(var i=0; i<5; i++)
+    seeker.push( t = w.new_boid( function(config) {
+      config.brain.activate('seek', t)
+    }) )
 
-   first.brain.activate('seek', t)
+  first.brain.activate('seek', t)
 
 
-   /*  Example: flee behavior */
-   var fleer = []
-   for (var i=0; i<8; i++) {
-     var f
-     fleer.push( f = w.new_boid( function(config) {
-       config.color = "silver"
-       config.vel_max = 10
-       config.brain.activate("flee", wanderer[i % wanderer.length] )
-     } ))
-   }
+  /*  Example: flee behavior */
+  var fleer = []
+  for (var i=0; i<8; i++) {
+    var f
+    fleer.push( f = w.new_boid( function(config) {
+      config.color = "silver"
+      config.vel_max = 10
+      config.brain.activate("flee", wanderer[i % wanderer.length] )
+    } ))
+  }
 
-   /*  Example: pursue behaviour*/
-   var b2 = w.new_boid( function (config) {
-     config.colour  = "lime"
-     config.vel_max = 80
-     config.force_limits.thrust   = 40
-     config.force_limits.steering = 80
-     config.geo_data.position     = new Vector(0, 0)
-     config.brain.activate("pursue", first)
-   })
+  /*  Example: pursue behaviour*/
+  var b2 = w.new_boid( function (config) {
+    config.colour  = "lime"
+    config.vel_max = 80
+    config.force_limits.thrust   = 40
+    config.force_limits.steering = 80
+    config.geo_data.position     = new Vector(0, 0)
+    config.brain.activate("pursue", first)
+  })
 
-   /*  Example: pursue behaviour*/
-   var b3 = w.new_boid( function (config) {
-     config.colour  = "fuchsia"
-     config.vel_max = 80
-     config.force_limits.thrust   = 40
-     config.force_limits.steering = 80
-     config.geo_data.position     = new Vector(0, 0)
-     // config.brain.activate("seek", first)
-     config.brain.activate("pursue<seek", first)
+  /*  Example: pursue behaviour*/
+  var b3 = w.new_boid( function (config) {
+    config.colour  = "fuchsia"
+    config.vel_max = 80
+    config.force_limits.thrust   = 40
+    config.force_limits.steering = 80
+    config.geo_data.position     = new Vector(0, 0)
+    // config.brain.activate("seek", first)
+    config.brain.activate("pursue<seek", first)
      return config
    })
 
 
-   w.start()
+  w.start()
 }

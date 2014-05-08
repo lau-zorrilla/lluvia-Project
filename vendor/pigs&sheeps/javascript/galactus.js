@@ -3,6 +3,7 @@ Galactus.prototype.contructor = Galactus
 
 function Galactus(handler, view){
 	var that = this
+	this.sheeps = []
 
 	var args = []
 	for (var i=0; i<arguments.length; i++)
@@ -28,63 +29,89 @@ function Galactus(handler, view){
 }
 
 Galactus.prototype.attend_restart_game = function(date, mssg) {
-	alert("llego")
 	this.destroy_world()
 
 	countdown(this.world);
 
-	this.world.new_boid( function(config) {
-		config.colour = "pink"
-	})
-
-	var sheeps = []
-	for (var i=0; i<10; i++)
-	sheeps.push( this.world.new_boid( function(config) {
-		config.colour = "white"
-	}))
+    for (var i=0; i<this.sheeps.length; i++)
+    	this.sheeps[i].geo_data.position = new Vector(Math.random() * 150 + 80, Math.random() * 100 + 200)
 
     this.world.start()
 }
 
 Galactus.prototype.destroy_world = function() {
 	//Destroys a world if there is one created
-	this.world.state.requested = this.world.state.suspended
+	this.world.currentState.requested = this.world.state.suspended
 	this.world = new World(this.view)
+	this.world.is_initalized(true)
 }
 
 Galactus.prototype.start_world = function() {
+	//Fires an event that calls the worldś start function
+    canvas.style.cursor = "url('images/mouse_pig.png'), move"
 	this.world   = new World(this.view)
-	    //Fires an event that calls the worldś start function
-	    //alert("Galactus lives!")
-	    //alert(dev.toSource())
 	    
 	this.handler.addPort("restart_game", this)
 	countdown(this.world);
     
-    var pig = this.world.new_boid( function(config) {
-    	config.colour = "pink"
+ //    var pig = this.world.new_boid( function(config) {
+ //    	config.colour = "pink"
+ //    	// config.geo_data =  {
+ //    	// 	position: new Vector(x1, y1),
+ //     //        velocity: new Vector(10, 10),
+ //     //        acceleration: new Vector(0, 0)
+ //    	// }
+ //    })
+	// this.sheeps.push(pig)
+
+	// for (var i=0; i<10; i++){
+	// 	x = Math.random() * 150 + 80
+	// 	y = Math.random() * 100 + 200
+		
+	//     this.sheeps.push( this.world.new_boid( function(config) {
+	//         config.colour = "white"
+	//         config.brain.activate("seek", pig)
+ // 			config.geo_data = {
+ //                  position: new Vector(x, y),
+ //                  velocity: new Vector(10, 10),
+ //                  acceleration: new Vector(10, 10)
+ //               }
+ //             return config
+ //        }))
+	// }
+
+	var sheep = this.world.new_boid( function(config) {
+			config.colour = "white"
+            config.geo_data = {
+                position: new Vector(200, 200),
+                velocity: new Vector(0, 0),
+                acceleration: new Vector(0, 0)
+            }
+            return config
     })
-    
+
+    var pig = sheep
     var x = 0
     var y = 0
-    // var r = 10.00
-    // var PI = 3.141516
-    // var area = r * r * PI
 
-	var sheeps = []
+	this.sheeps.push(sheep)
+
 	for (var i=0; i<10; i++){
 		x = Math.random() * 150 + 80
 		y = Math.random() * 100 + 200
 		
-	    sheeps.push( this.world.new_boid( function(config) {
+	    this.sheeps.push( this.world.new_boid( function(config) {
 	        config.colour = "white"
-	        config.brain.activate("seek", pig)
+	        config.brain.activate("seek", sheep)
  			config.geo_data = {
                   position: new Vector(x, y),
                   velocity: new Vector(10, 10),
                   acceleration: new Vector(0, 0)
-               }
+                }
+            return config
         }))
 	}
+    pig.brain.activate('seek', sheep)
+
 	this.world.start()
 }

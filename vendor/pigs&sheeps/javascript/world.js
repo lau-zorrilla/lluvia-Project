@@ -30,6 +30,10 @@ function World(screen, width, height){
     this.acceleration_max = 30
     this.velocity_max = 200
     this.boids = {total: 0}
+    this.transform_already = false
+    this.mouse_coordinates = this.newGate("screener", MouseCoordinates)
+    this.x1 = 0
+    this.y1 = 0
 
 
     /* We have a HTMLElement, a string holding the id, or the page has a canvas */
@@ -122,41 +126,55 @@ World.prototype.each_boid = function(){
     })
 }
 
+World.prototype.draw_boid_on_cursor = function() {
+    //alert(this.x1 + " : " + this.y1)
+
+    // var a = this.new_boid( function(config) {
+    //         config.colour = "white"
+    //         config.brain.activate("seek", pig)
+    //         config.geo_data = {
+    //               position: new Vector(x1, y1),
+    //               velocity: new Vector(10, 10),
+    //               acceleration: new Vector(0, 0)
+    //            }
+    //     })
+}
+
 World.prototype.start = function(){
     var that = this
     var ctx  = that.screen[0].context
+
+    if(this.transform_already)
+       ctx.transform(1, 0, 0, -1, -425, 500)
 
     this.draw_background(ctx)
     this.background = ctx.getImageData(0, 0, 850, 500)
 
     // Change the origin to the middle x, bottom y,  and invert y axis
     ctx.transform(1, 0, 0, -1, 425, 500)
+    this.transform_already = true
     this.start_time = new Date()
     this.currentState.requested = Device.STATE.running
     this.get_boids().each( function(el) {
         el.start(that.start_time)
         el.first_draw()
     })
+
     /* Please don't add more boids */
     this.boids_list = this.get_boids()
-    this.newGate("screener", MouseCoordinates)
     this.draw()
 
 }
 
-// World.prototype.restart = function(){
-//   start_game(this)  //nota mental: refactor
-//   var that = this
-//   var ctx  = this.screen[0].context
-
-//   this.start_time = new Date()
-//   this.currentState.requested = Device.STATE.running
-//   this.get_boids().each( function(el) {
-//     el.start(that.start_time)
-//   })
-//   /* Please don't add more boids */
-//   this.boids_list = this.get_boids()
-// }
+/*
+*
+* Checks if the world is initialized. A Boolean can be passed as parameter. 
+* If true, the user is restarting the game. 
+*
+*/
+World.prototype.is_initalized = function(init) {
+    this.transform_already = init
+}
 
 World.prototype.draw = function(){
     var that = this
@@ -207,6 +225,11 @@ World.prototype.running_steady = function(processors_time){
     this.now = processors_time || new Date()
     //this.eventDispatcher.shift()
 
+    // this.x1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(0)
+    // this.y1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(1)
+
+    // this.draw_boid_on_cursor()
+
     this.draw()
     //setTimeout(this.run.bind(this), 100)
 }
@@ -255,16 +278,9 @@ World.prototype.start_and_run = function(){
     this.run()
 }
 
-
 World.prototype.attend_focus_boid = function(date, mssg) {
     mssg.current++;
 }
-
-// World.prototype.attend_restart_game = function(date, mssg) {
-//     //var gal = new Galactus(universal_handler, game)
-//     //gal.start_game()
-//     this.fireEvent(this.device.newMessage("sync", "new_world", this))         
-// }
 
 World.prototype.new_boid_of = function(class_name, config){
     var b = new class_name(config)
