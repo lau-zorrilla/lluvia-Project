@@ -52,7 +52,9 @@ Galactus.prototype.start_world = function() {
 	this.world   = new World(this.view)
 
 	this.handler.addPort("restart_game", this)
-	countdown(this.world);
+	
+	countdown(this.world)  //en menu_animation.js
+	
 
  //    var pig = this.world.new_boid( function(config) {
  //    	config.colour = "pink"

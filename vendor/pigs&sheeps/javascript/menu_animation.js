@@ -6,11 +6,27 @@ function first_image(){
     document.getElementById('menu_img').src="images/sheep1.png"
 }
 
-function countdown(device){
-	/*var clock= new Clock("timer", 120);
-	document.getElementById("timer")= clock.get_string();*/
+function countdown(device){	
+	document.getElementById("timer").style.fontWeight ="bold"
+	document.getElementById("timer").style.color="#996842" //inicializa color de fuente
+
+	device.clock = new Clock(device, 120) // reloj de 2 minutos
+
+    timer = setInterval( // cada segundo se ejecuta la funcion
 	
-    sec =0;
+	function(){
+		if(device.clock.remaining_time <= 10)
+			document.getElementById("timer").style.color="red" //cambia color de fuente
+
+		document.getElementById("timer").innerHTML=device.clock.get_string() //escribe en el div "timer"
+		
+		if (device.clock.running == false)
+			clearInterval(timer) // detiene setInterval
+	}	
+	,1000);
+
+	
+   /* sec =0;
     min =2;
     seconds = document.getElementById("seconds");
     minutes = document.getElementById("minutes");
@@ -46,7 +62,7 @@ function countdown(device){
 	    }
 	}
     }
-	,1500);
+	,1500);*/
 
 
 }
