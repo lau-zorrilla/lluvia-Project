@@ -1,7 +1,7 @@
 Clock.prototype = new Device
 Clock.prototype.constructor = Clock
 
-function getNow(){ //Devuelve la hora actual en segundos
+function get_now(){ //Devuelve la hora actual en segundos
 		now = new Date
 		hours = now.getHours() * 3600 //horas pasadas a segundos
 		minutes = now.getMinutes() * 60 // minutos pasados a segundos
@@ -12,7 +12,6 @@ function getNow(){ //Devuelve la hora actual en segundos
 
 
 function Clock(view, countdown_seconds) {
-	//this.state
 	var that = this	
 	var args = arguments
 
@@ -20,12 +19,11 @@ function Clock(view, countdown_seconds) {
     	Device.call(that, view)
   	}
 	
-	this.start_time = getNow()
+	this.start_time = get_now()
 	this.total_time = countdown_seconds //segundos para jugar
-	//this.remaining_time = start_time + total_time //hora a la que finaliza
-	this.remaining_time=this.total_time //segundos q quedan (igual q en reset, se inicializa)
+	this.remaining_time = this.total_time //segundos q quedan (igual q en reset, se inicializa)
 	this.before = this.start_time
-	this.running=true
+	this.running = true
 
 	if (arguments.length)
     	initialize()  
@@ -34,7 +32,7 @@ function Clock(view, countdown_seconds) {
 
 Clock.prototype.reset = function() { //reinicia
 	this.pause()
-	this.remaining_time=this.total_time 
+	this.remaining_time = this.total_time 
 }
 
 Clock.prototype.get_count = function() { //devuelve segundos que quedan
@@ -42,35 +40,36 @@ Clock.prototype.get_count = function() { //devuelve segundos que quedan
 }
 
 Clock.prototype.run = function() { //recalcula el tiempo que queda 			
-		now=getNow()
+		now = get_now()
 		//this.remaining_time=this.remaining_time- (now - this.start_time)// calcula tiempo que queda en funcion del ahora(tiempo q queda= tiempo q quedaba - tiempo q ha pasado)	
-		this.remaining_time=this.total_time- (now - this.start_time)// calcula tiempo que queda en funcion del ahora(tiempo q queda= tiempo q quedaba - tiempo q ha pasado)	
+		this.remaining_time = this.total_time - (now - this.start_time)// calcula tiempo que queda en funcion del ahora(tiempo q queda= tiempo q quedaba - tiempo q ha pasado)	
 		//alert(this.remaining_time)	
-		if (this.remaining_time<=0)
-			this.running=false
-
+		if (this.remaining_time <= 0)
+			this.running = false
 }
 
 Clock.prototype.pause = function() { // pausa el tiempo
-	this.running=false
+	this.running = false
 }
 
 Clock.prototype.resume = function() { //continua la cuenta atras 	
-	this.start_time=getNow()
-	this.remaining_time=this.remaining_time-(this.start_time-this.before) //lo q queda=lo q quedaba - lo q ha pasado
-	this.running=true
-	
+	this.start_time = get_now()
+	this.remaining_time = this.remaining_time - (this.start_time - this.before) //lo q queda=lo q quedaba - lo q ha pasado
+	this.running = true	
 }
 
 Clock.prototype.get_string = function() { //devuelve una cadena con los segundos restantes
 	if(this.running == true){
 		this.run()
-		min = Math.floor(this.remaining_time/60)
-		sec = Math.round(this.remaining_time-(min*60))
+		min = Math.floor(this.remaining_time / 60)
+		sec = Math.round(this.remaining_time - (min * 60))
 
-		return min+ ':'+ sec;
+		if(min == 1 && sec >= 10 || min == 0 && sec >= 10)
+			return '0' + min + ':'+ sec
+		else
+			return '0' + min + ':' + '0' + sec
 
-		//alert(min+ ' : '+ sec)
+
 	}
 
 }

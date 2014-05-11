@@ -147,6 +147,15 @@ Boid.prototype.update_physics = function(current_time){
     this.geo_data.position = integrate(this.geo_data.position, this.geo_data.velocity, this.delta_t() )
 }
 
+/**
+ * @method as_mouse
+ *
+ * 
+ *
+ * @param {}
+ *
+ */
+ Boid.prototype.as_mouse = function() {}
 
 /**
  * @method run

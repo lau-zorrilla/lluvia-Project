@@ -34,6 +34,8 @@ function World(screen, width, height){
     this.mouse_coordinates = this.newGate("screener", MouseCoordinates)
     this.x1 = 0
     this.y1 = 0
+    this.coord_x = 0
+    this.coord_y = 0
 
 
     /* We have a HTMLElement, a string holding the id, or the page has a canvas */
@@ -126,20 +128,6 @@ World.prototype.each_boid = function(){
     })
 }
 
-World.prototype.draw_boid_on_cursor = function() {
-    //alert(this.x1 + " : " + this.y1)
-
-    // var a = this.new_boid( function(config) {
-    //         config.colour = "white"
-    //         config.brain.activate("seek", pig)
-    //         config.geo_data = {
-    //               position: new Vector(x1, y1),
-    //               velocity: new Vector(10, 10),
-    //               acceleration: new Vector(0, 0)
-    //            }
-    //     })
-}
-
 World.prototype.start = function(){
     var that = this
     var ctx  = that.screen[0].context
@@ -224,11 +212,9 @@ World.prototype.running_steady = function(processors_time){
     var that = this
     this.now = processors_time || new Date()
     //this.eventDispatcher.shift()
-
-    // this.x1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(0)
-    // this.y1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(1)
-
-    // this.draw_boid_on_cursor()
+    
+    this.coord_x = this.mouse_coordinates.get_mouse_X()
+    this.coord_y = this.mouse_coordinates.get_mouse_Y()
 
     this.draw()
     //setTimeout(this.run.bind(this), 100)
