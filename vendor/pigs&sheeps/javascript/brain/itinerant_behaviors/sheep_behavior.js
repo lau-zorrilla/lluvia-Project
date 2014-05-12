@@ -6,6 +6,7 @@
  * @constructor
  * 
  */
+
 SheepBehavior.prototype = new Behavior
 SheepBehavior.prototype.constructor = SheepBehavior
 SheepBehavior.prototype.super = Behavior
@@ -94,6 +95,8 @@ SheepBehavior.prototype.desired_velocity = function(){
  *
  */
 SheepBehavior.prototype.desired_acceleration = function(){
-  return this.desired_velocity().subs(this.me.velocity())
-}
+//restar el radio del boid cerdito menos la distancia del boid oveja con el cerdito y luego convertilño a un valor entre 0 y 1
+  //alert(this.me.visible_objects().toSource())
 
+  return this.desired_velocity().subs(this.me.velocity()).scale(0.5)
+}

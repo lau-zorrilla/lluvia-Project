@@ -9,51 +9,72 @@
  Sheep.super = Boid
 
  function Sheep(){ //clase
- 	var args = []
- 	for (var i=0; i<arguments.length; i++)
- 		args[i] = arguments[i]
- 	var that = this
-    
- 	function initialize(){ //constructor
- 		that.colour = "white"
- 		that.vel_max = 50
- 		that.mass = 2
- 		that.vision = {radius: 100, angle: 130 * Math.PI / 180}
+     var that = this
+    var args = arguments
 
- 		that.force_limits = {
- 			thrust: 20,
- 			steering: 50,
- 			braking: 70
- 		}
- 		args.push(function(config){
- 			config.brain.activate("alignment")
- 			config.geo_data = {
-                              position: new Vector(100, 100),
-                              velocity: new Vector(0, 0),
-                              acceleration: new Vector(0, 0)
-                           }
- 		})
-      Sheep.super.apply(that, args)
- 	}
+    if (typeof(block) === "undefined")
+        if (typeof(config_object) === "function" ){
+            block = config_object
+            config_object = new Hash()
+        }
 
- 	if (arguments.length)
- 		return initialize()
+
+        function initialize(){
+
+            var config = new Hash()
+
+            that.last_heading = new Vector(0, 1)
+            that.my_world = null
+            that.last_time = that.current_time = null
+
+            /* Overridable configuration */
+
+            var default_config = {
+                geo_data: {
+                    position: new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400)),
+                    velocity: new Vector(Math.floor(Math.random()*40), Math.floor(Math.random()*40)),
+                    acceleration: new Vector(0,0)
+                },
+                colour: "blue",
+
+                brain: new Brain(that),
+                vel_max: 50,
+                mass: 2,
+                vision: {radius: 100, angle: 130 * Math.PI / 180},
+
+                force_limits: {
+                    thrust: 20,
+                    steering: 50,
+                    braking: 70
+                }
+            }
+
+            config_object.soft_merge$B(default_config)
+            if ( typeof(block) === "function")
+                config = block(config_object) || new Hash()
+            that.merge$B(config.soft_merge$B(config_object))
+            if (that.color)
+                that.colour = that.color
+        }
+
+        if (arguments.length)
+            initialize()
  }
 
- SheepBrain.prototype = new Brain
- SheepBrain.prototype.constructor = SheepBrain
- SheepBrain.prototype.super = Brain
+Sheep.prototype.low_tolerance = function() {
+  this.vision.radius = 50
+  this.vision.acceleration = -50
+  //this.my_world.visible_for(this.geo_data.position, this.heading(), this.vision)
+}
 
- function SheepBrain(){
+Sheep.prototype.high_tolerance = function() {
+  this.vision.radius = 25
+  this.vision.acceleration = -10
+}
 
- 	var that = this
-
- 	function initialize(){
- 		Brain.apply(that, arguments)
-
- 	}
-
- 	if (arguments.length)
- 		initialize() //Hace falta return??
-
- }
+Sheep.prototype.change_tolerance = function(type_of_boid) {
+	if(type_of_boid == "sheep")
+		this.high_tolerance()
+	else
+		this.low_tolerance()
+}

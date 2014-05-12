@@ -19,7 +19,7 @@ function Galactus(handler, view){
 	    Device.call(that, null, null, {previous: 0, current:0, requested: 1})
 
 	    that.newGate ("play_button", Gate, {do_onclick: function(event, element) {
-		        this.panel.style.display = 'none'
+		    this.panel.style.display = 'none'
 			this.device.start_world()
 		} })
 	}
@@ -41,10 +41,11 @@ Galactus.prototype.start_world = function() {
 	var pig = this.world.new_boid( function(config) {
 	    config.colour = "pink"
 	    config.geo_data = {
-		position: new Vector(400, 200),
-		velocity: new Vector(-10, 10),
-		acceleration: new Vector(0, 0)
+		    position: new Vector(100, 200),
+		    velocity: new Vector(-2, 2),
+		    acceleration: new Vector(0, 0)
 	    }
+	    config.brain.activate("wander")
 	})
 
 	var x = 0
@@ -72,7 +73,38 @@ Galactus.prototype.start_world = function() {
 	    }))
 	}
 
+  // /*  Example: flee behavior */
+  // var fleer = []
+  // for (var i=0; i<8; i++) {
+  //   var f
+  //   fleer.push( f = this.world.new_boid( function(config) {
+  //     config.colour = "silver"
+  //     config.vel_max = 10
+  //     config.brain.activate("flee", pig)
+  //   } ))
+  // }
 
+  //     Example: pursue behaviour
+  // var b2 = this.world.new_boid( function (config) {
+  //   config.colour  = "lime"
+  //   config.vel_max = 80
+  //   config.force_limits.thrust   = 40
+  //   config.force_limits.steering = 80
+  //   config.geo_data.position     = new Vector(0, 0)
+  //   config.brain.activate("pursue", pig)
+  // })
+
+  var sheeper = []
+  for (var i=0; i<8; i++) {
+    var f
+    sheeper.push( f = this.world.new_boid( function(config) {
+      config.colour = "brown"
+      config.vel_max = 20
+      // config.vision: {radius: 100, angle: 130 * Math.PI / 180}
+      // config.force_limits.braking = 100
+      config.brain.activate("sheep", pig)
+    } ))
+  }
 
 	this.world.start()
 }
@@ -111,7 +143,7 @@ Galactus.prototype.destroy_world = function() {
 Galactus.prototype.attend_restart_game = function(date, mssg) {
 	this.destroy_world()
 
-	countdown(this.world);
+	this.countdown(this.world);
 
     for (var i=0; i<this.sheeps.length; i++)
     	this.sheeps[i].geo_data.position = new Vector(Math.random() * 150 + 80, Math.random() * 100 + 200)

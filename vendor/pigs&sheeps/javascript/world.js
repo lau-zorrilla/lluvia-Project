@@ -215,7 +215,7 @@ World.prototype.running_steady = function(processors_time){
     
     this.coord_x = this.mouse_coordinates.get_mouse_X()
     this.coord_y = this.mouse_coordinates.get_mouse_Y()
-
+//si el timepo es 00:00, pintar gameover_pig
     this.draw()
     //setTimeout(this.run.bind(this), 100)
 }
@@ -237,19 +237,27 @@ World.prototype.visible_for = function(position, heading, vision_object){
     return visible
 }
 
-World.prototype.new_boid = function(color, geo_data){
-    color = color || "blue"
-    if (typeof(geo_data) === "undefined")
-        geo_data = {
-            position: new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400)),
-            velocity: new Vector(Math.floor(Math.random()*40), Math.floor(Math.random()*40)),
-            acceleration: new Vector(0,0)
-        }
-        var b = new Boid( geo_data, color)
-        this.boids++
-            b.id = this.boids
-        this.has_born(b)
-        return b
+World.prototype.new_boid = function(config, block){
+    // color = color || "blue"
+    // config = new Hash()
+    // if (typeof(geo_data) === "undefined")
+
+    //     config.geo_data = {
+    //         position: new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400)),
+    //         velocity: new Vector(Math.floor(Math.random()*40), Math.floor(Math.random()*40)),
+    //         acceleration: new Vector(0,0)
+    //     }
+    //     var b = new Boid( config, color)
+    //     this.boids++
+    //         b.id = this.boids
+    //     this.has_born(b)
+    //     return b
+    var b = typeof(block) === "undefined" ? new Boid(config) : new Boid(config, block)
+
+ this.boids++
+  b.id = this.boids
+ this.has_born(b)
+ return b
 }
 
 World.prototype.new_seeker = function(target, color){
