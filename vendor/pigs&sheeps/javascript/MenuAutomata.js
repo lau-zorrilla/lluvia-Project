@@ -5,7 +5,7 @@ function MenuAutomata(processor, gate) {
 	var that = this
 	this.now = new Date()
 	this.before = new Date()
-	this.menu_height=50
+	this.menu_height = 50
 	var state = this.state = new Enumeration("out", "getting_out", "getting_in", "inside")
 
 	this.currentState = { previous: state.inside,
@@ -31,7 +31,7 @@ function MenuAutomata(processor, gate) {
 			},
 			function (){
 				
-				if( this.menu_height >= 50 && this.menu_height<=205)
+				if( this.menu_height >= 50 && this.menu_height <= 205)
 					this.menu_height+=5
 				this.gate.panel.style.height = "" + this.menu_height +"px"
 
@@ -45,7 +45,7 @@ function MenuAutomata(processor, gate) {
 			;
 			},
 			function(){
-				if( this.menu_height >=55 )
+				if( this.menu_height >= 55)
 					this.menu_height-=5
 				this.gate.panel.style.height = "" + this.menu_height +"px"
 			},
