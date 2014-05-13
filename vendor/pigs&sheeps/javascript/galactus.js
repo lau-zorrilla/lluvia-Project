@@ -99,7 +99,7 @@ Galactus.prototype.start_world = function() {
     var f
     sheeper.push( f = this.world.new_boid_of(Sheep, function(config){
   	   config.brain.activate("sheep", pig)
-  	   //config.brain.activate("separation")
+  	   config.brain.activate("separation")
   }))
   }
 

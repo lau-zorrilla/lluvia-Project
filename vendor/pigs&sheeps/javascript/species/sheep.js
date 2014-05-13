@@ -122,6 +122,35 @@ Sheep.prototype.run = function(current_time){
     this.update_physics(current_time)
 }
 
+/**
+ * @method heading
+ *
+ * Gets the normal vector aligned with the heading.
+ *
+ * @return {Vector}
+ */
+Sheep.prototype.heading = function(){
+    var _heading
+    try{
+        _heading = this.geo_data.velocity.unit()
+        this.last_heading = _heading || this.last_heading
+    } catch(err){
+        _heading = this.last_heading
+    }
+    return _heading
+}
+
+/**
+ * @method visible_objects
+ *
+ * Ask the world if something is visible with my geo_data and vision abilities.
+ *
+ * @return {}
+ */
+Sheep.prototype.visible_objects = function(){
+    return this.my_world.visible_for(this.geo_data.position, this.heading(), this.vision)
+}
+
 // function limites(){ 
 //     if(jugador1.coord_x>canvas.width-100)
 //         jugador1.coord_x=canvas.width-100;

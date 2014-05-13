@@ -1,14 +1,11 @@
-requires('Behavior')
-//alert("Waiting for Behavior")
-
 /**
- * @class AlignmentBehavior
- *
- * Creates Itinerant Behavior: alignment. See {@link Behavior}
- *
- * @constructor Alignment Behavior
- *
- * @return {AlignmentBehavior}
+* @class AlignmentBehavior
+*
+* Creates Itinerant Behavior: alignment. See {@link Behavior}
+*
+* @constructor Alignment Behavior
+*
+* @return {AlignmentBehavior}
 */
 
 AlignmentBehavior.prototype = new Behavior
@@ -20,14 +17,14 @@ function AlignmentBehavior(){
 }
 
 /**
- * @method desired_acceleration
- *
- * Calculates the acceleration the boid needs to change its position
- *
- * @param {} 
- * 
- * @return {Vector}  Returns a vector with the boid's desired acceleration
- */
+* @method desired_acceleration
+*
+* Calculates the acceleration the boid needs to change its position
+*
+* @param {}
+*
+* @return {Vector} Returns a vector with the boid's desired acceleration
+*/
 AlignmentBehavior.prototype.desired_acceleration = function(){
   var x = 0
   var y = 0
@@ -48,9 +45,6 @@ AlignmentBehavior.prototype.desired_acceleration = function(){
     return new Vector(0, 0)
 
   var desired_velocity = velocity.projection(new Vector(x/count, y/count))
-  //alert(velocity.Coord)
-  //alert(desired_velocity.subs(velocity))
 
   return desired_velocity.subs(velocity)
-  //return new Vector(0, 0)
 }
