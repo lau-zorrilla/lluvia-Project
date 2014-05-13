@@ -42,68 +42,20 @@ Galactus.prototype.start_world = function() {
 	    config.colour = "pink"
 	    config.geo_data = {
 		    position: new Vector(100, 200),
-		    velocity: new Vector(-2, 2),
+		    velocity: new Vector(2, 2),
 		    acceleration: new Vector(0, 0)
 	    }
-	    config.brain.activate("wander")
+	    config.brain.activate("seek mouse", null)
 	})
+	this.world.shepherd = pig
 
-	var x = 0
-	var y = 0
-
-	for (var i=0; i<10; i++){
-	    x = Math.random() * 150 + 80
-	    y = Math.random() * 100 + 200
-
-	    this.sheeps.push( this.world.new_boid( function(config) {
-		config.colour = "white"
-		config.geo_data = {
-		    position: new Vector(x, y),
-		    velocity: new Vector(10, 10),
-		    acceleration: new Vector(0, 0)
-		}
-		config.vel_max = 15
-		config.force_limits = {
-		    thrust: 1,
-		    steering: 1,
-		    braking: 1
-		}
-
-		config.brain.activate('seek', pig)
-	    }))
-	}
-
-  // /*  Example: flee behavior */
-  // var fleer = []
-  // for (var i=0; i<8; i++) {
-  //   var f
-  //   fleer.push( f = this.world.new_boid( function(config) {
-  //     config.colour = "silver"
-  //     config.vel_max = 10
-  //     config.brain.activate("flee", pig)
-  //   } ))
-  // }
-
-  //     Example: pursue behaviour
-  // var b2 = this.world.new_boid( function (config) {
-  //   config.colour  = "lime"
-  //   config.vel_max = 80
-  //   config.force_limits.thrust   = 40
-  //   config.force_limits.steering = 80
-  //   config.geo_data.position     = new Vector(0, 0)
-  //   config.brain.activate("pursue", pig)
-  // })
-
-  var sheeper = []
-  for (var i=0; i<8; i++) {
-    var f
-    sheeper.push( f = this.world.new_boid( function(config) {
-      config.colour = "brown"
-      config.vel_max = 20
-      // config.vision: {radius: 100, angle: 130 * Math.PI / 180}
-      // config.force_limits.braking = 100
-      config.brain.activate("sheep", pig)
-    } ))
+    var sheeper = []
+    for (var i=0; i<50; i++) {
+        var f
+        sheeper.push( f = this.world.new_boid_of(Sheep, function(config){
+  	       config.brain.activate("sheep", pig)
+  	   //config.brain.activate("separation")
+  }))
   }
 
 	this.world.start()
@@ -126,8 +78,9 @@ Galactus.prototype.countdown = function(){
 		
 		if (that.world.clock.running == false){
 			clearInterval(timer_interval) // detiene setInterval
-			this.world.currentState.requested = this.world.state.suspended
+			that.world.currentState.requested = that.world.state.suspended
 			that.world.gameover_pig()
+			//alert("llhego")
 		}
 	}	
 	,1000);

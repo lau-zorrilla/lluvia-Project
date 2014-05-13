@@ -5,6 +5,7 @@
  * @version 1.00 Aug, 2011
  */
 
+// Instances of instance are now are now a derived class of mtf.
 
 /**
  * @classDescription Creates a World for handling boids.
@@ -174,125 +175,136 @@ World.prototype.draw = function(){
     this.boids_list[i].draw(ctx)
 }
 
+World.prototype.move_shepherd = function (screen_x, screen_y) {
+	if (!this.shepherd)
+		return
+	var behaviour = this.shepherd.brain.get_behavior("seek mouse", null)
+	var x = screen_x - 425
+	var y = 500 - screen_y
+	var scale = 1 - y / 3000
+
+	behaviour.set_target_at( x / scale, 2 * y / scale);
+}
+
 World.prototype.step = function(current_time){
-    var that = this
-    current_time = current_time || this.now || new Date()
-    this.each_boid(function(boid){
-        boid.update_physics(current_time)
-    })
+	var that = this
+	current_time = current_time || this.now || new Date()
+	this.each_boid(function(boid){
+		boid.update_physics(current_time)
+	})
 }
 
 World.prototype.is_one_second_from_begining = function(){
-    this.start()
-    var current_time = new Date( this.start_time.toString() )
-    current_time.setSeconds( this.start_time.getSeconds() + 1 )
-    current_time.setMilliseconds( this.start_time.getMilliseconds())
+	this.start()
+	var current_time = new Date( this.start_time.toString() )
+	current_time.setSeconds( this.start_time.getSeconds() + 1 )
+	current_time.setMilliseconds( this.start_time.getMilliseconds())
 
-    this.step(current_time)
+	this.step(current_time)
 }
 
 World.prototype.show_boids = function(){
 
-    var logger = document.getElementById("logger")
-    logger.innerHTML = ""
-    var boids = 0
-    this.each_boid(function(boid){
-        boids++
-        logger.innerHTML += "<h3>Boid " + boids + "</h3>"
-        logger.innerHTML += "Pos: " + boid.position() + "<br/>"
-        logger.innerHTML += "Vel: " + boid.velocity() + "<br/>"
-        logger.innerHTML += "Acc: " + boid.acceleration() + "<br/>"
-        logger.innerHTML += "<br/>"
-    })
+	var logger = document.getElementById("logger")
+	logger.innerHTML = ""
+	var boids = 0
+	this.each_boid(function(boid){
+		boids++
+			logger.innerHTML += "<h3>Boid " + boids + "</h3>"
+		logger.innerHTML += "Pos: " + boid.position() + "<br/>"
+		logger.innerHTML += "Vel: " + boid.velocity() + "<br/>"
+		logger.innerHTML += "Acc: " + boid.acceleration() + "<br/>"
+		logger.innerHTML += "<br/>"
+	})
 }
 
 World.prototype.running_steady = function(processors_time){
 
-    //this.show_boids()
-    var that = this
-    this.now = processors_time || new Date()
-    //this.eventDispatcher.shift()
-    
-    this.coord_x = this.mouse_coordinates.get_mouse_X()
-    this.coord_y = this.mouse_coordinates.get_mouse_Y()
-//si el timepo es 00:00, pintar gameover_pig
-    this.draw()
-    //setTimeout(this.run.bind(this), 100)
+	//this.show_boids()
+	var that = this
+	this.now = processors_time || new Date()
+	//this.eventDispatcher.shift()
+
+	// this.coord_x = this.mouse_coordinates.get_mouse_X()
+	// this.coord_y = this.mouse_coordinates.get_mouse_Y()
+	//si el timepo es 00:00, pintar gameover_pig
+	this.draw()
+	//setTimeout(this.run.bind(this), 100)
 }
 
 World.prototype.visible_for = function(position, heading, vision_object){
-    var that = this
-    var radius = vision_object.radius
-    var vision =  radius * radius
-    var visible = []
-    var x1 = position.get_coord(0)
-    var y1 = position.get_coord(1)
-    this.each_boid(function (boid){
-        var dx = boid.geo_data.position.get_coord(0) - x1
-        var dy = boid.geo_data.position.get_coord(1) - y1
-        if ( dx * dx + dy * dy < vision &&
-            heading.angle(new Vector(dx, dy) < vision_object.angle ) )
-            visible.push(boid)
-    })
-    return visible
+	var that = this
+	var radius = vision_object.radius
+	var vision =  radius * radius
+	var visible = []
+	var x1 = position.get_coord(0)
+	var y1 = position.get_coord(1)
+	this.each_boid(function (boid){
+		var dx = boid.geo_data.position.get_coord(0) - x1
+		var dy = boid.geo_data.position.get_coord(1) - y1
+		if ( dx * dx + dy * dy < vision &&
+		    heading.angle(new Vector(dx, dy) < vision_object.angle ) )
+			visible.push(boid)
+	})
+	return visible
 }
 
 World.prototype.new_boid = function(config, block){
-    // color = color || "blue"
-    // config = new Hash()
-    // if (typeof(geo_data) === "undefined")
+	// color = color || "blue"
+	// config = new Hash()
+	// if (typeof(geo_data) === "undefined")
 
-    //     config.geo_data = {
-    //         position: new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400)),
-    //         velocity: new Vector(Math.floor(Math.random()*40), Math.floor(Math.random()*40)),
-    //         acceleration: new Vector(0,0)
-    //     }
-    //     var b = new Boid( config, color)
-    //     this.boids++
-    //         b.id = this.boids
-    //     this.has_born(b)
-    //     return b
-    var b = typeof(block) === "undefined" ? new Boid(config) : new Boid(config, block)
+	//     config.geo_data = {
+	//         position: new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400)),
+	//         velocity: new Vector(Math.floor(Math.random()*40), Math.floor(Math.random()*40)),
+	//         acceleration: new Vector(0,0)
+	//     }
+	//     var b = new Boid( config, color)
+	//     this.boids++
+	//         b.id = this.boids
+	//     this.has_born(b)
+	//     return b
+	var b = typeof(block) === "undefined" ? new Boid(config) : new Boid(config, block)
 
- this.boids++
-  b.id = this.boids
- this.has_born(b)
- return b
+	this.boids++
+		b.id = this.boids
+	this.has_born(b)
+	return b
 }
 
 World.prototype.new_seeker = function(target, color){
-    var b = this.new_boid(color)
-    b.brain.activate('seek')
-    b.brain.get_behavior('seek').set_target(target)
-    return b
+	var b = this.new_boid(color)
+	b.brain.activate('seek')
+	b.brain.get_behavior('seek').set_target(target)
+	return b
 }
 
 World.prototype.start_and_run = function(){
-    this.start()
-    this.run()
+	this.start()
+	this.run()
 }
 
 World.prototype.attend_focus_boid = function(date, mssg) {
-    mssg.current++;
+	mssg.current++;
 }
 
 World.prototype.new_boid_of = function(class_name, config){
-    var b = new class_name(config)
-    if (this[class_name])
-        this[class_name]++
-        else
-    this[class_name] = 1
-    this.boids.total++
-        this.has_born(b)
-    return b
+	var b = new class_name(config)
+	if (this[class_name])
+		this[class_name]++
+		else
+	this[class_name] = 1
+	this.boids.total++
+		this.has_born(b)
+	return b
 }
 
 World.prototype.method_missing = function(method, obj, params){
 
-    if ( /new_boid_as_/.test(method) ){
-        var subtype = method.match(/new_boid_as_(\w*)/ )[1].capitalize()
-        return this.new_boid_of(eval("" + subtype), params[0])
-        //todo: This is dependant of bad ll_Exception params analysis
-    }
-    return this.super.method_missing.apply(this, arguments)
+	if ( /new_boid_as_/.test(method) ){
+		var subtype = method.match(/new_boid_as_(\w*)/ )[1].capitalize()
+		return this.new_boid_of(eval("" + subtype), params[0])
+		//todo: This is dependant of bad ll_Exception params analysis
+	}
+	return this.super.method_missing.apply(this, arguments)
 }
