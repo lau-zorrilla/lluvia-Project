@@ -5,6 +5,7 @@
  * @version 1.00 Aug, 2011
  */
 
+// Instances of instance are now are now a derived class of mtf.
 
 /**
  * @classDescription Creates a World for handling boids.
