@@ -17,6 +17,7 @@ $K_app_dependencies = [
 	        { name: "brain/itinerant_behaviors/sheep_behavior.js",           description: "Behavoir of those kind sheep" },
 	        { name: "brain/itinerant_behaviors/wall_following_behavior.js",  description: "Wall Following" },
 	        { name: "brain/itinerant_behaviors/path_following_behavior.js",  description: "Path Following" },
+	        { name: "brain/herd_behaviors/alignment_behavior.js",            description: "Alignment Following" },
 			{ name: "brain/brain.js",                                        description: "Boid Brain." },
 			{ name: "boid.js",                                               description: "One Boid." },
 			{ name: "galactus.js",                                           description: "Creator and destructor of worlds." },

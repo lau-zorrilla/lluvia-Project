@@ -1,5 +1,5 @@
 requires('Behavior')
-alert("Waiting for Behavior")
+//alert("Waiting for Behavior")
 
 /**
  * @class AlignmentBehavior

@@ -102,7 +102,7 @@ Behavior.catalog = (function(){
         "flee", "seek>arrival" , "wander", "wander around", "pursue", 
         "alignment", "wall following", "path following",
         "separation", "cohesion",
-        "obstacle avoidance", "containment", "sheep"
+        "obstacle avoidance", "containment", "sheep>arrival"
     ]
 
     return initial_list.inject({}, function(elem, acum){

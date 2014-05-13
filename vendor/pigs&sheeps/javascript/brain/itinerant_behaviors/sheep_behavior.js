@@ -75,6 +75,7 @@ SheepBehavior.prototype.target_at = function(){
  * @return {Object} vector Vector velocity
  */
 SheepBehavior.prototype.desired_velocity = function(){
+  
   var arrival_distance
   try{ 
     arrival_distance = this.target_at().module()
@@ -82,6 +83,13 @@ SheepBehavior.prototype.desired_velocity = function(){
     arrival_distance = 0
   }
   var scale = 1
+  
+  if(arrival_distance >= 100){
+    scale = 0
+  }
+  else{
+    scale = arrival_distance / 100
+  }
 
   return (new Vector(this.target_at().unit().scale(-scale * this.me.vel_max)))
 }
@@ -95,8 +103,29 @@ SheepBehavior.prototype.desired_velocity = function(){
  *
  */
 SheepBehavior.prototype.desired_acceleration = function(){
-//restar el radio del boid cerdito menos la distancia del boid oveja con el cerdito y luego convertilño a un valor entre 0 y 1
-  //alert(this.me.visible_objects().toSource())
-
-  return this.desired_velocity().subs(this.me.velocity()).scale(0.5)
+  //     var x = 0
+  //     var y = 0
+  //     var count = 0
+  //   this.me.visible_objects().each( function(boid){
+  //      try {
+  //         var direction = boid.heading()
+  //         x += direction.get_coord(0)
+  //         y += direction.get_coord(1)
+  //         count++
+  //      }catch(e){
+  //         alert("Something went wrong when calculating heading for boid " + boid.id)
+  //      }
+  //     })
+  //     var velocity = this.me.geo_data.velocity
+  //     var desired_velocity = velocity.projection(new Vector(x/count, y/count))
+  
+  // if(this.me.visible_objects instanceof Sheep){
+  //     if(count == 0)
+  //       return new Vector(0, 0)
+  //     else  
+  //       return desired_velocity.subs(velocity)
+  //   }
+  //   else
+      return this.desired_velocity().subs(this.me.velocity())
 }
+
