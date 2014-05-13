@@ -103,9 +103,10 @@ SheepBehavior.prototype.desired_velocity = function(){
  *
  */
 SheepBehavior.prototype.desired_acceleration = function(){
-  //     var x = 0
-  //     var y = 0
-  //     var count = 0
+  //alert(this.me.visible_objects().toSource())
+  //   var x = 0
+  //   var y = 0
+  //   var count = 0
   //   this.me.visible_objects().each( function(boid){
   //      try {
   //         var direction = boid.heading()
@@ -116,10 +117,11 @@ SheepBehavior.prototype.desired_acceleration = function(){
   //         alert("Something went wrong when calculating heading for boid " + boid.id)
   //      }
   //     })
-  //     var velocity = this.me.geo_data.velocity
-  //     var desired_velocity = velocity.projection(new Vector(x/count, y/count))
+  //   var velocity = this.me.geo_data.velocity
+  //   var desired_velocity = velocity.projection(new Vector(x/count, y/count))
   
-  // if(this.me.visible_objects instanceof Sheep){
+  // for (var i = 0; i < this.me.visible_objects.length; i++) {
+  //   if(this.me.visible_objects[i] instanceof Sheep){
   //     if(count == 0)
   //       return new Vector(0, 0)
   //     else  
@@ -127,5 +129,6 @@ SheepBehavior.prototype.desired_acceleration = function(){
   //   }
   //   else
       return this.desired_velocity().subs(this.me.velocity())
+  //}
 }
 
