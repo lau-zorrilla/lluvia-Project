@@ -23,7 +23,7 @@ $K_app_dependencies = [
 			{ name: "brain/brain.js",                                        description: "Boid Brain." },
 			{ name: "boid.js",                                               description: "One Boid." },
 			{ name: "galactus.js",                                           description: "Creator and destructor of worlds." },
-			{ name: "menu_animation.js",                                     description: "To draw the animation." },
+			//{ name: "menu_animation.js",                                     description: "To draw the animation." },
 			{ name: "option_handler.js",                                     description: "Menu Device." },
 			{ name: "levels.js",                                             description: "Gate for levels menu." },
 			{ name: "MenuAutomata.js",                                       description: "ThreadAutomata." },
