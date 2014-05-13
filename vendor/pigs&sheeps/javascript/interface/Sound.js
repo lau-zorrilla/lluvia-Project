@@ -1,31 +1,43 @@
+
+
 Sound.prototype = new Device
 Sound.prototype.constructor = Sound
 
-function Sound(view, sound_track) {
+function Sound(view) {
 	var that = this	
 	var args = arguments
 
-	this.sound_track = sound_track
-	this.track_src ='<embed src='+'"'+this.sound_track+'"'+'>'
+	 
+	audio[0].src="sounds/timber.ogg"
+	
 
-
+	
 	function initialize(){
     	Device.call(that, view)
+    	audio[0].load()
+    	alert("hola")
+    	
+
   	}
 
   	if (arguments.length)
     	initialize()  
 
 }
-
-Sound.prototype.play = function() {
-	this.sound_track.play()
-	
+/*Sound.prototype.Play = function() {
+	//this.audio.play()	
 }
 Sound.prototype.pause = function() {
-	this.sound_track.pause()
+	//this.audio.pause()
 }
 Sound.prototype.stop = function() {
-	this.sound_track.stop()
+	//this.audio.stop()
 }
+*/
 
+function cargarsonido(){
+	var a= document.getElementById("audio")
+	a[0].src="sounds/timber.ogg"
+	a[0].load()
+	//a.play()
+}
