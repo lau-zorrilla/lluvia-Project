@@ -13,6 +13,8 @@
  * @return {Boid}
  */
 
+// undo life.
+//
 //require('Mathematics')
 
 Boid.prototype.constructor = Boid
