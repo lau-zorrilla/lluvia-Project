@@ -24,9 +24,15 @@ function MouseCoordinates(element) {
 	    initialize()
 }
 
-MouseCoordinates.prototype.do_onmousemove = function(ev, el){
-    this.X = ev.pageX - screener.offsetLeft
-    this.Y = ev.pageY - screener.offsetTop
+//MouseCoordinates.prototype.do_onmousemove = function(ev, el){
+//    this.X = ev.pageX - screener.offsetLeft
+//    this.Y = ev.pageY - screener.offsetTop
+//}
+
+MouseCoordinates.prototype.do_onclick = function (ev, el) {
+	this.X = ev.pageX - screener.offsetLeft
+	this.Y = ev.pageY - screener.offsetTop
+	this.device.move_shepherd(this.X, this.Y)
 }
 
 MouseCoordinates.prototype.get_mouse_coordinates = function() {

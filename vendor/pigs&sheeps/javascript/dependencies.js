@@ -9,6 +9,7 @@ $K_app_dependencies = [
 			{ name: "brain/security_behavior.js",                            description: "Self protection behaviors." },
 			{ name: "brain/behavior_modifier.js",                            description: "Self protection behaviors." },
 	        { name: "brain/itinerant_behaviors/seek_behavior.js",            description: "Seek" },
+	        { name: "brain/itinerant_behaviors/seek_mouse_behavior.js",      description: "Seek the mouse click" },
 	        { name: "brain/itinerant_behaviors/flee_behavior.js",            description: "Flee" },
 	        { name: "brain/itinerant_behaviors/pursue_behavior.js",          description: "Pursue" },
 	        //{ name: "herd_behaviors/alignment_behavior.js",                description: "Tries to keep the same direction" },

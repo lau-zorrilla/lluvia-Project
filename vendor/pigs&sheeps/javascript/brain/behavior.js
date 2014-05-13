@@ -99,7 +99,7 @@ Behavior.decompose_name = function(behavior){
 Behavior.catalog = (function(){
 
     var initial_list = [
-        "flee", "seek>arrival" , "wander", "wander around", "pursue", 
+        "flee", "seek>arrival" , "wander", "wander around", "pursue", "seek mouse",
         "alignment", "wall following", "path following",
         "separation", "cohesion",
         "obstacle avoidance", "containment", "sheep>arrival"

@@ -45,8 +45,9 @@ Galactus.prototype.start_world = function() {
 		    velocity: new Vector(2, 2),
 		    acceleration: new Vector(0, 0)
 	    }
-	    config.brain.activate("wander")
+	    config.brain.activate("seek mouse", null)
 	})
+	this.world.shepherd = pig
 
 	// var x = 0
 	// var y = 0
