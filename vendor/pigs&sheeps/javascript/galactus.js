@@ -67,7 +67,7 @@ Galactus.prototype.countdown = function(){
 	timer.style.color = "#996842" //inicializa color de fuente
 
 	this.world.clock = new Clock(this.world, 120) // reloj de 2 minutos
-
+	
     timer_interval = setInterval( // cada segundo se ejecuta la funcion
 	
 	function(){
