@@ -23,6 +23,9 @@
 
             var config = new Hash()
 
+            that.image = new Image()
+            that.image.src = src || "images/sheep.png"
+
             that.last_heading = new Vector(0, 1)
             that.my_world = null
             that.last_time = that.current_time = null
@@ -104,7 +107,17 @@ Sheep.prototype.change_tolerance = function(type_of_boid) {
 Sheep.prototype.sheep_limits = function() {
     if(this.geo_data.position.get_coord(0) > this.screener.width)
         this.geo_data.position.get_coord(0) = this.screener.width
+    //else if ()
 }
+// function limites(){ 
+//     if(jugador1.coord_x>canvas.width-100)
+//         jugador1.coord_x=canvas.width-100;
+//     if(jugador1.coord_x<0)
+//         jugador1.coord_x = 0;
+//     if(jugador1.coord_y>canvas.height-100)
+//         jugador1.coord_y = canvas.height-100;
+//     if(jugador1.coord_y<0)
+//         jugador1.coord_y = 0;
 
 /**
  * @method run
@@ -151,12 +164,42 @@ Sheep.prototype.visible_objects = function(){
     return this.my_world.visible_for(this.geo_data.position, this.heading(), this.vision)
 }
 
-// function limites(){ 
-//     if(jugador1.coord_x>canvas.width-100)
-//         jugador1.coord_x=canvas.width-100;
-//     if(jugador1.coord_x<0)
-//         jugador1.coord_x = 0;
-//     if(jugador1.coord_y>canvas.height-100)
-//         jugador1.coord_y = canvas.height-100;
-//     if(jugador1.coord_y<0)
-//         jugador1.coord_y = 0;
+/**
+* @method draw
+*
+* Draws a sheep into the world defined by the context
+*
+* @param {Object} ctx Context in which to paint the Boid
+*/
+Sheep.prototype.draw = function(ctx){
+    var p = this.geo_data.position
+    //var image_size = 35
+    ctx.drawImage(this.image, p.get_coord(0), p.get_coord(1))
+    //ctx.drawImage(this.image, p.get_coord(0)-(image_size/2)*escala, p.get_coord(1)-(image_size/2)*escala, image_size*escala, image_size*escala)
+}
+
+Boid.prototype.first_draw = function() {
+    var canvas = document.createElement('canvas');
+    canvas.width = 24;
+    canvas.height = 24;
+
+    // Get the drawing context
+    var ctx = canvas.getContext('2d');
+
+    //var radius = 10
+
+    // ctx.fillStyle = this.colour
+    // ctx.strokeStyle = "black"
+    // ctx.beginPath();
+    // ctx.arc(12, 12, radius, 0, Math.PI*2, true);
+    // ctx.closePath();
+    // ctx.fill();
+
+    // ctx.beginPath();
+    // ctx.arc(12, 12, radius + 2, 0, Math.PI*2, true);
+    // ctx.closePath();
+    // ctx.stroke()
+
+    // this.shape = ctx.getImageData(0,0,24,24)
+    this.cached_canvas = canvas
+}
