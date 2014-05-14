@@ -133,6 +133,7 @@ World.prototype.start = function(){
     var that = this
     var ctx  = that.screen[0].context
 
+
     if(this.transform_already)
        ctx.transform(1, 0, 0, -1, -425, 500)
 
@@ -183,6 +184,8 @@ World.prototype.move_shepherd = function (screen_x, screen_y) {
 	var y = 500 - screen_y
 	var scale = 1 - y / 3000
 
+    //alert(x + " : " + y)
+
 	behaviour.set_target_at( x / scale, 2 * y / scale);
 }
 
@@ -210,7 +213,7 @@ World.prototype.show_boids = function(){
 	var boids = 0
 	this.each_boid(function(boid){
 		boids++
-			logger.innerHTML += "<h3>Boid " + boids + "</h3>"
+		logger.innerHTML += "<h3>Boid " + boids + "</h3>"
 		logger.innerHTML += "Pos: " + boid.position() + "<br/>"
 		logger.innerHTML += "Vel: " + boid.velocity() + "<br/>"
 		logger.innerHTML += "Acc: " + boid.acceleration() + "<br/>"
@@ -225,9 +228,9 @@ World.prototype.running_steady = function(processors_time){
 	this.now = processors_time || new Date()
 	//this.eventDispatcher.shift()
 
-	// this.coord_x = this.mouse_coordinates.get_mouse_X()
-	// this.coord_y = this.mouse_coordinates.get_mouse_Y()
-	//si el timepo es 00:00, pintar gameover_pig
+	this.coord_x = this.mouse_coordinates.get_mouse_X()
+	this.coord_y = this.mouse_coordinates.get_mouse_Y()
+
 	this.draw()
 	//setTimeout(this.run.bind(this), 100)
 }

@@ -150,16 +150,6 @@ Boid.prototype.update_physics = function(current_time){
 }
 
 /**
- * @method as_mouse
- *
- * 
- *
- * @param {}
- *
- */
- Boid.prototype.as_mouse = function() {}
-
-/**
  * @method run
  *
  * Updates the time in the boid's variables

@@ -31,26 +31,21 @@ function Galactus(handler, view){
 
 Galactus.prototype.start_world = function() {
 	//Fires an event that calls the world's start function
-    canvas.style.cursor = "url('images/mouse_pig.png'), move"
+    //canvas.style.cursor = "url('images/mouse_pig.png'), move"
 	this.world = new World(this.view)
 
 	this.handler.addPort("restart_game", this)
 	
 	this.countdown()
 
-	var pig = this.world.new_boid( function(config) {
-	    config.colour = "pink"
-	    config.geo_data = {
-		    position: new Vector(100, 200),
-		    velocity: new Vector(2, 2),
-		    acceleration: new Vector(0, 0)
-	    }
+	var pig = this.world.new_boid_of(Pig, function(config) {
 	    config.brain.activate("seek mouse", null)
 	})
+
 	this.world.shepherd = pig
 
     var sheeper = []
-    for (var i=0; i<50; i++) {
+    for (var i=0; i<30; i++) {
         var f
         sheeper.push( f = this.world.new_boid_of(Sheep, function(config){
   	       config.brain.activate("sheep", pig)

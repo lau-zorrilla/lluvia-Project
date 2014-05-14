@@ -55,7 +55,8 @@ $K_app_dependencies = [
 		path: "species/", 
 		files: [ 
 			//{ name: "alignment_behavior.js",  description: "Alignment Behavior." },
-			{ name: "sheep.js",               description: "The brain of a sheep." }
+			{ name: "sheep.js",               description: "The brain of a sheep." },
+			{ name: "pig.js",                 description: "The brain of a pig." }
 		]
 	},
 ]

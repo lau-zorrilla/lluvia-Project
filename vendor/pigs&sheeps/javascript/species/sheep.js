@@ -26,6 +26,8 @@
             that.last_heading = new Vector(0, 1)
             that.my_world = null
             that.last_time = that.current_time = null
+            that.image = new Image()
+            that.image.src = "images/rotated_sheep.png"
 
             /* Overridable configuration */
 
@@ -106,6 +108,16 @@ Sheep.prototype.sheep_limits = function() {
         this.geo_data.position.get_coord(0) = this.screener.width
 }
 
+// function limites(){ 
+//     if(jugador1.coord_x>canvas.width-100)
+//         jugador1.coord_x=canvas.width-100;
+//     if(jugador1.coord_x<0)
+//         jugador1.coord_x = 0;
+//     if(jugador1.coord_y>canvas.height-100)
+//         jugador1.coord_y = canvas.height-100;
+//     if(jugador1.coord_y<0)
+//         jugador1.coord_y = 0;
+
 /**
  * @method run
  *
@@ -151,12 +163,35 @@ Sheep.prototype.visible_objects = function(){
     return this.my_world.visible_for(this.geo_data.position, this.heading(), this.vision)
 }
 
-// function limites(){ 
-//     if(jugador1.coord_x>canvas.width-100)
-//         jugador1.coord_x=canvas.width-100;
-//     if(jugador1.coord_x<0)
-//         jugador1.coord_x = 0;
-//     if(jugador1.coord_y>canvas.height-100)
-//         jugador1.coord_y = canvas.height-100;
-//     if(jugador1.coord_y<0)
-//         jugador1.coord_y = 0;
+Sheep.prototype.first_draw = function() {
+    var canvas = document.createElement('canvas');
+    canvas.width = 24;
+    canvas.height = 24;
+
+    // Get the drawing context
+    var ctx = canvas.getContext('2d');
+}
+
+/**
+ * @method draw
+ *
+ * Draws a boid into the world defined by the context
+ *
+ * @param {}   ctx Context in which to paint the Boid
+ *
+ */
+Sheep.prototype.draw = function(ctx){
+
+    var p = this.geo_data.position
+    var v = this.geo_data.velocity
+    var a = this.geo_data.acceleration
+    var radius = 10
+    var scale = 1 - p.get_coord(1) / 3000
+
+    ctx.save()
+    ctx.scale( scale, scale / 2 )
+
+    ctx.drawImage(this.image, p.get_coord(0), p.get_coord(1))
+
+    ctx.restore()
+}
