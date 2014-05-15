@@ -24,7 +24,7 @@
             var config = new Hash()
 
             that.image = new Image()
-            that.image.src = src || "images/sheep.png"
+            that.image.src = "images/sheep.png"
 
             that.last_heading = new Vector(0, 1)
             that.my_world = null
