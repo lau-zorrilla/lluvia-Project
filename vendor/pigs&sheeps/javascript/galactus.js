@@ -37,6 +37,7 @@ Galactus.prototype.start_world = function() {
 	this.handler.addPort("restart_game", this)
 	
 	this.countdown()
+	//Sound();
 
 	var pig = this.world.new_boid( function(config) {
 	    config.colour = "pink"

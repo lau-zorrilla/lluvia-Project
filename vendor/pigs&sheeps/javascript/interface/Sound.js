@@ -1,43 +1,39 @@
 
+function Sound(){
+window.onload = init()
+var context;
+var bufferLoader;
+alert("hola")
+function init() {
+  // Fix up prefixing
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  context = new AudioContext();
 
-Sound.prototype = new Device
-Sound.prototype.constructor = Sound
+  bufferLoader = new BufferLoader(
+    context,
+    [
+      '/sounds/timber.ogg',
+      //'../sounds/hyper-reality/laughter.wav',
+    ],
+    finishedLoading
+    );
 
-function Sound(view) {
-	var that = this	
-	var args = arguments
-
-	 
-	audio[0].src="sounds/timber.ogg"
-	
-
-	
-	function initialize(){
-    	Device.call(that, view)
-    	audio[0].load()
-    	alert("hola")
-    	
-
-  	}
-
-  	if (arguments.length)
-    	initialize()  
-
+  bufferLoader.load();
 }
-/*Sound.prototype.Play = function() {
-	//this.audio.play()	
-}
-Sound.prototype.pause = function() {
-	//this.audio.pause()
-}
-Sound.prototype.stop = function() {
-	//this.audio.stop()
-}
-*/
 
-function cargarsonido(){
-	var a= document.getElementById("audio")
-	a[0].src="sounds/timber.ogg"
-	a[0].load()
-	//a.play()
+function finishedLoading(bufferList) {
+  // Create two sources and play them both together.
+  var source1 = context.createBufferSource();
+  //var source2 = context.createBufferSource();
+  source1.buffer = bufferList[0];
+ // source2.buffer = bufferList[1];
+
+  source1.connect(context.destination);
+ // source2.connect(context.destination);
+  source1.start(0);
+ // source2.start(0);
+ 
+}
+
+
 }
