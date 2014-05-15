@@ -37,7 +37,7 @@ Galactus.prototype.start_world = function() {
 	this.handler.addPort("restart_game", this)
 	
 	this.countdown()
-	//Sound();
+	this.playSound()
 
 	var pig = this.world.new_boid( function(config) {
 	    config.colour = "pink"
@@ -61,6 +61,40 @@ Galactus.prototype.start_world = function() {
 
 	this.world.start()
 }
+
+Galactus.prototype.playSound = function(){
+	window.onload = init()
+	var context;
+	var bufferLoader;
+
+	function init() {
+	  // Fix up prefixing
+	  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+	  context = new AudioContext();
+	  bufferLoader = new BufferLoader( //Crea playlist
+	    context, //Array de canciones
+	    [
+	      'sounds/timber.ogg'
+
+	      //cancion 2,
+	    ],
+	    finishedLoading
+	    );
+
+	  bufferLoader.load();
+	}
+
+	function finishedLoading(bufferList) {
+	  // Create sources and play them both together.
+	  source1 = context.createBufferSource();	 
+	  source1.buffer = bufferList[0];
+	  source1.connect(context.destination);	 
+	  source1.start(0);
+	 //Si hubiese mas sources, hacer lo mismo con cada uno
+	 
+	}
+}
+
 
 Galactus.prototype.countdown = function(){	
 	var that = this

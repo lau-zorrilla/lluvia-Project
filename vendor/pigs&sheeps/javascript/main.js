@@ -16,8 +16,7 @@ function main(){
 	universal_handler = menu_handler
 	var maker = new Galactus( menu_handler, 'screener')
 
-	//Sound()
-	//var sound = new Sound("audio")
+	
 }
 
 
