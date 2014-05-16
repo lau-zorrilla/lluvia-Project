@@ -32,11 +32,13 @@ SeparationBehavior.prototype.desired_acceleration = function(){
 
   this.me.visible_objects().each( function(boid){
     var target_at = boid.geo_data.position.subs( that.me.geo_data.position )
-    var r = target_at.module()
+    var r = target_at.module() || 1
+    r = r/3
     x += target_at.get_coord(0) / r
     y += target_at.get_coord(1) / r
     count++
   })
+  count = count || 1
 
   return new Vector(x/count, y/count).scale(-1)
 }

@@ -248,7 +248,7 @@ World.prototype.visible_for = function(position, heading, vision_object){
 		var dx = boid.geo_data.position.get_coord(0) - x1
 		var dy = boid.geo_data.position.get_coord(1) - y1
 		if ( dx * dx + dy * dy < vision &&
-		    heading.angle(new Vector(dx, dy) < vision_object.angle ) )
+		    heading.angle(new Vector(dx, dy)) < vision_object.angle )
 			visible.push(boid)
 	})
 	return visible
