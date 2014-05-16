@@ -97,8 +97,8 @@ Sheep.prototype.sheep_limits = function() {
     var x_axis = this.geo_data.position.Coord[0]
     var y_axis = this.geo_data.position.Coord[1]
 
-    if(y_axis >= 800 && x_axis >= 170 || y_axis >= 800 && x_axis <= 274)  //
-        return
+    if(y_axis >= 800 && x_axis >= 170 || y_axis >= 800 && x_axis <= 274)
+        this.my_world.max_score++
     if(x_axis <= -445 || x_axis >= 395)
         this.geo_data.velocity.Coord[0] = 0
     if (y_axis >= 800 || y_axis <= 0) {

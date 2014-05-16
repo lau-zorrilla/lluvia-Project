@@ -37,6 +37,7 @@ function World(screen, width, height){
     this.y1 = 0
     this.coord_x = 0
     this.coord_y = 0
+    this.max_score = 0
 
 
     /* We have a HTMLElement, a string holding the id, or the page has a canvas */
@@ -234,6 +235,7 @@ World.prototype.running_steady = function(processors_time){
 	this.coord_y = this.mouse_coordinates.get_mouse_Y()
 
 	this.draw()
+    score.innerHTML = this.max_score.get_string()
 	//setTimeout(this.run.bind(this), 100)
 }
 

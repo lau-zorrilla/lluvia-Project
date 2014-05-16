@@ -119,77 +119,77 @@ World.prototype.draw_background = function(ctx){
 	ctx.lineWidth=4;
 	ctx.stroke();
 
-/*Distance between doors: 104*/
-
-/*short lines bottom left*/
-var e = 632
-
-for (var i = 0; i < 5; i++) {
-	e -= 16
-    ctx.beginPath();
-    ctx.moveTo(e,170);
-    ctx.lineTo(e,190);
-    ctx.strokeStyle = "brown";
-    ctx.lineWidth=3;
-    ctx.stroke();
-};
-
-/*short lines bottom right*/
-var f = 805
-
-for (var i = 0; i < 4; i++) {
-	f -= 17
-    ctx.beginPath();
-    ctx.moveTo(f,170);
-    ctx.lineTo(f,190);f
-    ctx.strokeStyle = "brown";
-    ctx.lineWidth=3;
-    ctx.stroke();
-};
-
-/*short lines top*/
-var x = 605
-for(var i=0; i<15; i++){
-	x+=15
-   ctx.beginPath();
-   ctx.moveTo(x,142);
-   ctx.lineTo(x,125);
-   ctx.strokeStyle = "brown";
-   ctx.lineWidth=3;
-   ctx.stroke();
-   }
-
-
-/*Short lines left*/
-var a = 618
-var b = 120
-
-for(var i=0; i<5; i++){
-	a -= 13
-	b += 10
-    ctx.beginPath();
-    ctx.moveTo(a,(b + 20));
-    ctx.lineTo(a,b);
-    ctx.strokeStyle = "brown";
-    ctx.lineWidth=3;
-    ctx.stroke();
-}
-
-
-/*short lines right*/
-var h = 832
-var k = 123
-
-for (var i = 0; i < 4; i++) {
-	h -= 11
-	k += 12
-    ctx.beginPath();
-    ctx.moveTo(h,(k + 20));
-    ctx.lineTo(h,k);
-    ctx.strokeStyle = "brown";
-    ctx.lineWidth=3;
-    ctx.stroke();
-};
+    /*Distance between doors: 104*/
+    
+    /*short lines bottom left*/
+    var e = 632
+    
+    for (var i = 0; i < 5; i++) {
+    	e -= 16
+        ctx.beginPath();
+        ctx.moveTo(e,170);
+        ctx.lineTo(e,190);
+        ctx.strokeStyle = "brown";
+        ctx.lineWidth=3;
+        ctx.stroke();
+    };
+    
+    /*short lines bottom right*/
+    var f = 805
+    
+    for (var i = 0; i < 4; i++) {
+    	f -= 17
+        ctx.beginPath();
+        ctx.moveTo(f,170);
+        ctx.lineTo(f,190);f
+        ctx.strokeStyle = "brown";
+        ctx.lineWidth=3;
+        ctx.stroke();
+    };
+    
+    /*short lines top*/
+    var x = 605
+    for(var i=0; i<15; i++){
+    	x+=15
+       ctx.beginPath();
+       ctx.moveTo(x,142);
+       ctx.lineTo(x,125);
+       ctx.strokeStyle = "brown";
+       ctx.lineWidth=3;
+       ctx.stroke();
+       }
+    
+    
+    /*Short lines left*/
+    var a = 618
+    var b = 120
+    
+    for(var i=0; i<5; i++){
+    	a -= 13
+    	b += 10
+        ctx.beginPath();
+        ctx.moveTo(a,(b + 20));
+        ctx.lineTo(a,b);
+        ctx.strokeStyle = "brown";
+        ctx.lineWidth=3;
+        ctx.stroke();
+    }
+    
+    
+    /*short lines right*/
+    var h = 832
+    var k = 123
+    
+    for (var i = 0; i < 4; i++) {
+    	h -= 11
+    	k += 12
+        ctx.beginPath();
+        ctx.moveTo(h,(k + 20));
+        ctx.lineTo(h,k);
+        ctx.strokeStyle = "brown";
+        ctx.lineWidth=3;
+        ctx.stroke();
+    };
 
 ///////////// fin corral  ////////////
 
