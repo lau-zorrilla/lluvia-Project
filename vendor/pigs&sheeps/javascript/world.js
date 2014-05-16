@@ -184,18 +184,20 @@ World.prototype.move_shepherd = function (screen_x, screen_y) {
 	var y = 500 - screen_y
 	var scale = 1 - y / 3000
 
-    //alert(x + " : " + y)
+    //alert( x / scale + " : " + 2 * y / scale)
 
-	behaviour.set_target_at( x / scale, 2 * y / scale);
+    behaviour.set_target_at( x / scale, 2 * y / scale)
 }
+
 
 World.prototype.step = function(current_time){
-	var that = this
-	current_time = current_time || this.now || new Date()
-	this.each_boid(function(boid){
-		boid.update_physics(current_time)
-	})
+    var that = this
+    current_time = current_time || this.now || new Date()
+    this.each_boid(function(boid){
+        boid.update_physics(current_time)
+    })
 }
+
 
 World.prototype.is_one_second_from_begining = function(){
 	this.start()

@@ -98,20 +98,16 @@ Pig.prototype.draw = function(ctx){
     var a = this.geo_data.acceleration
     var radius = 10
     var scale = 1 - p.get_coord(1) / 3000
-    this.initial_position = 0
-    var x = this.geo_data.position.get_coord(0)
-
+    var x = this.geo_data.velocity.get_coord(0)
 
     ctx.save()
     ctx.scale( scale, scale / 2 )
 
-    if(this.initial_position < x) {
+    if(x > 0) {
         ctx.drawImage(this.image, p.get_coord(0), p.get_coord(1))
     }
     else
 	    ctx.drawImage(this.image_left, p.get_coord(0), p.get_coord(1))
-
-	this.initial_position = x
 
     ctx.restore()
 }

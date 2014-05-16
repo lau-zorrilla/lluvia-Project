@@ -128,6 +128,8 @@ SheepBehavior.prototype.desired_acceleration = function(){
   //       return desired_velocity.subs(velocity)
   //   }
   //   else
+  //this.me.sheep_limits()
+
       return this.desired_velocity().subs(this.me.velocity())
   //}
 }

@@ -31,6 +31,8 @@
             that.last_time = that.current_time = null
             that.image = new Image()
             that.image.src = "images/rotated_sheep.png"
+            that.image_left = new Image()
+            that.image_left.src = "images/rotated_sheep_left.png"
 
             /* Overridable configuration */
 
@@ -46,7 +48,6 @@
                 vel_max: 70,
                 mass: 2,
                 vision: {radius: 100, angle: 130 * Math.PI / 180},
-                tolerance: {radius: 50, angle: 130 * Math.PI / 180},
 
                 force_limits: {
                     thrust: 50,
@@ -85,51 +86,41 @@ Sheep.prototype.sheep_objects = function(){
   return sheep_objects
 }
 
-Sheep.prototype.low_tolerance = function() {
-
-    for(var i=0; i<this.sheep_objects.length; i++){
-        this.sheep_objects[i].tolerance.radius = 50
-        this.sheep_objects[i].acceleration = -50
-    }
-  //this.my_world.visible_for(this.geo_data.position, this.heading(), this.vision)
-}
-
-Sheep.prototype.high_tolerance = function() {
-  this.tolerance.radius = 25
-  this.acceleration = -10
-}
-
-Sheep.prototype.change_tolerance = function(type_of_boid) {
-	if(type_of_boid == "sheep")
-		this.high_tolerance()
-	else
-		this.low_tolerance()
-}
-
+/**
+ * @method sheep_limits
+ *
+ * Sets the limits in which the sheeps-like boids can move
+ *
+ * @param  {} 
+ */
 Sheep.prototype.sheep_limits = function() {
-    if(this.geo_data.position.get_coord(0) > this.screener.width)
-        this.geo_data.position.get_coord(0) = this.screener.width
-    //else if ()
-}
-// function limites(){ 
-//     if(jugador1.coord_x>canvas.width-100)
-//         jugador1.coord_x=canvas.width-100;
-//     if(jugador1.coord_x<0)
-//         jugador1.coord_x = 0;
-//     if(jugador1.coord_y>canvas.height-100)
-//         jugador1.coord_y = canvas.height-100;
-//     if(jugador1.coord_y<0)
-//         jugador1.coord_y = 0;
+    var x_axis = this.geo_data.position.Coord[0]
+    var y_axis = this.geo_data.position.Coord[1]
 
-// function limites(){ 
-//     if(jugador1.coord_x>canvas.width-100)
-//         jugador1.coord_x=canvas.width-100;
-//     if(jugador1.coord_x<0)
-//         jugador1.coord_x = 0;
-//     if(jugador1.coord_y>canvas.height-100)
-//         jugador1.coord_y = canvas.height-100;
-//     if(jugador1.coord_y<0)
-//         jugador1.coord_y = 0;
+    if(y_axis >= 800 && x_axis >= 170 || y_axis >= 800 && x_axis <=274)  //
+        return
+    if(x_axis <= -445 || x_axis >= 395)
+        this.geo_data.velocity.Coord[0] = 0
+    if (y_axis >= 800 || y_axis <= 0) {
+        this.geo_data.velocity.Coord[1] = 0
+    }
+}
+
+/**
+ * @method update_physics
+ *
+ * Calculates new position, velocity and acceleration depending on the ellapsed time.
+ *
+ * @param  {Date} current_time Time for estimating coords.
+ */
+Sheep.prototype.update_physics = function(current_time){
+    this.last_time = this.current_time
+    this.current_time = current_time
+    this.geo_data.acceleration = this.requested_acceleration()
+    this.geo_data.velocity = integrate(this.geo_data.velocity, this.geo_data.acceleration, this.delta_t() )
+    this.sheep_limits()
+    this.geo_data.position = integrate(this.geo_data.position, this.geo_data.velocity, this.delta_t() )
+}
 
 /**
  * @method run
@@ -176,22 +167,7 @@ Sheep.prototype.visible_objects = function(){
     return this.my_world.visible_for(this.geo_data.position, this.heading(), this.vision)
 }
 
-/**
-* @method draw
-*
-* Draws a sheep into the world defined by the context
-*
-* @param {Object} ctx Context in which to paint the Boid
-*/
-Sheep.prototype.draw = function(ctx){
-    var p = this.geo_data.position
-    //var image_size = 35
-    ctx.drawImage(this.image, p.get_coord(0), p.get_coord(1))
-    //ctx.drawImage(this.image, p.get_coord(0)-(image_size/2)*escala, p.get_coord(1)-(image_size/2)*escala, image_size*escala, image_size*escala)
-}
-
 Sheep.prototype.first_draw = function() {
-
     var canvas = document.createElement('canvas');
     canvas.width = 24;
     canvas.height = 24;
@@ -215,28 +191,17 @@ Sheep.prototype.draw = function(ctx){
     var a = this.geo_data.acceleration
     var radius = 10
     var scale = 1 - p.get_coord(1) / 3000
+    var x = this.geo_data.velocity.get_coord(0)
 
     ctx.save()
     ctx.scale( scale, scale / 2 )
 
-    ctx.drawImage(this.image, p.get_coord(0), p.get_coord(1))
+    if(x < 0) {
+        ctx.drawImage(this.image, p.get_coord(0), p.get_coord(1))
+    }
+    else
+        ctx.drawImage(this.image_left, p.get_coord(0), p.get_coord(1))
 
     ctx.restore()
 
-    //var radius = 10
-
-    // ctx.fillStyle = this.colour
-    // ctx.strokeStyle = "black"
-    // ctx.beginPath();
-    // ctx.arc(12, 12, radius, 0, Math.PI*2, true);
-    // ctx.closePath();
-    // ctx.fill();
-
-    // ctx.beginPath();
-    // ctx.arc(12, 12, radius + 2, 0, Math.PI*2, true);
-    // ctx.closePath();
-    // ctx.stroke()
-
-    // this.shape = ctx.getImageData(0,0,24,24)
-    //this.cached_canvas = canvas
 }
