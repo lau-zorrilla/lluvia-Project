@@ -38,6 +38,7 @@ function World(screen, width, height){
     this.coord_x = 0
     this.coord_y = 0
     this.points = 0
+    this.level = 0
 
 
     /* We have a HTMLElement, a string holding the id, or the page has a canvas */
@@ -223,6 +224,18 @@ World.prototype.show_boids = function(){
 		logger.innerHTML += "<br/>"
 	})
 }
+//To finish ------>>>
+World.prototype.check_level = function() {
+    //check level number
+    //check points number
+    if(this.level == 1 && this.points == 5){
+    //  call function that paints happy ending
+        alert("Ganador!!")
+        this.currentState.requested = this.state.suspended
+    }
+    //if(this.level == 2 && this.points == 10)
+    //  call function that paints happy ending
+}
 
 World.prototype.running_steady = function(processors_time){
 
@@ -237,7 +250,9 @@ World.prototype.running_steady = function(processors_time){
     score_number.style.fontSize = "24pt"
     score_number.style.marginTop = "5px"
     score_number.style.fontWeight = "bold"
-    score_number.innerHTML = ":" + this.points //escribe en el div "score"
+    score_number.innerHTML = ":" + this.points
+
+    this.check_level()
 
     this.draw()
 	//setTimeout(this.run.bind(this), 100)
@@ -261,20 +276,7 @@ World.prototype.visible_for = function(position, heading, vision_object){
 }
 
 World.prototype.new_boid = function(config, block){
-	// color = color || "blue"
-	// config = new Hash()
-	// if (typeof(geo_data) === "undefined")
 
-	//     config.geo_data = {
-	//         position: new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400)),
-	//         velocity: new Vector(Math.floor(Math.random()*40), Math.floor(Math.random()*40)),
-	//         acceleration: new Vector(0,0)
-	//     }
-	//     var b = new Boid( config, color)
-	//     this.boids++
-	//         b.id = this.boids
-	//     this.has_born(b)
-	//     return b
 	var b = typeof(block) === "undefined" ? new Boid(config) : new Boid(config, block)
 
 	this.boids++

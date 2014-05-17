@@ -33,6 +33,7 @@ Galactus.prototype.start_world = function() {
 	//Fires an event that calls the world's start function
     //canvas.style.cursor = "url('images/mouse_pig.png'), move"
 	this.world = new World(this.view)
+	this.world.level = 1
 
 	this.handler.addPort("restart_game", this)
 	
@@ -116,6 +117,7 @@ Galactus.prototype.countdown = function(){
 	,1000);
 
 }
+
 Galactus.prototype.destroy_world = function() {
 	//Destroys a world if there is one created
 	this.world.currentState.requested = this.world.state.suspended
