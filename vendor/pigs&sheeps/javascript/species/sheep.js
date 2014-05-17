@@ -33,6 +33,7 @@
             that.image.src = "images/rotated_sheep.png"
             that.image_left = new Image()
             that.image_left.src = "images/rotated_sheep_left.png"
+            that.first_time = 0
 
             /* Overridable configuration */
 
@@ -70,23 +71,6 @@
  }
 
 /**
-* @method sheep_objects
-*
-* Ask the world if something is audible with my geo_data and wave length.
-*
-* @return {Array} The nanobots audibles
-*/
-Sheep.prototype.sheep_objects = function(){
-    this.sheep_objects = []
-    sheep_objects = this.my_world.visible_for(this.geo_data.position, this.wave_lenght)
-    for(var i=0; i < sheep_objects.length; i++){
-        if(sheep_objects[i] instanceof Speaker || sheep_objects[i].id == this.id)
-            sheep_objects.splice(i, 1)
-    }
-  return sheep_objects
-}
-
-/**
  * @method sheep_limits
  *
  * Sets the limits in which the sheeps-like boids can move
@@ -97,8 +81,16 @@ Sheep.prototype.sheep_limits = function() {
     var x_axis = this.geo_data.position.Coord[0]
     var y_axis = this.geo_data.position.Coord[1]
 
-    if(y_axis >= 800 && x_axis >= 170 || y_axis >= 800 && x_axis <= 274)
-        this.my_world.max_score++
+    if(y_axis >= 800 && x_axis >= 170 || y_axis >= 800 && x_axis <= 274){
+        if(this.first_time == 0){
+           this.my_world.max_score = true
+           return
+        }
+        else
+           return
+    }
+    if(x_axis <= 170 || x_axis >= 274){
+    }
     if(x_axis <= -445 || x_axis >= 395)
         this.geo_data.velocity.Coord[0] = 0
     if (y_axis >= 800 || y_axis <= 0) {
@@ -119,41 +111,12 @@ Sheep.prototype.update_physics = function(current_time){
     this.geo_data.acceleration = this.requested_acceleration()
     this.geo_data.velocity = integrate(this.geo_data.velocity, this.geo_data.acceleration, this.delta_t() )
     this.sheep_limits()
-    this.geo_data.position = integrate(this.geo_data.position, this.geo_data.velocity, this.delta_t() )
-}
-
-/**
- * @method run
- *
- * Updates the time in the boid's variables
- *
- * @param {Date}   current_time Current time of the boid
- *
- */
-Sheep.prototype.run = function(current_time){
-    if (!(current_time instanceof Date))
-        return
-    //this.sheep_limits()
-    current_time = current_time || new Date()
-    this.update_physics(current_time)
-}
-
-/**
- * @method heading
- *
- * Gets the normal vector aligned with the heading.
- *
- * @return {Vector}
- */
-Sheep.prototype.heading = function(){
-    var _heading
-    try{
-        _heading = this.geo_data.velocity.unit()
-        this.last_heading = _heading || this.last_heading
-    } catch(err){
-        _heading = this.last_heading
+    if(this.my_world.max_score == true){
+        this.my_world.points++
+        this.first_time = 1
+        this.my_world.max_score = false
     }
-    return _heading
+    this.geo_data.position = integrate(this.geo_data.position, this.geo_data.velocity, this.delta_t() )
 }
 
 /**
@@ -163,9 +126,6 @@ Sheep.prototype.heading = function(){
  *
  * @return {}
  */
-Sheep.prototype.visible_objects = function(){
-    return this.my_world.visible_for(this.geo_data.position, this.heading(), this.vision)
-}
 
 Sheep.prototype.first_draw = function() {
     var canvas = document.createElement('canvas');
