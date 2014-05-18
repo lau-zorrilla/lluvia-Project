@@ -69,7 +69,15 @@ Clock.prototype.get_string = function() { //devuelve una cadena con los segundos
 		else
 			return '0' + min + ':' + '0' + sec
 
+	}
+	else{
+		min = Math.floor(this.remaining_time / 60)
+		sec = Math.round(this.remaining_time - (min * 60))
 
+		if(min == 1 && sec >= 10 || min == 0 && sec >= 10)
+			return '0' + min + ':'+ sec
+		else
+			return '0' + min + ':' + '0' + sec
 	}
 
 }

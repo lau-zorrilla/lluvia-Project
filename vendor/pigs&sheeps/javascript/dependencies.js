@@ -39,6 +39,7 @@ $K_app_dependencies = [
 			{ name: "interface/world_background.js",                         description: "Drawing mega function." },
 			{ name: "interface/ll_Clock.js",                                 description: "Clock class to tell the time." },
 			{ name: "interface/gameover.js",                                 description: "Drawing sad pig when game is over." },
+			{ name: "interface/winner.js",                                   description: "Drawing happy pig when game is over with a minimun of sheeps inside the backyard." },
 			{ name: "main.js",                                               description: "main function." }
 		]
 	},

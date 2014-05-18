@@ -70,9 +70,8 @@ Galactus.prototype.playSound = function(){
 	  bufferLoader = new BufferLoader( //Crea playlist
 	    context, //Array de canciones
 	    [
-	      'sounds/timber.ogg'
+	      'sounds/ovejas.ogg'
 
-	      //cancion 2,
 	    ],
 	    finishedLoading
 	    );
@@ -85,8 +84,11 @@ Galactus.prototype.playSound = function(){
 	  source1 = context.createBufferSource();	 
 	  source1.buffer = bufferList[0];
 	  source1.connect(context.destination);	 
-	  source1.start(0);
-	 //Si hubiese mas sources, hacer lo mismo con cada uno
+	  source1.loop=true //Reinicia musica si termina
+	  source1.start(0); //Inicia musica
+	 //Si hubiese mas sources, hacer lo mismo con cada uno 
+
+	 return source1
 	 
 	}
 }
@@ -107,10 +109,11 @@ Galactus.prototype.countdown = function(){
 
 		timer.innerHTML = that.world.clock.get_string() //escribe en el div "timer"
 		
-		if (that.world.clock.running == false){
+		if (that.world.clock.running == false && that.world.level_won ==false){
 			clearInterval(timer_interval) // detiene setInterval
 			that.world.currentState.requested = that.world.state.suspended
 			that.world.gameover_pig()
+			source1.stop()//Para musica
 			//alert("llhego")
 		}
 	}	

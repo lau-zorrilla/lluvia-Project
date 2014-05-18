@@ -1,4 +1,4 @@
-World.prototype.gameover_pig = function() {
+World.prototype.winner_pig = function() {
 	var canvas = document.getElementById('screener');
 	var contexto = canvas.getContext('2d');
 	canvas.width=canvas.width;
@@ -236,7 +236,7 @@ World.prototype.gameover_pig = function() {
 	contexto.strokeStyle="#fbbbb2";
 	contexto.fill();
 	contexto.stroke();
-	/*
+	
 	//ojo abierto
 	contexto.beginPath();
 	contexto.arc(280,175,6,0,(Math.PI/180)*360,true); // circunferencia completa
@@ -272,8 +272,8 @@ World.prototype.gameover_pig = function() {
 	contexto.strokeStyle="white";
 	contexto.fill();
 	contexto.stroke();
-	*/
-	//ojo triste
+	
+	/*//ojo triste
 	contexto.beginPath();
 	contexto.arc(280,170,6,0,(Math.PI/180)*250,false); // circunferencia completa
 	contexto.lineWidth=2;
@@ -289,12 +289,20 @@ World.prototype.gameover_pig = function() {
 	contexto.fillStyle = 'black';
 	contexto.strokeStyle="black";
 	contexto.fill();
-	contexto.stroke();
+	contexto.stroke();*/
 
-	//boca triste
+	/*//boca triste
 	contexto.beginPath();
 	contexto.arc(300,217,10,0,(Math.PI/180)*180,true); // media circunferencia
 	contexto.strokeStyle="black";
+	contexto.stroke();*/
+
+	//boca feliz
+	contexto.beginPath();
+	contexto.arc(300,210,10,0,(Math.PI/180)*180,false); // media circunferencia
+	contexto.strokeStyle="black";
+	contexto.fillStyle="#fe2e64";
+	contexto.fill();
 	contexto.stroke();
 
 	//nariz
@@ -327,8 +335,8 @@ World.prototype.gameover_pig = function() {
 	contexto.strokeStyle="#F69D9A";
 	contexto.fill();
 	contexto.stroke();
-
+	//text
 	contexto.font = "bold 48px courier";
 	contexto.fillStyle = '#ff33ff';
-	contexto.fillText("Game Over",250,380);
+	contexto.fillText("You Win!",250,380);
 }
