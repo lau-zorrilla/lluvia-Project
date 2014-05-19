@@ -126,6 +126,8 @@ function Device(view, state, currentState, parent){
 				/* TO DO */ ;
 				this.gateRunner(this.now)
 				this.childRunner(this.now);
+				if (this.running_steady)
+				  this.running_steady(this.now)
 			},
 			function(){
 				;
@@ -180,8 +182,8 @@ function Device(view, state, currentState, parent){
 	this.gates		   = []
 
 	/* privileged functions (mainly public static accessors)*/
-	this.getSolicitors = function() { return that.solicitors; }
-	this.getStates	   = function() { return state; }
+	this.getSolicitors = function(){return that.solicitors;}
+	this.getStates	   = function(){return state;}
 	this.openDevice	   = _$innerObject(this, "device")
 	/* construction */
 	function initialize(){ // Use that. This would refer to the function object.
@@ -240,7 +242,7 @@ Device.STATE = new Enumeration("suspended", "running", "suspending", "killing", 
  */
 Device.prototype.gateRunner = function(){
 
-		for (var i=0; i<this.gates.length; i++)
+		for (var i=0; i<this.gates.length; i++) 
 			this.gates[i].run( this.now, this.before )
 
 }
@@ -354,9 +356,7 @@ Device.prototype.x_calc = function(){
  */
 Device.prototype.fireEvent = function (mssg){
 	for (var i=0; i<this.eventDispatcher.ports[mssg.name].length; i++)
-	  /* Attending a mssg in one queue remains different from another queue */
-	  this.eventDispatcher.ports[mssg.name][i].eventDispatcher.enqueue(mssg.clone())
-
+		this.eventDispatcher.ports[mssg.name][i].eventDispatcher.enqueue(mssg)
 }
 
 /**

@@ -50,7 +50,7 @@ Galactus.prototype.start_world = function() {
     for (var i=0; i<30; i++) {
         var f
         sheeper.push( f = this.world.new_boid_of(Sheep, function(config){
-  	       config.brain.activate("separation")
+  	       config.brain.activate("alignment")
   	       config.brain.activate("sheep", pig)
   }))
   }
@@ -81,7 +81,7 @@ Galactus.prototype.playSound = function(){
 
 	function finishedLoading(bufferList) {
 	  // Create sources and play them both together.
-	  source1 = context.createBufferSource();	 
+	  source1 = context.createBufferSource();
 	  source1.buffer = bufferList[0];
 	  source1.connect(context.destination);	 
 	  source1.loop=true //Reinicia musica si termina
@@ -109,12 +109,12 @@ Galactus.prototype.countdown = function(){
 
 		timer.innerHTML = that.world.clock.get_string() //escribe en el div "timer"
 		
-		if (that.world.clock.running == false && that.world.level_won ==false){
-			clearInterval(timer_interval) // detiene setInterval
+		if (that.world.clock.running == false){
+			that.world.is_finished = true
 			that.world.currentState.requested = that.world.state.suspended
-			that.world.gameover_pig()
+			clearInterval(timer_interval) // detiene setInterval
 			source1.stop()//Para musica
-			//alert("llhego")
+			that.world.gameover_pig()
 		}
 	}	
 	,1000);

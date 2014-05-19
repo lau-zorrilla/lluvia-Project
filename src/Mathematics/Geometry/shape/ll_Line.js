@@ -126,6 +126,7 @@ Line.intersects$U = function(line1, line2){
 *    |
 */
 function slope_line(line){
+	//poner condicion en caso que el angulo sea 90 grados
 	var m = (line.get_final_point().get_coord(1) - line.initial_point.get_coord(1)) / (line.get_final_point().get_coord(0) - line.initial_point.get_coord(0))
 	return m
 }

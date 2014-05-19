@@ -39,7 +39,7 @@ function World(screen, width, height){
     this.coord_y = 0
     this.points = 0
     this.level = 0
-    this.level_won=false
+    this.is_finished = false
 
 
     /* We have a HTMLElement, a string holding the id, or the page has a canvas */
@@ -225,17 +225,13 @@ World.prototype.show_boids = function(){
 		logger.innerHTML += "<br/>"
 	})
 }
-//To finish ------>>>
+
 World.prototype.check_level = function() {
-    //check level number
-    //check points number
     if(this.level == 1 && this.points == 5){
-    //  call function that paints happy ending
-        //alert("Ganador!!")
-        this.level_won = true
+        this.is_finished = true
         this.currentState.requested = this.state.suspended
-        this.winner_pig() //Paints happy ending
         this.clock.pause()
+        this.winner_pig()
     }
     //if(this.level == 2 && this.points == 10)
     //  call function that paints happy ending
@@ -258,7 +254,7 @@ World.prototype.running_steady = function(processors_time){
     score_number.innerHTML = ":" + this.points
 
     this.check_level()
-    if(this.level_won == false)
+    if(this.is_finished == false)
         this.draw()
 	//setTimeout(this.run.bind(this), 100)
 }

@@ -89,8 +89,6 @@ Sheep.prototype.sheep_limits = function() {
         else
            return
     }
-    if(x_axis <= 170 || x_axis >= 274){
-    }
     if(x_axis <= -445 || x_axis >= 395)
         this.geo_data.velocity.Coord[0] = 0
     if (y_axis >= 800 || y_axis <= 0) {
