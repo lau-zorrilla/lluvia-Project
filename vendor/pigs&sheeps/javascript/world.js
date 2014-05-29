@@ -30,8 +30,6 @@ function World(screen, width, height){
     this.velocity_max = 200
     this.boids = {total: 0}
     this.mouse_coordinates = this.newGate("screener", MouseCoordinates)
-    this.coord_x = 0
-    this.coord_y = 0
     this.points = 0
     this.level = 0
     this.is_finished = false
@@ -131,11 +129,8 @@ World.prototype.start = function(){
     var that = this
     var ctx  = that.screen[0].context
 
-
-    if(World.transform_already){
+    if(World.transform_already)
        ctx.transform(1, 0, 0, -1, -425, 500)
-       World.transform_already = true
-    }
 
     this.draw_background(ctx)
     this.background = ctx.getImageData(0, 0, 850, 500)
@@ -234,7 +229,7 @@ World.prototype.show_boids = function(){
 World.prototype.check_level = function() {
     if(this.level == 1 && this.points == 5){
         this.is_finished = true
-        this.currentState.requested = this.state.suspended
+        this.currentState.requested = this.state.killed
         this.clock.pause()
         this.winner_pig()
     }
@@ -252,9 +247,6 @@ World.prototype.running_steady = function(processors_time){
 	//this.show_boids()
 	this.now = processors_time || new Date()
 	//this.eventDispatcher.shift()
-
-	// this.coord_x = this.mouse_coordinates.get_mouse_X()
-	// this.coord_y = this.mouse_coordinates.get_mouse_Y()
 
     score_number.style.float = "right"
     score_number.style.fontSize = "24pt"
@@ -319,10 +311,10 @@ World.prototype.new_boid_of = function(class_name, config){
 	var b = new class_name(config)
 	if (this[class_name])
 		this[class_name]++
-		else
-	this[class_name] = 1
-	this.boids.total++
-		this.has_born(b)
+	else
+	    this[class_name] = 1
+    this.boids.total++
+	this.has_born(b)
 	return b
 }
 
