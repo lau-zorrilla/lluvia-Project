@@ -5,8 +5,6 @@
  * @version 1.00 Aug, 2011
  */
 
-// Instances of instance are now are now a derived class of mtf.
-
 /**
  * @classDescription Creates a World for handling boids.
  *
@@ -31,10 +29,7 @@ function World(screen, width, height){
     this.acceleration_max = 30
     this.velocity_max = 200
     this.boids = {total: 0}
-    this.transform_already = false
     this.mouse_coordinates = this.newGate("screener", MouseCoordinates)
-    this.x1 = 0
-    this.y1 = 0
     this.coord_x = 0
     this.coord_y = 0
     this.points = 0
@@ -137,15 +132,17 @@ World.prototype.start = function(){
     var ctx  = that.screen[0].context
 
 
-    if(this.transform_already)
+    if(World.transform_already){
        ctx.transform(1, 0, 0, -1, -425, 500)
+       World.transform_already = true
+    }
 
     this.draw_background(ctx)
     this.background = ctx.getImageData(0, 0, 850, 500)
 
     // Change the origin to the middle x, bottom y,  and invert y axis
     ctx.transform(1, 0, 0, -1, 425, 500)
-    this.transform_already = true
+    World.transform_already = true
     this.start_time = new Date()
     this.currentState.requested = Device.STATE.running
     this.get_boids().each( function(el) {
@@ -166,7 +163,7 @@ World.prototype.start = function(){
 *
 */
 World.prototype.is_initalized = function(init) {
-    this.transform_already = init
+    World.transform_already = init
 }
 
 World.prototype.draw = function(){
@@ -178,6 +175,10 @@ World.prototype.draw = function(){
     for (var i=0; i<this.boids_list.length; i++)
     this.boids_list[i].draw(ctx)
 }
+
+/*
+* Sets the target of the boid to the mouse coordinates
+*/
 
 World.prototype.move_shepherd = function (screen_x, screen_y) {
 	if (!this.shepherd)
@@ -226,6 +227,10 @@ World.prototype.show_boids = function(){
 	})
 }
 
+/* 
+* Checks if the level is finished and if so, stops the world and the clock, and calls a function that changes the background of the canvas
+*/
+
 World.prototype.check_level = function() {
     if(this.level == 1 && this.points == 5){
         this.is_finished = true
@@ -238,14 +243,18 @@ World.prototype.check_level = function() {
 
 }
 
+/*
+* Updates the processor time, checks the level and it is finished, stops drawing the canvas background
+*/
+
 World.prototype.running_steady = function(processors_time){
 
 	//this.show_boids()
 	this.now = processors_time || new Date()
 	//this.eventDispatcher.shift()
 
-	this.coord_x = this.mouse_coordinates.get_mouse_X()
-	this.coord_y = this.mouse_coordinates.get_mouse_Y()
+	// this.coord_x = this.mouse_coordinates.get_mouse_X()
+	// this.coord_y = this.mouse_coordinates.get_mouse_Y()
 
     score_number.style.float = "right"
     score_number.style.fontSize = "24pt"
@@ -286,6 +295,10 @@ World.prototype.new_boid = function(config, block){
 	return b
 }
 
+/*
+* Creates a new boid with a seek behavior defined
+*
+*/
 World.prototype.new_seeker = function(target, color){
 	var b = this.new_boid(color)
 	b.brain.activate('seek')

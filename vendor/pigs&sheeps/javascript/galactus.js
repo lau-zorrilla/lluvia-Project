@@ -1,3 +1,13 @@
+/**
+ * @class Galactus
+ *
+ * Creates a Galactus.
+ *
+ * @constructor Galactus
+ * @param  {Object} config_object 
+ * @param  {Object} block  
+ * @return {}
+*/
 Galactus.prototype = new Device
 Galactus.prototype.contructor = Galactus
 
@@ -50,8 +60,18 @@ Galactus.prototype.start_world = function() {
     for (var i=0; i<30; i++) {
         var f
         sheeper.push( f = this.world.new_boid_of(Sheep, function(config){
-  	       config.brain.activate("alignment")
-  	       config.brain.activate("sheep", pig)
+        	config.geo_data.position = new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400))
+        	config.geo_data.velocity = new Vector(Math.floor(Math.random()*20), Math.floor(Math.random()*20))
+        	config.geo_data.acceleration = new Vector(0,0)
+        	config.vel_max = 70
+        	config.vision = {radius: 100, angle: 80 * Math.PI / 80}        	
+            config.force_limits = {
+                    thrust: 50,
+                    steering: 50,
+                    braking: 100
+            }
+  	        config.brain.activate("alignment")
+  	        config.brain.activate("sheep", pig)
   }))
   }
 
@@ -123,18 +143,23 @@ Galactus.prototype.countdown = function(){
 
 Galactus.prototype.destroy_world = function() {
 	//Destroys a world if there is one created
+	//this.world.currentState.requested = this.world.state.killed
 	this.world.currentState.requested = this.world.state.suspended
-	this.world = new World(this.view)
 	this.world.is_initalized(true)
 }
 
 Galactus.prototype.attend_restart_game = function(date, mssg) {
 	this.destroy_world()
 
-	this.countdown(this.world);
+	this.start_world()
 
-    for (var i=0; i<this.sheeps.length; i++)
-    	this.sheeps[i].geo_data.position = new Vector(Math.random() * 150 + 80, Math.random() * 100 + 200)
+	// this.handler.addPort("restart_game", this)
+	
+	// this.countdown(this.world)
+	// this.playSound(this.world)
 
-    this.world.start()
+ //    for (var i=0; i<this.sheeps.length; i++)
+ //    	this.sheeps[i].geo_data.position = new Vector(Math.random() * 150 + 80, Math.random() * 100 + 200)
+
+ //    this.world.start()
 }

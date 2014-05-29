@@ -1,9 +1,13 @@
 /**
- * @classDescription Creates a Shepard Pig
+ * @class Pig
  *
- * @return {Pig}
- * @constructor
- */
+ * Creates a Pig.
+ *
+ * @constructor Pig
+ * @param  {Object} config_object 
+ * @param  {Object} block  
+ * @return {}
+*/
  Pig.prototype = new Boid
  Pig.prototype.constructor = Pig
  Pig.super = Boid
@@ -17,7 +21,6 @@
             block = config_object
             config_object = new Hash()
         }
-
 
         function initialize(){
 

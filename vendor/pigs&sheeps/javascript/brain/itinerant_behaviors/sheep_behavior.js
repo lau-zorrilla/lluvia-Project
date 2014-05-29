@@ -35,7 +35,7 @@ SheepBehavior.prototype.set_target = function(boid){
 /**
  * @method target_data
  *
- * Position information of boid
+ * Gives the position information of the boid-target
  *
  * @return {Object} this.target.geo_data Position information of boid
  */
@@ -48,7 +48,7 @@ SheepBehavior.prototype.target_data = function(){
 /**
  * @method get_target
  *
- * Get a targetboid 
+ * Returns the boid-target data
  *
  * @return {Object} this.target_data() Position information of boid
  */
