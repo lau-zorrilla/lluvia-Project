@@ -3,7 +3,7 @@ Galactus.prototype.contructor = Galactus
 
 function Galactus(handler, view){
 	var that = this
-	this.sheeps = [] 
+	//this.sheeps = [] 
 
 	var args = []
 	for (var i=0; i<arguments.length; i++)
@@ -48,8 +48,7 @@ Galactus.prototype.start_world = function() {
 
     var sheeper = []
     for (var i=0; i<30; i++) {
-        var f
-        sheeper.push( f = this.world.new_boid_of(Sheep, function(config){
+        sheeper.push( this.world.new_boid_of(Sheep, function(config){
   	       config.brain.activate("alignment")
   	       config.brain.activate("sheep", pig)
   }))
@@ -88,7 +87,7 @@ Galactus.prototype.playSound = function(){
 	  source1.start(0); //Inicia musica
 	 //Si hubiese mas sources, hacer lo mismo con cada uno 
 
-	 return source1
+	  return source1
 	 
 	}
 }
@@ -111,7 +110,7 @@ Galactus.prototype.countdown = function(){
 		
 		if (that.world.clock.running == false){
 			that.world.is_finished = true
-			that.world.currentState.requested = that.world.state.suspended
+			that.world.currentState.requested = that.world.state.killed
 			clearInterval(timer_interval) // detiene setInterval
 			source1.stop()//Para musica
 			that.world.gameover_pig()
@@ -123,18 +122,11 @@ Galactus.prototype.countdown = function(){
 
 Galactus.prototype.destroy_world = function() {
 	//Destroys a world if there is one created
-	this.world.currentState.requested = this.world.state.suspended
-	this.world = new World(this.view)
+	this.world.currentState.requested = this.world.state.killed
 	this.world.is_initalized(true)
 }
 
 Galactus.prototype.attend_restart_game = function(date, mssg) {
 	this.destroy_world()
-
-	this.countdown(this.world);
-
-    for (var i=0; i<this.sheeps.length; i++)
-    	this.sheeps[i].geo_data.position = new Vector(Math.random() * 150 + 80, Math.random() * 100 + 200)
-
-    this.world.start()
+	window.location.reload()
 }

@@ -13,8 +13,10 @@ function Thread(solicitor, processor){
 	if (!solicitor)
 		solicitor = this.run;
 
-	if (processor && processor instanceof Processor)
+	if (processor && processor instanceof Processor){
 		processor.register(this, solicitor);
+		this.processor = processor
+	}
 }
 
 

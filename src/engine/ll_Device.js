@@ -157,7 +157,7 @@ function Device(view, state, currentState, parent){
 		],
 		/* killed */ 	[
 			function(){
-				;
+				this.processor.kill(this, this.run)
 			},
 			function(){
 				;
