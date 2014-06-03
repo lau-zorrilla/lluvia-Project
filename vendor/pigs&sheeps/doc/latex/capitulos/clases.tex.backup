@@ -1,0 +1,784 @@
+\section{Clases}
+\label{sec:clases}
+
+\subsection{Estructura de una clase}
+\label{subsection:estructura}
+
+Para crear una clase es necesario definir una función constructora. 
+\begin{verbatim}
+ var myClass = function() {;} 
+\end{verbatim}
+
+Ésta puede contener atributos y métodos públicos accesible sólo desde la clase, que no se pueden heredar y que se definen como:
+\begin{verbatim}
+myClass.attribute = VALUE
+myClass.method = function(){;}
+\end{verbatim}
+
+También se pueden definir atributos y métodos heredables por aquellos objetos que derivan de la clase. 
+Para esto, es necesario añadir prototype entre el nombre de la clase y el nombre del atributo o método. 
+\begin{verbatim}
+myClass.prototype.attribute = VALUE
+myClass.prototype.method = function(){;}
+\end{verbatim}
+
+Las variables y métodos privados se definen dentro de la función como
+\begin{verbatim}
+var attribute = VALUE
+\end{verbatim}
+
+Una clase puede devolver una variable o un objeto complejo, llamado cierre, con capacidad para acceder a más de un atributo. 
+De esta manera, una clase puede ser, a su vez, una factoría de objetos.
+\begin{verbatim}
+var derived\_class = new myClass()
+\end{verbatim}
+Estas clases pueden aceptar parámetros o no y new es opcional.
+
+Aunque lluviaProject no define nada al respecto, los cierres se suelen usar a través de la función yield, la cual busca entre los parámetros 
+un objeto función y lo ejecuta.
+
+Las clases aceptan un objeto de configuración, el cual permite modificar la propia clase en caso necesario. Al igual que en javascript, 
+no es necesario definir el tipo de las variables. Ver ejemplo en figura 4.1.1
+
+lluviaProject permite definir una función dentro de la propia clase. Ver ejemplo en figura 4.1.2
+
+La palabra reservada this, dentro del ámbito de new, hace referencia al objeto que se está creando, mientras que fuera de él hace 
+referencia al objeto que se está ejecutando. 
+
+Object\#method\_missing:\\
+
+Cuando una función no existente es llamada, se levanta una excepción y se llama al método method\_missing()
+
+
+\subsubsection{Cadena Prototípica}
+\label{subsubsection:prototipos}
+
+Las clases siguen las convenciones de las cadenas prototípicas de Javascript. Esto quiere decir que si el atributo no está presente en el 
+objeto, entonces se mira en el constructor de la clase padre. Si ésta deriva a su vez de otra, entonces se busca en el constructor del 
+padre de la segunda. Ver figura 4.1.3
+
+Aquellas funciones definidas sin la palabra reservada prototype no son accesible por ninguna instancia de la clase. Tanto éstas como aquellas 
+funciones que no que no acceden a los atributos de clase se consideran estáticas.
+
+Es posible definir métodos singleton, que se crean en el constructor de la clase y que no pertenecen a la clase padre. Dentro de estos 
+métodos, this pierde su significado y es necesario que esté recogido en una variable local para poder acceder a él.\\
+
+
+
+Figura 4.1.1
+\begin{verbatim}
+ function Vehicle(mass, number\_of\_wheels){
+  this.mass = mass // In kg 
+  this.number\_of\_wheels = number\_of\_wheels
+  Vehicle.prototype.yield(this)
+}
+
+boeing = new Vehicle(20000, 8, function(newly\_created\_airplane){
+  newly\_created\_airplane.wings = 2  // This is a singleton attribute
+})
+\end{verbatim}
+
+Figura 4.1.2
+\begin{verbatim}
+ var animal = function(limbs, name){
+  if (limbs<5)
+      return function Mammal(main\_food){
+          this.name  = name
+          this.limbs = limbs
+          this.main\_food = main\_food
+      }
+    else
+      return function Spider(number\_of\_teeth){
+          this.name  = name
+          this.limbs = limbs
+          this.number\_of\_teeth = number\_of\_teeth
+      }
+}
+
+dog = new (Animal("Tim", 4))("meat")
+\end{verbatim}
+
+Figura 4.1.3
+(gráfico cadena prototípica web lluvia. Traducir a español)
+
+
+\subsection{Clase Boid}
+\label{subsection:boid}
+
+\subsubsection{Introducción}
+\label{subsubsection:boid_general}
+
+Un Boid se define como un carácter personal autónomo que recibe un objeto de configuración y un bloque. Al crear una nueva instancia, se 
+le puede pasar como parámetro un objeto de configuración y/o un bloque de código. Si se le pasa un objeto de configuración, es necesario 
+definir todos los parámetros a incluir en el constructor del nuevo Boid. Si se le pasa un bloque, se pueden definir sólo aquellos parámetros 
+que vayan a cambiar con respecto a la clase padre.
+
+La configuración por defecto incluye un objeto geo\_data, el cual contiene los atributos de posición, velocidad y aceleración, color del 
+boid, un cerebro, velocidad máxima, masa, el objeto vision, con radio y ángulo, y el objeto límites dinámicos, que incluye capacidad de 
+empuje, de giro y de frenada. Ejemplo de configuración por defecto. Figura 4.2.a.1
+
+Es posible modificar su posición, velocidad o aceleración en tiempo real según sea necesario. También se le puede asignar un comportamiento 
+de los que ya existen o crear nuevos que cubran necesidades más específicas.
+
+Cada Boid tiene acceso directo a la descripción geométrica de la escena, pero los comportamientos de manada requieren que éste reaccione 
+sólo a aquellos boids que se encuentren dentro de un área específica alrededor de él. Este área se define por una distancia, medida desde 
+el centro del Boid, y un ángulo, medido en la dirección de avance del Boid. Aquellos Boids que se encuentran fuera de este área son ignorados. Ver figura 4.2.a.2\newline
+
+
+Métodos:
+\begin{itemize}
+ \item position():
+Obtiene o define la posición del Boid
+
+  \item velocity():
+Obtiene o define la velocidad del Boid
+
+  \item acceleration():
+Obtiene o define la aceleración del Boid
+
+  \item start():
+Guarda la hora que marca el procesador.
+
+  \item delta\_at():
+Tiempo que ha pasado desde la última vez que la variable “last time” fue actualizada
+
+  \item update\_physics():
+Calcula la nueva posición, velocidad y aceleración en función del tiempo que ha pasado.
+
+  \item run():
+Actualiza el tiempo en las variables del Boid.
+
+  \item first\_draw():
+Pinta el Boid y lo guarda como imagen, lo que ahorra tiempo de cálculo.
+
+  \item draw():
+Pinta un Boid en un mundo definido por un contexto.
+
+  \item heading():
+Alinea el vector normal con el último vector de dirección del Boid.
+
+  \item locale():
+Expresa las coordenadas locales del sistema en coordenadas globales.
+
+  \item globale():
+Expresa las coordenadas globales del sistema en coordenadas locales.
+
+  \item localize():
+Cambia las coordenadas globales del sistema en coordenadas del Boid.
+
+  \item globalize():
+Cambia las coordenadas locales del sistema en coordenadas del mundo.
+
+  \item visible\_objects():  
+Pregunta al mundo si existe un objeto visible dentro de las habilidades de visión y las coordenadas de velocidad, aceleración y posición.
+del Boid.
+
+  \item requested\_acceleration(): Devuelve al mundo la aceleración requerida (lo que el cerebro desea y lo que el cuerpo permite).
+
+  \item clip():
+Ajusta la aceleración en función de los límites dinámicos del Boid.
+
+  \item set\_target():
+Define un target.
+
+  \item  target\_data():
+Devuelve la información del target.
+\end{itemize}
+
+Figura 4.2.a.1 
+\begin{verbatim}
+ var default\_config = {
+           geo\_data: {
+               position: new Vector(Math.floor(Math.random()*400), 
+                                    Math.floor(Math.random()*400)),
+               velocity: new Vector(Math.floor(Math.random()*40),
+                                    Math.floor(Math.random()*40)),
+               acceleration: new Vector(0,0)
+           },
+           colour: "blue",
+
+           brain: new Brain(that),
+           vel\_max: 50,
+           mass: 2,
+           vision: {radius: 100, angle: 130 * Math.PI / 180},
+
+           force\_limits: {
+               thrust: 20,
+               steering: 50,
+               braking: 70
+           }
+}
+\end{verbatim}
+
+figura 4.2.a.2
+
+
+\subsubsection{Clase Brain}
+\label{subsubsection:brain}
+
+Es la clase que crea un cerebro para el Boid. En ella, se guardan los comportamientos disponibles para ser activados. Todos estos 
+comportamientos conocidos se guardan en catalog. El cerebro, además, se encarga de discriminar entre aquellos que pueden ser activados por 
+un Boid concreto y los que no.
+
+Guarda las aceleraciones el Boid posee para cada uno de sus comportamientos activos. De esta manera, se puede calcular la aceleración que 
+el Boid necesita para cambiar su posición en función del objetivo.\\
+
+
+Métodos:
+\begin{itemize}
+\item can\$U
+Comprueba si el Boid puede activar un comportamiento específico.
+
+\item can\_be\_in\$U
+Comprueba si un comportamiento puede ser activado para un Boid.
+
+\item activate
+Activa un comportamiento determinado en un Boid.
+
+\item deactivate
+Desactiva un comportamiento determinado en un Boid.
+
+\item is\_in\$U
+Comprueba si un comportamiento está en la lista de aquellos aceptados por el Boid.
+
+\item get\_behavior
+Obtiene el comportamiento pasado como parámetro
+
+\item \$see\_accelerations
+Muestra las aceleraciones guardadas por el método desired\_accelerations()
+
+\item desired\_accelerations
+Guarda las aceleraciones de un determinado Boid para todos sus objetivos
+
+\item desired\_acceleration
+Calcula la aceleración que el Boid necesita para cambiar su posición.
+\end{itemize}
+
+\subsubsection{Clase Sheep}
+\label{subsubsection:sheep}
+
+La clase oveja deriva de la clase Boid, por lo que hereda la mayoría de su funcionalidad. La diferencia fundamental con la clase padre es 
+la creación de nuevas funciones y la redefinición de métodos ya existentes.\\
+
+Métodos:
+\begin{itemize}
+\item sheep\_limits(): Define los límites entre los que los Boids oveja se pueden mover. Esta función es necesaria para que éstos no se 
+salgan de los límites impuestos por el canvas. Ver figura 4.2.c.1
+
+\item  update\_physics(): Calcula la nueva posición, velocidad y aceleración en función del tiempo que ha pasado. Esta función ha sido 
+necesaria redefinirla para poder llamar a la función sheep\_limits(). Además, se comprueba si el Boid oveja ha entrado en el corral y, en 
+caso afirmativo, se suma un punto al contador. Ver figura 4.2.c.2
+
+\item  first\_draw():  Pinta el Boid y lo guarda como imagen, lo que ahorra tiempo de cálculo. Se redefine para evitar que los Boids se 
+pinten como círculos, ya que en el constructor se determina una imagen para representar a las ovejas. Ver figura 4.2.c.3
+
+\item  draw(): Pinta un Boid en un mundo definido por un contexto. La diferencia con el método original es que ya no se pintan líneas en 
+el canvas. Si la velocidad es mayor que cero, se carga la imagen de la oveja mirando hacia la izquierda y si no, hacia la derecha. 
+Ver figura 4.2.c.4
+
+\end{itemize}
+
+Figura 4.2.c.1
+
+\begin{verbatim}
+ Sheep.prototype.sheep\_limits = function() {
+    var x\_axis = this.geo\_data.position.Coord[0]
+    var y\_axis = this.geo\_data.position.Coord[1]
+
+    if(y\_axis >= 800 && x\_axis >= 170 || y\_axis >= 800 && x\_axis <= 274){
+           if(this.first\_time == 0){
+                 this.my\_world.max\_score = true
+                 return
+           }
+           else
+                 return
+    }
+    if(x\_axis <= -445 || x\_axis >= 395)
+           this.geo\_data.velocity.Coord[0] = 0
+    if (y\_axis >= 800 || y\_axis <= 0) {
+            this.geo\_data.velocity.Coord[1] = 0
+    }
+}
+\end{verbatim}
+
+
+Figura 4.2.c.3
+\begin{verbatim}
+ Sheep.prototype.first\_draw = function() {
+    var canvas = document.createElement('canvas');
+    canvas.width = 24;
+    canvas.height = 24;
+
+    var ctx = canvas.getContext('2d');
+}
+\end{verbatim}
+
+
+Figura 4.2.c.4
+\begin{verbatim}
+ Sheep.prototype.draw = function(ctx){
+    var p = this.geo\_data.position
+    var v = this.geo\_data.velocity
+    var a = this.geo\_data.acceleration
+    var radius = 10
+    var scale = 1 - p.get\_coord(1) / 3000
+    var x = this.geo\_data.velocity.get\_coord(0)
+
+    ctx.save()
+    ctx.scale( scale, scale / 2 )
+
+    if(x < 0) {
+           ctx.drawImage(this.image, p.get\_coord(0), p.get\_coord(1))
+    }
+    else
+           ctx.drawImage(this.image\_left, p.get\_coord(0), p.get\_coord(1))
+
+    ctx.restore()
+}
+\end{verbatim}
+
+
+\subsubsection{Clase Pig}
+\label{subsubsection:pig}
+
+La característica principal de esta clase es su capacidad para responder a las coordenadas del ratón cuando el usuario dispara el evento 
+onClick(). Éstas son capturadas por el objeto MouseCoordinates, el cual deriva de la clase Gate. A través de su método do\_onclick(), 
+transforma las coordenadas globales de la pantalla en locales del canvas y las guarda en sendas variables de clase. Estas variables se 
+pasan al mundo como parámetros de su función move\_shepherd() y se usan para definir el objetivo del Boid, el cual tiene programado un 
+comportamiento de persecución. Ver figura 4.2.d.1\\
+
+Métodos:
+
+Esta clase cuenta con dos métodos, modificados de la clase original. Al igual que en la clase Sheep, ha sido necesario redefinir 
+first\_draw() y draw() para poder cargar la imagen del cerdito en lugar de pintar el círculo que se crea por defecto para representar el 
+Boid.
+
+Figura 4.2.d.1
+\begin{verbatim}
+ MouseCoordinates.prototype.do_onclick = function (ev, el) {
+   this.X = ev.pageX - screener.offsetLeft
+   this.Y = ev.pageY - screener.offsetTop
+   this.device.move\_shepherd(this.X, this.Y)
+}
+\end{verbatim}
+
+
+\subsection{Clase Behavior}
+\label{subsection:behavior_section}
+
+\subsubsection{Introducción}
+\label{subsubsection:behavior}
+
+La clase Behavior permite modelar el comportamiento de los Boid. Esto se consigue modificando el vector de aceleración que cada uno de los 
+Boids posee como parte de su estructura interna. Un comportamiento se puede definir como un objeto que devuelve una aceleración deseada en 
+un momento concreto.
+
+Al ser una clase abstracta, no permite crear instancias, de manera que para crear un comportamiento nuevo es necesario generar una clase 
+nueva que derive de ésta.
+
+Modo incorrecto de crear un comportamiento:
+
+var a = new Behavior()
+
+Modo correcto:
+
+NewBehavior.prototype = new Behavior
+
+Estos comportamientos puede tener pre y post modificadores. Los primeros modifican la aceleración antes de devolverla y los segundos,
+después. Un ejemplo de premodificador es forsee, que se encarga de calcular dónde estará el objetivo en la próxima medida de tiempo. Este 
+premodificador unido al comportamiento de búsqueda seek hacen que varíe la aceleración para modificar la trayectoria y perseguir al objetivo. 
+Un ejemplo de premodificador sería arrival, el cual va disminuyendo la aceleración a medida que se acerca al objetivo.
+
+Los comportamientos disponibles para los Boid en este momento son seek (búsqueda), flee (huida), wander (paseo), containment (contención 
+en el espacio), alignment (alineamiento con otro Boids), cohesion (acercamiento a otros Boids), separation (separación de otros Boids) y 
+obstacle avoidance (sorteo de obstáculos).
+
+Métodos:
+\begin{itemize}
+\item decompose\_name():
+Dada una cadena de caracteres que representa el nombre del comportamiento y sus modificadores, devuelve un array con la lista de pre
+modificadores, el nombre del comportamiento y una lista con los post modificadores.
+
+\item catalog():
+Lista todos los comportamientos y modificadores conocidos.
+
+\item new():
+Crea un nuevo comportamiento.
+
+\item type\_of():
+Devuelve la clase asociada con el nombre del comportamiento.
+
+\item is\_a\$U():
+Comprueba si el nombre pasado como parámetro se corresponde con uno de los comportamientos existentes.
+
+\item desired\_acceleration():
+Devuelve un vector con la aceleración deseada de ese comportamiento.
+
+\item is\_premodified\_by\$U():
+Devuelve true si el nombre del modificador está en la lista de pre modificadores
+
+\item is\_postmodified\_by\$U():
+Devuelve true si el nombre del modificador está en la lista de post modificadores.
+
+\item is\_modified\_by\$U():
+Devuelve true si el nombre del modificador está tanto en la lista de pre como de post modificadores.
+
+\item get\_modifiers\_for():
+Devuelve una lista de pre o post modificadores.
+
+\item all\_modifiers():
+Devuelve una lista de todos los modificadores.
+
+\item activate\_modifier():
+Activa un modificador determinado.
+
+\item get\_modifier():
+Busca un modificador determinado y devuelve null si no lo encuentra.
+
+\item deactivate\_modifier():
+Desactiva un modificador determinado.
+\end{itemize}
+
+
+\subsubsection{Clase Sheep Behavior}
+\label{subsubsection:sheep_behavior}
+ 
+
+Es la clase encargada de generar el comportamiento de las ovejas. Deriva de la clase Behavior. Cuando el cerdito oveja entra dentro del 
+radio de visión de la oveja, esto despierta en ella un comportamiento de huida. Es decir, aumenta su aceleración hasta su límite para 
+disminuir ésta gradualmente a medida que se va alejando del Boid cerdito.
+
+Éste es el primero de los cinco comportamientos que se quieren implementar (véase cuadro 4.3.b.1). Los otros cuatro quedan para una fase 
+posterior de desarrollo.\\
+
+Métodos:
+\begin{itemize}
+\item set\_target():
+Define el objetivo del Boid, que debe ser otro Boid y el cual se pasa como parámetro.
+
+\item target\_data():
+Define la información sobre la posición del Boid objetivo.
+
+\item get\_target():
+Devuelve la posición del objetivo.
+
+\item target\_at():
+Da la distancia entre el Boid y su objetivo.
+
+\item desired\_velocity():
+Devuelve la velocidad deseada del Boid. Ver figura 4.3.b.2
+
+\item desired\_acceleration():
+Devuelve la aceleración deseada del Boid.
+\end{itemize}
+
+\subsubsection{Clase Alignment Behavior}
+\label{subsubsection:alignment_behavior}
+
+Al comportamiento básico de la oveja se le añadió el comportamiento de alineación, con el objetivo de crear una sensación de grupo más 
+marcada. El comportamiento de Alignment está dentro de los comportamientos de manada del cerebro.
+Se calcula el alineamiento medio como la media de las velocidades. Es necesario que aumente la aceleración para eliminar la componente 
+normal al alineamiento en la velocidad del Boid, es decir, suprime toda la velocidad que no esté en la dirección del alineamiento.\\
+
+- gráfico de velocidades y aceleraciones -
+
+
+\subsubsection{Clase Seek Mouse Behavior}
+\label{subsubsection:seek_mouse_behavior}
+
+Deriva de la clase Seek Behavior y modifica el comportamiento de la clase Pig a través de uno de sus métodos, al que se le pasan 
+como parámetros las variables x e y, que se corresponden  con las coordenadas x e y del ratón, capturadas y transformadas en coordenadas 
+locales por la clase MouseCoordinates.
+
+Este comportamiento se activa en la clase Galactus, en la creación del Boid cerdito. Después, en la función move\_shepherd() de la clase 
+Mundo, se consigue el comportamiento de seek mouse, se obtienen los valores de x e y y se escalan en función de la perspectiva del canvas.
+Estas coordenadas escaladas se pasan como parámetro a la clase Seek Mouse a través de su método  set\_target\_at(). Ver figura 4.3.d.1\\
+
+
+Comportamientos. Cuadro 4.3.b.1
+
+\begin{table}[ht]
+\caption{Comportamientos. Cuadro 4.3.b.1}
+% title of Table
+\centering
+% used for centering table
+\begin{tabular}{c c c c}
+% centered columns (4 columns)
+\hline
+\hline %inserts double horizontal lines
+Case & Method \#1 & Method \#2 & Method \#3 \\ [0.5ex] % inserts table
+%heading
+\hline
+% inserts single horizontal line
+1 & 50 & 837 & 970 \\
+% inserting body of the table
+2 & 47 & 877 & 230 \\
+3 & 31 & 25 & 415 \\
+4 & 35 & 144 & 2356 \\
+5 & 45 & 300 & 556 \\
+[1ex]
+% [1ex] adds vertical space
+\hline
+%inserts single line
+\end{tabular}
+\label{table:nonlin}
+% is used to refer this table in the text
+\end{table
+
+
+\begin{itemize}
+ \item Boid cerdito --> Técnica del limpiaparabrisas: El pastor debe moverse en zig-zag detrás de la manada, para mantenerlos en línea recta.
+ \item Boid oveja --> Las ovejas deben de agruparse y moverse en línea recta.
+ \item zona de fuga: Si el cerdito se encuentra en la zona de fuga de la oveja
+Esta se agita y se enfrenta a él.
+ \item Moverlos en una manga: El cerdo debe estar detrás de el punto de equilibrio de la oveja (cuartos delanteros)
+Las ovejas avanzan hacia delante.
+ \item Moverlos en una manga: El cerdo debe de situarse enfrente del punto de equilibrio
+Las ovejas avanzan hacia atrás.
+ \item Sacar a las ovejas del corral con un controlador: El cerdo se sitúa  a 90º detrás del ganado. Los movimientos deben de ser 
+perpendiculares a los del ganado. Moviéndose hacia delante y hacia atrás sobre la barra transversal de una gigante T, las ovejas salen en 
+manada del corral.
+\end{itemize}
+
+
+Figura 4.3.b.2
+\begin{verbatim}
+SheepBehavior.prototype.desired\_velocity = function(){
+ var arrival\_distance
+ try{
+    arrival\_distance = this.target_at().module()
+ }catch(err){
+    arrival\_distance = 0
+ }
+ var scale = 1
+ if(arrival\_distance >= 100){
+    scale = 0
+ }
+ else{
+    scale = arrival\_distance / 100
+ }
+
+ return (new Vector(this.target\_at().unit().scale(-scale * this.me.vel_max)))
+}
+\end{verbatim}
+
+
+\subsection{Clase World}
+\label{subsection:world}
+
+La clase World deriva de la clase Device y es la que genera el mundo en el que viven los Boids. Necesita un objeto canvas para poder 
+existir, aunque, en principio, sus límites son infinitos. Esto quiere decir que el usuario verá en pantalla tan sólo una parte del mundo, 
+mientras que los Boids podrán “viajar” a cualquier parte de él, llegando a desaparecer del canvas.
+
+Las funciones principales del mundo son gestionar el canvas y los boids existentes. A través de diferentes funciones, se puede modificar 
+el tamaño del mundo o del canvas, guardar los Boids creados en una lista y acceder a ésta o actualizar los datos que reciben estos Boids 
+para modificar su estado.
+
+Además, el mundo puede para enviar y recibir mensajes, una de las características de la clase Device. En la variable de clase 
+this.self\_events, de tipo Array, están guardados los mensajes que el mundo puede enviar. Puede recibir cualquier mensaje siempre y cuando
+haya definida una función attend\_nombre\_del\_mensaje()
+
+Métodos:
+\begin{itemize}
+ \item 
+
+ \item set\_dashboard():
+Define una nueva interfaz del mundo en el canvas.
+
+ \item width():
+Define el ancho del mundo.
+
+ \item height():
+Define el alto del mundo.
+
+ \item screen\_width():
+Define el ancho del canvas.
+
+ \item assert\_screen():
+Comprueba si se ha creado un canvas.
+
+ \item screen\_height():
+Define el alto del canvas.
+
+ \item has\_born():
+Registra la creación de un Boid y se envía un mensaje de notificación a sí mismo.
+
+ \item get\_boids():
+Crea un array con todos los Boids.
+
+ \item each\_boid():
+Permite acceder a cada boid guardado en el array de Boids
+
+ \item start():
+Inicializa el tiempo de los boids
+
+ \item is\_initalized():
+Comprueba si el mundo está inicializado. Si es así, el usuario está reiniciando el juego.
+
+ \item draw():
+Dibuja el canvas en el mundo.
+
+ \item move\_shepherd():
+Define el target del Boid en función de las coordenadas del ratón. Ver figura 4.4.1
+
+ \item step():
+Actualiza la fecha en los cálculos de la física de los Boids.
+
+ \item is\_one\_second\_from\_begining():
+Define la hora de comienzo del mundo en un segundo más de la hora en la que la función fue llamada.
+
+ \item show\_boids():
+Muestra los Boids que existen actualmente en el mundo.
+
+ \item check\_level():
+Comprueba si el nivel ha sido superado por el usuario. Si es así, para el mundo y el cronómetro y llama a la función que cambia la imagen 
+de fondo del canvas. Ver figura 4.4.2
+
+ \item running\_steady():
+Actualiza la hora del procesador, comprueba el nivel y si éste ha sido superado, deja de pintar el canvas. Ver figura 4.4.3
+
+ \item visible\_for():
+Crea un array con los Boids que el Boid referenciado puede ver.
+
+ \item new\_boid():
+Crea un nuevo Boid.
+
+ \item new\_seeker():
+Crea un nuevo Boid con el comportamiento de búsqueda prefijado.
+
+ \item start\_and\_run():
+Inicia en mundo y lo pone en marcha.
+
+ \item attend\_focus\_boid():
+Actualiza la cola de mensajes.
+
+ \item new\_boid\_of():
+Crea un nuevo Boid de una subclase de Boid.
+
+ \item method\_missing():
+Provee el método dinámico new\_boid\_as\_<ClassName>
+\end{itemize}
+
+
+//////////////////////////////////////////////////////////\\
+Figura 4.4.1
+\begin{verbatim}
+World.prototype.move_shepherd = function (screen_x, screen_y) {
+   if (!this.shepherd)
+       return
+   var behaviour = this.shepherd.brain.get_behavior("seek mouse", null)
+   var x = screen_x - 425
+   var y = 500 - screen_y
+   var scale = 1 - y / 3000
+
+   behaviour.set_target_at( x / scale, 2 * y / scale)
+}
+\end{verbatim}
+
+
+Figura 4.4.2
+\begin{verbatim}
+World.prototype.check_level = function() {
+    if(this.level == 1 && this.points == 5){
+           this.is_finished = true
+           this.currentState.requested = this.state.suspended
+           this.clock.pause()
+           this.winner_pig()
+    }
+}
+\end{verbatim}
+
+Figura 4.4.3
+\begin{verbatim}
+World.prototype.running_steady = function(processors_time){
+       this.now = processors_time || new Date()
+       this.coord_x = this.mouse_coordinates.get_mouse_X()
+       this.coord_y = this.mouse_coordinates.get_mouse_Y()
+
+    score_number.style.float = "right"
+    score_number.style.fontSize = "24pt"
+    score_number.style.marginTop = "5px"
+    score_number.style.fontWeight = "bold"
+    score_number.innerHTML = ":" + this.points
+
+    this.check_level()
+    if(this.is_finished == false)
+       this.draw()
+}
+\end{verbatim}
+
+
+
+\subsection{Clase Galactus}
+\label{subsection:galactus}
+
+Clase que se encarga de gestionar la creación de un nuevo mundo al principio de cada juego. Además, se encarga de destruir el mundo 
+anterior cada vez que se reinicia la partida. La función principal de está clase es start\_world(), donde se crea el mundo nuevo, se añade 
+un puerto de escucha de mensajes y se llama a las funciones que controlan la cuenta atrás y la música. Además, se crea el Boid cerdito y 
+los Boid oveja y se les pasan los parámetros de configuración y se definen los comportamientos específicos.
+
+La función playSound() se encarga de gestionar el sonido del juego y todo lo relacionado con él. Countdown() es responsable de reloj de 
+cuenta atrás, de iniciarlo cuando se inicia el mundo, pararlo, etc. Destroy\_world() y attend\_restart\_world() son las funciones encargadas 
+de gestionar la destrucción del mundo y creación de uno nuevo cuando el usuario pulsa el botón de reiniciar el juego. 
+Attend\_restart\_world() es la función que responde al mensaje “restart\_world” enviado por el mundo gracias al puerto añadido en la 
+función start\_world()
+
+Métodos:
+\begin{itemize}
+ \item start\_world():
+Inicia el mundo. Ver figura 4.5.1
+
+ \item playSound():
+Inicia el sonido del juego respondiendo al evento onClick() del botón de play
+
+ \item countdown():
+Inicia la cuenta atrás del temporizador de la pantalla. Si el tiempo se termina, se llama a la función que pinta en el canvas la imagen de final del juego
+
+ \item destroy\_world():
+Destruye el mundo actual y deja saber al nuevo mundo que ya habia un mundo creado antes.
+
+ \item attend\_restart\_game():
+Reinicia el mundo. Atiende al mensaje enviado por el gate cuando alguien pulsa el botón restart del juego.
+\end{itemize}
+
+
+//////////////////////////////////////////////////////////\\
+Figura 4.5.1
+\begin{verbatim}
+Galactus.prototype.start_world = function() {
+   this.world = new World(this.view)
+   this.world.level = 1
+
+   this.handler.addPort("restart_game", this)
+   
+   this.countdown()
+   this.playSound()
+
+   var pig = this.world.new_boid_of(Pig, function(config) {
+       config.brain.activate("seek mouse", null)
+   })
+
+   this.world.shepherd = pig
+
+   var sheeper = [ ]
+   for (var i=0; i<30; i++) {
+        sheeper.push( this.world.new_boid_of(Sheep, function(config){
+               config.geo_data.position = new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400))
+           config.geo_data.velocity = new Vector(Math.floor(Math.random()*20), Math.floor(Math.random()*20))
+           config.geo_data.acceleration = new Vector(0,0)
+           config.vel_max = 70
+           config.vision = {radius: 100, angle: 80 * Math.PI / 80}           
+                config.force_limits = {
+                   thrust: 50,
+                   steering: 50,
+                   braking: 100
+               }
+                 config.brain.activate("alignment")
+                 config.brain.activate("sheep", pig)
+      }))
+ }
+
+   this.world.start()
+}
+\end{verbatim}
+//////////////////////////////////////////////////////////

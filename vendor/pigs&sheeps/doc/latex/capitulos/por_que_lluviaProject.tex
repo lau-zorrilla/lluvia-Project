@@ -1,0 +1,67 @@
+\section{Por qué Lluvia Project}
+\label{section:por_que}
+
+\subsection{¿Qué es lluviaProject?}
+\label{subsection:que_es}
+
+Es una API Open Source de javascript  que incorpora parte de las funciones nativas de Ruby. Soporta multihilos a pequeña escala y provee un 
+sistema de mensajes. Las aplicaciones deben crearse dentro del directorio vendor. Dentro del archivo html es necesario incluir en la 
+etiqueta body llamar a la función Bring LLuvia().\\
+
+La aplicación debe de contar con un archivo generalmente llamado dependencies.js, donde deben incluirse el nombre de los ficheros de los que 
+depende la aplicación. Si existe una función main esta se llama automáticamente después de cargarse lluvia.\\
+
+Ver ejemplo en figura 2.1.1
+\begin{figure}[p]
+\begin{verbatim}
+Figura 2.1.1
+
+$K\_app\_dependencies = [
+    {   module: "Boids", 
+        description: "Boids Demo App.",
+        path: "",
+        files: [
+            { name: "brain/behavior\_modifier.js",  
+               description: "Self protection behaviors." },
+            { name: "brain/behavior.js",           
+               description: "Abstract Behavior." },
+            { name: "brain/security\_behavior.js",  
+               description: "Self protection behaviors." },
+            { name: "brain/itinerant\_behavior.js", 
+               description: "Definition of itinerant behaviors." },
+            { name: "brain/behavior\_group.js",     
+                description: "Group of related behaviors." },
+            { name: "brain/brain.js",              
+               description: "Boid Brain." },
+            { name: "boid.js",                     
+               description: "One Boid." },
+            { name: "world\_interface.js",          
+               description: "World Interface." },
+            { name: "boid\_editor.js",              
+               description: "Boid panel editor." },
+            { name: "world.js",                    
+               description: "The world where all boids live." },
+            { name: "main.js",                     
+               description: "main function." },
+        ]
+    }
+]
+\end{verbatim}
+\end{figure}
+
+
+
+\subsection{Ventajas}
+\label{subsection:ventajas}
+
+
+Una de las funcionalidades que ofrece lluviaProject es el objeto boid. A este objeto se le puede configurar tanto el comportamiento como las 
+características físicas de aquello que se quiere representar.\\
+
+En la parte física, se puede modelar tanto el peso, la visión, la velocidad, la posición, la aceleración, capacidad de frenada, la capacidad 
+de giro, etc. Y por otra parte, se pueden modelar comportamientos de huida, de persecución, de cohesión, de alineamiento, de separación e 
+incluso comportamientos hechos a medida. Esta característica de lluviaProject permite representar los comportamientos de animales, objetos 
+o partículas, entre otros.\\
+
+Esto, junto con el hecho de que añade librerías y funciones que hacen que la escritura de código en javascript sea más cómodo, nos hizo 
+decidirnos por lluviaProject.\\
