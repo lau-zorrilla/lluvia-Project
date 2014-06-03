@@ -233,6 +233,15 @@ World.prototype.check_level = function() {
         this.clock.pause()
         this.winner_pig()
     }
+    else {
+        if (this.clock.running == false){
+            this.is_finished = true
+            this.currentState.requested = this.state.killed
+            clearInterval(timer_interval) // detiene setInterval
+            source1.stop()//Para musica
+            this.gameover_pig()
+        }
+    }
     //if(this.level == 2 && this.points == 10)
     //  call function that paints happy ending
 

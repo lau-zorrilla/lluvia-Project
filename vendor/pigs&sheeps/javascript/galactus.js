@@ -129,13 +129,14 @@ Galactus.prototype.countdown = function(){
 
 		timer.innerHTML = that.world.clock.get_string() //escribe en el div "timer"
 		
-		if (that.world.clock.running == false){
-			that.world.is_finished = true
-			that.world.currentState.requested = that.world.state.killed
-			clearInterval(timer_interval) // detiene setInterval
-			source1.stop()//Para musica
-			that.world.gameover_pig()
-		}
+		// if (that.world.clock.running == false){
+		// 	that.world.is_finished = true
+		// 	that.world.currentState.requested = that.world.state.killed
+		// 	clearInterval(timer_interval) // detiene setInterval
+		// 	source1.stop()//Para musica
+		// 	if(this.world.points <= 4)
+		// 	   that.world.gameover_pig()
+		// }
 	}	
 	,1000);
 
