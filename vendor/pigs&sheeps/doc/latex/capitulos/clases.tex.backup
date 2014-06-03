@@ -64,7 +64,7 @@ Es posible definir métodos singleton, que se crean en el constructor de la clas
 métodos, this pierde su significado y es necesario que esté recogido en una variable local para poder acceder a él.\\
 
 
-
+\begin{figure}[bp]
 Figura 4.1.1
 \begin{verbatim}
  function Vehicle(mass, number\_of\_wheels){
@@ -100,6 +100,7 @@ dog = new (Animal("Tim", 4))("meat")
 
 Figura 4.1.3
 (gráfico cadena prototípica web lluvia. Traducir a español)
+\end{figure}
 
 
 \subsection{Clase Boid}
@@ -185,6 +186,7 @@ Define un target.
 Devuelve la información del target.
 \end{itemize}
 
+\begin{figure}[bp]
 Figura 4.2.a.1 
 \begin{verbatim}
  var default\_config = {
@@ -209,8 +211,8 @@ Figura 4.2.a.1
            }
 }
 \end{verbatim}
-
 figura 4.2.a.2
+\end{figure}
 
 
 \subsubsection{Clase Brain}
@@ -278,6 +280,7 @@ Ver figura 4.2.c.4
 
 \end{itemize}
 
+\begin{figure}[p]
 Figura 4.2.c.1
 
 \begin{verbatim}
@@ -285,7 +288,8 @@ Figura 4.2.c.1
     var x\_axis = this.geo\_data.position.Coord[0]
     var y\_axis = this.geo\_data.position.Coord[1]
 
-    if(y\_axis >= 800 && x\_axis >= 170 || y\_axis >= 800 && x\_axis <= 274){
+    if(y\_axis >= 800 && x\_axis >= 170 || 
+       y\_axis >= 800 && x\_axis <= 274){
            if(this.first\_time == 0){
                  this.my\_world.max\_score = true
                  return
@@ -300,8 +304,8 @@ Figura 4.2.c.1
     }
 }
 \end{verbatim}
-
-
+\end{figure}
+\begin{figure}[p]
 Figura 4.2.c.3
 \begin{verbatim}
  Sheep.prototype.first\_draw = function() {
@@ -312,8 +316,8 @@ Figura 4.2.c.3
     var ctx = canvas.getContext('2d');
 }
 \end{verbatim}
-
-
+\end{figure}
+\begin{figure}[p]
 Figura 4.2.c.4
 \begin{verbatim}
  Sheep.prototype.draw = function(ctx){
@@ -328,14 +332,19 @@ Figura 4.2.c.4
     ctx.scale( scale, scale / 2 )
 
     if(x < 0) {
-           ctx.drawImage(this.image, p.get\_coord(0), p.get\_coord(1))
+       ctx.drawImage(this.image, 
+                     p.get\_coord(0),
+                     p.get\_coord(1))
     }
     else
-           ctx.drawImage(this.image\_left, p.get\_coord(0), p.get\_coord(1))
+       ctx.drawImage(this.image\_left, 
+                     p.get\_coord(0),
+                     p.get\_coord(1))
 
     ctx.restore()
 }
 \end{verbatim}
+\end{figure}
 
 
 \subsubsection{Clase Pig}
@@ -353,6 +362,7 @@ Esta clase cuenta con dos métodos, modificados de la clase original. Al igual q
 first\_draw() y draw() para poder cargar la imagen del cerdito en lugar de pintar el círculo que se crea por defecto para representar el 
 Boid.
 
+\begin{figure}[p]
 Figura 4.2.d.1
 \begin{verbatim}
  MouseCoordinates.prototype.do_onclick = function (ev, el) {
@@ -361,6 +371,7 @@ Figura 4.2.d.1
    this.device.move\_shepherd(this.X, this.Y)
 }
 \end{verbatim}
+\end{figure}
 
 
 \subsection{Clase Behavior}
@@ -442,7 +453,6 @@ Desactiva un modificador determinado.
 
 \subsubsection{Clase Sheep Behavior}
 \label{subsubsection:sheep_behavior}
- 
 
 Es la clase encargada de generar el comportamiento de las ovejas. Deriva de la clase Behavior. Cuando el cerdito oveja entra dentro del 
 radio de visión de la oveja, esto despierta en ella un comportamiento de huida. Es decir, aumenta su aceleración hasta su límite para 
@@ -478,9 +488,12 @@ Devuelve la aceleración deseada del Boid.
 Al comportamiento básico de la oveja se le añadió el comportamiento de alineación, con el objetivo de crear una sensación de grupo más 
 marcada. El comportamiento de Alignment está dentro de los comportamientos de manada del cerebro.
 Se calcula el alineamiento medio como la media de las velocidades. Es necesario que aumente la aceleración para eliminar la componente 
-normal al alineamiento en la velocidad del Boid, es decir, suprime toda la velocidad que no esté en la dirección del alineamiento.\\
+normal al alineamiento en la velocidad del Boid, es decir, suprime toda la velocidad que no esté en la dirección del alineamiento. Ver figura 4.3.3.1\\
 
+\begin{figure}[p]
+figura 4.3.3.1
 - gráfico de velocidades y aceleraciones -
+\end{figure}
 
 
 \subsubsection{Clase Seek Mouse Behavior}
@@ -495,52 +508,33 @@ Mundo, se consigue el comportamiento de seek mouse, se obtienen los valores de x
 Estas coordenadas escaladas se pasan como parámetro a la clase Seek Mouse a través de su método  set\_target\_at(). Ver figura 4.3.d.1\\
 
 
-Comportamientos. Cuadro 4.3.b.1
+%Comportamientos. Cuadro 4.3.b.1
 
-\begin{table}[ht]
-\caption{Comportamientos. Cuadro 4.3.b.1}
+\begin{table}[p]
+\caption{Comportamientos.}
 % title of Table
-\centering
+%\centering
 % used for centering table
-\begin{tabular}{c c c c}
-% centered columns (4 columns)
-\hline
-\hline %inserts double horizontal lines
-Case & Method \#1 & Method \#2 & Method \#3 \\ [0.5ex] % inserts table
+\begin{tabular}{| p{4cm} | p{7cm} | p{4cm} |} % centered columns (4 columns)
+
+\hline\hline %inserts double horizontal lines
+Nombre de la técnica & Boid cerdito & Boid oveja \\ [0.5ex] % inserts table
 %heading
-\hline
-% inserts single horizontal line
-1 & 50 & 837 & 970 \\
+\hline % inserts single horizontal line
 % inserting body of the table
-2 & 47 & 877 & 230 \\
-3 & 31 & 25 & 415 \\
-4 & 35 & 144 & 2356 \\
-5 & 45 & 300 & 556 \\
-[1ex]
-% [1ex] adds vertical space
-\hline
-%inserts single line
+Técnica del limpiaparabrisas & El pastor debe moverse en zig-zag detrás de la manada, para mantenerlos en línea recta. & Las ovejas deben de agruparse y moverse en línea recta.\\
+Zona de fuga & El cerdito se encuentra en la zona de fuga de la oveja. & La oveja se agita y se enfrenta a él. \\
+Moverlos en una manga & El cerdo debe de situarse enfrente del punto de equilibrio & Las ovejas avanzan hacia atrás. \\
+Sacar a las ovejas del corral con un controlador & El cerdo se sitúa  a 90º detrás del ganado. Los movimientos deben de ser perpendiculares a los del ganado, hacia delante y hacia atrás sobre la barra transversal de una gigante T. & las ovejas salen en 
+manada del corral. \\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
 \end{tabular}
-\label{table:nonlin}
-% is used to refer this table in the text
-\end{table
+\label{table:nonlin} % is used to refer this table in the text
+\end{table}
 
+ Cuadro 4.3.b.1
 
-\begin{itemize}
- \item Boid cerdito --> Técnica del limpiaparabrisas: El pastor debe moverse en zig-zag detrás de la manada, para mantenerlos en línea recta.
- \item Boid oveja --> Las ovejas deben de agruparse y moverse en línea recta.
- \item zona de fuga: Si el cerdito se encuentra en la zona de fuga de la oveja
-Esta se agita y se enfrenta a él.
- \item Moverlos en una manga: El cerdo debe estar detrás de el punto de equilibrio de la oveja (cuartos delanteros)
-Las ovejas avanzan hacia delante.
- \item Moverlos en una manga: El cerdo debe de situarse enfrente del punto de equilibrio
-Las ovejas avanzan hacia atrás.
- \item Sacar a las ovejas del corral con un controlador: El cerdo se sitúa  a 90º detrás del ganado. Los movimientos deben de ser 
-perpendiculares a los del ganado. Moviéndose hacia delante y hacia atrás sobre la barra transversal de una gigante T, las ovejas salen en 
-manada del corral.
-\end{itemize}
-
-
+ \begin{figure}[p]
 Figura 4.3.b.2
 \begin{verbatim}
 SheepBehavior.prototype.desired\_velocity = function(){
@@ -558,9 +552,11 @@ SheepBehavior.prototype.desired\_velocity = function(){
     scale = arrival\_distance / 100
  }
 
- return (new Vector(this.target\_at().unit().scale(-scale * this.me.vel_max)))
+ return (new Vector(this.target\_at().unit().scale(- scale 
+                     * this.me.vel_max)))
 }
 \end{verbatim}
+ \end{figure}
 
 
 \subsection{Clase World}
@@ -576,12 +572,10 @@ para modificar su estado.
 
 Además, el mundo puede para enviar y recibir mensajes, una de las características de la clase Device. En la variable de clase 
 this.self\_events, de tipo Array, están guardados los mensajes que el mundo puede enviar. Puede recibir cualquier mensaje siempre y cuando
-haya definida una función attend\_nombre\_del\_mensaje()
+haya definida una función attend\_nombre\_del\_mensaje().\\
 
 Métodos:
 \begin{itemize}
- \item 
-
  \item set\_dashboard():
 Define una nueva interfaz del mundo en el canvas.
 
@@ -660,7 +654,43 @@ Provee el método dinámico new\_boid\_as\_<ClassName>
 \end{itemize}
 
 
-//////////////////////////////////////////////////////////\\
+
+
+\subsection{Clase Galactus}
+\label{subsection:galactus}
+
+Clase que se encarga de gestionar la creación de un nuevo mundo al principio de cada juego. Además, se encarga de destruir el mundo 
+anterior cada vez que se reinicia la partida. La función principal de está clase es start\_world(), donde se crea el mundo nuevo, se añade 
+un puerto de escucha de mensajes y se llama a las funciones que controlan la cuenta atrás y la música. Además, se crea el Boid cerdito y 
+los Boid oveja y se les pasan los parámetros de configuración y se definen los comportamientos específicos.
+
+La función playSound() se encarga de gestionar el sonido del juego y todo lo relacionado con él. Countdown() es responsable de reloj de 
+cuenta atrás, de iniciarlo cuando se inicia el mundo, pararlo, etc. Destroy\_world() y attend\_restart\_world() son las funciones encargadas 
+de gestionar la destrucción del mundo y creación de uno nuevo cuando el usuario pulsa el botón de reiniciar el juego. 
+Attend\_restart\_world() es la función que responde al mensaje “restart\_world” enviado por el mundo gracias al puerto añadido en la 
+función start\_world()
+
+Métodos:
+\begin{itemize}
+ \item start\_world():
+Inicia el mundo. Ver figura 4.5.1
+
+ \item playSound():
+Inicia el sonido del juego respondiendo al evento onClick() del botón de play
+
+ \item countdown():
+Inicia la cuenta atrás del temporizador de la pantalla. Si el tiempo se termina, se llama a la función que pinta en el canvas la imagen de final del juego
+
+ \item destroy\_world():
+Destruye el mundo actual y deja saber al nuevo mundo que ya habia un mundo creado antes.
+
+ \item attend\_restart\_game():
+Reinicia el mundo. Atiende al mensaje enviado por el gate cuando alguien pulsa el botón restart del juego.
+\end{itemize}
+
+
+
+\begin{figure}[p]
 Figura 4.4.1
 \begin{verbatim}
 World.prototype.move_shepherd = function (screen_x, screen_y) {
@@ -706,43 +736,9 @@ World.prototype.running_steady = function(processors_time){
        this.draw()
 }
 \end{verbatim}
+\end{figure}
 
-
-
-\subsection{Clase Galactus}
-\label{subsection:galactus}
-
-Clase que se encarga de gestionar la creación de un nuevo mundo al principio de cada juego. Además, se encarga de destruir el mundo 
-anterior cada vez que se reinicia la partida. La función principal de está clase es start\_world(), donde se crea el mundo nuevo, se añade 
-un puerto de escucha de mensajes y se llama a las funciones que controlan la cuenta atrás y la música. Además, se crea el Boid cerdito y 
-los Boid oveja y se les pasan los parámetros de configuración y se definen los comportamientos específicos.
-
-La función playSound() se encarga de gestionar el sonido del juego y todo lo relacionado con él. Countdown() es responsable de reloj de 
-cuenta atrás, de iniciarlo cuando se inicia el mundo, pararlo, etc. Destroy\_world() y attend\_restart\_world() son las funciones encargadas 
-de gestionar la destrucción del mundo y creación de uno nuevo cuando el usuario pulsa el botón de reiniciar el juego. 
-Attend\_restart\_world() es la función que responde al mensaje “restart\_world” enviado por el mundo gracias al puerto añadido en la 
-función start\_world()
-
-Métodos:
-\begin{itemize}
- \item start\_world():
-Inicia el mundo. Ver figura 4.5.1
-
- \item playSound():
-Inicia el sonido del juego respondiendo al evento onClick() del botón de play
-
- \item countdown():
-Inicia la cuenta atrás del temporizador de la pantalla. Si el tiempo se termina, se llama a la función que pinta en el canvas la imagen de final del juego
-
- \item destroy\_world():
-Destruye el mundo actual y deja saber al nuevo mundo que ya habia un mundo creado antes.
-
- \item attend\_restart\_game():
-Reinicia el mundo. Atiende al mensaje enviado por el gate cuando alguien pulsa el botón restart del juego.
-\end{itemize}
-
-
-//////////////////////////////////////////////////////////\\
+\begin{figure}[p]
 Figura 4.5.1
 \begin{verbatim}
 Galactus.prototype.start_world = function() {
@@ -763,8 +759,10 @@ Galactus.prototype.start_world = function() {
    var sheeper = [ ]
    for (var i=0; i<30; i++) {
         sheeper.push( this.world.new_boid_of(Sheep, function(config){
-               config.geo_data.position = new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400))
-           config.geo_data.velocity = new Vector(Math.floor(Math.random()*20), Math.floor(Math.random()*20))
+           config.geo_data.position = new Vector(Math.floor(Math.random()*400),
+                                                 Math.floor(Math.random()*400))
+           config.geo_data.velocity = new Vector(Math.floor(Math.random()*20),
+                                                 Math.floor(Math.random()*20))
            config.geo_data.acceleration = new Vector(0,0)
            config.vel_max = 70
            config.vision = {radius: 100, angle: 80 * Math.PI / 80}           
@@ -781,4 +779,4 @@ Galactus.prototype.start_world = function() {
    this.world.start()
 }
 \end{verbatim}
-//////////////////////////////////////////////////////////
+\end{figure}

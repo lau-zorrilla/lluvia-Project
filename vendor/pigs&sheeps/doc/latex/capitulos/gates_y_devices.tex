@@ -20,38 +20,9 @@ Escribiríamos:
 \begin{verbatim}
      var brush_button = new Gate("brush_btn", "button_bar")
 \end{verbatim}
-Lo que generaría un div con id:”brush\_btn” y un objeto javascript que responderá a cada evento html que se haya definido en el correspondiente 
+Lo que generaría un div con id: ”brush\_btn” y un objeto javascript que responderá a cada evento html que se haya definido en el correspondiente 
 handler. Ver figura 5.1.1
 
-\begin{figure}[p]
-Figura 5.1.1
-\begin{verbatim}
-     Button.prototype = new Gate
-     Button.prototype.constructor = Button
-
-     function Button(element){
-
-        try {
-            if (arguments.length)
-                Gate.call(this, element)// LLama al superconstructor de Gate.
-        } catch (e) {
-            if (\$K_debug_level >= \$KC_dl.DEVELOPER)
-                alert("No event handlers were found.\nException: " 
-                       + e.toSource())
-        }
-     }
-
-     Button.prototype.do_onclick   = function(event, element){
-        alert("You have made click.")
-     }
-
-     var b = new Button(id_of_html_element, null, {
-         do_onmouseover: function(event, element) {
-             alert("Hello")
-         }
-     })
-\end{verbatim}
-\end{figure}
 
 \subsection{Menú y Submenú}
 \label{subsection:menu}
@@ -62,42 +33,11 @@ Estos estados, a su vez, pueden encontrarse en estado anterior (previous), actua
 actual (current), se realizarán la funciones correspondientes.\\
 
 Estado out: Cambia la altura de menu a 250px. Ver figura 5.2.1
- 
-\begin{figure}[p]
-figura 5.2.1
-\begin{verbatim}
-[function(){
-    this.gate.panel.style.height = "" + 250 +"px" 
-}; ],
-\end{verbatim}
-\end{figure}
 
 Estado getting\_out : Incrementa la altura de menu de 5 en 5px  mientras este mida menos de 206 px y mas de 50px. Ver figura figura 5.2.2
 
-\begin{figure}[p]
-figura 5.2.1
-\begin{verbatim}
-[function (){
-    if( this.menu_height >= 50 && this.menu_height<=205)
-       this.menu_height+=5
-    this.gate.panel.style.height = "" + this.menu_height +"px"
-};],
- 
-\end{verbatim}
-\end{figure}
-            
 Estado  getting\_in : Decrementa la altura de menú de 5 en 5px  mientras éste mida  más de 55px. Ver figura figura 5.2.3
 
-\begin{figure}[p]
-figura 5.2.1
-\begin{verbatim}
-[function(){
-    if( this.menu_height >=55 ){         
-        this.menu_height-=5
-    this.gate.panel.style.height = "" + this.menu_height +"px"
-},],
-\end{verbatim}
-\end{figure}
         
 Animation: Recoge los eventos que se producen en el menú a partir de la interacción del usuario. Animation.js deriva de la clase gate.
 Recibe el elemento html que envuelve  el gateAnitamion. En su función initialize además de crear como atributo  el elemento (html) y de llamar
@@ -109,13 +49,13 @@ La clase animation cuenta con los métodos do\_onmouseover y do\_onmouseout:
 Es decir, el estado "saliendo" de menuAutomata.
 
  \item do\_onmouseout: Añade como estado solicitado el estado getting\_in del menuAutomata.
-Es decir, el estado "entrando" de menuAutomata.
+Es decir, el estado \"entrando" de menuAutomata.
 \end{itemize}
 
 MenuHandler: Se encarga de disparar los eventos que se producen en el menú. Se comunica con la clase OptionHandler.
 Menu handler deriva de la clase device, éste  tiene sus propios eventos : self\_events.\\
 
-Para el despliegue del menu, creamos un gate contenido en Animation para el elemento o etiqueta "menu" del html para asociar los efectos del 
+Para el despliegue del menu, creamos un gate contenido en Animation para el elemento o etiqueta \"menu" del html para asociar los efectos del 
 gate Animation al atributo menu\_effects y apartir de ello creamos un menuAutomata.
 
 Para realizar las funciones de cada botón del menu:
@@ -200,3 +140,69 @@ Si ranning es igual a verdadero, es decir, si el reloj esta en marcha, se llama 
 segundos utilizando las funciones floor y round de la librería math de javascript. Posteriormente se realiza la concatenación de cadenas para 
 darle formato. Si por el contrario el reloj no esta en marcha(running es falso), realizamos las mismas operaciones sin llamar al método run.
 
+
+\begin{figure}[p]
+Figura 5.1.1
+\begin{verbatim}
+     Button.prototype = new Gate
+     Button.prototype.constructor = Button
+
+     function Button(element){
+
+        try {
+            if (arguments.length)
+                Gate.call(this, element)// LLama al superconstructor de Gate.
+        } catch (e) {
+            if (\$K_debug_level >= \$KC_dl.DEVELOPER)
+                alert("No event handlers were found.\nException: " 
+                       + e.toSource())
+        }
+     }
+
+     Button.prototype.do_onclick   = function(event, element){
+        alert("You have made click.")
+     }
+
+     var b = new Button(id_of_html_element, null, {
+         do_onmouseover: function(event, element) {
+             alert("Hello")
+         }
+     })
+\end{verbatim}
+\end{figure}
+
+
+ 
+\begin{figure}[p]
+figura 5.2.1
+\begin{verbatim}
+[function(){
+    this.gate.panel.style.height = "" + 250 +"px" 
+}; ],
+\end{verbatim}
+\end{figure}
+
+
+\begin{figure}[p]
+figura 5.2.1
+\begin{verbatim}
+[function (){
+    if( this.menu_height >= 50 && this.menu_height<=205)
+       this.menu_height+=5
+    this.gate.panel.style.height = "" + this.menu_height +"px"
+};],
+\end{verbatim}
+\end{figure}
+
+
+
+\begin{figure}[p]
+figura 5.2.1
+\begin{verbatim}
+[function(){
+    if( this.menu_height >=55 ){         
+        this.menu_height-=5
+    this.gate.panel.style.height = "" + this.menu_height +"px"
+},],
+\end{verbatim}
+\end{figure}
