@@ -43,10 +43,9 @@ no es necesario definir el tipo de las variables. Ver ejemplo en figura 4.1.1
 lluviaProject permite definir una función dentro de la propia clase. Ver ejemplo en figura 4.1.2
 
 La palabra reservada this, dentro del ámbito de new, hace referencia al objeto que se está creando, mientras que fuera de él hace 
-referencia al objeto que se está ejecutando. 
+referencia al objeto que se está ejecutando.\\
 
-Object\#method\_missing:\\
-
+\underline{Object\#method\_missing:} \\
 Cuando una función no existente es llamada, se levanta una excepción y se llama al método method\_missing()
 
 
@@ -248,7 +247,7 @@ Boids posee como parte de su estructura interna. Un comportamiento se puede defi
 un momento concreto.
 
 Al ser una clase abstracta, no permite crear instancias, de manera que para crear un comportamiento nuevo es necesario generar una clase 
-nueva que derive de ésta.
+nueva que derive de ésta.\\
 
 Modo incorrecto de crear un comportamiento:
 
@@ -265,7 +264,7 @@ Un ejemplo de premodificador sería arrival, el cual va disminuyendo la acelerac
 
 Los comportamientos disponibles para los Boid en este momento son seek (búsqueda), flee (huida), wander (paseo), containment (contención 
 en el espacio), alignment (alineamiento con otro Boids), cohesion (acercamiento a otros Boids), separation (separación de otros Boids) y 
-obstacle avoidance (sorteo de obstáculos).
+obstacle avoidance (sorteo de obstáculos).\\
 
 Métodos:
 \begin{itemize}
@@ -345,13 +344,15 @@ Devuelve la velocidad deseada del Boid. Ver figura 4.3.2.2
 Devuelve la aceleración deseada del Boid.
 \end{itemize}
 
+
 \subsubsection{Clase Alignment Behavior}
 \label{subsubsection:alignment_behavior}
 
 Al comportamiento básico de la oveja se le añadió el comportamiento de alineación, con el objetivo de crear una sensación de grupo más 
 marcada. El comportamiento de Alignment está dentro de los comportamientos de manada del cerebro.
 Se calcula el alineamiento medio como la media de las velocidades. Es necesario que aumente la aceleración para eliminar la componente 
-normal al alineamiento en la velocidad del Boid, es decir, suprime toda la velocidad que no esté en la dirección del alineamiento. Ver figura 4.3.3.1\\
+normal al alineamiento en la velocidad del Boid, es decir, suprime toda la velocidad que no esté en la dirección del alineamiento. 
+Ver figura 4.3.3.1\\
 
 
 
@@ -365,9 +366,6 @@ locales por la clase MouseCoordinates.
 Este comportamiento se activa en la clase Galactus, en la creación del Boid cerdito. Después, en la función move\_shepherd() de la clase 
 Mundo, se consigue el comportamiento de seek mouse, se obtienen los valores de x e y y se escalan en función de la perspectiva del canvas.
 Estas coordenadas escaladas se pasan como parámetro a la clase Seek Mouse a través de su método  set\_target\_at(). Ver figura 4.3.4.1\\
-
-
-%Comportamientos. Cuadro 4.3.2.1
 
 
 
@@ -479,7 +477,7 @@ La función playSound() se encarga de gestionar el sonido del juego y todo lo re
 cuenta atrás, de iniciarlo cuando se inicia el mundo, pararlo, etc. Destroy\_world() y attend\_restart\_world() son las funciones encargadas 
 de gestionar la destrucción del mundo y creación de uno nuevo cuando el usuario pulsa el botón de reiniciar el juego. 
 Attend\_restart\_world() es la función que responde al mensaje “restart\_world” enviado por el mundo gracias al puerto añadido en la 
-función start\_world()
+función start\_world().\\
 
 Métodos:
 \begin{itemize}
@@ -498,313 +496,3 @@ Destruye el mundo actual y deja saber al nuevo mundo que ya habia un mundo cread
  \item attend\_restart\_game():
 Reinicia el mundo. Atiende al mensaje enviado por el gate cuando alguien pulsa el botón restart del juego.
 \end{itemize}
-
-
-
-
-\begin{figure}[p]
-Figura 4.1.1
-\begin{verbatim}
- function Vehicle(mass, number\_of\_wheels){
-  this.mass = mass // In kg 
-  this.number\_of\_wheels = number\_of\_wheels
-  Vehicle.prototype.yield(this)
-}
-
-boeing = new Vehicle(20000, 8, function(newly\_created\_airplane){
-  newly\_created\_airplane.wings = 2  // This is a singleton attribute
-})
-\end{verbatim}
-\end{figure}
-
-
-\begin{figure}[bp]
-Figura 4.1.2
-\begin{verbatim}
- var animal = function(limbs, name){
-  if (limbs<5)
-      return function Mammal(main\_food){
-          this.name  = name
-          this.limbs = limbs
-          this.main\_food = main\_food
-      }
-    else
-      return function Spider(number\_of\_teeth){
-          this.name  = name
-          this.limbs = limbs
-          this.number\_of\_teeth = number\_of\_teeth
-      }
-}
-
-dog = new (Animal("Tim", 4))("meat")
-\end{verbatim}
-\end{figure}
-
-
-\begin{figure}
-Figura 4.1.3
-(gráfico cadena prototípica web lluvia. Traducir a español)
-\end{figure}
-
-
-\begin{figure}[bp]
-Figura 4.2.1.1 
-\begin{verbatim}
- var default\_config = {
-           geo\_data: {
-               position: new Vector(Math.floor(Math.random()*400), 
-                                    Math.floor(Math.random()*400)),
-               velocity: new Vector(Math.floor(Math.random()*40),
-                                    Math.floor(Math.random()*40)),
-               acceleration: new Vector(0,0)
-           },
-           colour: "blue",
-
-           brain: new Brain(that),
-           vel\_max: 50,
-           mass: 2,
-           vision: {radius: 100, angle: 130 * Math.PI / 180},
-
-           force\_limits: {
-               thrust: 20,
-               steering: 50,
-               braking: 70
-           }
-}
-\end{verbatim}
-figura 4.2.1.2
-\end{figure}
-
-
-\begin{figure}[p]
-Figura 4.2.3.1
-\begin{verbatim}
- Sheep.prototype.sheep\_limits = function() {
-    var x\_axis = this.geo\_data.position.Coord[0]
-    var y\_axis = this.geo\_data.position.Coord[1]
-
-    if(y\_axis >= 800 && x\_axis >= 170 || 
-       y\_axis >= 800 && x\_axis <= 274){
-           if(this.first\_time == 0){
-                 this.my\_world.max\_score = true
-                 return
-           }
-           else
-                 return
-    }
-    if(x\_axis <= -445 || x\_axis >= 395)
-           this.geo\_data.velocity.Coord[0] = 0
-    if (y\_axis >= 800 || y\_axis <= 0) {
-            this.geo\_data.velocity.Coord[1] = 0
-    }
-}
-\end{verbatim}
-\end{figure}
-
-
-\begin{figure}[p]
-Figura 4.2.3.3
-\begin{verbatim}
- Sheep.prototype.first\_draw = function() {
-    var canvas = document.createElement('canvas');
-    canvas.width = 24;
-    canvas.height = 24;
-
-    var ctx = canvas.getContext('2d');
-}
-\end{verbatim}
-\end{figure}
-
-
-\begin{figure}[p]
-Figura 4.2.3.4
-\begin{verbatim}
- Sheep.prototype.draw = function(ctx){
-    var p = this.geo\_data.position
-    var v = this.geo\_data.velocity
-    var a = this.geo\_data.acceleration
-    var radius = 10
-    var scale = 1 - p.get\_coord(1) / 3000
-    var x = this.geo\_data.velocity.get\_coord(0)
-
-    ctx.save()
-    ctx.scale( scale, scale / 2 )
-
-    if(x < 0) {
-       ctx.drawImage(this.image, 
-                     p.get\_coord(0),
-                     p.get\_coord(1))
-    }
-    else
-       ctx.drawImage(this.image\_left, 
-                     p.get\_coord(0),
-                     p.get\_coord(1))
-
-    ctx.restore()
-}
-\end{verbatim}
-\end{figure}
-
-
-\begin{figure}[p]
-Figura 4.2.4.1
-\begin{verbatim}
- MouseCoordinates.prototype.do_onclick = function (ev, el) {
-   this.X = ev.pageX - screener.offsetLeft
-   this.Y = ev.pageY - screener.offsetTop
-   this.device.move\_shepherd(this.X, this.Y)
-}
-\end{verbatim}
-\end{figure}
-
-
-\begin{figure}[p]
-figura 4.3.3.1
-- gráfico de velocidades y aceleraciones -
-\end{figure}
-
-
-\begin{table}[p]
-\caption{Comportamientos.}
-% title of Table
-%\centering
-% used for centering table
-\begin{tabular}{| p{4cm} | p{7cm} | p{4cm} |} % centered columns (4 columns)
-
-\hline\hline %inserts double horizontal lines
-Nombre de la técnica & Boid cerdito & Boid oveja \\ [0.5ex] % inserts table
-%heading
-\hline % inserts single horizontal line
-% inserting body of the table
-Técnica del limpiaparabrisas & El pastor debe moverse en zig-zag detrás de la manada, para mantenerlos en línea recta. & Las ovejas deben de agruparse y moverse en línea recta.\\
-Zona de fuga & El cerdito se encuentra en la zona de fuga de la oveja. & La oveja se agita y se enfrenta a él. \\
-Moverlos en una manga & El cerdo debe de situarse enfrente del punto de equilibrio & Las ovejas avanzan hacia atrás. \\
-Sacar a las ovejas del corral con un controlador & El cerdo se sitúa  a 90º detrás del ganado. Los movimientos deben de ser perpendiculares a los del ganado, hacia delante y hacia atrás sobre la barra transversal de una gigante T. & las ovejas salen en 
-manada del corral. \\ [1ex] % [1ex] adds vertical space
-\hline %inserts single line
-\end{tabular}
-\label{table:nonlin} % is used to refer this table in the text
-\end{table}
-Cuadro 4.3.2.1
-
-
- \begin{figure}[p]
-Figura 4.3.2.2
-\begin{verbatim}
-SheepBehavior.prototype.desired\_velocity = function(){
- var arrival\_distance
- try{
-    arrival\_distance = this.target_at().module()
- }catch(err){
-    arrival\_distance = 0
- }
- var scale = 1
- if(arrival\_distance >= 100){
-    scale = 0
- }
- else{
-    scale = arrival\_distance / 100
- }
-
- return (new Vector(this.target\_at().unit().scale(- scale 
-                     * this.me.vel_max)))
-}
-\end{verbatim}
- \end{figure}
-
-
-\begin{figure}[p]
-Figura 4.4.1
-\begin{verbatim}
-World.prototype.move_shepherd = function (screen_x, screen_y) {
-   if (!this.shepherd)
-       return
-   var behaviour = this.shepherd.brain.get_behavior("seek mouse", null)
-   var x = screen_x - 425
-   var y = 500 - screen_y
-   var scale = 1 - y / 3000
-
-   behaviour.set_target_at( x / scale, 2 * y / scale)
-}
-\end{verbatim}
-
-
-Figura 4.4.2
-\begin{verbatim}
-World.prototype.check_level = function() {
-    if(this.level == 1 && this.points == 5){
-           this.is_finished = true
-           this.currentState.requested = this.state.suspended
-           this.clock.pause()
-           this.winner_pig()
-    }
-}
-\end{verbatim}
-
-
-Figura 4.4.3
-\begin{verbatim}
-World.prototype.running_steady = function(processors_time){
-       this.now = processors_time || new Date()
-       this.coord_x = this.mouse_coordinates.get_mouse_X()
-       this.coord_y = this.mouse_coordinates.get_mouse_Y()
-
-    score_number.style.float = "right"
-    score_number.style.fontSize = "24pt"
-    score_number.style.marginTop = "5px"
-    score_number.style.fontWeight = "bold"
-    score_number.innerHTML = ":" + this.points
-
-    this.check_level()
-    if(this.is_finished == false)
-       this.draw()
-}
-\end{verbatim}
-\end{figure}
-
-
-\begin{figure}[p]
-Figura 4.5.1
-\begin{verbatim}
-Galactus.prototype.start_world = function() {
-   this.world = new World(this.view)
-   this.world.level = 1
-
-   this.handler.addPort("restart_game", this)
-   
-   this.countdown()
-   this.playSound()
-
-   var pig = this.world.new_boid_of(Pig, function(config) {
-       config.brain.activate("seek mouse", null)
-   })
-
-   this.world.shepherd = pig
-
-   var sheeper = [ ]
-   for (var i=0; i<30; i++) {
-        sheeper.push( this.world.new_boid_of(Sheep, 
-           function(config){
-             config.geo_data.position = new Vector(
-                 Math.floor(Math.random()*400), 
-                 Math.floor(Math.random()*400) )
-             config.geo_data.velocity = new Vector(
-                 Math.floor(Math.random()*20), 
-                 Math.floor(Math.random()*20)  )
-             config.geo_data.acceleration = new Vector(0,0)
-             config.vel_max = 70
-             config.vision = {radius: 100, angle: 80 * Math.PI / 80}           
-             config.force_limits = {
-                   thrust: 50,
-                   steering: 50,
-                   braking: 100
-             }
-             config.brain.activate("alignment")
-             config.brain.activate("sheep", pig)
-      }))
-  }
-   this.world.start()
-}
-\end{verbatim}
-\end{figure}
-

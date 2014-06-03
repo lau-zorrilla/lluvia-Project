@@ -1,7 +1,7 @@
 \section{Introducción}
 \label{sec:introduccion}
 
-\subsection{¿De que trata el juego?}
+\subsection{¿De qué trata el juego?}
 \label{subsubsection:intro_juego}
 
 En este proyecto hemos querido plasmar el comportamiento de un rebaño de ovejas ante el movimiento del pastor y el entorno que las rodea. 
@@ -32,19 +32,22 @@ ganado se le puede agrupar, induciendo su comportamiento natural de permanecer u
 \label{subsubsection:comportamientos}
 
 Los animales siguen al líder. Si éstos se despistan y se amontonan, el pastor debe concentrarse en mover a los líderes en lugar de empujar 
-al grupo de animales de la parte trasera.
+al grupo de animales de la parte trasera. Al mover al ganado en un espacio abierto, los animales se mueven en una forma tranquila y ordenada. 
 
-Al mover al ganado en un espacio abierto, los animales se mueven en una forma tranquila y ordenada. Para acelerar el paso de los animales, 
-los pastores penetran la zona de fuga colectiva y se retiran.
-
-El campo de visual de las ovejas puede ser de 191 hasta 309 grados, dependiendo de su cantidad de lana.
+Para acelerar el paso de los animales, los pastores penetran la zona de fuga colectiva y se retiran. El campo de visual de las ovejas puede 
+ser de 191 hasta 309 grados, dependiendo de su cantidad de lana.
 
 Los animales de pastoreo tienen un sistema visual que proporciona una excelente visión de lejos, pero los músculos de los ojos relativamente 
-débiles les inhiben de la capacidad de centrarse rápidamente en los objetos cercanos.
+débiles les inhiben de la capacidad de centrarse rápidamente en los objetos cercanos.\\
 
 De los lenguajes disponibles para realizar aplicaciones, lluvia era el único que disponía de Boids, los cuales permiten modelar su 
 comportamiento para adaptarse al de un rebaño de ovejas.
 
+
+\includegraphics{figura111}
+\includegraphics{figura112}
+\includegraphics{figura113}
+\includegraphics{figura114}
 
 
 %\tikzstyle{level 1}=[sibling angle=120]

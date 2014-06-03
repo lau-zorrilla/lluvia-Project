@@ -1,13 +1,15 @@
 \section{Parte gráfica}
 \label{chap:grafica}
 
-\subsection{front-end(html/css)}
+\subsection{Front-end (HTML/CSS)}
 \label{sec:front_end}
 
-Esta aplicación ha sido diseñada para ser lanzada desde el navegador. La página tendrá como dimensiones 1200 x 800. Está al iniciarse muestra dos controles, botón play y botón menu.
-Ver figura 3.a.3
+Esta aplicación ha sido diseñada para ser lanzada desde el navegador. La página tendrá como dimensiones 1200 x 800. 
+Está al iniciarse muestra dos controles, botón play y botón menu.
+Ver figura 3.1.3
 
-El botón play inicia el juego mostrando una pantalla en la que aparecen un cerdito y un rebaño de ovejas. El cerdito hace la labor de pastor, teniendo que meter un número determinado de ovejas en el corral para poder pasar al siguiente nivel. 
+El botón play inicia el juego mostrando una pantalla en la que aparecen un cerdito y un rebaño de ovejas. El cerdito hace la labor de pastor, 
+teniendo que meter un número determinado de ovejas en el corral para poder pasar al siguiente nivel. 
 En la esquina superior izquierda se encuentra el cronómetro, inicializado en dos minutos y realiza la cuenta atrás hasta llegar a cero.
 En el centro superior de la pantalla se encuentra un contador que irá aumentando según el número de ovejas que vayan entrando en redil.
 En la esquina superior izquierda está situado el menú de la aplicación que está compuesto por las siguientes opciones:
@@ -17,16 +19,11 @@ En la esquina superior izquierda está situado el menú de la aplicación que es
  \item Levels: Muestra los niveles del juego que se irán desbloqueando según se vayan superando.
 \end{itemize}
 
-El diseño de la página principal tuvo varios procesos. La evolución que siguió está representada en las imágenes: figura 3.a.1, figura 3.a.2 y figura 3.a.3 
+El diseño de la página principal tuvo varios procesos. La evolución que siguió está representada en las imágenes: figura 3.1.1, figura 3.1.2 y 
+figura 3.1.3 
 
 
-figura 3.a.1
-
-figura 3.a.2
-
-figura 3.a.3
-
-\subsection{canvas}
+\subsection{Canvas}
 \label{sec:canvas}
 
 El elemento canvas  de htlm5 es un contenedor gráfico que  proporciona a los scripts  un mapa de bits  que funciona como lienzo.
@@ -34,6 +31,7 @@ Lo primero que se debe de hacer es referenciar el elemento canvas dandole unas d
 En este caso hemos utilizado un contexto bidimensional (2D).
 El lenguaje de programación Javascript contiene una serie de funciones propias que nos permiten  a través de coordenadas dibujar en el canvas.
 Estas son algunas de ellas.
+
 \begin{itemize}
  \item beginPath():  Con esta función se da comenzado el trazo.
  \item moveTo(x,y): Coloca el cursor en el punto de inicio y a partir de ahí, se va creando la forma de la figura a través de las distintas 
@@ -50,13 +48,31 @@ Estas son algunas de ellas.
  opcional y por defecto su valor es falso.
  \item closePath(): Crea una línea recta desde el último punto al punto inicial. Da por finalizada la figura.
 \end{itemize}
+
 Gracias a html5, CSS3 y JavaScript hemos podido realizar tanto como el fondo del juego, como las figuras que representan a los personajes.
 Al igual que en la pantalla principal, los elementos del canvas han sufrido varios procesos, a medida que se ha ido mejorando la técnica de creación, estos han ido cambiando.
-Se puede ver un ejemplo en las figuras 3.b.1, 3.b.2, 3.b.3, 3.b.4, 3.b.5
+Se puede ver un ejemplo en las figuras 3.2.1, 3.2.2, 3.2.3, 3.2.4, 3.2.5
 
-figura 3.b.1                    figura 3.b.2
- 
-Figura 3.b.3                    Figura 3.b.4
+\includegraphics{figura311}
+\includegraphics{figura312}
+\includegraphics{figura313}
 
+\includegraphics{figura321}
+\includegraphics{figura322}
+\includegraphics{figura323}
+\includegraphics{figura324}
+\includegraphics{figura325}
 
-figura 3.b.5
+% \begin{figure}[p]
+% figura 3.a.1\\
+% figura 3.a.2\\
+% figura 3.a.3\\
+% \end{figure}
+% 
+% \begin{figure}[p]
+% Figura 3.b.1\\
+% Figura 3.b.2\\
+% Figura 3.b.3\\
+% Figura 3.b.4\\
+% Figura 3.b.5\\
+% \end{figure}

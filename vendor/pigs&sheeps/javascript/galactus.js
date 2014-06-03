@@ -91,7 +91,6 @@ Galactus.prototype.playSound = function(){
 	    context, //Array de canciones
 	    [
 	      'sounds/ovejas.ogg'
-
 	    ],
 	    finishedLoading
 	    );
@@ -108,8 +107,7 @@ Galactus.prototype.playSound = function(){
 	  source1.start(0); //Inicia musica
 	 //Si hubiese mas sources, hacer lo mismo con cada uno 
 
-	  return source1
-	 
+	  return source1	 
 	}
 }
 
@@ -128,15 +126,6 @@ Galactus.prototype.countdown = function(){
 			timer.style.color = "red" //cambia color de fuente
 
 		timer.innerHTML = that.world.clock.get_string() //escribe en el div "timer"
-		
-		// if (that.world.clock.running == false){
-		// 	that.world.is_finished = true
-		// 	that.world.currentState.requested = that.world.state.killed
-		// 	clearInterval(timer_interval) // detiene setInterval
-		// 	source1.stop()//Para musica
-		// 	if(this.world.points <= 4)
-		// 	   that.world.gameover_pig()
-		// }
 	}	
 	,1000);
 

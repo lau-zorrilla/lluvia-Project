@@ -1,7 +1,10 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{graphicx}
+%\usepackage{graphicx}
+\usepackage[pdftex]{graphicx} 
+\graphicspath{ {images/} }
+\DeclareGraphicsExtensions{.jpeg,.png,.jpg}  
 \usepackage{tikz}
 
 \usepackage{listings}
@@ -31,7 +34,7 @@
 \include{./capitulos/gates_y_devices}
 \include{./capitulos/musica}
 \include{./capitulos/conclusiones}
-
+\include{./capitulos/imagenes}
 
 \appendix
 %\include{./capitulos/manual}
