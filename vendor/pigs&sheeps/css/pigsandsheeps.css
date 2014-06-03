@@ -149,7 +149,7 @@ body{
 
 #score{
 	position: absolute;
-	left: 870px;
+	left: 280px;
 	width: 80px;
 	height: 50px;
 	background-image: url('../images/small_winky.png');
@@ -163,6 +163,22 @@ body{
 	font-size: 24pt;
 	margin-top: 5px;
 	font-weight: bold;
+}
+#audio_button{
+	position:absolute;
+	width:31px;
+	height:25px;
+	border:3px solid #bdae68;
+	background-color: #ffff99;
+	background-image: url('../images/audio_on.png');
+	color:#996842;
+	padding-top:5px;
+	text-align:center;
+	margin-top:5px;
+	margin-left:820px;
+}
+#audio_button:hover{
+	cursor:pointer;
 }
 
 #main_screen{

@@ -21,7 +21,8 @@ function Galactus(handler, view){
 
 	this.handler = args.shift()
 	this.view = args[0]
-
+	this.audio_on = true;
+	
 	this.self_events = [ "restart_clock"]
 
 	function initialize() {
@@ -31,6 +32,20 @@ function Galactus(handler, view){
 	    that.newGate ("play_button", Gate, {do_onclick: function(event, element) {
 		    this.panel.style.display = 'none'
 			this.device.start_world()
+		} })
+		that.newGate ("audio_button", Gate, {do_onclick: function(event, element) {
+			if(that.audio_on == true){
+				//alert("apagar")
+		    	this.panel.style.backgroundImage = "url('images/audio_off.png')"
+				this.device.stopPlaying()
+				that.audio_on=false
+			}
+			else{
+				//alert("encender")
+				this.panel.style.backgroundImage = "url('images/audio_on.png')"
+				this.device.playSound()
+				that.audio_on=true
+			}
 		} })
 	}
 
@@ -82,6 +97,7 @@ Galactus.prototype.playSound = function(){
 	window.onload = init()
 	var context;
 	var bufferLoader;
+	var that= this
 
 	function init() {
 	  // Fix up prefixing
@@ -92,7 +108,7 @@ Galactus.prototype.playSound = function(){
 	    [
 	      'sounds/ovejas.ogg'
 	    ],
-	    finishedLoading
+	   finishedLoading
 	    );
 
 	  bufferLoader.load();
@@ -100,17 +116,19 @@ Galactus.prototype.playSound = function(){
 
 	function finishedLoading(bufferList) {
 	  // Create sources and play them both together.
-	  source1 = context.createBufferSource();
-	  source1.buffer = bufferList[0];
-	  source1.connect(context.destination);	 
-	  source1.loop=true //Reinicia musica si termina
-	  source1.start(0); //Inicia musica
+	  that.source1 = context.createBufferSource();
+	  that.source1.buffer = bufferList[0];
+	  that.source1.connect(context.destination);	 
+	  that.source1.loop=true //Reinicia musica si termina
+	  that.source1.start(0); //Inicia musica
 	 //Si hubiese mas sources, hacer lo mismo con cada uno 
-
-	  return source1	 
+	//  return source1	 
 	}
 }
 
+Galactus.prototype.stopPlaying = function(){	
+	this.source1.stop(0)		
+	}
 
 Galactus.prototype.countdown = function(){	
 	var that = this
