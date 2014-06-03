@@ -1,3 +1,13 @@
+/**
+ * @class Galactus
+ *
+ * Creates a Galactus.
+ *
+ * @constructor Galactus
+ * @param  {Object} config_object 
+ * @param  {Object} block  
+ * @return {}
+*/
 Galactus.prototype = new Device
 Galactus.prototype.contructor = Galactus
 
@@ -48,9 +58,20 @@ Galactus.prototype.start_world = function() {
 
     var sheeper = []
     for (var i=0; i<30; i++) {
-        sheeper.push( this.world.new_boid_of(Sheep, function(config){
-  	       config.brain.activate("alignment")
-  	       config.brain.activate("sheep", pig)
+        var f
+        sheeper.push( f = this.world.new_boid_of(Sheep, function(config){
+        	config.geo_data.position = new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400))
+        	config.geo_data.velocity = new Vector(Math.floor(Math.random()*20), Math.floor(Math.random()*20))
+        	config.geo_data.acceleration = new Vector(0,0)
+        	config.vel_max = 70
+        	config.vision = {radius: 100, angle: 80 * Math.PI / 80}        	
+            config.force_limits = {
+                    thrust: 50,
+                    steering: 50,
+                    braking: 100
+            }
+  	        config.brain.activate("alignment")
+  	        config.brain.activate("sheep", pig)
   }))
   }
 

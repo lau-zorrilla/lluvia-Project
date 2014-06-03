@@ -5,8 +5,6 @@
  * @version 1.00 Aug, 2011
  */
 
-// Instances of instance are now are now a derived class of mtf.
-
 /**
  * @classDescription Creates a World for handling boids.
  *
@@ -32,8 +30,6 @@ function World(screen, width, height){
     this.velocity_max = 200
     this.boids = {total: 0}
     this.mouse_coordinates = this.newGate("screener", MouseCoordinates)
-    this.x1 = 0
-    this.y1 = 0
     this.points = 0
     this.level = 0
     this.is_finished = false
@@ -133,7 +129,6 @@ World.prototype.start = function(){
     var that = this
     var ctx  = that.screen[0].context
 
-
     if(World.transform_already)
        ctx.transform(1, 0, 0, -1, -425, 500)
 
@@ -175,6 +170,10 @@ World.prototype.draw = function(){
     for (var i=0; i<this.boids_list.length; i++)
     this.boids_list[i].draw(ctx)
 }
+
+/*
+* Sets the target of the boid to the mouse coordinates
+*/
 
 World.prototype.move_shepherd = function (screen_x, screen_y) {
 	if (!this.shepherd)
@@ -223,6 +222,10 @@ World.prototype.show_boids = function(){
 	})
 }
 
+/* 
+* Checks if the level is finished and if so, stops the world and the clock, and calls a function that changes the background of the canvas
+*/
+
 World.prototype.check_level = function() {
     if(this.level == 1 && this.points == 5){
         this.is_finished = true
@@ -243,6 +246,10 @@ World.prototype.check_level = function() {
     //  call function that paints happy ending
 
 }
+
+/*
+* Updates the processor time, checks the level and it is finished, stops drawing the canvas background
+*/
 
 World.prototype.running_steady = function(processors_time){
 
@@ -289,6 +296,10 @@ World.prototype.new_boid = function(config, block){
 	return b
 }
 
+/*
+* Creates a new boid with a seek behavior defined
+*
+*/
 World.prototype.new_seeker = function(target, color){
 	var b = this.new_boid(color)
 	b.brain.activate('seek')

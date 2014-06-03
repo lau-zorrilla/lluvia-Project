@@ -238,7 +238,7 @@ World.prototype.get_boids = function(){
 /**
  * @method each_boid
  *
- * Sets a new World interface into the dashboard.
+ * 
  *
  * @param  {(String | String[])...} name Name of the view to create a WorldInterface.
  *
@@ -305,7 +305,7 @@ World.prototype.draw = function(){
 /**
  * @method step
  *
- *
+ * Updates the timestamp of the physics of the Boids
  *
  * @param  {DateTime} current_time Time ...
  *
@@ -513,7 +513,7 @@ World.prototype.new_boid_of = function(class_name, config){
 
 /**
  * @method method_missing
- * Provides dynamic method new_bois_as_<ClassName>
+ * Provides dynamic method new_boid_as_<ClassName>
  */
 World.prototype.method_missing= function(method, obj, params){
 

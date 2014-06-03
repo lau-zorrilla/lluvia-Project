@@ -1,9 +1,14 @@
+
 /**
- * @classDescription Creates a Sheep
+ * @class Sheep
  *
- * @return {Sheep}
- * @constructor
- */
+ * Creates a Sheep.
+ *
+ * @constructor Sheep
+ * @param  {Object} config_object 
+ * @param  {Object} block  
+ * @return {}
+*/
  Sheep.prototype = new Boid
  Sheep.prototype.constructor = Sheep
  Sheep.super = Boid
@@ -11,13 +16,6 @@
  function Sheep(config_object, block){ //clase
     var that = this
     var args = arguments
-
-    if (typeof(block) === "undefined")
-        if (typeof(config_object) === "function" ){
-            block = config_object
-            config_object = new Hash()
-        }
-
 
         function initialize(){
 
@@ -35,35 +33,7 @@
             that.image_left.src = "images/rotated_sheep_left.png"
             that.first_time = 0
 
-            /* Overridable configuration */
-
-            var default_config = {
-                geo_data: {
-                    position: new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400)),
-                    velocity: new Vector(Math.floor(Math.random()*20), Math.floor(Math.random()*20)),
-                    acceleration: new Vector(0,0)
-                },
-                colour: "white",
-
-                brain: new Brain(that),
-                vel_max: 70,
-                mass: 2,
-                vision: {radius: 100, angle: 130 * Math.PI / 180},
-
-                force_limits: {
-                    thrust: 50,
-                    steering: 50,
-                    braking: 100
-                }
-            }
-
-            config_object.soft_merge$B(default_config)
-            if ( typeof(block) === "function")
-                config = block(config_object) || new Hash()
-            that.merge$B(config.soft_merge$B(config_object))
-            if (that.color)
-                that.colour = that.color
-
+            Boid.apply(that, args)
         }
 
         if (arguments.length)
@@ -153,6 +123,18 @@ Sheep.prototype.draw = function(ctx){
 
     ctx.save()
     ctx.scale( scale, scale / 2 )
+
+//    ctx.strokeStyle = "red"
+//    ctx.beginPath();
+//    ctx.moveTo(p.get_coord(0), p.get_coord(1))
+//
+//    //var a0 = this.heading().angle(1,0)
+//    
+//    //alert(180*a0/Math.PI)
+//    
+//    ctx.arc(p.get_coord(0), p.get_coord(1), this.vision.radius + a0, -this.vision.angle - a0 , this.vision.angle - a0, false); 
+//    ctx.closePath();
+//      ctx.stroke();
 
     if(x < 0) {
         ctx.drawImage(this.image, p.get_coord(0), p.get_coord(1))

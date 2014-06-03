@@ -7,13 +7,13 @@
  *
  * @params {Object} brain
  * @params {Object} body
- * @params {ObjectObject} before_modifier
+ * @params {Object} before_modifier
  * @params {Object} after_modifier
  *
  */
 
 
-function Behavior( brain, body, before_modifier, after_modifier,target ){
+function Behavior( brain, body, before_modifier, after_modifier, target ){
     var that = this
     this.before =  []
     this.after  =  []
