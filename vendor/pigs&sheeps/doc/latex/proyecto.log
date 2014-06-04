@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.5.26)  4 JUN 2014 11:43
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.5.26)  4 JUN 2014 14:30
 entering extended mode
  %&-line parsing enabled.
 **proyecto.tex
@@ -605,7 +605,7 @@ LaTeX Font Info:    ... okay on input line 24.
 \openout2 = `./capitulos/prologo.aux'.
 
  (./capitulos/prologo.tex)
-Overfull \hbox (8.67366pt too wide) in paragraph at lines 4--26
+Overfull \hbox (8.67366pt too wide) in paragraph at lines 4--27
 []\OT1/cmr/m/n/12 Este pro-yec-to no podr^^S^^Pa ha-ber-se com-ple-ta-do sin la
  co-la-bo-ra-ci^^Son de Jos^^Se Luis
  []
@@ -620,14 +620,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
-)
+ [2
+
+])
 \tf@toc=\write4
 \openout4 = `proyecto.toc'.
 
 
-[2
-
-]
+[3]
 \openout2 = `./capitulos/introduccion.aux'.
 
  (./capitulos/introduccion.tex
@@ -640,7 +640,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
 
-[3
+[4
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 37--39
@@ -652,35 +652,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
  []
 
-) [4]
+) [5]
 \openout2 = `./capitulos/por_que_lluviaProject.aux'.
 
  (./capitulos/por_que_lluviaProject.tex
-Underfull \hbox (badness 10000) in paragraph at lines 7--10
+Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--13
+Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--28
+Underfull \hbox (badness 10000) in paragraph at lines 23--27
 
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
+Underfull \hbox (badness 10000) in paragraph at lines 28--32
 
  []
 
-[5
+[6
 
 
 ]
@@ -696,169 +696,164 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--32
 
  []
 
-[6
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
+
+ []
+
+[7
 
 
-]) [7]
+]) [8]
 \openout2 = `./capitulos/clases.aux'.
 
  (./capitulos/clases.tex
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--40
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--43
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--48
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
-[8
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
+
+ []
+
+[9
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 57--60
+Underfull \hbox (badness 10000) in paragraph at lines 59--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--63
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--66
+Underfull \hbox (badness 10000) in paragraph at lines 66--68
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--79
+Underfull \hbox (badness 10000) in paragraph at lines 77--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--83
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
+Underfull \hbox (badness 10000) in paragraph at lines 82--85
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 157--160
+Underfull \hbox (badness 10000) in paragraph at lines 86--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
+Underfull \hbox (badness 10000) in paragraph at lines 89--92
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 200--202
+Underfull \hbox (badness 10000) in paragraph at lines 159--162
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--231
+Underfull \hbox (badness 10000) in paragraph at lines 163--165
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 202--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--249
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 250--252
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--265
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 266--269
+Underfull \hbox (badness 10000) in paragraph at lines 228--233
 
  []
 
 [13]
-Overfull \hbox (8.51697pt too wide) in paragraph at lines 291--293
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--269
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 270--273
+
+ []
+
+
+Overfull \hbox (8.51697pt too wide) in paragraph at lines 295--297
 []\OT1/cmr/m/n/12 is[]premodified[]by$U(): De-vuel-ve true si el nom-bre del mo
 -di-fi-ca-dor est^^Sa en
  []
 
 
-Overfull \hbox (1.33649pt too wide) in paragraph at lines 297--299
+Overfull \hbox (1.33649pt too wide) in paragraph at lines 301--303
 []\OT1/cmr/m/n/12 is[]modified[]by$U(): De-vuel-ve true si el nom-bre del mo-di
 -fi-ca-dor est^^Sa tan-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 320--323
-
- []
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 324--326
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 352--354
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--358
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--367
-
- []
-
 [15]
+Underfull \hbox (badness 10000) in paragraph at lines 324--327
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--358
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--362
+
+ []
+
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 368--371
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--380
+Underfull \hbox (badness 10000) in paragraph at lines 372--375
 
  []
 
@@ -872,90 +867,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 385--388
 
  []
 
-[16] [17]
-Overfull \hbox (4.70477pt too wide) in paragraph at lines 464--466
+
+Underfull \hbox (badness 10000) in paragraph at lines 389--392
+
+ []
+
+[17] [18]
+Overfull \hbox (5.03116pt too wide) in paragraph at lines 468--470
 []\OT1/cmr/m/n/12 method[]missing(): Pro-vee el m^^Seto-do din^^Sami-co new[]bo
-id[]as[]<ClassName> 
+id[]as[](ClassName) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--477
+Underfull \hbox (badness 10000) in paragraph at lines 477--481
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--483
+Underfull \hbox (badness 10000) in paragraph at lines 482--487
 
  []
 
-) [18]
+[19]) [20]
 \openout2 = `./capitulos/gates_y_devices.aux'.
 
  (./capitulos/gates_y_devices.tex
-Underfull \hbox (badness 10000) in paragraph at lines 7--9
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--11
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--14
+Underfull \hbox (badness 10000) in paragraph at lines 14--16
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--34
+Underfull \hbox (badness 10000) in paragraph at lines 35--39
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
-
- []
-
-[19
+[21
 
 
 ]
-Overfull \hbox (20.72379pt too wide) in paragraph at lines 48--49
+Underfull \hbox (badness 10000) in paragraph at lines 52--55
+
+ []
+
+
+Overfull \hbox (20.72379pt too wide) in paragraph at lines 56--57
 []\OT1/cmr/m/n/12 La cla-se Ani-ma-tion cuen-ta con los m^^Seto-dos do[]onmouse
 over y do[]onmouseout: 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--59
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--62
+Underfull \hbox (badness 10000) in paragraph at lines 71--73
 
  []
 
-
-Overfull \hbox (67.20995pt too wide) in paragraph at lines 75--76
+[22]
+Overfull \hbox (67.20995pt too wide) in paragraph at lines 86--87
 []\OT1/cmr/m/n/12 La cla-se Me-nuHand-ler tie-ne dos m^^Seto-dos, at-tend[]keep
 []menu[]out, at-tend[]keep[]menu[]in. 
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
 
 
-Overfull \hbox (6.8892pt too wide) in paragraph at lines 124--125
+Overfull \hbox (6.8892pt too wide) in paragraph at lines 142--143
 []\OT1/cmr/m/n/12 get[]count: De-vuel-ve los se-gun-dos que que-dan por ju-gar 
 (re-mai-ning[]time). 
  []
 
-[21]) [22]
+) [24]
 \openout2 = `./capitulos/musica.aux'.
 
- (./capitulos/musica.tex) [23
+ (./capitulos/musica.tex) [25
 
 
 ]
@@ -986,7 +986,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--26
 
  []
 
-) [24
+) [26
 
 
 ]
@@ -1002,7 +1002,7 @@ No file ./capitulos/imagenes.tex.
 \tf@lot=\write6
 \openout6 = `proyecto.lot'.
 
- [25
+ [27
 
 
 
@@ -1012,20 +1012,22 @@ apitulos/por_que_lluviaProject.aux)
 (./capitulos/gates_y_devices.aux) (./capitulos/musica.aux)
 (./capitulos/conclusiones.aux) (./capitulos/imagenes.aux)) ) 
 Here is how much of TeX's memory you used:
- 11790 strings out of 493848
- 216839 string characters out of 1152823
- 260504 words of memory out of 3000000
+ 11792 strings out of 493848
+ 216919 string characters out of 1152823
+ 261572 words of memory out of 3000000
  14806 multiletter control sequences out of 15000+50000
- 8063 words of font info for 29 fonts, out of 3000000 for 9000
+ 8769 words of font info for 31 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 56i,5n,55p,398b,266s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,6n,55p,398b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-t
 exlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmtt12.pfb>
-Output written on proyecto.pdf (25 pages, 103404 bytes).
+s/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
+ts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt1
+2.pfb>
+Output written on proyecto.pdf (27 pages, 124265 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
+ 112 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

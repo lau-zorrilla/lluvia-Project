@@ -4,6 +4,8 @@
 \subsection{Estructura de una clase}
 \label{subsection:estructura}
 
+\lluvia, al igual que otros lenguajes orientados a objetos, está organizado en clases.\\
+
 Para crear una clase es necesario definir una función constructora. 
 \begin{verbatim}
  var myClass = function() {;} 
@@ -35,13 +37,13 @@ var derived_class = new myClass()
 
 Estas clases pueden aceptar parámetros o no y new es opcional.\\
 
-Aunque lluviaProject no define nada al respecto, los cierres se suelen usar a través de la función yield, la cual busca entre los parámetros 
+Aunque \lluvia{} no define nada al respecto, los cierres se suelen usar a través de la función yield, la cual busca entre los parámetros 
 un objeto función y lo ejecuta.\\
 
 Las clases aceptan un objeto de configuración, el cual permite modificar la propia clase en caso necesario. Al igual que en javascript, 
 no es necesario definir el tipo de las variables. Ver ejemplo en figura 4.1.1\\
 
-lluviaProject permite definir una función dentro de la propia clase. Ver ejemplo en figura 4.1.2\\
+\lluvia{} permite definir una función dentro de la propia clase. Ver ejemplo en figura 4.1.2\\
 
 La palabra reservada this, dentro del ámbito de new, hace referencia al objeto que se está creando, mientras que fuera de él hace 
 referencia al objeto que se está ejecutando.\\
@@ -155,40 +157,40 @@ Devuelve la información del target.
 \label{subsubsection:brain}
 
 Es la clase que crea un cerebro para el Boid. En ella, se guardan los comportamientos disponibles para ser activados. Todos estos 
-comportamientos conocidos se guardan en catalog. El cerebro, además, se encarga de discriminar entre aquellos que pueden ser activados por 
+comportamientos conocidos se guardan en la variable \textit{catalog}. El cerebro, además, se encarga de discriminar entre aquellos que pueden ser activados por 
 un Boid concreto y los que no.\\
 
-Guarda las aceleraciones el Boid posee para cada uno de sus comportamientos activos. De esta manera, se puede calcular la aceleración que 
+Guarda las aceleraciones que posee el Boid para cada uno de sus comportamientos activos. De esta manera, se puede calcular la aceleración que 
 el Boid necesita para cambiar su posición en función del objetivo.\\
 
 
 Métodos:
 \begin{itemize}
-\item can\$U
+\item can\$U():
 Comprueba si el Boid puede activar un comportamiento específico.
 
-\item can\_be\_in\$U
+\item can\_be\_in\$U():
 Comprueba si un comportamiento puede ser activado para un Boid.
 
-\item activate
+\item activate():
 Activa un comportamiento determinado en un Boid.
 
-\item deactivate
+\item deactivate():
 Desactiva un comportamiento determinado en un Boid.
 
-\item is\_in\$U
+\item is\_in\$U():
 Comprueba si un comportamiento está en la lista de aquellos aceptados por el Boid.
 
-\item get\_behavior
+\item get\_behavior():
 Obtiene el comportamiento pasado como parámetro
 
-\item \$see\_accelerations
+\item \$see\_accelerations():
 Muestra las aceleraciones guardadas por el método desired\_accelerations()
 
-\item desired\_accelerations
+\item desired\_accelerations():
 Guarda las aceleraciones de un determinado Boid para todos sus objetivos
 
-\item desired\_acceleration
+\item desired\_acceleration():
 Calcula la aceleración que el Boid necesita para cambiar su posición.
 \end{itemize}
 
@@ -226,7 +228,7 @@ Ver figura 4.2.3.4
 La característica principal de esta clase es su capacidad para responder a las coordenadas del ratón cuando el usuario dispara el evento 
 onClick(). Éstas son capturadas por el objeto MouseCoordinates, el cual deriva de la clase Gate. A través de su método do\_onclick(), 
 transforma las coordenadas globales de la pantalla en locales del canvas y las guarda en sendas variables de clase. Estas variables se 
-pasan al mundo como parámetros de su función move\_shepherd() y se usan para definir el objetivo del Boid, el cual tiene programado un 
+pasan a la clase World como parámetros de su función move\_shepherd() y se usan para definir el objetivo del Boid, el cual tiene programado un 
 comportamiento de persecución. Ver figura 4.2.4.1\\
 
 Métodos:\\
@@ -248,8 +250,9 @@ Boids posee como parte de su estructura interna. Un comportamiento se puede defi
 un momento concreto.\\
 
 Al ser una clase abstracta, no permite crear instancias, de manera que para crear un comportamiento nuevo es necesario generar una clase 
-nueva que derive de ésta.\\
+nueva que derive de ésta.
 
+\begin{verbatim}
 Modo incorrecto de crear un comportamiento:
 
 var a = new Behavior()
@@ -257,13 +260,14 @@ var a = new Behavior()
 Modo correcto:
 
 NewBehavior.prototype = new Behavior\\
+\end{verbatim}
 
 Estos comportamientos puede tener pre y post modificadores. Los primeros modifican la aceleración antes de devolverla y los segundos,
 después. Un ejemplo de premodificador es forsee, que se encarga de calcular dónde estará el objetivo en la próxima medida de tiempo. Este 
 premodificador unido al comportamiento de búsqueda seek hacen que varíe la aceleración para modificar la trayectoria y perseguir al objetivo. 
 Un ejemplo de premodificador sería arrival, el cual va disminuyendo la aceleración a medida que se acerca al objetivo.\\
 
-Los comportamientos disponibles para los Boid en este momento son seek (búsqueda), flee (huida), wander (paseo), containment (contención 
+Los comportamientos disponibles para los Boids en este momento son seek (búsqueda), flee (huida), wander (paseo), containment (contención 
 en el espacio), alignment (alineamiento con otro Boids), cohesion (acercamiento a otros Boids), separation (separación de otros Boids) y 
 obstacle avoidance (sorteo de obstáculos).\\
 
@@ -462,7 +466,7 @@ Actualiza la cola de mensajes.
 Crea un nuevo Boid de una subclase de Boid.
 
  \item method\_missing():
-Provee el método dinámico new\_boid\_as\_<ClassName>
+Provee el método dinámico new\_boid\_as\_(ClassName)
 \end{itemize}
 
 

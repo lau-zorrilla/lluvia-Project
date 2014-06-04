@@ -4,6 +4,8 @@
 \subsection{Introducción}
 \label{subsection:intro_gates}
 
+El servicio de mensajería de \lluvia{} está gestionado por las clases Gate y Device.
+
 Device: Provee un mecanismo asíncrono de comunicación. Usa una cola de mensajes y dispara eventos. No tiene conexión propia con el DOM de HTML,
 pero ésta se realiza mediante un objeto de la clase Gate.\\
 
@@ -27,7 +29,10 @@ handler. Ver figura 5.1.1
 \subsection{Menú y Submenú}
 \label{subsection:menu}
 
-MenuAutomata: Controla los estados de entrada y salida del menú. Deriva de la clase threadAutomata y tiene una serie de estados posibles:\\
+\subsubsection{Clase MenuAutomata}
+\label{subsubsection:menu_automata}
+
+Controla los estados de entrada y salida del menú. Deriva de la clase threadAutomata y tiene una serie de estados posibles:\\
 'out', 'getting\_out', 'getting\_in', 'inside'.\\
 Estos estados, a su vez, pueden encontrarse en estado anterior (previous), actual (current) o solicitado (requested). Según cual sea  el estado 
 actual (current), se realizarán la funciones correspondientes.\\
@@ -40,8 +45,11 @@ actual (current), se realizarán la funciones correspondientes.\\
  \item Estado getting\_in : Decrementa la altura de menú de 5 en 5px  mientras éste mida  más de 55px. Ver figura figura 5.2.3
 \end{itemize}
 
-        
-Animation: Recoge los eventos que se producen en el menú a partir de la interacción del usuario. Animation.js deriva de la clase Gate.
+
+\subsubsection{Clase Animation}
+\label{subsubsection:animation}
+
+Recoge los eventos que se producen en el menú a partir de la interacción del usuario. Animation.js deriva de la clase Gate.
 Recibe el elemento HTML que envuelve  el Gate Animation. En su función initialize además de crear como atributo  el elemento (HTML) y de llamar
 al super constructor de Gate, asocia los efectos de MenuAutomata al elemento HTML recibido.\\
 
@@ -54,14 +62,17 @@ Es decir, el estado 'saliendo' de MenuAutomata.
 Es decir, el estado 'entrando' de MenuAutomata.
 \end{itemize}
 
-MenuHandler: Se encarga de disparar los eventos que se producen en el menú. Se comunica con la clase OptionHandler.
+\subsubsection{Clase MenuHandler}
+\label{subsubsection:menu_handler}
+
+Se encarga de disparar los eventos que se producen en el menú. Se comunica con la clase OptionHandler.
 Menu handler deriva de la clase Device, éste  tiene sus propios eventos : self\_events.\\
 
 Para el despliegue del menú, creamos un Gate contenido en Animation para el elemento o etiqueta 'menú' del HTML para asociar los efectos del 
 Gate Animation al atributo menu\_effects y a partir de ello creamos un MenuAutomata.\\
 
 Para realizar las funciones de cada botón del menú:
-\begin{itemize}
+\begin{enumerate}
  \item Crea un Gate  para etiqueta instructions\_options del elemento HTML, sobre la cual si se recibe el 
 evento do\_onclick (pulsar sobre el botón) muestra las instrucciones del juego
 
@@ -70,22 +81,29 @@ de mensaje de llamar a la función restart\_game()
 
  \item Crea un Gate para el elemento level\_option del HTML, sobre el cual si se realiza un clic,
 muestra los diferentes niveles, cambiando el display de la etiqueta level\_option\_container a inline.
-\end{itemize}
+\end{enumerate}
 
 La clase MenuHandler tiene dos métodos, attend\_keep\_menu\_out, attend\_keep\_menu\_in.
 \begin{itemize}
  \item attend\_keep\_menu\_out: Guarda el estado out de MenuAutomata como estado actual solicitado.
 
  \item attend\_get\_menu\_in: Guarda el estado getting\_in de MenuAutomata como estado actual solicitado
-
- \item OptionHandler: Dispara los eventos que se producen en la clase Levels y se comunica mediante mensajes con la clase MenuHandler.
 \end{itemize}
 
-Al igual que MenuHandler este Deriva de la clase Device  y tiene diferentes posibles estados:
+\subsubsection{Clase OptionHandler}
+\label{subsubsection:option_handler}
+
+Dispara los eventos que se producen en la clase Levels y se comunica mediante mensajes con la clase MenuHandler.
+
+Al igual que MenuHandler, éste deriva de la clase Device  y tiene diferentes posibles estados:
 'get\_panel\_out', 'keep\_menu\_out', 'get\_menu\_in'.
 Éste crea diferentes Gate para cada botón level.
 
-- Levels: Recoge los eventos que se generan en el Submenú. 
+
+\subsubsection{Clase Levels}
+\label{subsubsection:levels}
+
+Recoge los eventos que se generan en el Submenú. 
 Deriva de la clase Gate y tiene como métodos do\_onmouseover y do\_onmouseout:
 
 \begin{itemize}
