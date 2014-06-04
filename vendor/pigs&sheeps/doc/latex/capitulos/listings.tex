@@ -1,38 +1,5 @@
-\section{Imágenes}
-\label{sec:imagenes}
-
-% \subsection{Sección 1}
-% \label{subsubsection:seccion1}
-
-\begin{figure}[h]
-\includegraphics[scale=0.6]{figura111}\\
-\centering
-\caption{Técnica limpiaparabrisas}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=0.7]{figura112}\\
-\centering
-\caption{Zona de fuga}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=0.6]{figura113}\\
-\centering
-\caption{Sacar al ganado: Un controlador}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=0.6]{figura114}\\
-\centering
-\caption{Sacar al ganado: Dos controladores}
-\end{figure}
-
-
-% \pagebreak
-% 
-% \subsection{Sección 2}
-% \label{subsubsection:seccion2}
+\section{Código}
+\label{sec:codigo}
 
 \begin{lstlisting}[caption=Ejemplo de archivo dependencies]
 $K\_app\_dependencies = [
@@ -67,63 +34,6 @@ $K\_app\_dependencies = [
 ]
 \end{lstlisting}
 
-% \subsection{Sección 3}
-% \label{subsubsection:seccion3}
-
-\begin{figure}
-\includegraphics[scale=0.32]{figura311}\\
-\centering
-\caption{Primer diseño}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=0.33]{figura312}\\
-\centering
-\caption{Segundo diseño}
-\end{figure}
-
-
-\begin{figure}
-\includegraphics[scale=0.33]{figura313}\\
-\centering
-\caption{Diseño final}
-\end{figure}
-
-\begin{figure}
-\includegraphics{figura321}\\
-\centering
-\caption{Primer cerdito}
-\end{figure}
-
-\begin{figure}
-\includegraphics{figura322}\\
-\centering
-\caption{Oveja - sólo cabeza}
-\end{figure}
-
-
-\begin{figure}
-\includegraphics{figura323}\\
-\centering
-\caption{Cerdito definitivo}
-\end{figure}
-
-\begin{figure}
-\includegraphics{figura324}\\
-\centering
-\caption{Oveja definitiva}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=0.33]{figura325}
-\centering
-\caption{Primer canvas}
-\end{figure}
-
-% \pagebreak
-% \subsection{Sección 4}
-% \label{subsubsection:seccion4}
-
 \begin{lstlisting}[caption=Ejemplo clase]
  function Vehicle(mass, number_of_wheels){
   this.mass = mass // In kg 
@@ -131,8 +41,9 @@ $K\_app\_dependencies = [
   Vehicle.prototype.yield(this)
 }
 
-boeing = new Vehicle(20000, 8, function(newly_created_airplane){
-  newly_created_airplane.wings = 2  // This is a singleton attribute
+boeing = new Vehicle(20000, 8, 
+  function(newly_created_airplane){
+    newly_created_airplane.wings = 2
 })
 \end{lstlisting}
 
@@ -154,23 +65,20 @@ boeing = new Vehicle(20000, 8, function(newly_created_airplane){
 }
 
 dog = new (Animal("Tim", 4))("meat")
+
 \end{lstlisting}
-
-
-\begin{figure}
-\includegraphics[scale=0.33]{figura413}\\
-\centering
-\caption{Herencia prototípica}
-\end{figure}
-
 
 \begin{lstlisting}[caption=Objeto configurable Boids]
  var default_config = {
            geo_data: {
-               position: new Vector(Math.floor(Math.random()*400), 
-                                    Math.floor(Math.random()*400)),
-               velocity: new Vector(Math.floor(Math.random()*40),
-                                    Math.floor(Math.random()*40)),
+               position: new Vector(Math.floor(Math.random()
+                                      * 400), 
+                                    Math.floor(Math.random()
+                                      * 400)),
+               velocity: new Vector(Math.floor(Math.random()
+                                      * 40),
+                                    Math.floor(Math.random()
+                                      * 40)),
                acceleration: new Vector(0,0)
            },
            colour: "blue",
@@ -187,14 +95,6 @@ dog = new (Animal("Tim", 4))("meat")
            }
 }
 \end{lstlisting}
-
-
-\begin{figure}
-\includegraphics{figura4212}\\
-\centering
-\caption{Oveja. Cabeza}
-\end{figure}
-
 
 \begin{lstlisting}[caption=Funcion sheep limits]
  Sheep.prototype.sheep\_limits = function() {
@@ -265,38 +165,6 @@ dog = new (Animal("Tim", 4))("meat")
 }
 \end{lstlisting}
 
-
- 
-\begin{figure}
-\includegraphics{figura322}\\
-\centering
-\caption{gráfico de velocidades y aceleraciones}
-\end{figure}
-
-
-\begin{table}
-\caption{Comportamientos. Cuadro 4.3.2.1}
-% title of Table
-%\centering
-% used for centering table
-\begin{tabular}{| p{4cm} | p{7cm} | p{4cm} |} % centered columns (4 columns)
-
-\hline\hline %inserts double horizontal lines
-Nombre de la técnica & Boid cerdito & Boid oveja \\ [0.5ex] % inserts table
-%heading
-\hline % inserts single horizontal line
-% inserting body of the table
-Técnica del limpiaparabrisas & El pastor debe moverse en zig-zag detrás de la manada, para mantenerlos en línea recta. & Las ovejas deben de agruparse y moverse en línea recta.\\
-Zona de fuga & El cerdito se encuentra en la zona de fuga de la oveja. & La oveja se agita y se enfrenta a él. \\
-Moverlos en una manga & El cerdo debe de situarse enfrente del punto de equilibrio & Las ovejas avanzan hacia atrás. \\
-Sacar a las ovejas del corral con un controlador & El cerdo se sitúa  a 90º detrás del ganado. Los movimientos deben de ser perpendiculares a los del ganado, hacia delante y hacia atrás sobre la barra transversal de una gigante T. & las ovejas salen en 
-manada del corral. \\ [1ex] % [1ex] adds vertical space
-\hline %inserts single line
-\end{tabular}
-\label{table:nonlin} % is used to refer this table in the text
-\end{table}
-
-
 \begin{lstlisting}[caption=Función desired velocity]
 SheepBehavior.prototype.desired_velocity = function(){
  var arrival_distance
@@ -320,10 +188,11 @@ SheepBehavior.prototype.desired_velocity = function(){
 
 
 \begin{lstlisting}[caption=Función move shepherd]
-World.prototype.move_shepherd = function (screen_x, screen_y) {
+World.prototype.move_shepherd = function (screen_x, screen_y){
    if (!this.shepherd)
        return
-   var behaviour = this.shepherd.brain.get_behavior("seek mouse", null)
+   var behaviour = this.shepherd.brain.get_behavior(
+                                        "seek mouse", null)
    var x = screen_x - 425
    var y = 500 - screen_y
    var scale = 1 - y / 3000
@@ -392,7 +261,8 @@ Galactus.prototype.start_world = function() {
                  Math.floor(Math.random()*20)  )
              config.geo_data.acceleration = new Vector(0,0)
              config.vel_max = 70
-             config.vision = {radius: 100, angle: 80 * Math.PI / 80}           
+             config.vision = {radius: 100, angle: 80 * 
+                                           Math.PI / 80}           
              config.force_limits = {
                    thrust: 50,
                    steering: 50,
@@ -406,43 +276,24 @@ Galactus.prototype.start_world = function() {
 }
 \end{lstlisting}
 
-
-
-% \subsection{Sección 5}
-% \label{subsubsection:seccion5}
-
-\begin{figure}[h!]
-\includegraphics[scale=0.6]{figura511}\\
-\centering
-\caption{Diagrama Gate y Devices}
-\end{figure}
-
-
 \begin{lstlisting}[caption=Clase Button]
      Button.prototype = new Gate
      Button.prototype.constructor = Button
 
      function Button(element){
-
         try {
             if (arguments.length)
-                Gate.call(this, element)// LLama al superconstructor de Gate.
+                Gate.call(this, element)
         } catch (e) {
             if (\$K_debug_level >= \$KC_dl.DEVELOPER)
-                alert("No event handlers were found.\nException: " 
-                       + e.toSource())
+                alert("No event handlers were found.
+                      \nException: " + e.toSource())
         }
      }
 
      Button.prototype.do_onclick   = function(event, element){
         alert("You have made click.")
      }
-
-     var b = new Button(id_of_html_element, null, {
-         do_onmouseover: function(event, element) {
-             alert("Hello")
-         }
-     })
 \end{lstlisting}
 
 
@@ -457,7 +308,8 @@ Galactus.prototype.start_world = function() {
   [function (){
       if( this.menu_height >= 50 && this.menu_height<=205)
          this.menu_height+=5
-      this.gate.panel.style.height = "" + this.menu_height +"px"
+      this.gate.panel.style.height = "" + this.menu_height 
+                                   + "px"
   };],
 \end{lstlisting}
 
@@ -466,7 +318,8 @@ Galactus.prototype.start_world = function() {
   [function(){
       if( this.menu_height >=55 ){         
           this.menu_height-=5
-      this.gate.panel.style.height = "" + this.menu_height +"px"
+      this.gate.panel.style.height = "" + this.menu_height 
+                                   + "px"
   },],
 \end{lstlisting}
 

@@ -40,9 +40,9 @@ actual (current), se realizarán la funciones correspondientes.\\
 \begin{itemize}
  \item Estado out: Cambia la altura de menú a 250px. Ver figura 5.2.1
 
- \item Estado getting\_out : Incrementa la altura de menú de 5 en 5px  mientras este mida menos de 206 px y mas de 50px. Ver figura figura 5.2.2
+ \item Estado getting\_out: Incrementa la altura de menú de 5 en 5px  mientras este mida menos de 206 px y mas de 50px. Ver figura figura 5.2.2
 
- \item Estado getting\_in : Decrementa la altura de menú de 5 en 5px  mientras éste mida  más de 55px. Ver figura figura 5.2.3
+ \item Estado getting\_in: Decrementa la altura de menú de 5 en 5px  mientras éste mida  más de 55px. Ver figura figura 5.2.3
 \end{itemize}
 
 
@@ -55,10 +55,10 @@ al super constructor de Gate, asocia los efectos de MenuAutomata al elemento HTM
 
 La clase Animation cuenta con los métodos do\_onmouseover y do\_onmouseout:
 \begin{itemize}
- \item do\_onmouseover: Añade como estado solicitado el estado getting\_out del MenuAutomata.
+ \item do\_onmouseover(): Añade como estado solicitado el estado getting\_out del MenuAutomata.
 Es decir, el estado 'saliendo' de MenuAutomata.
 
- \item do\_onmouseout: Añade como estado solicitado el estado getting\_in del MenuAutomata.
+ \item do\_onmouseout(): Añade como estado solicitado el estado getting\_in del MenuAutomata.
 Es decir, el estado 'entrando' de MenuAutomata.
 \end{itemize}
 
@@ -85,9 +85,9 @@ muestra los diferentes niveles, cambiando el display de la etiqueta level\_optio
 
 La clase MenuHandler tiene dos métodos, attend\_keep\_menu\_out, attend\_keep\_menu\_in.
 \begin{itemize}
- \item attend\_keep\_menu\_out: Guarda el estado out de MenuAutomata como estado actual solicitado.
+ \item attend\_keep\_menu\_out(): Guarda el estado out de MenuAutomata como estado actual solicitado.
 
- \item attend\_get\_menu\_in: Guarda el estado getting\_in de MenuAutomata como estado actual solicitado
+ \item attend\_get\_menu\_in(): Guarda el estado getting\_in de MenuAutomata como estado actual solicitado
 \end{itemize}
 
 \subsubsection{Clase OptionHandler}
@@ -114,8 +114,8 @@ get\_menu\_in para ocultar el menu.
 \end{itemize}
 
 
-\subsection{Reloj}
-\label{subsection:reloj}
+\subsection{Clase Clock}
+\label{subsection:clock}
 
 Deriva de la clase Device y cuenta con los siguientes atributos:
 
@@ -134,33 +134,33 @@ obtener el tiempo actual en segundos.) almacena la hora actual en segundos.
 
 La función Initialize llama constructor de Device.\\
 
-Métodos de la clase Clock:
+Métodos:
 
 \begin{itemize}
- \item Reset: Reinicia el reloj. Llama al método pause, y reinicializa el valor de remaining\_time a total\_time.
+ \item Reset(): Reinicia el reloj. Llama al método pause, y reinicializa el valor de remaining\_time a total\_time.
 
- \item get\_count: Devuelve los segundos que quedan por jugar (remaining\_time).
+ \item get\_count(): Devuelve los segundos que quedan por jugar (remaining\_time).
 
- \item run: Recalcula el tiempo que queda por jugar. Vuelve a llamar a la función get\_now, para conocer el momento actual, este valor es almacenado 
+ \item run(): Recalcula el tiempo que queda por jugar. Vuelve a llamar a la función get\_now, para conocer el momento actual, este valor es almacenado 
 en la variable now, recalcula el valor de remaining\_time (segundos que quedan por jugar) en función del momento actual:
 
         tiempo que queda = al tiempo que quedaba - tiempo que ha pasado.
         
 Si remaining\_time es menor o igual que cero, pone con valor falso el atributo running, es decir, el reloj deja de estar en marcha.
 
- \item pause: Pausa el tiempo, cambiando el valor de running a falso.
+ \item pause(): Pausa el tiempo, cambiando el valor de running a falso.
 
- \item resume: Continua la cuenta atrás desde el momento que fue pausado. Reinicializa start\_time a partir del momento actual, a través de la 
+ \item resume(): Continua la cuenta atrás desde el momento que fue pausado. Reinicializa start\_time a partir del momento actual, a través de la 
  función get\_now. Recalcula remaining\_time.
 
         lo que queda = lo que quedaba - lo que ha pasado.
 
 Establece el valor de running a true.
 
- \item get\_string: Devuelve una cadena con el tiempo restante con formato mm:ss.
+ \item get\_string(): Devuelve una cadena con el tiempo restante con formato mm:ss.
 \end{itemize}
 
 Si running es igual a verdadero, es decir, si el reloj esta en marcha, se llama al método run y obtenemos el valor de los minutos y de los 
 segundos utilizando las funciones Floor() y Round() de la librería Math de javascript. Posteriormente se realiza la concatenación de cadenas para 
-darle formato. Si por el contrario el reloj no esta en marcha(running es falso), realizamos las mismas operaciones sin llamar al método run.
+darle formato. Si por el contrario el reloj no está en marcha(running es falso), realizamos las mismas operaciones sin llamar al método Run().
 
