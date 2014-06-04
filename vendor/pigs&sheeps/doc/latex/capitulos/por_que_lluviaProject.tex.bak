@@ -1,10 +1,10 @@
-\section{Por qué Lluvia Project}
+\section{Por qué LluviaProject}
 \label{section:por_que}
 
 \subsection{¿Qué es lluviaProject?}
 \label{subsection:que_es}
 
-Es una API Open Source de javascript  que incorpora parte de las funciones nativas de Ruby. Soporta multihilos a pequeña escala y provee un 
+Es una API Open Source de javascript que incorpora parte de las funciones nativas de Ruby. Soporta multihilos a pequeña escala y provee un 
 sistema de mensajes. Las aplicaciones deben crearse dentro del directorio vendor. Dentro del archivo html es necesario incluir en la 
 etiqueta body llamar a la función Bring LLuvia().\\
 

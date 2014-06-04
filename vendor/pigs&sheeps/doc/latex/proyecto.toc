@@ -15,6 +15,7 @@
 \contentsline {subsubsection}{\numberline {4.2.1}Introducci\IeC {\'o}n}{10}
 \contentsline {subsubsection}{\numberline {4.2.2}Clase Brain}{12}
 \contentsline {subsubsection}{\numberline {4.2.3}Clase Sheep}{13}
+<<<<<<< HEAD
 \contentsline {subsubsection}{\numberline {4.2.4}Clase Pig}{13}
 \contentsline {subsection}{\numberline {4.3}Clase Behavior}{14}
 \contentsline {subsubsection}{\numberline {4.3.1}Introducci\IeC {\'o}n}{14}
@@ -37,3 +38,26 @@
 \contentsline {subsection}{\numberline {8.3}Secci\IeC {\'o}n 3}{28}
 \contentsline {subsection}{\numberline {8.4}Secci\IeC {\'o}n 4}{33}
 \contentsline {subsection}{\numberline {8.5}Secci\IeC {\'o}n 5}{33}
+=======
+\contentsline {subsubsection}{\numberline {4.2.4}Clase Pig}{14}
+\contentsline {subsection}{\numberline {4.3}Clase Behavior}{14}
+\contentsline {subsubsection}{\numberline {4.3.1}Introducci\IeC {\'o}n}{14}
+\contentsline {subsubsection}{\numberline {4.3.2}Clase Sheep Behavior}{16}
+\contentsline {subsubsection}{\numberline {4.3.3}Clase Alignment Behavior}{16}
+\contentsline {subsubsection}{\numberline {4.3.4}Clase Seek Mouse Behavior}{17}
+\contentsline {subsection}{\numberline {4.4}Clase World}{17}
+\contentsline {subsection}{\numberline {4.5}Clase Galactus}{19}
+\contentsline {section}{\numberline {5}Gates y Devices}{21}
+\contentsline {subsection}{\numberline {5.1}Introducci\IeC {\'o}n}{21}
+\contentsline {subsection}{\numberline {5.2}Men\IeC {\'u} y Submen\IeC {\'u}}{21}
+\contentsline {subsubsection}{\numberline {5.2.1}Clase MenuAutomata}{21}
+\contentsline {subsubsection}{\numberline {5.2.2}Clase Animation}{22}
+\contentsline {subsubsection}{\numberline {5.2.3}Clase MenuHandler}{22}
+\contentsline {subsubsection}{\numberline {5.2.4}Clase OptionHandler}{23}
+\contentsline {subsubsection}{\numberline {5.2.5}Clase Levels}{23}
+\contentsline {subsection}{\numberline {5.3}Reloj}{23}
+\contentsline {section}{\numberline {6}M\IeC {\'u}sica}{25}
+\contentsline {subsection}{\numberline {6.1}Introducci\IeC {\'o}n}{25}
+\contentsline {subsection}{\numberline {6.2}Clase BufferLoader}{25}
+\contentsline {section}{\numberline {7}Conclusiones}{26}
+>>>>>>> dab8f33211646206ec6de7191627bdaad4eb9986

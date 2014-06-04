@@ -4,6 +4,8 @@
 \subsection{Estructura de una clase}
 \label{subsection:estructura}
 
+\lluvia, al igual que otros lenguajes orientados a objetos, está organizado en clases.\\
+
 Para crear una clase es necesario definir una función constructora. 
 \begin{verbatim}
  var myClass = function() {;} 
@@ -30,22 +32,23 @@ var attribute = VALUE
 Una clase puede devolver una variable o un objeto complejo, llamado cierre, con capacidad para acceder a más de un atributo. 
 De esta manera, una clase puede ser, a su vez, una factoría de objetos.
 \begin{verbatim}
-var derived\_class = new myClass()
+var derived_class = new myClass()
 \end{verbatim}
-Estas clases pueden aceptar parámetros o no y new es opcional.
 
-Aunque lluviaProject no define nada al respecto, los cierres se suelen usar a través de la función yield, la cual busca entre los parámetros 
-un objeto función y lo ejecuta.
+Estas clases pueden aceptar parámetros o no y new es opcional.\\
+
+Aunque \lluvia{} no define nada al respecto, los cierres se suelen usar a través de la función yield, la cual busca entre los parámetros 
+un objeto función y lo ejecuta.\\
 
 Las clases aceptan un objeto de configuración, el cual permite modificar la propia clase en caso necesario. Al igual que en javascript, 
-no es necesario definir el tipo de las variables. Ver ejemplo en figura 4.1.1
+no es necesario definir el tipo de las variables. Ver ejemplo en figura 4.1.1\\
 
-lluviaProject permite definir una función dentro de la propia clase. Ver ejemplo en figura 4.1.2
+\lluvia{} permite definir una función dentro de la propia clase. Ver ejemplo en figura 4.1.2\\
 
 La palabra reservada this, dentro del ámbito de new, hace referencia al objeto que se está creando, mientras que fuera de él hace 
 referencia al objeto que se está ejecutando.\\
 
-\underline{Object\#method\_missing:} \\
+\textbf{Object\#method\_missing:} \\
 Cuando una función no existente es llamada, se levanta una excepción y se llama al método method\_missing()
 
 
@@ -55,10 +58,10 @@ Cuando una función no existente es llamada, se levanta una excepción y se llam
 
 Las clases siguen las convenciones de las cadenas prototípicas de Javascript. Esto quiere decir que si el atributo no está presente en el 
 objeto, entonces se mira en el constructor de la clase padre. Si ésta deriva a su vez de otra, entonces se busca en el constructor del 
-padre de la segunda. Ver figura 4.1.3
+padre de la segunda. Ver figura 4.1.3\\
 
 Aquellas funciones definidas sin la palabra reservada prototype no son accesible por ninguna instancia de la clase. Tanto éstas como aquellas 
-funciones que no que no acceden a los atributos de clase se consideran estáticas.
+funciones que no que no acceden a los atributos de clase se consideran estáticas.\\
 
 Es posible definir métodos singleton, que se crean en el constructor de la clase y que no pertenecen a la clase padre. Dentro de estos 
 métodos, this pierde su significado y es necesario que esté recogido en una variable local para poder acceder a él.\\
@@ -74,14 +77,14 @@ métodos, this pierde su significado y es necesario que esté recogido en una va
 Un Boid se define como un carácter personal autónomo que recibe un objeto de configuración y un bloque. Al crear una nueva instancia, se 
 le puede pasar como parámetro un objeto de configuración y/o un bloque de código. Si se le pasa un objeto de configuración, es necesario 
 definir todos los parámetros a incluir en el constructor del nuevo Boid. Si se le pasa un bloque, se pueden definir sólo aquellos parámetros 
-que vayan a cambiar con respecto a la clase padre.
+que vayan a cambiar con respecto a la clase padre.\\
 
 La configuración por defecto incluye un objeto geo\_data, el cual contiene los atributos de posición, velocidad y aceleración, color del 
 boid, un cerebro, velocidad máxima, masa, el objeto vision, con radio y ángulo, y el objeto límites dinámicos, que incluye capacidad de 
-empuje, de giro y de frenada. Ejemplo de configuración por defecto. Figura 4.2.1.1
+empuje, de giro y de frenada. Ejemplo de configuración por defecto. Figura 4.2.1.1\\
 
 Es posible modificar su posición, velocidad o aceleración en tiempo real según sea necesario. También se le puede asignar un comportamiento 
-de los que ya existen o crear nuevos que cubran necesidades más específicas.
+de los que ya existen o crear nuevos que cubran necesidades más específicas.\\
 
 Cada Boid tiene acceso directo a la descripción geométrica de la escena, pero los comportamientos de manada requieren que éste reaccione 
 sólo a aquellos boids que se encuentren dentro de un área específica alrededor de él. Este área se define por una distancia, medida desde 
@@ -103,7 +106,7 @@ Obtiene o define la aceleración del Boid
 Guarda la hora que marca el procesador.
 
   \item delta\_at():
-Tiempo que ha pasado desde la última vez que la variable “last time” fue actualizada
+Tiempo que ha pasado desde la última vez que la variable 'last time' fue actualizada
 
   \item update\_physics():
 Calcula la nueva posición, velocidad y aceleración en función del tiempo que ha pasado.
@@ -154,40 +157,40 @@ Devuelve la información del target.
 \label{subsubsection:brain}
 
 Es la clase que crea un cerebro para el Boid. En ella, se guardan los comportamientos disponibles para ser activados. Todos estos 
-comportamientos conocidos se guardan en catalog. El cerebro, además, se encarga de discriminar entre aquellos que pueden ser activados por 
-un Boid concreto y los que no.
+comportamientos conocidos se guardan en la variable \textit{catalog}. El cerebro, además, se encarga de discriminar entre aquellos que pueden ser activados por 
+un Boid concreto y los que no.\\
 
-Guarda las aceleraciones el Boid posee para cada uno de sus comportamientos activos. De esta manera, se puede calcular la aceleración que 
+Guarda las aceleraciones que posee el Boid para cada uno de sus comportamientos activos. De esta manera, se puede calcular la aceleración que 
 el Boid necesita para cambiar su posición en función del objetivo.\\
 
 
 Métodos:
 \begin{itemize}
-\item can\$U
+\item can\$U():
 Comprueba si el Boid puede activar un comportamiento específico.
 
-\item can\_be\_in\$U
+\item can\_be\_in\$U():
 Comprueba si un comportamiento puede ser activado para un Boid.
 
-\item activate
+\item activate():
 Activa un comportamiento determinado en un Boid.
 
-\item deactivate
+\item deactivate():
 Desactiva un comportamiento determinado en un Boid.
 
-\item is\_in\$U
+\item is\_in\$U():
 Comprueba si un comportamiento está en la lista de aquellos aceptados por el Boid.
 
-\item get\_behavior
+\item get\_behavior():
 Obtiene el comportamiento pasado como parámetro
 
-\item \$see\_accelerations
+\item \$see\_accelerations():
 Muestra las aceleraciones guardadas por el método desired\_accelerations()
 
-\item desired\_accelerations
+\item desired\_accelerations():
 Guarda las aceleraciones de un determinado Boid para todos sus objetivos
 
-\item desired\_acceleration
+\item desired\_acceleration():
 Calcula la aceleración que el Boid necesita para cambiar su posición.
 \end{itemize}
 
@@ -225,10 +228,10 @@ Ver figura 4.2.3.4
 La característica principal de esta clase es su capacidad para responder a las coordenadas del ratón cuando el usuario dispara el evento 
 onClick(). Éstas son capturadas por el objeto MouseCoordinates, el cual deriva de la clase Gate. A través de su método do\_onclick(), 
 transforma las coordenadas globales de la pantalla en locales del canvas y las guarda en sendas variables de clase. Estas variables se 
-pasan al mundo como parámetros de su función move\_shepherd() y se usan para definir el objetivo del Boid, el cual tiene programado un 
+pasan a la clase World como parámetros de su función move\_shepherd() y se usan para definir el objetivo del Boid, el cual tiene programado un 
 comportamiento de persecución. Ver figura 4.2.4.1\\
 
-Métodos:
+Métodos:\\
 
 Esta clase cuenta con dos métodos, modificados de la clase original. Al igual que en la clase Sheep, ha sido necesario redefinir 
 first\_draw() y draw() para poder cargar la imagen del cerdito en lugar de pintar el círculo que se crea por defecto para representar el 
@@ -244,25 +247,27 @@ Boid.
 
 La clase Behavior permite modelar el comportamiento de los Boid. Esto se consigue modificando el vector de aceleración que cada uno de los 
 Boids posee como parte de su estructura interna. Un comportamiento se puede definir como un objeto que devuelve una aceleración deseada en 
-un momento concreto.
+un momento concreto.\\
 
 Al ser una clase abstracta, no permite crear instancias, de manera que para crear un comportamiento nuevo es necesario generar una clase 
-nueva que derive de ésta.\\
+nueva que derive de ésta.
 
+\begin{verbatim}
 Modo incorrecto de crear un comportamiento:
 
 var a = new Behavior()
 
 Modo correcto:
 
-NewBehavior.prototype = new Behavior
+NewBehavior.prototype = new Behavior\\
+\end{verbatim}
 
 Estos comportamientos puede tener pre y post modificadores. Los primeros modifican la aceleración antes de devolverla y los segundos,
 después. Un ejemplo de premodificador es forsee, que se encarga de calcular dónde estará el objetivo en la próxima medida de tiempo. Este 
 premodificador unido al comportamiento de búsqueda seek hacen que varíe la aceleración para modificar la trayectoria y perseguir al objetivo. 
-Un ejemplo de premodificador sería arrival, el cual va disminuyendo la aceleración a medida que se acerca al objetivo.
+Un ejemplo de premodificador sería arrival, el cual va disminuyendo la aceleración a medida que se acerca al objetivo.\\
 
-Los comportamientos disponibles para los Boid en este momento son seek (búsqueda), flee (huida), wander (paseo), containment (contención 
+Los comportamientos disponibles para los Boids en este momento son seek (búsqueda), flee (huida), wander (paseo), containment (contención 
 en el espacio), alignment (alineamiento con otro Boids), cohesion (acercamiento a otros Boids), separation (separación de otros Boids) y 
 obstacle avoidance (sorteo de obstáculos).\\
 
@@ -318,7 +323,7 @@ Desactiva un modificador determinado.
 
 Es la clase encargada de generar el comportamiento de las ovejas. Deriva de la clase Behavior. Cuando el cerdito oveja entra dentro del 
 radio de visión de la oveja, esto despierta en ella un comportamiento de huida. Es decir, aumenta su aceleración hasta su límite para 
-disminuir ésta gradualmente a medida que se va alejando del Boid cerdito.
+disminuir ésta gradualmente a medida que se va alejando del Boid cerdito.\\
 
 Éste es el primero de los cinco comportamientos que se quieren implementar (véase cuadro 4.3.2.1). Los otros cuatro quedan para una fase 
 posterior de desarrollo.\\
@@ -349,7 +354,8 @@ Devuelve la aceleración deseada del Boid.
 \label{subsubsection:alignment_behavior}
 
 Al comportamiento básico de la oveja se le añadió el comportamiento de alineación, con el objetivo de crear una sensación de grupo más 
-marcada. El comportamiento de Alignment está dentro de los comportamientos de manada del cerebro.
+marcada. El comportamiento de Alignment está dentro de los comportamientos de manada del cerebro.\\
+
 Se calcula el alineamiento medio como la media de las velocidades. Es necesario que aumente la aceleración para eliminar la componente 
 normal al alineamiento en la velocidad del Boid, es decir, suprime toda la velocidad que no esté en la dirección del alineamiento. 
 Ver figura 4.3.3.1\\
@@ -361,7 +367,7 @@ Ver figura 4.3.3.1\\
 
 Deriva de la clase Seek Behavior y modifica el comportamiento de la clase Pig a través de uno de sus métodos, al que se le pasan 
 como parámetros las variables x e y, que se corresponden  con las coordenadas x e y del ratón, capturadas y transformadas en coordenadas 
-locales por la clase MouseCoordinates.
+locales por la clase MouseCoordinates.\\
 
 Este comportamiento se activa en la clase Galactus, en la creación del Boid cerdito. Después, en la función move\_shepherd() de la clase 
 Mundo, se consigue el comportamiento de seek mouse, se obtienen los valores de x e y y se escalan en función de la perspectiva del canvas.
@@ -374,11 +380,11 @@ Estas coordenadas escaladas se pasan como parámetro a la clase Seek Mouse a tra
 
 La clase World deriva de la clase Device y es la que genera el mundo en el que viven los Boids. Necesita un objeto canvas para poder 
 existir, aunque, en principio, sus límites son infinitos. Esto quiere decir que el usuario verá en pantalla tan sólo una parte del mundo, 
-mientras que los Boids podrán “viajar” a cualquier parte de él, llegando a desaparecer del canvas.
+mientras que los Boids podrán 'viajar' a cualquier parte de él, llegando a desaparecer del canvas.\\
 
 Las funciones principales del mundo son gestionar el canvas y los boids existentes. A través de diferentes funciones, se puede modificar 
 el tamaño del mundo o del canvas, guardar los Boids creados en una lista y acceder a ésta o actualizar los datos que reciben estos Boids 
-para modificar su estado.
+para modificar su estado.\\
 
 Además, el mundo puede para enviar y recibir mensajes, una de las características de la clase Device. En la variable de clase 
 this.self\_events, de tipo Array, están guardados los mensajes que el mundo puede enviar. Puede recibir cualquier mensaje siempre y cuando
@@ -460,7 +466,7 @@ Actualiza la cola de mensajes.
 Crea un nuevo Boid de una subclase de Boid.
 
  \item method\_missing():
-Provee el método dinámico new\_boid\_as\_<ClassName>
+Provee el método dinámico new\_boid\_as\_(ClassName)
 \end{itemize}
 
 
@@ -471,12 +477,12 @@ Provee el método dinámico new\_boid\_as\_<ClassName>
 Clase que se encarga de gestionar la creación de un nuevo mundo al principio de cada juego. Además, se encarga de destruir el mundo 
 anterior cada vez que se reinicia la partida. La función principal de está clase es start\_world(), donde se crea el mundo nuevo, se añade 
 un puerto de escucha de mensajes y se llama a las funciones que controlan la cuenta atrás y la música. Además, se crea el Boid cerdito y 
-los Boid oveja y se les pasan los parámetros de configuración y se definen los comportamientos específicos.
+los Boid oveja y se les pasan los parámetros de configuración y se definen los comportamientos específicos.\\
 
 La función playSound() se encarga de gestionar el sonido del juego y todo lo relacionado con él. Countdown() es responsable de reloj de 
 cuenta atrás, de iniciarlo cuando se inicia el mundo, pararlo, etc. Destroy\_world() y attend\_restart\_world() son las funciones encargadas 
 de gestionar la destrucción del mundo y creación de uno nuevo cuando el usuario pulsa el botón de reiniciar el juego. 
-Attend\_restart\_world() es la función que responde al mensaje “restart\_world” enviado por el mundo gracias al puerto añadido en la 
+Attend\_restart\_world() es la función que responde al mensaje 'restart\_world' enviado por el mundo gracias al puerto añadido en la 
 función start\_world().\\
 
 Métodos:
@@ -491,7 +497,7 @@ Inicia el sonido del juego respondiendo al evento onClick() del botón de play
 Inicia la cuenta atrás del temporizador de la pantalla. Si el tiempo se termina, se llama a la función que pinta en el canvas la imagen de final del juego
 
  \item destroy\_world():
-Destruye el mundo actual y deja saber al nuevo mundo que ya habia un mundo creado antes.
+Destruye el mundo actual y deja saber al nuevo mundo que ya había un mundo creado antes.
 
  \item attend\_restart\_game():
 Reinicia el mundo. Atiende al mensaje enviado por el gate cuando alguien pulsa el botón restart del juego.

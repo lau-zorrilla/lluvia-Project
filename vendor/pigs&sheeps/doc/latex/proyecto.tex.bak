@@ -10,7 +10,7 @@
 \usepackage{listings}
 \usepackage{color}
 
-\definecolor{digiriesen}{rgb}{0,0.6,0}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
@@ -22,7 +22,6 @@
 \date{09/JUNIO/2014}
 
 \begin{document}
-\newcommand{\lluvia}{\textbf{\textit{lluviaProject}}}
 
 \include{./capitulos/prologo}
 

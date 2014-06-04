@@ -4,17 +4,17 @@
 \subsection{Front-end (HTML/CSS)}
 \label{sec:front_end}
 
-Esta aplicación ha sido diseñada para ser lanzada desde el navegador. La página tendrá como dimensiones 1200 x 800. 
-Está al iniciarse muestra dos controles, botón play y botón menu.
-Ver figura 3.1.3
+Esta aplicación multiplataforma ha sido diseñada para ser lanzada desde cualquier navegador. La página tendrá como dimensiones 1200 x 800. 
+Está al iniciarse muestra dos controles, botón Play y botón Menú. Ver figura 3.1.3\\
 
-El botón play inicia el juego mostrando una pantalla en la que aparecen un cerdito y un rebaño de ovejas. El cerdito hace la labor de pastor, 
+El botón Play inicia el juego mostrando una pantalla en la que aparecen un cerdito y un rebaño de ovejas. El cerdito hace la labor de pastor, 
 teniendo que meter un número determinado de ovejas en el corral para poder pasar al siguiente nivel. 
 En la esquina superior izquierda se encuentra el cronómetro, inicializado en dos minutos y realiza la cuenta atrás hasta llegar a cero.
-En el centro superior de la pantalla se encuentra un contador que irá aumentando según el número de ovejas que vayan entrando en redil.
+En el centro superior de la pantalla se encuentra un contador que irá aumentando según el número de ovejas que vayan entrando en el redil.
 En la esquina superior izquierda está situado el menú de la aplicación que está compuesto por las siguientes opciones:
+
 \begin{itemize}
- \item Instrucciones: Donde se explica el funcionamiento del juego.
+ \item Instructions: Donde se explica el funcionamiento del juego.
  \item Restart level: Permite reiniciar el nivel.
  \item Levels: Muestra los niveles del juego que se irán desbloqueando según se vayan superando.
 \end{itemize}
@@ -26,31 +26,38 @@ figura 3.1.3
 \subsection{Canvas}
 \label{sec:canvas}
 
-El elemento canvas  de htlm5 es un contenedor gráfico que  proporciona a los scripts  un mapa de bits  que funciona como lienzo.
-Lo primero que se debe de hacer es referenciar el elemento canvas dandole unas dimensiones, 851 x 424(ancho y largo) y adquirir su contexto.
-En este caso hemos utilizado un contexto bidimensional (2D).
-El lenguaje de programación Javascript contiene una serie de funciones propias que nos permiten  a través de coordenadas dibujar en el canvas.
+El elemento Canvas  de HTML5 es un contenedor gráfico que  proporciona a los scripts  un mapa de bits  que funciona como lienzo.
+Lo primero que se debe de hacer es referenciar el elemento Canvas dándole unas dimensiones, 851 x 424(ancho y largo) y adquirir su contexto.
+En este caso hemos utilizado un contexto bidimensional (2D).\\
+
+Dentro del archivo HTML es necesario incluir en la 
+etiqueta body llamar a la función Bring\_LLuvia().\\
+
+El lenguaje de programación Javascript contiene una serie de funciones propias que nos permiten  a través de coordenadas dibujar en el Canvas.
 Estas son algunas de ellas.
 
 \begin{itemize}
- \item beginPath():  Con esta función se da comenzado el trazo.
- \item moveTo(x,y): Coloca el cursor en el punto de inicio y a partir de ahí, se va creando la forma de la figura a través de las distintas 
+ \item beginPath():  Con esta función se da por comenzado el trazo.
+ \item moveTo(x, y): Coloca el cursor en el punto de inicio y a partir de ahí, se va creando la forma de la figura a través de las distintas 
  funciones.
- \item lineTo(x,y): Traza líneas rectas desde una coordenada a otra.
+ \item lineTo(x, y): Traza líneas rectas desde una coordenada a otra.
  \item fill(): Dibuja una forma cerrada con el color de relleno actual. Si la forma no está cerrada, la propia función crea una línea recta 
  desde el punto de inicio  al punto final para cerrarla.
  \item arc(x, y, radio, ángulo inicial, ángulo final, sentido de giro):  Se utiliza para dibujar circunferencias y arcos.
- \item (x,y): Son las coordenadas del centro de la circunferencia.
+ \begin{enumerate}
+ \item x, y: Son las coordenadas del centro de la circunferencia.
  \item Radio: Radio de dicha circunferencia.
- \item Angulo inicial y angulo final: Marca la amplitud del arco desde el ángulo inicial al ángulo final en el sentido de las agujas del reloj. Los ángulos se miden en radianes. La equivalencia con los grados nos la da esta expresión:
+ \item Ángulo inicial y ángulo final: Marca la amplitud del arco desde el ángulo inicial al ángulo final en el sentido de las agujas del reloj. Los ángulos se miden en radianes. 
+ La equivalencia con los grados nos la da esta expresión:\\
  radianes = (Math.PI/180)*grados
  \item El sentido de giro tiene el valor lógico cierto, el arco irá en sentido contrario a las agujas del reloj. Este último parámetro es 
  opcional y por defecto su valor es falso.
+ \end{enumerate}
  \item closePath(): Crea una línea recta desde el último punto al punto inicial. Da por finalizada la figura.
 \end{itemize}
 
-Gracias a html5, CSS3 y JavaScript hemos podido realizar tanto como el fondo del juego, como las figuras que representan a los personajes.
-Al igual que en la pantalla principal, los elementos del canvas han sufrido varios procesos, a medida que se ha ido mejorando la técnica de creación, estos han ido cambiando.
+Gracias a HTML5, CSS3 y Javascript, hemos podido realizar tanto el fondo del juego, como las figuras que representan a los personajes.
+Al igual que en la pantalla principal, los elementos del Canvas han sufrido varios procesos, a medida que se ha ido mejorando la técnica de creación, éstos han ido cambiando.
 Se puede ver un ejemplo en las figuras 3.2.1, 3.2.2, 3.2.3, 3.2.4, 3.2.5
 
 
