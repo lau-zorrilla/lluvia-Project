@@ -3,26 +3,27 @@
 
 Este proyecto nos ha permitido comprobar la importancia y las ventajas de la utilización de los lenguajes orientados a objetos. 
 Éstos últimos permiten una programación más ágil y eficiente que aquellos lenguajes estructurados. Esto permite expresar aspectos de la vida 
-cotidiana de forma más realista.\\
+cotidiana de forma más realista.
 
 Como LluviaProject es un framework multihilo gestionado por señales, permite añadir a Javascript funciones nuevas, fundamentales para el desarrollo del proyecto. 
 Esto permite enviar y recibir mensajes entre distintos componentes de la aplicación, mejorando la respuesta a los diferentes eventos. Además, la utilización de caracteres 
-personales autónomos (Boids), nos ha permitido comprobar que se puede modelar artificialmente el comportamiento de un animal a partir de 
-operaciones sencillas con vectores.\\
+personales autónomos (boids), nos ha permitido comprobar que se puede modelar artificialmente el comportamiento de un animal a partir de 
+operaciones sencillas con vectores.
 
 Modificando la aceleración en función de un estímulo se pueden generar comportamientos de huida, en los que se aumenta la aceleración hasta su 
 máximo durante un espacio para ir reduciéndose de manera gradual a medida que se aleja del estímulo.
-Si, además, se le añade un radio de visión, compuesto de radio y ángulo, también se pueden generar otro tipo de comportamientos.\\
+
+Si, además, se le añade un radio de visión, compuesto de radio y ángulo, también se pueden generar otro tipo de comportamientos.
 
 Según el ángulo de visión, se generan comportamientos, los cuales pueden variar en función de los hábitos alimenticios de 
-una determinada especie de Boid, por ejemplo. Es decir, si un Boid es carnívoro, tendrán los ojos ubicados en la parte delantera de la cabeza, mientras 
+una determinada especie de boids, por ejemplo. Es decir, si un boid es carnívoro, tendrán los ojos ubicados en la parte delantera de la cabeza, mientras 
 que si es herbívoro, éstos estarán situados en los lados. Esta variación del ángulo de visión permite ajustar lo observado en la vida real a la 
-simulación artificial.\\
+simulación artificial. 
 
-El radio de visión permite determinar la distancia que ve el Boid. Éste, por ejemplo, puede variar en función de la edad, siendo mayor cuando
-más joven es el Boids. También permite determinar si una especie tiene comportamientos de manada o no, en función de cuánto se acerquen o alejen de 
-otros animales similares dentro de su radio de visión. De la misma manera, un Boid solo con un comportamiento de manada programado tenderá a 
-acercarse a otros miembros cercanos de la manada.\\
+El radio de visión permite determinar la distancia que ve el boid. Éste, por ejemplo, puede variar en función de la edad, siendo mayor cuando
+más joven es el boid. También permite determinar si una especie tiene comportamientos de manada o no, en función de cuánto se acerquen o alejen de 
+otros animales similares dentro de su radio de visión. De la misma manera, un boid solo con un comportamiento de manada programado tenderá a 
+acercarse a otros miembros cercanos de la manada.
 
 %Pequeños cambios en las variables que componen los boids pueden generar comportamientos completamente distintos.
 
