@@ -21,11 +21,8 @@ Esta función será ejecutada después de solicitar la ejecución del método lo
 \label{subsection:buffer_loader}
 
 Su principal función es la de cargar las pistas de música en un buffer de datos.
-Para que ello se lleve a cabo, hay que ejecutar su método load(). Este método se encarga de llamar al método loadBuffer para cada elemento del array con las URLs de las pistas de 
-canciones que se envían como parámetro, mandando éstas así como su posición en el array. \\
-
-Este último método cargará las pistas de audio en el buffer, realizando una petición HTTP al servidor y descodificará el audio como respuesta, añadiendo esa pista recibida al 
-buffer y, posteriormente, ejecutará la llamada a la función finishedLoading (la cual indicamos que tiene que ser llamada en la creación de la clase bufferLoader()), en el caso de 
-no haberse encontrado ningún error.\\
-
+Para que ello se lleve a cabo, hay que ejecutar su método load(), el cual se encargará de llamar al método loadBuffer para cada elemento del array con las URLs de las pistas de 
+canciones que se envían como parámetro, mandando éstas así como su posición en el array. Este último método cargará las pistas de audio en el buffer, realizando una petición HTTP al 
+servidor y descodificará el audio como respuesta, añadiendo esa pista recibida al buffer y, posteriormente, ejecutará la llamada a la función finishedLoading (la cual indicamos que 
+tiene que ser llamada en la creación de la clase bufferLoader()), en el caso de no haberse encontrado ningún error.
 Por último la función stopPlaying ejecutará el método stop para la pista de música.

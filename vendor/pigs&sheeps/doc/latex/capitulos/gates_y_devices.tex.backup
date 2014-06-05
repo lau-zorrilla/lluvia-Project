@@ -4,142 +4,155 @@
 \subsection{Introducción}
 \label{subsection:intro_gates}
 
-Device: Provee un mecanismo asíncrono de comunicación. Usa una cola de mensajes y dispara eventos. No tiene conexión propia con el DOM de HTML,
-pero ésta se realiza mediante un objeto de la clase Gate.\\
+El servicio de mensajería de \lluvia{} está gestionado por las clases Gate y Device.
 
-Gate: Es un “envoltorio” para elementos html.\\
+Diagrama de Gates y Device. Ver figura \ref{fig:figura511} (página \pageref{fig:figura511})
 
-Están diseñados para responder a eventos html manteniendo el campo de aplicación objeto. Recibe como parámetros opcionales el elemento html a 
-envolver (por ejemplo un div), el contenedor html donde situar el gate y las acciones de respuesta.\\
+\subsubsection{Clase Device}
+\label{subsubsection:device}
 
-Por ejemplo, si en el documento html tenemos el siguiente elemento:
+La clase Device provee un mecanismo asíncrono de comunicación con otros Devices. No tiene conexión propia con el DOM de HTML, pero ésta se realiza mediante un objeto de la clase 
+Gate. Los Devices reciben eventos, que guardan en una cola de mensajes. El atributo self\_ events es donde se almacena la lista de mensajes que éste puede atender. Por ejemplo, el 
+Device menuHandler atenderá a los siguientes eventos: get\_panel\_out(), restart\_game(), keep\_menu\_out() y get\_menu\_in().\\
+
 \begin{verbatim}
-     <div id="button_bar">&nbsp;</div>
+this.self_events = [ "get_panel_out", "restart_game", 
+                     "keep_menu_out", "get_menu_in" ].
+\end{verbatim}
+
+Y para atender a cada uno de esos mensajes habrá que crear una función 'attend':\
+
+\begin{verbatim}
+MenuHandler.prototype.attend_keep_menu_out = function(date, msg) {
+//Respuesta al mensaje recibido keep_menu_out de la cola de mensajes.
+this.menu_effects.menu_automata.currentState.requested = 
+                              this[this.view].menu_automata.state.out
+}
+\end{verbatim}
+
+
+A su vez los devices pueden enviar mensajes a otros devices lanzando un nuevo evento de envío de mensaje con los fireEvent y newMessage.
+Por ejemplo:
+
+\begin{verbatim}
+this.device.fireEvent(this.device.newMessage("sync", 
+                                  "restart_game", this))
+\end{verbatim}
+
+Cada vez que se crea un nuevo Gate, añade un puerto al Device.
+
+\subsubsection{Clase Gate}
+\label{subsubsection:gate}
+ 
+La clase Gate se encargan de gestionar eventos. Algunos son onClick(), onMouseOver() o onMouseOut(), que responden a la pulsación del ratón, a su paso por encima de un elemento y a su salida de él, respectivamente. 
+Un objeto Gate está contenido dentro de un objeto Device y en su creación recibe como parámetros opcionales los siguiente elementos:
+
+\begin{itemize}
+ \item Identificador HTML que va a responder al evento (por ejemplo una etiqueta div) 
+ \item Contenedor HTML donde situar el objeto Gate
+ \item Acciones de respuesta.
+\end{itemize}
+
+Por ejemplo, si en el documento HTML tenemos el siguiente elemento:
+\begin{verbatim}
+     <div id='button_bar'>&nbsp;</div>
 \end{verbatim}
 Escribiríamos:
 \begin{verbatim}
-     var brush_button = new Gate("brush_btn", "button_bar")
+   that.newGate("instructions_option", Gate, {do_onclick: 
+       function(event, element) {
+            alert("Move the little pig to place sheeps into the barnyard")
+   }
 \end{verbatim}
-Lo que generaría un div con id:”brush\_btn” y un objeto javascript que responderá a cada evento html que se haya definido en el correspondiente 
-handler. Ver figura 5.1.1
 
-\begin{figure}
-Figura 5.1.1
-\begin{verbatim}
-     Button.prototype = new Gate
-     Button.prototype.constructor = Button
+Lo que genera que ante un evento, en este caso on\_click, sobre el div con identificador instructions\_option, se produzca  una respuesta como puede ser 
+un mensaje emergente (alert).
 
-     function Button(element){
 
-        try {
-            if (arguments.length)
-                Gate.call(this, element)// LLama al superconstructor de Gate.
-        } catch (e) {
-            if (\$K_debug_level >= \$KC_dl.DEVELOPER)
-                alert("No event handlers were found.\nException: " 
-                       + e.toSource())
-        }
-     }
-
-     Button.prototype.do_onclick   = function(event, element){
-        alert("You have made click.")
-     }
-
-     var b = new Button(id_of_html_element, null, {
-         do_onmouseover: function(event, element) {
-             alert("Hello")
-         }
-     })
-\end{verbatim}
-\end{figure}
 
 \subsection{Menú y Submenú}
 \label{subsection:menu}
 
-MenuAutomata: Controla los estados de entrada y salida del menú. Deriva de la clase threadAutomata y tiene una serie de estados posibles:\\
-\"out", "getting\_out", "getting\_in", \"inside".\\
+\subsubsection{Clase MenuAutomata}
+\label{subsubsection:menu_automata}
+
+Controla los estados de entrada y salida del menú. Deriva de la clase threadAutomata y tiene una serie de estados posibles:\\
+'out', 'getting\_out', 'getting\_in', 'inside'.\\
 Estos estados, a su vez, pueden encontrarse en estado anterior (previous), actual (current) o solicitado (requested). Según cual sea  el estado 
 actual (current), se realizarán la funciones correspondientes.\\
 
-Estado out: Cambia la altura de menu a 250px. Ver figura 5.2.1
- 
-\begin{figure}
-figura 5.2.1
-\begin{verbatim}
-[function(){
-    this.gate.panel.style.height = "" + 250 +"px" 
-}; ],
-\end{verbatim}
-\end{figure}
-
-Estado getting\_out : Incrementa la altura de menu de 5 en 5px  mientras este mida menos de 206 px y mas de 50px. Ver figura figura 5.2.2
-
-figura 5.2.1
-\begin{verbatim}
-[function (){
-    if( this.menu_height >= 50 && this.menu_height<=205)
-       this.menu_height+=5
-    this.gate.panel.style.height = "" + this.menu_height +"px"
-};],
- 
-\end{verbatim}
-            
-Estado  getting\_in : Decrementa la altura de menú de 5 en 5px  mientras éste mida  más de 55px. Ver figura figura 5.2.3
-
-figura 5.2.1
-\begin{verbatim}
-[function(){
-    if( this.menu_height >=55 ){         
-        this.menu_height-=5
-    this.gate.panel.style.height = "" + this.menu_height +"px"
-},],
-\end{verbatim}
-        
-Animation: Recoge los eventos que se producen en el menú a partir de la interacción del usuario. Animation.js deriva de la clase gate.
-Recibe el elemento html que envuelve  el gateAnitamion. En su función initialize además de crear como atributo  el elemento (html) y de llamar
-al super constructor de gate, asocia los efectos de menuAutomata al elemento html recibido.\\
-
-La clase animation cuenta con los métodos do\_onmouseover y do\_onmouseout:
 \begin{itemize}
- \item do\_onmouseover: Añade como estado solicitado el estado getting\_out del menuAutomata.
-Es decir, el estado "saliendo" de menuAutomata.
+ \item Estado out: Cambia la altura de menú a 250px, que es la longitud del menú una vez está totalmente desplegado, incluyendo el submenú correspondiente a los 
+ niveles. Ver código \ref{lst:code521} (página \pageref{lst:code521})
 
- \item do\_onmouseout: Añade como estado solicitado el estado getting\_in del menuAutomata.
-Es decir, el estado "entrando" de menuAutomata.
+ \item Estado getting\_out: Incrementa la altura de menú de 5 en 5px  mientras este mida menos de 206 px y más de 50px, para que se despliegue poco hasta salir del todo.
+ Ver código \ref{lst:code522} (página \pageref{lst:code522})
+
+ \item Estado getting\_in: Decrementa la altura de menú de 5 en 5px, mientras éste mida  más de 55px para que de forma gradual vuelva a ocultarse. 
+ La altura mínima es corresponde a la altura del botón menu. Ver código \ref{lst:code523} (página \pageref{lst:code523})
 \end{itemize}
 
-MenuHandler: Se encarga de disparar los eventos que se producen en el menú. Se comunica con la clase OptionHandler.
-Menu handler deriva de la clase device, éste  tiene sus propios eventos : self\_events.\\
 
-Para el despliegue del menu, creamos un gate contenido en Animation para el elemento o etiqueta "menu" del html para asociar los efectos del 
-gate Animation al atributo menu\_effects y apartir de ello creamos un menuAutomata.
+\subsubsection{Clase Animation}
+\label{subsubsection:animation}
 
-Para realizar las funciones de cada botón del menu:
+Recoge los eventos que se producen en el menú a partir de la interacción del usuario. Animation.js deriva de la clase Gate.
+Recibe el elemento HTML que envuelve  el Gate Animation. En su función initialize además de crear como atributo  el elemento (HTML) y de llamar
+al super constructor de Gate, asocia los efectos de MenuAutomata al elemento HTML recibido.\\
+
+La clase Animation cuenta con los métodos do\_onmouseover y do\_onmouseout:
 \begin{itemize}
- \item Crea un gate  para etiqueta instructions\_options del elemento html, sobre la cual si se recibe el 
-evento do\_onclick (pulsar sobre el botón) muestra las instrucciones del juego
+ \item do\_onmouseover(): Añade como estado solicitado el estado getting\_out del MenuAutomata.
+Es decir, el estado 'saliendo' de MenuAutomata.
 
- \item Crea un gate para la etiqueta restart\_option del elemento html, si se realiza un click sobre esa opción del menu, lanza como evento el envio 
-de mensaje de llamar a la función restart\_game()
+ \item do\_onmouseout(): Añade como estado solicitado el estado getting\_in del MenuAutomata.
+Es decir, el estado 'entrando' de MenuAutomata.
+\end{itemize}
 
- \item Crea un gate para el elemento level\_option del html, sobre el cual si se realiza un click,
+\subsubsection{Clase MenuHandler}
+\label{subsubsection:menu_handler}
+
+Se encarga de disparar los eventos que se producen en el menú. Se comunica con la clase OptionHandler.
+Menu handler deriva de la clase Device. Los mensajes que puede atender son contenidos en el atributo self\_events como cola de mensajes.\\
+
+Para el despliegue del menú, creamos un Gate contenido en Animation para el elemento o etiqueta 'menú' del HTML para asociar los efectos del 
+Gate Animation al atributo menu\_effects y a partir de ello creamos un MenuAutomata.\\
+
+Para realizar las funciones de cada botón del menú:
+\begin{enumerate}
+ \item Crea un Gate  para etiqueta instructions\_options del elemento HTML, sobre la cual si se recibe el 
+evento do\_onclick (pulsar sobre el botón) muestra las instrucciones del juego. Ver código \ref{lst:code531} (página \pageref{lst:code531})
+
+ \item Crea un Gate para la etiqueta restart\_option del elemento HTML, si se realiza un clic sobre esa opción del menú, lanza como evento el envío 
+de mensaje de llamar a la función restart\_game(). Ver código \ref{lst:code532} (página \pageref{lst:code532})
+
+ \item Crea un Gate para el elemento level\_option del HTML, sobre el cual si se realiza un clic,
 muestra los diferentes niveles, cambiando el display de la etiqueta level\_option\_container a inline.
-\end{itemize}
+\end{enumerate}
 
-La clase menuHandeler tiene dos métodos, attend\_keep\_menu\_out, attend\_keep\_menu\_in.
+La clase MenuHandler tiene dos métodos, attend\_keep\_menu\_out, attend\_keep\_menu\_in.
 \begin{itemize}
- \item attend\_keep\_menu\_out: Guarda el estado out de menuAutomata como estado actual solicitado.
+ \item attend\_keep\_menu\_out(): Guarda el estado out de MenuAutomata como estado actual solicitado.
 
- \item attend\_get\_menu\_in: Guarda el estado getting\_in de menuAutomata como estado actual solicitado
-
- \item OptionHandler: Dispara los eventos que se producen en la clase Levels y se comunica mediante mensajes con la clase MenuHandler.
+ \item attend\_get\_menu\_in(): Guarda el estado getting\_in de MenuAutomata como estado actual solicitado
 \end{itemize}
-Al igual que menuHandler este Deriva de la clase Device  y tiene diferentes posibles estados:
-“get\_panel\_out", "keep\_menu\_out", "get\_menu\_in".
-Éste crea diferentes Gate para cada botón level.
 
-- Levels: Recoge los eventos que se generan en el submenú. 
-Deriva de la clase gate y tiene como métodos do\_onmouseover y do\_onmouseout:
+\subsubsection{Clase OptionHandler}
+\label{subsubsection:option_handler}
+
+Dispara los eventos que se producen en la clase Levels y se comunica mediante mensajes con la clase MenuHandler.
+
+Al igual que MenuHandler, éste deriva de la clase Device  y tiene diferentes posibles estados:
+'get\_panel\_out', 'keep\_menu\_out', 'get\_menu\_in'.
+Éste crea diferentes Gate para cada botón level. Ver código  \ref{lst:code541} (página \pageref{lst:code541})
+
+
+\subsubsection{Clase Levels}
+\label{subsubsection:levels}
+
+Recoge los eventos que se generan en el Submenú. 
+Deriva de la clase Gate y tiene como métodos do\_onmouseover y do\_onmouseout:
+
 \begin{itemize}
  \item do\_onmouseover: Lanza como evento la creación de un nuevo mensaje de mantener el menu desplegado
 
@@ -148,45 +161,53 @@ get\_menu\_in para ocultar el menu.
 \end{itemize}
 
 
-\subsection{Reloj}
-\label{subsection:reloj}
--Reloj: Deriva de la clase device y cuenta con los siguentes atributos:
+\subsection{Clase Clock}
+\label{subsection:clock}
+
+Deriva de la clase Device y cuenta con los siguientes atributos:
+
 \begin{itemize}
- \item start\_time: Apartir de la función get\_now (función que obtiene las horas, minutos del sistema, los pasa a segundos y devuelve su suma para 
+ \item start\_time: A partir de la función get\_now (función que obtiene las horas, minutos del sistema, los pasa a segundos y devuelve su suma para 
 obtener el tiempo actual en segundos.) almacena la hora actual en segundos.
- \item total\_time: Almacena el tiempo en segundos del que se dispone para jugar (es recibido como parámetro)
+
+ \item total\_time: Almacena el tiempo en segundos del que se dispone para jugar (es recibido como parámetro).
+ 
  \item remaining\_time: Segundo que quedan por jugar. Queda inicializado a total\_time.
- \item before: Almacena el en segundos el momento en el que se empezo a jugar.
+ 
+ \item before: Almacena el en segundos el momento en el que se empezó a jugar.
+ 
  \item running: Hace referencia al estado el marcha del reloj. Inicializado a true.
 \end{itemize}
-La función Initialize llama constructor de device.
 
-Métodos de la clase Clock:
+La función Initialize llama constructor de Device.\\
+
+Métodos:
+
 \begin{itemize}
- \item Reset: Reinicia el reloj. LLama al método pause, y reinicializa el valor de remaining\_time a total\_time.
+ \item Reset(): Reinicia el reloj. Llama al método pause, y reinicializa el valor de remaining\_time a total\_time.
 
- \item get\_count: Devuelve los segundos que quedan por jugar (remaining\_time).
+ \item get\_count(): Devuelve los segundos que quedan por jugar (remaining\_time).
 
- \item run: Recalcula el tiempo que queda por jugar. Vuelve a llamar a la función get\_now, para conocer el momento actual, este valor es almacenado 
+ \item run(): Recalcula el tiempo que queda por jugar. Vuelve a llamar a la función get\_now, para conocer el momento actual, este valor es almacenado 
 en la variable now, recalcula el valor de remaining\_time (segundos que quedan por jugar) en función del momento actual:
 
         tiempo que queda = al tiempo que quedaba - tiempo que ha pasado.
         
 Si remaining\_time es menor o igual que cero, pone con valor falso el atributo running, es decir, el reloj deja de estar en marcha.
 
- \item pause: Pausa el tiempo, cambiando el valor de running a falso.
+ \item pause(): Pausa el tiempo, cambiando el valor de running a falso.
 
- \item resume: Continua la cuenta atrás desde el momento que fue pausado. Reinicializa start\_time apartir del momento actual, atraves de la 
+ \item resume(): Continua la cuenta atrás desde el momento que fue pausado. Reinicializa start\_time a partir del momento actual, a través de la 
  función get\_now. Recalcula remaining\_time.
 
         lo que queda = lo que quedaba - lo que ha pasado.
 
 Establece el valor de running a true.
 
- \item get\_string: Devuelve una cadena con el tiempo restante con formato mm:ss.
+ \item get\_string(): Devuelve una cadena con el tiempo restante con formato mm:ss.
 \end{itemize}
 
-Si ranning es igual a verdadero, es decir, si el reloj esta en marcha, se llama al método run y obtenemos el valor de los minutos y de los 
-segundos utilizando las funciones floor y round de la librería math de javascript. Posteriormente se realiza la concatenación de cadenas para 
-darle formato. Si por el contrario el reloj no esta en marcha(running es falso), realizamos las mismas operaciones sin llamar al método run.
+Si running es igual a verdadero, es decir, si el reloj esta en marcha, se llama al método run y obtenemos el valor de los minutos y de los 
+segundos utilizando las funciones Floor() y Round() de la librería Math de javascript. Posteriormente se realiza la concatenación de cadenas para 
+darle formato. Si por el contrario el reloj no está en marcha(running es falso), realizamos las mismas operaciones sin llamar al método Run().
 

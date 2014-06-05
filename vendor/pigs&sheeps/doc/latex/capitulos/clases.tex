@@ -41,9 +41,9 @@ Aunque \lluvia{} no define nada al respecto, los cierres se suelen usar a travé
 un objeto función y lo ejecuta.\\
 
 Las clases aceptan un objeto de configuración, el cual permite modificar la propia clase en caso necesario. Al igual que en javascript, 
-no es necesario definir el tipo de las variables. Ver ejemplo en figura 4.1.1\\
+no es necesario definir el tipo de las variables. Ver ejemplo en código \ref{lst:code411} (página \pageref{lst:code411})\\
 
-\lluvia{} permite definir una función dentro de la propia clase. Ver ejemplo en figura 4.1.2\\
+\lluvia{} permite definir una función dentro de la propia clase. Ver ejemplo en código \ref{lst:code412} (página \pageref{lst:code412})\\
 
 La palabra reservada this, dentro del ámbito de new, hace referencia al objeto que se está creando, mientras que fuera de él hace 
 referencia al objeto que se está ejecutando.\\
@@ -58,7 +58,7 @@ Cuando una función no existente es llamada, se levanta una excepción y se llam
 
 Las clases siguen las convenciones de las cadenas prototípicas de Javascript. Esto quiere decir que si el atributo no está presente en el 
 objeto, entonces se mira en el constructor de la clase padre. Si ésta deriva a su vez de otra, entonces se busca en el constructor del 
-padre de la segunda. Ver figura 4.1.3\\
+padre de la segunda. Ver figura figura \ref{fig:figura413} (página \pageref{figura:figura413})\\
 
 Aquellas funciones definidas sin la palabra reservada prototype no son accesible por ninguna instancia de la clase. Tanto éstas como aquellas 
 funciones que no que no acceden a los atributos de clase se consideran estáticas.\\
@@ -81,14 +81,15 @@ que vayan a cambiar con respecto a la clase padre.\\
 
 La configuración por defecto incluye un objeto geo\_data, el cual contiene los atributos de posición, velocidad y aceleración, color del 
 boid, un cerebro, velocidad máxima, masa, el objeto vision, con radio y ángulo, y el objeto límites dinámicos, que incluye capacidad de 
-empuje, de giro y de frenada. Ejemplo de configuración por defecto. Figura 4.2.1.1\\
+empuje, de giro y de frenada. Ejemplo de configuración por defecto. Código \ref{lst:code4211} (página \pageref{lst:code4211})\\
 
 Es posible modificar su posición, velocidad o aceleración en tiempo real según sea necesario. También se le puede asignar un comportamiento 
 de los que ya existen o crear nuevos que cubran necesidades más específicas.\\
 
 Cada Boid tiene acceso directo a la descripción geométrica de la escena, pero los comportamientos de manada requieren que éste reaccione 
 sólo a aquellos boids que se encuentren dentro de un área específica alrededor de él. Este área se define por una distancia, medida desde 
-el centro del Boid, y un ángulo, medido en la dirección de avance del Boid. Aquellos Boids que se encuentran fuera de este área son ignorados. Ver figura 4.2.1.2\newline
+el centro del Boid, y un ángulo, medido en la dirección de avance del Boid. Aquellos Boids que se encuentran fuera de este área son ignorados. 
+Ver figura \ref{fig:figura4212} (página \pageref{fig:figura4212})\\
 
 
 Métodos:
@@ -205,18 +206,18 @@ la creación de nuevas funciones y la redefinición de métodos ya existentes.\\
 Métodos:
 \begin{itemize}
 \item sheep\_limits(): Define los límites entre los que los Boids oveja se pueden mover. Esta función es necesaria para que éstos no se 
-salgan de los límites impuestos por el canvas. Ver figura 4.2.3.1
+salgan de los límites impuestos por el canvas. Ver código \ref{lst:code4231} (página \pageref{lst:code4231})
 
 \item  update\_physics(): Calcula la nueva posición, velocidad y aceleración en función del tiempo que ha pasado. Esta función ha sido 
 necesaria redefinirla para poder llamar a la función sheep\_limits(). Además, se comprueba si el Boid oveja ha entrado en el corral y, en 
-caso afirmativo, se suma un punto al contador. Ver figura 4.2.3.2
+caso afirmativo, se suma un punto al contador. Ver código \ref{lst:code4232} (página \pageref{lst:code4232})
 
 \item  first\_draw():  Pinta el Boid y lo guarda como imagen, lo que ahorra tiempo de cálculo. Se redefine para evitar que los Boids se 
-pinten como círculos, ya que en el constructor se determina una imagen para representar a las ovejas. Ver figura 4.2.3.3
+pinten como círculos, ya que en el constructor se determina una imagen para representar a las ovejas. Ver código \ref{lst:code4233} (página \pageref{lst:code4233})
 
 \item  draw(): Pinta un Boid en un mundo definido por un contexto. La diferencia con el método original es que ya no se pintan líneas en 
 el canvas. Si la velocidad es mayor que cero, se carga la imagen de la oveja mirando hacia la izquierda y si no, hacia la derecha. 
-Ver figura 4.2.3.4
+Ver código \ref{lst:code4234} (página \pageref{lst:code4234}).
 
 \end{itemize}
 
@@ -229,7 +230,7 @@ La característica principal de esta clase es su capacidad para responder a las 
 onClick(). Éstas son capturadas por el objeto MouseCoordinates, el cual deriva de la clase Gate. A través de su método do\_onclick(), 
 transforma las coordenadas globales de la pantalla en locales del canvas y las guarda en sendas variables de clase. Estas variables se 
 pasan a la clase World como parámetros de su función move\_shepherd() y se usan para definir el objetivo del Boid, el cual tiene programado un 
-comportamiento de persecución. Ver figura 4.2.4.1\\
+comportamiento de persecución. Ver figura \ref{fig:lock} (página \pageref{fig:lock})\\
 
 Métodos:\\
 
@@ -325,7 +326,7 @@ Es la clase encargada de generar el comportamiento de las ovejas. Deriva de la c
 radio de visión de la oveja, esto despierta en ella un comportamiento de huida. Es decir, aumenta su aceleración hasta su límite para 
 disminuir ésta gradualmente a medida que se va alejando del Boid cerdito.\\
 
-Éste es el primero de los cinco comportamientos que se quieren implementar (véase cuadro 4.3.2.1). Los otros cuatro quedan para una fase 
+Éste es el primero de los cinco comportamientos que se quieren implementar (véase cuadro \ref{table:nonlin} en la página \pageref{table:nonlin}). Los otros cuatro quedan para una fase 
 posterior de desarrollo.\\
 
 Métodos:
@@ -343,7 +344,7 @@ Devuelve la posición del objetivo.
 Da la distancia entre el Boid y su objetivo.
 
 \item desired\_velocity():
-Devuelve la velocidad deseada del Boid. Ver figura 4.3.2.2
+Devuelve la velocidad deseada del Boid. Ver código \ref{lst:code4322} (página \pageref{lst:code4322})
 
 \item desired\_acceleration():
 Devuelve la aceleración deseada del Boid.
@@ -358,7 +359,7 @@ marcada. El comportamiento de Alignment está dentro de los comportamientos de m
 
 Se calcula el alineamiento medio como la media de las velocidades. Es necesario que aumente la aceleración para eliminar la componente 
 normal al alineamiento en la velocidad del Boid, es decir, suprime toda la velocidad que no esté en la dirección del alineamiento. 
-Ver figura 4.3.3.1\\
+Ver código \ref{lst:code4331} (página \pageref{lst:code4331})\\ %Falta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
@@ -370,8 +371,9 @@ como parámetros las variables x e y, que se corresponden  con las coordenadas x
 locales por la clase MouseCoordinates.\\
 
 Este comportamiento se activa en la clase Galactus, en la creación del Boid cerdito. Después, en la función move\_shepherd() de la clase 
-Mundo, se consigue el comportamiento de seek mouse, se obtienen los valores de x e y y se escalan en función de la perspectiva del canvas.
-Estas coordenadas escaladas se pasan como parámetro a la clase Seek Mouse a través de su método  set\_target\_at(). Ver figura 4.3.4.1\\
+World, se consigue el comportamiento de seek mouse, se obtienen los valores de x e y y se escalan en función de la perspectiva del canvas.
+Estas coordenadas escaladas se pasan como parámetro a la clase Seek Mouse a través de su método  set\_target\_at(). 
+Ver código \ref{lst:code4341} (página \pageref{lst:code4341})\\
 
 
 
@@ -429,7 +431,7 @@ Comprueba si el mundo está inicializado. Si es así, el usuario está reinician
 Dibuja el canvas en el mundo.
 
  \item move\_shepherd():
-Define el target del Boid en función de las coordenadas del ratón. Ver figura 4.4.1
+Define el target del Boid en función de las coordenadas del ratón. Ver código \ref{lst:code441} (página \pageref{lst:code441})
 
  \item step():
 Actualiza la fecha en los cálculos de la física de los Boids.
@@ -442,10 +444,10 @@ Muestra los Boids que existen actualmente en el mundo.
 
  \item check\_level():
 Comprueba si el nivel ha sido superado por el usuario. Si es así, para el mundo y el cronómetro y llama a la función que cambia la imagen 
-de fondo del canvas. Ver figura 4.4.2
+de fondo del canvas. Ver código \ref{lst:code442} (página \pageref{lst:code442})
 
  \item running\_steady():
-Actualiza la hora del procesador, comprueba el nivel y si éste ha sido superado, deja de pintar el canvas. Ver figura 4.4.3
+Actualiza la hora del procesador, comprueba el nivel y si éste ha sido superado, deja de pintar el canvas. Ver código \ref{lst:code443} (página \pageref{lst:code443})
 
  \item visible\_for():
 Crea un array con los Boids que el Boid referenciado puede ver.
@@ -469,7 +471,7 @@ Crea un nuevo Boid de una subclase de Boid.
 Provee el método dinámico new\_boid\_as\_(ClassName)
 \end{itemize}
 
-
+\pagebreak
 
 \subsection{Clase Galactus}
 \label{subsection:galactus}
@@ -488,7 +490,7 @@ función start\_world().\\
 Métodos:
 \begin{itemize}
  \item start\_world():
-Inicia el mundo. Ver figura 4.5.1
+Inicia el mundo. Ver código \ref{lst:code451} (página \pageref{lst:code451})
 
  \item playSound():
 Inicia el sonido del juego respondiendo al evento onClick() del botón de play

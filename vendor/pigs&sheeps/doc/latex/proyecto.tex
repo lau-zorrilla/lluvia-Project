@@ -6,6 +6,7 @@
 \graphicspath{ {images/} }
 \DeclareGraphicsExtensions{.jpeg,.png,.jpg}  
 \usepackage{tikz}
+\usepackage{subcaption}
 
 % Taken from Lena Herrmann at 
 % http://lenaherrmann.net/2010/05/20/javascript-syntax-highlighting-in-the-latex-listings-package
@@ -41,11 +42,11 @@
    numberstyle=\footnotesize,
    numbersep=9pt,
    tabsize=2,
-   breaklines=false,
+   breaklines=true,
    showtabs=false,
    captionpos=b,
-%   aboveskip=20pt,
-   belowskip=25pt
+%   aboveskip=15pt,
+   belowskip=22pt
 }
 
 
@@ -57,7 +58,7 @@
 \date{09/JUNIO/2014}
 
 \begin{document}
-\newcommand{\lluvia}{\textbf{\textit{lluviaProject}}}
+\newcommand{\lluvia}{\textbf{\textit{lluviaProject}, \color{red}}}
 
 \include{./capitulos/prologo}
 

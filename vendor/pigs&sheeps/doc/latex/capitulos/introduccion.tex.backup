@@ -6,48 +6,49 @@
 
 En este proyecto hemos querido plasmar el comportamiento de un rebaño de ovejas ante el movimiento del pastor y el entorno que las rodea. 
 Nuestra finalidad es hacer que la simulación del comportamiento de estos animales en el videojuego sea lo más cercana posible a los hábitos 
-y reacciones de aquellos. 
+y reacciones de aquellos. \\
 
 Tan importante es el comportamiento del ganado como del pastor. Es por eso que, además, se realizaron investigaciones sobre las técnicas y 
 las estrategias de pastoreo. El estudio de estos comportamientos y las investigaciones realizadas al respecto permiten determinar que al 
 ganado se le puede agrupar, induciendo su comportamiento natural de permanecer unidos. Para ello hay varias técnicas:
 
 \begin{itemize}
- \item Técnica del limpiaparabrisas: El pastor debe moverse en zigzag de un lado a otro de la manada para mantener la línea recta de avance. Figura 1.1.1
+ \item Técnica del limpiaparabrisas: El pastor debe moverse en zigzag de un lado a otro de la manada para mantener la línea recta de avance. 
+ Ver figura \ref{fig:figura111} en página \pageref{fig:figura111}
 
  \item Moverlos por el apretadero : Los animales necesitan tener el suficiente espacio para moverse adecuadamente.
 
  \item El pastor debe de tener movimientos lentos y no debe dar vueltas alrededor de los animales.
 
- \item Zona de fuga: La zona de fuga de un animal es su zona de seguridad. Los operarios deben mantenerse en el límite de esta zona.Figura 1.1.2
+ \item Zona de fuga: La zona de fuga de un animal es su zona de seguridad. Los operarios deben mantenerse en el límite de esta zona. Figura \ref{fig:figura112}, 
+ página \pageref{fig:figura112}
 
- \item Movimiento del pastor para que el ganado siga su camino en una manga con laterales: Para obligar al animal a desplazarse hacia adelante, el pastor debe estar por detrás del punto de equilibrio a la altura de los cuartos delanteros.
+ \item Movimiento del pastor para que el ganado siga su camino en una manga con laterales: Para obligar al animal a desplazarse hacia adelante, 
+ el pastor debe estar por detrás del punto de equilibrio a la altura de los cuartos delanteros.
 
- \item Sacar al ganado del corral con un solo controlador: Los movimientos del pastor deben de ser perpendiculares a los del ganado, moviéndose hacia atrás y hacia delante sobre la barra transversal de una gigante T.
+ \item Sacar al ganado del corral con un solo controlador: Los movimientos del pastor deben de ser perpendiculares a los del ganado, moviéndose 
+ hacia atrás y hacia delante sobre la barra transversal de una gigante T. Figura \ref{fig:figura113}, página \pageref{fig:figura112}.
 
- \item Sacar al ganado del corral con dos controladores:  Cada pastor se moverá hacia detrás y hacia delante en la línea transversal imaginaria que traza una T.
+ \item Sacar al ganado del corral con dos controladores:  Cada pastor se moverá hacia detrás y hacia delante en la línea transversal imaginaria 
+ que traza una T. Figura 4.
 \end{itemize}
 
 \subsubsection{Comportamientos del Ganado Ovino}
 \label{subsubsection:comportamientos}
 
 Los animales siguen al líder. Si éstos se despistan y se amontonan, el pastor debe concentrarse en mover a los líderes en lugar de empujar 
-al grupo de animales de la parte trasera. Al mover al ganado en un espacio abierto, los animales se mueven en una forma tranquila y ordenada. 
+al grupo de animales de la parte trasera. Al mover al ganado en un espacio abierto, los animales se mueven en una forma tranquila y ordenada.\\
 
 Para acelerar el paso de los animales, los pastores penetran la zona de fuga colectiva y se retiran. El campo de visual de las ovejas puede 
-ser de 191 hasta 309 grados, dependiendo de su cantidad de lana.
+ser de 191 hasta 309 grados, dependiendo de su cantidad de lana.\\
 
 Los animales de pastoreo tienen un sistema visual que proporciona una excelente visión de lejos, pero los músculos de los ojos relativamente 
 débiles les inhiben de la capacidad de centrarse rápidamente en los objetos cercanos.\\
 
-De los lenguajes disponibles para realizar aplicaciones, lluvia era el único que disponía de Boids, los cuales permiten modelar su 
-comportamiento para adaptarse al de un rebaño de ovejas.
+La implementación de estos comportamientos en este proyecto implica un lenguaje de programación capaz de reproducir lo explicado anteriormente.
+De los lenguajes disponibles para realizar aplicaciones, \lluvia{} era el único que disponía de caracteres personales autónomos, los cuales 
+permiten modelar su comportamiento para adaptarse al de un rebaño de ovejas.
 
-
-\includegraphics{figura111}
-\includegraphics{figura112}
-\includegraphics{figura113}
-\includegraphics{figura114}
 
 
 %\tikzstyle{level 1}=[sibling angle=120]

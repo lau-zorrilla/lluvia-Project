@@ -68,7 +68,6 @@ dog = new (Animal("Tim", 4))("meat")
 
 \end{lstlisting}
 
-
 \begin{lstlisting}[caption=Objeto configurable Boids, label={lst:code4211}]
  var default_config = {
            geo_data: {
@@ -352,19 +351,19 @@ Galactus.prototype.start_world = function() {
   },],
 \end{lstlisting}
 
-\begin{lstlisting}[caption=Instructions\_option Gate, label={lst:code5221}]
+\begin{lstlisting}[caption='Instructions\_option' Gate, label={lst:code5221}]
 that.newGate("instructions_option", Gate, {do_onclick: function(event, element) {
             alert("Move the little pig to place sheeps into the barnyard")
         } })
 \end{lstlisting}
 
-\begin{lstlisting}[caption=restart\_option, label={lst:code5222}]
+\begin{lstlisting}[caption='restart_option', label={lst:code5222}]
  that.newGate("restart_option", Gate, { do_onclick: function(event, element) {
             this.device.fireEvent(this.device.newMessage("sync", "restart_game", this))
         } })
 \end{lstlisting}
 
-\begin{lstlisting}[caption=level\_option, label={lst:code5241}]
+\begin{lstlisting}[caption='level_option', label={lst:code5241}]
 that.newGate("level_option", Gate, {do_onclick: function(event, element){
             var levels_container= document.getElementById('level_option_container')
             levels_container.style.display='inline'
