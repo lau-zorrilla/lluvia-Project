@@ -22,8 +22,9 @@ function Galactus(handler, view){
 	this.handler = args.shift()
 	this.view = args[0]
 	this.audio_on = true;
+
 	
-	this.self_events = [ "restart_clock"]
+	this.self_events = [ "restart_game"]
 
 	function initialize() {
 
@@ -61,7 +62,10 @@ Galactus.prototype.start_world = function() {
 	this.world.level = 1
 
 	this.handler.addPort("restart_game", this)
+	this.handler.addPort("pause_clock", this)
+	this.handler.addPort("resume_clock", this)
 	
+	this.world.clock=null;
 	this.countdown()
 	this.playSound()
 
@@ -135,7 +139,8 @@ Galactus.prototype.countdown = function(){
 	timer.style.fontWeight = "bold"
 	timer.style.color = "#996842" //inicializa color de fuente
 
-	this.world.clock = new Clock(this.world, 120) // reloj de 2 minutos
+	if(!this.world.clock)
+		this.world.clock = new Clock(this.world, 120) // reloj de 2 minutos
 	
     timer_interval = setInterval( // cada segundo se ejecuta la funcion
 	
@@ -158,4 +163,14 @@ Galactus.prototype.destroy_world = function() {
 Galactus.prototype.attend_restart_game = function(date, mssg) {
 	this.destroy_world()
 	window.location.reload()
+}
+
+Galactus.prototype.attend_pause_clock = function(date, mssg) {
+	this.world.clock.pause()
+	this.world.clock.get_string()
+}
+
+Galactus.prototype.attend_resume_clock = function(date, mssg) {
+	this.world.clock.resume()
+	this.countdown()
 }

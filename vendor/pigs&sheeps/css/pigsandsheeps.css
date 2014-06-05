@@ -203,6 +203,27 @@ body{
 #play_button{
 	border:none;
 }
+
+#alert_message{
+	display:none;
+	border:3px solid #bdae68;
+	background-color: #f8aea9;
+	color:black;
+	font-size: 14pt;
+	font-family: sans-serif;
+	position:absolute;
+	width:350px;
+	padding:7px;
+	margin-left:400px;
+	margin-top:140px;
+	text-align:center;
+
+}
+#button_ok{
+	width:60px;
+	height:60px;
+
+}
 #play_button:hover{
 	cursor:pointer;
 }
