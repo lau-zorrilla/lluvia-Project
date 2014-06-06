@@ -58,7 +58,7 @@ Cuando una función no existente es llamada, se levanta una excepción y se llam
 
 Las clases siguen las convenciones de las cadenas prototípicas de Javascript. Esto quiere decir que si el atributo no está presente en el 
 objeto, entonces se mira en el constructor de la clase padre. Si ésta deriva a su vez de otra, entonces se busca en el constructor del 
-padre de la segunda. Ver figura figura \ref{fig:figura413} (página \pageref{figura:figura413})\\
+padre de la segunda. Ver figura figura \ref{fig:figura413} (página \pageref{fig:figura413})\\
 
 Aquellas funciones definidas sin la palabra reservada prototype no son accesible por ninguna instancia de la clase. Tanto éstas como aquellas 
 funciones que no que no acceden a los atributos de clase se consideran estáticas.\\
@@ -230,7 +230,7 @@ La característica principal de esta clase es su capacidad para responder a las 
 onClick(). Éstas son capturadas por el objeto MouseCoordinates, el cual deriva de la clase Gate. A través de su método do\_onclick(), 
 transforma las coordenadas globales de la pantalla en locales del canvas y las guarda en sendas variables de clase. Estas variables se 
 pasan a la clase World como parámetros de su función move\_shepherd() y se usan para definir el objetivo del Boid, el cual tiene programado un 
-comportamiento de persecución. Ver figura \ref{fig:lock} (página \pageref{fig:lock})\\
+comportamiento de persecución. Ver imagen \ref{lst:code4235} (página \pageref{lst:code4235})\\
 
 Métodos:\\
 
@@ -264,7 +264,7 @@ NewBehavior.prototype = new Behavior\\
 \end{verbatim}
 
 Estos comportamientos puede tener pre y post modificadores. Los primeros modifican la aceleración antes de devolverla y los segundos,
-después. Un ejemplo de premodificador es forsee, que se encarga de calcular dónde estará el objetivo en la próxima medida de tiempo. Este 
+después. Un ejemplo de premodificador es foresee, que se encarga de calcular dónde estará el objetivo en la próxima medida de tiempo. Este 
 premodificador unido al comportamiento de búsqueda seek hacen que varíe la aceleración para modificar la trayectoria y perseguir al objetivo. 
 Un ejemplo de premodificador sería arrival, el cual va disminuyendo la aceleración a medida que se acerca al objetivo.\\
 
@@ -326,8 +326,8 @@ Es la clase encargada de generar el comportamiento de las ovejas. Deriva de la c
 radio de visión de la oveja, esto despierta en ella un comportamiento de huida. Es decir, aumenta su aceleración hasta su límite para 
 disminuir ésta gradualmente a medida que se va alejando del Boid cerdito.\\
 
-Éste es el primero de los cinco comportamientos que se quieren implementar (véase cuadro \ref{table:nonlin} en la página \pageref{table:nonlin}). Los otros cuatro quedan para una fase 
-posterior de desarrollo.\\
+Éste es el primero de los cinco comportamientos que se quieren implementar (véase cuadro \ref{table:nonlin} en la página \pageref{table:nonlin}). Los otros cuatro quedan para una 
+fase posterior de desarrollo.\\
 
 Métodos:
 \begin{itemize}
@@ -358,8 +358,8 @@ Al comportamiento básico de la oveja se le añadió el comportamiento de alinea
 marcada. El comportamiento de Alignment está dentro de los comportamientos de manada del cerebro.\\
 
 Se calcula el alineamiento medio como la media de las velocidades. Es necesario que aumente la aceleración para eliminar la componente 
-normal al alineamiento en la velocidad del Boid, es decir, suprime toda la velocidad que no esté en la dirección del alineamiento. 
-Ver código \ref{lst:code4331} (página \pageref{lst:code4331})\\ %Falta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+normal al alineamiento en la velocidad del Boid, es decir, suprime toda la velocidad que no esté en la dirección del alineamiento.  
+Ver figura \ref{fig:lock} (página \pageref{fig:lock})\\ 4331
 
 
 

@@ -38,6 +38,6 @@
 \contentsline {subsection}{\numberline {6.1}Introducci\IeC {\'o}n}{27}
 \contentsline {subsection}{\numberline {6.2}Clase BufferLoader}{27}
 \contentsline {section}{\numberline {7}Conclusiones}{28}
-\contentsline {section}{\numberline {8}Figuras}{29}
-\contentsline {section}{\numberline {9}Cuadros}{38}
-\contentsline {section}{\numberline {10}C\IeC {\'o}digo}{39}
+\contentsline {section}{\numberline {8}Figuras}{30}
+\contentsline {section}{\numberline {9}Cuadros}{39}
+\contentsline {section}{\numberline {10}C\IeC {\'o}digo}{40}
