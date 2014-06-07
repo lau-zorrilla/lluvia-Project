@@ -23,7 +23,7 @@ this.self_events = [ "get_panel_out", "restart_game",
 
 Cuando se realice  el envío de alguno de esos mensajes será necesario la utilización del método fireEvent y newMessage indicando el tipo de
 mensaje, el nombre del mensaje y el evento al que se refiere a través de un gate. El siguiente ejemplo muestra el envío de un mensaje del tipo 
-síncrono “restart\_game”: 
+síncrono 'restart\_game': 
 
 \begin{verbatim}
 that.newGate("restart_option", Gate, { do_onclick: 
@@ -33,7 +33,7 @@ that.newGate("restart_option", Gate, { do_onclick:
         } })
 \end{verbatim}
 
-Además, para atender a cada uno de esos mensajes habrá que crear una función 'attend':\
+Además, para atender a cada uno de esos mensajes habrá que crear una función 'attend' en el Device de destino (Galactus):\
 
 \begin{verbatim}
 MenuHandler.prototype.attend_keep_menu_out = function(date, msg) {
@@ -43,21 +43,20 @@ this.menu_effects.menu_automata.currentState.requested =
 }
 \end{verbatim}
 
-Cada vez que se crea un nuevo Gate, se añade un puerto al Device para que sea posible la comunicación.
+Cada vez que se crea un nuevo Gate que vaya a gestionar el envío de un mensaje, se añade un puerto al Device destino desde 
+el Device origen para que sea posible la comunicación. Ejemplo:
 
 \begin{verbatim}
 this.handler.addPort("restart_game", this.world)
     countdown(this.world);
 \end{verbatim}
 
-
-A su vez los devices pueden enviar mensajes a otros devices lanzando un nuevo evento de envío de mensaje con los fireEvent y newMessage.
-Por ejemplo:
-
-\begin{verbatim}
-this.device.fireEvent(this.device.newMessage("sync", 
-                                  "restart_game", this))
-\end{verbatim}
+Siendo:
+\begin{itemize}
+ \item this.handler: el Device origen, que en este caso tiene valor MenuHandler
+ \item restart\_game: el nombre del mensaje que se envía
+ \item this: el Device destino, en este caso Galactus
+\end{itemize}
 
 
 \subsubsection{Clase Gate}
@@ -90,7 +89,7 @@ Lo que genera que ante un evento, en este caso on\_click, sobre el div con ident
 puede ser un mensaje emergente (alert).
 
 Otra manera posible manera de crear un Gate sería la siguiente, en la que crearíamos una subclase (en el ejemplo, la clase Animation) de la 
-clase Gate.En su creación recibe como parámetro “element” el elemento HTML del cual ha de recibir los eventos y en su función initialize hemos 
+clase Gate.En su creación recibe como parámetro 'element' el elemento HTML del cual ha de recibir los eventos y en su función initialize hemos 
 de llamar al supercontructor de Gate, con el método call() para heredar sus métodos y atributos.
 Posteriormente, crearemos las funciones que se deben ejecutar al producirse los eventos. Ver código \ref{lst:code5211} 
 (página \pageref{lst:code5211}), \ref{lst:code5122} (página \pageref{lst:code5122}) y \ref{lst:code5122} 
@@ -116,7 +115,7 @@ Controla los estados de entrada y salida del menú. Deriva de la clase threadAut
 Estos estados, a su vez, pueden encontrarse en estado anterior (previous), actual (current) o solicitado (requested). Según cual sea  el estado 
 actual (current), se realizarán la funciones correspondientes.\\
 
-Los estados irán cambiando de currentState desde ”requested” a “current” y posteriormente a “previous”.
+Los estados irán cambiando de currentState desde 'requested' a 'current' y posteriormente a 'previous'.
 
 \begin{itemize}
  \item Estado out: Cambia la altura de menú a 250px, que es la longitud del menú una vez está totalmente desplegado, incluyendo el submenú correspondiente a los 
@@ -133,52 +132,88 @@ Los estados irán cambiando de currentState desde ”requested” a “current�
 \subsubsection{Clase Animation}
 \label{subsubsection:animation}
 
-Recoge los eventos que se producen en el menú a partir de la interacción del usuario. 
-Animation deriva de la clase Gate.
-Recibe el elemento HTML que envuelve.
-En su función initialize() además de crear como atributo propio el elemento (HTML) y de llamar al super constructor de Gate para 
-heredar sus metodos y atributos, asocia los efectos de menuAutomata al elemento HTML recibido.\\
+Recoge los eventos que se producen en el menú a partir de la interacción del usuario para hacerle desplegarse u ocultarse. 
+Animation deriva de la clase Gate, y será uno de los Gates que contendrá MenuHandler.
+Recibe el elemento html que envuelve, que como ya veremos más adelante será el div 'menú'.
+En su función initialize() además de crear como atributo propio el elemento (html) y de llamar al super constructor de Gate para heredar
+sus metodos y atributos, crea un menuAutomata para el elemento html recibido. De esta manera, dependiendo del evento recibido podremos 
+cambiar el estado del menú a 'saliendo' o 'entrando' y así determinar que acciones ha de hacer en cada uno de los casos. 
 
 La clase Animation cuenta con los métodos do\_onmouseover y do\_onmouseout:
 \begin{itemize}
- \item do\_onmouseover(): Añade como estado solicitado el estado getting\_out del menuAutomata, indicando que al pasar el ratón 
- sobre el elemento HTML, en este caso la etiqueta 'menu' el estado solicitado sea 'saliendo' de menuAutomata..
+ \item do\_onmouseover(): Añade como estado solicitado el estado getting\_out del menuAutomata, indicando que al pasar el ratón sobre el 
+ elemento html, en este caso el div 'menu' el estado solicitado sea 'saliendo' de menuAutomata. Posteriormente pasará de solicitado a actual 
+ haciendo que se vaya mostrando el menú.  
 
- \item do\_onmouseout(): Añade como estado solicitado el estado getting\_in del menuAutomata, indicando que al pasar el ratón 
- sobre el elemento HTML, en este caso la etiqueta 'menu' el estado solicitado sea 'entrando' de menuAutomata.
+ \item do\_onmouseout(): Añade como estado solicitado el estado getting\_in del menuAutomata.
+indicando que al dejar de pasar el ratón sobre el elemento html, en este caso el div 'menu' el estado solicitado sea 'entrando' de 
+menuAutomata.  Igualmente que el anterior, posteriormente pasará de solicitado a actual haciendo que se vaya ocultando el menú. 
 \end{itemize}
 
 \subsubsection{Clase MenuHandler}
 \label{subsubsection:menu_handler}
 
-Menu handler deriva de la clase device. Contiene los Gates que gestionan los eventos que se dan en cada uno de los botones 
-del menú, siendo capaz de enviar los mensajes de “restart\_game”, “pause\_clock”, y “resume\_clock” que se encuentran en la 
-cola de mensajes self\_events, para reiniciar el juego, pausar el reloj y reiniciar el reloj respectivamente.\\
+MenuHandler deriva de la clase device y contiene los Gates que gestionan los eventos que se dan en  cada uno de los botones del menú, 
+siendo capaz de enviar los mensajes de 'restar\_game', 'pause\_clock', y 'resume\_clock' que se encuentran en la cola de mensajes self\_events, 
+para reiniciar el juego, pausar el reloj y reiniciar el reloj respectivamente. 
 
 Se comunica con la clase Galactus ya que ésta contiene las funciones attend que hacen referencia a los mensajes que es capaz 
 de enviar MenuHandler. Ver código \ref{lst:code5231} (página \pageref{lst:code5231})\\
 
-Para el despliegue del menu, creamos un objeto de la clase Animation, la cual es una subclase de Gate, para el elemento o etiqueta "menu" del HTML para 
-asociar los efectos del Gate Animation al atributo menu\_effects y a partir de ello, creamos un menuAutomata.
+Para el despliegue del menu:
 
-\begin{verbatim}
- that.menu_effects = that.newGate("menu", Animation)
-\end{verbatim}
+Creamos un objeto de la clase Animation, la cual es una subclase de Gate y hemos explicado anteriormente, para el elemento o div "menu" del html.
+A su vez para el cambio de la imagen del menú creamos un Gate. Dependiendo de nuetra acción con el ratón se mostrará una imagen u otra. 
+Ver código \ref{lst:code5232} (página \pageref{lst:code5232})\\
 
 Para realizar las funciones de cada botón del menú:
 
 \begin{enumerate}
- \item Crea un Gate  para etiqueta instructions\_options del elemento HTML, sobre la cual si se recibe el 
-evento do\_onclick (pulsar sobre el botón) muestra las instrucciones del juego. Ver código \ref{lst:code5221} (página \pageref{lst:code5221})
+ \item Crea un gate para el div 'instructions\_options', sobre la cual si se recibe el evento do\_onclick, es decir, si pulsamos sobre el 
+ botón 'Instructions' muestra las instrucciones del juego, cambiando la propiedad display del div 'alert\_message', anteriormente con 
+ valor 'none', a 'block'.
+Por otro lado desde este Gate será enviado el mensaje 'pause\_clock' a Galactus a través del método fireEvent.       
 
- \item Crea un Gate para la etiqueta restart\_option del elemento HTML, si se realiza un clic sobre esa opción del menú, lanza como evento el envío 
-de mensaje de llamar a la función restart\_game(). Ver código \ref{lst:code5222} (página \pageref{lst:code5222})
+Para permitir el envío de este mensaje desde MenuHandler hasta Galactus será necesario añadir el puerto correspondiente en la clase Galactus:
+this.handler.addPort('pause\_clock', this)
 
- \item Crea un Gate para el elemento level\_option del HTML, sobre el cual si se realiza un clic,
-muestra los diferentes niveles, cambiando el display de la etiqueta level\_option\_container a inline.
+NOTA: 
+\begin{verbatim}
+this.handler = menuHandler (Origen)
+    this = Galactus (Destino)
+\end{verbatim}
+
+ \item Crea un gate para el div 'button\_ok', sobre la cual si se recibe el evento do\_onclick, es decir, si pulsamos sobre el botón 'ok' 
+ del mensaje anteriormente señalado, oculta las instrucciones del juego, cambiando la propiedad display del div alert\_message, el cual tiene 
+ ahora valor 'block', a 'none'. A su vez, desde este Gate se enviará el mensaje resume\_clock. 
+ Ver código \ref{lst:code5233} (página \pageref{lst:code5233})
+
+Y como en el caso anterior, añadiremos el puerto correspondiente para permitir el envío de este mensaje desde MenuHandler hasta Galactus en 
+la propia clase Galactus:
+
+\begin{verbatim}
+this.handler.addPort("resume_clock", this)
+\end{verbatim}
+
+NOTA: 
+\begin{verbatim}
+this.handler = menuHandler
+    this = Galactus
+\end{verbatim}
+
+Ver código \ref{lst:code5221} (página \pageref{lst:code5221})
+
+ \item Crea un gate para el div 'restart\_option', si se realiza un click sobre esa opción del menú, lanza como evento el envío de un 
+ mensaje síncrono de llamar a la función restart\_game(). Ver código \ref{lst:code5222} (página \pageref{lst:code5222})
+
+ \item Crea un gate para el elemento 'level\_option' del html, sobre el cual si se realiza un click,
+muestra los diferentes niveles, cambiando el display del div 'level\_option\_container' a inline.
+
 \end{enumerate}
 
-La clase MenuHandler tiene dos métodos, attend\_keep\_menu\_out, attend\_keep\_menu\_in.
+La clase menuHandler tiene dos métodos: attend\_keep\_menu\_out, para atender a los mensajes recibidos y get\_menu\_in, que recibe del 
+Gate Level perteneciente al Device OptionHandler.
+
 
 \begin{itemize}
  \item attend\_keep\_menu\_out(): Guarda el estado out de menuAutomata como currentState solicitado 
@@ -189,6 +224,11 @@ La clase MenuHandler tiene dos métodos, attend\_keep\_menu\_out, attend\_keep\_
  solicitado (requested)  para que posteriormente pase a ser current (actual) y se ejecuten las 
  intrucciones correspondientes para hacer que el menú se vaya ocultando progresivamente.
 \end{itemize}
+
+NOTA: La creación del objeto de esta clase está realizada en la funcion main():
+\begin{verbatim}
+var menu_handler = new MenuHandler("menu_container")
+\end{verbatim}
 
 \subsubsection{Clase OptionHandler}
 \label{subsubsection:option_handler}
@@ -204,7 +244,25 @@ los siguientes mensajes:
  \item get\_menu\_in". Guarda tanto el menú principal como el panel de niveles.
 \end{itemize}
 
-Será necesaria la llamada al método newGate para la creación de un objeto Levels el cual deriva de la clase Gate. 
+Será necesaria la llamada al método newGate para la creación del objeto Levels:
+\begin{verbatim}
+ that.newGate("level_option_container",Levels)
+\end{verbatim}
+
+Por otro lado, también será necesario añadir los puertos a  este Device para permitir el paso de los mensajes que manda a MenuHandler, 
+lo cual se ha realizado en la  funcion main() para que se ejecute nada más abrir el juego:
+
+\begin{verbatim}
+option_handler.addPort("keep_menu_out", menu_handler)
+option_handler.addPort("get_menu_in", menu_handler)
+\end{verbatim}
+
+NOTA: La creación del objeto de esta clase está realizada en la funcion main():
+
+\begin{verbatim}
+var option_handler = new OptionHandler("level_option_container")
+\end{verbatim}
+
 Ver código \ref{lst:code5241} (página \pageref{lst:code5241})
 
 
@@ -215,12 +273,13 @@ Levels pertenece a la clase Gate, se encarga de gestionar el envío de mensajes 
 (ambos Device) mediante el uso del método fireEvent() anteriormente explicado.
 
 \begin{itemize}
- \item do\_onmouseover: Provoca que menu se mantenga desplegado. Contiene la función fireEvent, esta pasa el 
- mensaje síncrono en este caso 'keep\_menu\_out' y el evento do\_onmouseover. Ver código \ref{lst:code5251} (página \pageref{lst:code5251})
+ \item do\_onmouseover: Provoca que menu se mantenga desplegado. Contiene la función fireEvent, ésta pasa el 
+ mensaje síncrono en este caso 'keep\_menu\_out' y “this”, que en este caso tiene valor 'Levels'. 
+ Ver código \ref{lst:code5251} (página \pageref{lst:code5251})
 
  \item do\_onmouseout: Provoca que cuando se retire el foco del submenu de niveles, este se oculte.
 La funcion do\_onmouseout recoge el elemento html 'levels\_container' y cambia su display a none.
-También envía mediante el método fireEvent el mensaje asíncrono 'get\_menu\_in', y el evento do\_onmouseout. 
+También envía mediante el método fireEvent el mensaje asíncrono 'get\_menu\_in'y “this”, que en este caso tiene valor “Levels”.
 Ver código \ref{lst:code5252} (página \pageref{lst:code5252})
 \end{itemize}
 
@@ -242,6 +301,10 @@ obtener el tiempo actual en segundos.) almacena la hora actual en segundos.
  \item before: Almacena en segundos el momento en el que se empezó a jugar.
  
  \item running: Variable bandera que hace hace referencia al estado el marcha del reloj. Inicializado a true.
+ 
+ \item working: Variable bandera que hace referencia al estado el marcha del reloj. Inicializado a true.
+ 
+ \item paused: Variable bandera que indica si en algún momento el reloj fue pausado.
 \end{itemize}
 
 Desde initialize llamaremos al contructor de Device para que la clase Clock sea una de sus subclases, heredando sus métodos y atributos.\\
@@ -255,21 +318,28 @@ Métodos:
 
  \item run(): Recalcula el tiempo que queda por jugar. Llama a la función get\_now, para conocer el momento actual. Este valor es 
  almacenado en la variable now, recalcula el valor de remaining\_time (segundos que quedan por jugar) en función del momento actual:
-
-        tiempo que queda = al tiempo que quedaba - tiempo que ha pasado.
+\begin{verbatim}
+   this.remaining_time = this.total_time - (now - this.start_time)
+\end{verbatim}
         
-Si remaining\_time es menor o igual que cero, pone con valor falso el atributo running, es decir, el reloj deja de estar en marcha.
+Si remaining\_time es menor o igual que cero, pone con valor falso el atributo working, es decir, el reloj deja de estar en marcha ya 
+que el tiempo de juego se ha agotado.
 
- \item pause(): Pausa el tiempo, cambiando el valor de running a falso.
+ \item pause(): Pausa el tiempo, cambiando el valor de working a falso.
 
  \item resume(): Continua la cuenta atrás desde el momento que fue pausado.Reinicializa start\_time al momento actual, a través de 
- la función get\_now. A su vez establece el valor de running a true y por último cambia el valor de total\_time por el valor de 
- remainig\_time, el cual en ese momento guarda los segundos que quedaban por jugar cuando el reloj fue pausado
+ la función get\_now. A su vez establece el valor working a true, cambia el valor de paused a false y por último cambia el valor de 
+ total\_time por el valor de remainig\_time, el cual en ese momento guarda los segundos que quedaban por jugar cuando el reloj fue pausado
 
- \item get\_string(): Devuelve una cadena con el tiempo restante con formato mm:ss. Si running es igual a verdadero, es decir, 
+ \item get\_string(): Devuelve una cadena con el tiempo restante con formato mm:ss. Si working es igual a verdadero, es decir, 
  si el reloj esta en marcha, se llama al método run y obtenemos el valor de los minutos y de los segundos utilizando las 
  funciones Floor() y Round() de la librería Math de javascript. Posteriormente se realiza la concatenación de cadenas para 
-darle formato. Si por el contrario el reloj no está en marcha(running es falso), realizamos que acabamos de indicar sin 
+darle formato. Si por el contrario el reloj no está en marcha(working es falso), realizamos que acabamos de indicar sin 
 llamar al método run().
+
+ \item countDown(): Para la puesta en marcha del reloj, Galactus cuenta con el método countDown(). Ahí se crea el objeto Clock, en el 
+ caso de que sea el inicio del juego y se encarga de realizar la cuenta atrás utilizando un setInterval (el cual actúa como un bucle 
+ que ejecuta una vuelta cada cierto tiempo, indicado en milisegundos), que ejecuta la llamada al método get\_string de la clase Clock 
+ para que la cadena que devuelve sea mostrada en el div 'timer'. Ver código \ref{lst:code531} (página \pageref{lst:code531})
 \end{itemize}
 

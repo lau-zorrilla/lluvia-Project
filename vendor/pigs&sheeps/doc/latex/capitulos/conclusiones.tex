@@ -13,10 +13,10 @@ Modificando la aceleración en función de un estímulo se pueden generar compor
 su máximo durante un espacio para ir reduciéndose de manera gradual a medida que se aleja del estímulo.
 Si, además, se le añade un radio de visión, compuesto de radio y ángulo, también se pueden generar otro tipo de comportamientos.\\
 
-Según el ángulo de visión, se generan comportamientos, los cuales pueden variar en función de los hábitos alimenticios de 
-una determinada especie de Boid, por ejemplo. Es decir, si un Boid es carnívoro, tendrán los ojos ubicados en la parte delantera de la cabeza,
-mientras que si es herbívoro, éstos estarán situados en los lados. Esta variación del ángulo de visión permite ajustar lo observado en la vida 
-real a la simulación artificial.\\
+Según el ángulo de visión, por ejemplo, generan comportamientos que pueden variar en función de los hábitos alimenticios de 
+una determinada especie de Boid. Es decir, si un Boid es carnívoro, tendrá los ojos ubicados en la parte delantera de la cabeza y un ángulo 
+de visión reducido, mientras que si es herbívoro, éstos estarán situados en los lados y el ángulo será mayor. Esta variación permite ajustar 
+lo observado en la vida real a la simulación artificial.\\
 
 El radio de visión permite determinar la distancia que ve el Boid. Éste, por ejemplo, puede variar en función de la edad, siendo mayor cuando
 más joven es el Boids. También permite determinar si una especie tiene comportamientos de manada o no, en función de cuánto se acerquen o 
@@ -24,14 +24,14 @@ alejen de otros animales similares dentro de su radio de visión. De la misma ma
 tenderá a acercarse a otros miembros cercanos de la manada.\\
 
 Tanto para la visión como para los otros atributos del Boid, se ha comprobado que cambios de valor demasiado grandes en las variables 
-generan comportamientos que no son naturales, demasiado ordenados en comparación con aquellos que existen en la naturaleza. Son las variaciones
-pequeñas entre valores de un atributo las que devuelven comportamientos reales. Por ejemplo, variando levemente el valor del radio en el 
-comportamiento de separación y el valor de la aceleración en el comportamiento de alienación se obtiene, de un comportamiento de bandada 
+generan comportamientos que no son naturales, demasiado ordenados en comparación con los de los animales. Son las variaciones
+pequeñas entre valores de un atributo devuelven comportamientos más reales. Por ejemplo, variando levemente el valor del radio en el 
+comportamiento de separación y el valor de la aceleración en el comportamiento de alienación se obtiene de un comportamiento de bandada 
 de pájaros, otro de grupo de peces. \\
 
-Se ha observado también que los Boid oveja responden alejándose en grupo y en línea recta cuando el Boid cerdito se acerca a ellos
+En el juego, los Boid oveja responden alejándose en grupo y en línea recta cuando el Boid cerdito se acerca a ellos
 por la parte trasera moviéndose en zig-zag. Y si el Boid cerdito se sitúa en el punto de equilibrio (cuartos delanteros) del Boid oveja, 
-los Boid oveja retroceden.\\
+los Boid oveja retroceden. Estas reacciones son iguales en el comportamiento real del animal.\\
 
 Los resultados obtenidos en este proyecto pueden proporcionar una herramienta para la simulación de comportamientos. Lo que en este
 proyecto se basa en animales puede ser extendido a personas o partículas, generando una plataforma de experimentación.

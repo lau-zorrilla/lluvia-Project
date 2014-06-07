@@ -376,11 +376,10 @@ Animation.prototype.do_onmouseout =
 \end{lstlisting}
 
 \begin{lstlisting}[caption=Instructions\_option Gate, label={lst:code5221}]
-that.newGate("instructions_option", Gate, {do_onclick: 
-                     function(event, element) {
-                        alert("Move the little pig to
-                              place sheeps into the barnyard")
-        } })
+that.newGate("instructions_option", Gate, {do_onclick: function(event, element) {
+   alert_message.style.display="block"
+   this.device.fireEvent(this.device.newMessage("sync", "pause_clock", this))
+} })
 \end{lstlisting}
 
 \begin{lstlisting}[caption=restart\_option, label={lst:code5222}]
@@ -394,7 +393,7 @@ that.newGate("instructions_option", Gate, {do_onclick:
 \end{lstlisting}
 
 
-\begin{lstlisting}[caption=variable self\_events, label={lst:code5231}]
+\begin{lstlisting}[caption=Variable self\_events, label={lst:code5231}]
 this.self_events=['restart_game','pause_clock','resume_clock']
 
 Galactus:
@@ -403,6 +402,20 @@ Galactus.prototype.attend_pause_clock = function(date, mssg) {
     this.world.clock.get_string()
     }
 \end{lstlisting}
+
+\begin{lstlisting}[caption=newGate desplegable, label={lst:code5232}]
+that.newGate("desplegable", Gate, {do_onmouseover: function(event, element) {
+            menu_img.src="images/sheep2.png" }, do_onmouseout: function(event, element) {
+            menu_img.src="images/sheep1.png"
+        }})
+\end{lstlisting}
+
+\begin{lstlisting}[caption=newGate button\_ok, label={lst:code5233}]
+that.newGate("button_ok",Gate,{do_onclick: function(event, element) {
+            alert_message.style.display="none"
+            this.device.fireEvent(this.device.newMessage("sync", "resume_clock", this))
+         } })
+\end{lstlisting}         
 
 \begin{lstlisting}[caption=level\_option, label={lst:code5241}]
 that.newGate("level_option", Gate, {do_onclick: 
@@ -428,4 +441,22 @@ Levels.prototype.do_onmouseout = function(ev, el){
     this.device.fireEvent(this.device.newMessage("sync",
                                    "get_menu_in", this))
 }
+\end{lstlisting}
+
+\begin{lstlisting}[caption=do\_onmouseout, label={lst:code531}]
+Galactus.prototype.countdown = function(){    
+    var that = this
+    timer.style.fontWeight = "bold"
+    timer.style.color = "#996842" //inicializa color de fuente
+
+    if(!this.world.clock)
+        this.world.clock = new Clock(this.world, 120) // reloj de 2 minutos
+    this.world.timer_interval = setInterval( // cada segundo se ejecuta la funcion
+    
+    function(){
+        if(that.world.clock.remaining_time <= 10)
+            timer.style.color = "red" //cambia color de fuente
+           timer.innerHTML = that.world.clock.get_string() //escribe en el div "timer"
+    }    
+    ,1000);
 \end{lstlisting}

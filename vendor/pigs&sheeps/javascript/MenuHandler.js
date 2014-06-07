@@ -10,7 +10,7 @@ function MenuHandler(view) {
 	     Device.call(that, view)
 
 	    that.menu_effects = that.newGate("menu", Animation)
-	    that.menu_effects[that.menu_effects.element].menu_automata = that.menu_effects.new_effect(new MenuAutomata(that.menu_effects.device, that.menu_effects))
+	    //that.menu_effects[that.menu_effects.element].menu_automata = that.menu_effects.new_effect(new MenuAutomata(that.menu_effects.device, that.menu_effects))
 
 	    that.newGate("desplegable", Gate, {do_onmouseover: function(event, element) {
 	        menu_img.src="images/sheep2.png" }, do_onmouseout: function(event, element) {
