@@ -13,6 +13,8 @@
  * @return {Boid}
  */
 
+// undo life.
+//
 //require('Mathematics')
 
 Boid.prototype.constructor = Boid
@@ -147,7 +149,6 @@ Boid.prototype.update_physics = function(current_time){
     this.geo_data.position = integrate(this.geo_data.position, this.geo_data.velocity, this.delta_t() )
 }
 
-
 /**
  * @method run
  *
@@ -162,6 +163,7 @@ Boid.prototype.run = function(current_time){
     current_time = current_time || new Date()
     this.update_physics(current_time)
 }
+
 
 Boid.prototype.first_draw = function() {
     var canvas = document.createElement('canvas');
@@ -212,6 +214,7 @@ Boid.prototype.draw = function(ctx){
 
     ctx.restore()
 }
+
 
 /**
  * @method heading

@@ -1,52 +1,116 @@
 /**
- * @classDescription Creates a Shepard Pig
+ * @class Pig
  *
- * @return {Pig}
- * @constructor
- */
+ * Creates a Pig.
+ *
+ * @constructor Pig
+ * @param  {Object} config_object 
+ * @param  {Object} block  
+ * @return {}
+*/
  Pig.prototype = new Boid
  Pig.prototype.constructor = Pig
  Pig.super = Boid
 
- function Pig(){
- 	var args = []
- 	for (var i=0; i<arguments.length; i++)
- 		args[i] = arguments[i]
- 	var that = this
-    
- 	function initialize(){ //constructor
- 		that.colour = "pink"
- 		that.vel_max = 40
- 		that.mass = 1.5
- 		that.vision = {radius: 100, angle: 130 * Math.PI / 180}
+ function Pig(config_object, block){ //clase
+    var that = this
+    var args = arguments
 
- 		that.force_limits = {
- 			thrust: 30, //aceleracion
- 			steering: 60, //giro
- 			braking: 80 //frenada
- 		}
-      Pig.super.apply(that, args)
- 	}
+    if (typeof(block) === "undefined")
+        if (typeof(config_object) === "function" ){
+            block = config_object
+            config_object = new Hash()
+        }
 
- 	if (arguments.length)
- 		return initialize()
+        function initialize(){
 
+            var config = new Hash()
+
+            that.last_heading = new Vector(0, 1)
+            that.my_world = null
+            that.last_time = that.current_time = null
+            that.image = new Image()
+            that.image.src = "images/rotated_pig.png"
+            that.image_left = new Image()
+            that.image_left.src = "images/rotated_pig_left.png"
+
+            /* Overridable configuration */
+
+            var default_config = {
+                geo_data: {
+		            position: new Vector(100, 200),
+		            velocity: new Vector(2, 2),
+		            acceleration: new Vector(0, 0)
+                },
+                colour: "pink",
+
+                brain: new Brain(that),
+                vel_max: 70,
+                mass: 2,
+                vision: {radius: 100, angle: 130 * Math.PI / 180},              
+
+                force_limits: {
+                    thrust: 20,
+                    steering: 50,
+                    braking: 70
+                }
+            }
+
+            config_object.soft_merge$B(default_config)
+            if ( typeof(block) === "function")
+                config = block(config_object) || new Hash()
+            that.merge$B(config.soft_merge$B(config_object))
+            if (that.color)
+                that.colour = that.color
+
+        }
+
+        if (arguments.length)
+            initialize()
  }
 
- PigBrain.prototype = new Brain
- PigBrain.prototype.constructor = PigBrain
- PigBrain.prototype.super = Brain
+/**
+ * @method first_draw
+ *
+ * 
+ *
+ * @param {}   ctx Context in which to paint the Boid
+ *
+ */
+ Pig.prototype.first_draw = function() {
+    var canvas = document.createElement('canvas');
+    canvas.width = 24;
+    canvas.height = 24;
 
- function PigBrain(){
+    // Get the drawing context
+    var ctx = canvas.getContext('2d');
+}
 
- 	var that = this
+/**
+ * @method draw
+ *
+ * Draws a boid into the world defined by the context
+ *
+ * @param {}   ctx Context in which to paint the Boid
+ *
+ */
+Pig.prototype.draw = function(ctx){
 
- 	function initialize(){
- 		Brain.apply(that, arguments)
- 		that.add_behaviors(["cohesion", "alignment"]) //Mirar qué compotamientos se necesitan
- 	}
+    var p = this.geo_data.position
+    var v = this.geo_data.velocity
+    var a = this.geo_data.acceleration
+    var radius = 10
+    var scale = 1 - p.get_coord(1) / 3000
+    var x = this.geo_data.velocity.get_coord(0)
 
- 	if (arguments.length)
- 		initialize() //Hace falta return??
+    ctx.save()
+    ctx.scale( scale, scale / 2 )
 
- }
+    if(x > 0) {
+        ctx.drawImage(this.image, p.get_coord(0), p.get_coord(1))
+    }
+    else
+	    ctx.drawImage(this.image_left, p.get_coord(0), p.get_coord(1))
+
+    ctx.restore()
+}

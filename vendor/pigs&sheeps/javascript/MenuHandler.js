@@ -3,7 +3,7 @@ MenuHandler.prototype.contructor = MenuHandler
 
 function MenuHandler(view) {
 	var that = this
-	this.self_events = [ "get_panel_out", "restart_game", "keep_menu_out", "get_menu_in" ]
+	this.self_events = [ "restart_game", "pause_clock", "resume_clock" ]
 	this.view = view
 
 	function initialize() {
@@ -12,9 +12,22 @@ function MenuHandler(view) {
 	    that.menu_effects = that.newGate("menu", Animation)
 	    that.menu_effects[that.menu_effects.element].menu_automata = that.menu_effects.new_effect(new MenuAutomata(that.menu_effects.device, that.menu_effects))
 
+	    that.newGate("desplegable", Gate, {do_onmouseover: function(event, element) {
+	        menu_img.src="images/sheep2.png" }, do_onmouseout: function(event, element) {
+	        menu_img.src="images/sheep1.png"
+	    }})
+
 	    that.newGate("instructions_option", Gate, {do_onclick: function(event, element) {
-	        alert("Move the little pig to place sheeps into the barnyard")
+	        //alert("Move the little pig to place sheeps into the barnyard")
+	        alert_message.style.display="block"
+	        this.device.fireEvent(this.device.newMessage("sync", "pause_clock", this))
+
 	    } })
+
+	    that.newGate("button_ok",Gate,{do_onclick: function(event, element) {
+	    	alert_message.style.display="none"
+	    	this.device.fireEvent(this.device.newMessage("sync", "resume_clock", this))
+	     } })
 
 	    that.newGate("restart_option", Gate, { do_onclick: function(event, element) {
 	        this.device.fireEvent(this.device.newMessage("sync", "restart_game", this))	        

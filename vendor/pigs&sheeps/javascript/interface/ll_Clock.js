@@ -1,16 +1,13 @@
 Clock.prototype = new Device
 Clock.prototype.constructor = Clock
 
+function get_now(){ //Devuelve la hora actual en segundos
+		now = new Date
+		hours = now.getHours() * 3600 //horas pasadas a segundos
+		minutes = now.getMinutes() * 60 // minutos pasados a segundos
+		seconds = now.getSeconds() // segundos
 
-<<<<<<< HEAD
-function Clock(countdown_seconds) {
-	this.state
-	this.start_time = time.now	
-	this.total_time = countdown_seconds
-	this.remaining_time = start_time + remaining_time
-	this.before = start_time
-
-	return hours + minutes + seconds
+		return hours + minutes + seconds
 	}
 
 
@@ -64,14 +61,27 @@ Clock.prototype.resume = function() { //continua la cuenta atras
 	//this.remaining_time = this.remaining_time - (this.start_time - this.before) //lo q queda=lo q quedaba - lo q ha pasado
 }
 
-Clock.prototype.reset = function() {}
+Clock.prototype.get_string = function() { //devuelve una cadena con los segundos restantes
 
-Clock.prototype.get_count = function() {}
+	if(this.working == true){
+		this.run()
+		min = Math.floor(this.remaining_time / 60)
+		sec = Math.round(this.remaining_time - (min * 60))
 
-Clock.prototype.run = function(now) {}
+		if(min == 1 && sec >= 10 || min == 0 && sec >= 10)
+			return '0' + min + ':'+ sec
+		else
+			return '0' + min + ':' + '0' + sec
 
-Clock.prototype.pause = function() {}
+	}
+	else{ 
+		min = Math.floor(this.remaining_time / 60)
+		sec = Math.round(this.remaining_time - (min * 60))
 
-Clock.prototype.resume = function() {}
+		if(min == 1 && sec >= 10 || min == 0 && sec >= 10)
+			return '0' + min + ':'+ sec
+		else
+			return '0' + min + ':' + '0' + sec
+	}
 
-Clock.prototype.get_string = function() {}
+}

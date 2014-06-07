@@ -1,4 +1,3 @@
-// Hakuna matata y que sea lo que dios quiera
 MouseCoordinates.prototype = new Gate
 MouseCoordinates.prototype.constructor = MouseCoordinates
 
@@ -25,9 +24,15 @@ function MouseCoordinates(element) {
 	    initialize()
 }
 
-MouseCoordinates.prototype.do_onmousemove = function(ev, el){
-    this.X = ev.pageX - screener.offsetLeft
-    this.Y = ev.pageY - screener.offsetTop
+//MouseCoordinates.prototype.do_onmousemove = function(ev, el){
+//    this.X = ev.pageX - screener.offsetLeft
+//    this.Y = ev.pageY - screener.offsetTop
+//}
+
+MouseCoordinates.prototype.do_onclick = function (ev, el) {
+	this.X = ev.pageX - screener.offsetLeft
+	this.Y = ev.pageY - screener.offsetTop
+	this.device.move_shepherd(this.X, this.Y)
 }
 
 MouseCoordinates.prototype.get_mouse_coordinates = function() {
@@ -35,9 +40,9 @@ MouseCoordinates.prototype.get_mouse_coordinates = function() {
 }
 
 MouseCoordinates.prototype.get_mouse_X = function() {
-	this.mousex = this.get_mouse_coordinates().get_coord(0)
+	return this.mousex = this.get_mouse_coordinates().get_coord(0)
 }
 
 MouseCoordinates.prototype.get_mouse_Y = function() {
-	this.mousey = this.get_mouse_coordinates().get_coord(1)
+	return this.mousey = this.get_mouse_coordinates().get_coord(1)
 }

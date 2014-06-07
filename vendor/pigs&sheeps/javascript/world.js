@@ -5,7 +5,6 @@
  * @version 1.00 Aug, 2011
  */
 
-
 /**
  * @classDescription Creates a World for handling boids.
  *
@@ -30,10 +29,10 @@ function World(screen, width, height){
     this.acceleration_max = 30
     this.velocity_max = 200
     this.boids = {total: 0}
-    this.transform_already = false
     this.mouse_coordinates = this.newGate("screener", MouseCoordinates)
-    this.x1 = 0
-    this.y1 = 0
+    this.points = 0
+    this.level = 0
+    this.is_finished = false
 
 
     /* We have a HTMLElement, a string holding the id, or the page has a canvas */
@@ -126,25 +125,11 @@ World.prototype.each_boid = function(){
     })
 }
 
-World.prototype.draw_boid_on_cursor = function() {
-    //alert(this.x1 + " : " + this.y1)
-
-    // var a = this.new_boid( function(config) {
-    //         config.colour = "white"
-    //         config.brain.activate("seek", pig)
-    //         config.geo_data = {
-    //               position: new Vector(x1, y1),
-    //               velocity: new Vector(10, 10),
-    //               acceleration: new Vector(0, 0)
-    //            }
-    //     })
-}
-
 World.prototype.start = function(){
     var that = this
     var ctx  = that.screen[0].context
 
-    if(this.transform_already)
+    if(World.transform_already)
        ctx.transform(1, 0, 0, -1, -425, 500)
 
     this.draw_background(ctx)
@@ -152,7 +137,7 @@ World.prototype.start = function(){
 
     // Change the origin to the middle x, bottom y,  and invert y axis
     ctx.transform(1, 0, 0, -1, 425, 500)
-    this.transform_already = true
+    World.transform_already = true
     this.start_time = new Date()
     this.currentState.requested = Device.STATE.running
     this.get_boids().each( function(el) {
@@ -173,7 +158,7 @@ World.prototype.start = function(){
 *
 */
 World.prototype.is_initalized = function(init) {
-    this.transform_already = init
+    World.transform_already = init
 }
 
 World.prototype.draw = function(){
@@ -186,6 +171,24 @@ World.prototype.draw = function(){
     this.boids_list[i].draw(ctx)
 }
 
+/*
+* Sets the target of the boid to the mouse coordinates
+*/
+
+World.prototype.move_shepherd = function (screen_x, screen_y) {
+	if (!this.shepherd)
+		return
+	var behaviour = this.shepherd.brain.get_behavior("seek mouse", null)
+	var x = screen_x - 425
+	var y = 500 - screen_y
+	var scale = 1 - y / 3000
+
+    //alert( x / scale + " : " + 2 * y / scale)
+
+    behaviour.set_target_at( x / scale, 2 * y / scale)
+}
+
+
 World.prototype.step = function(current_time){
     var that = this
     current_time = current_time || this.now || new Date()
@@ -194,13 +197,14 @@ World.prototype.step = function(current_time){
     })
 }
 
-World.prototype.is_one_second_from_begining = function(){
-    this.start()
-    var current_time = new Date( this.start_time.toString() )
-    current_time.setSeconds( this.start_time.getSeconds() + 1 )
-    current_time.setMilliseconds( this.start_time.getMilliseconds())
 
-    this.step(current_time)
+World.prototype.is_one_second_from_begining = function(){
+	this.start()
+	var current_time = new Date( this.start_time.toString() )
+	current_time.setSeconds( this.start_time.getSeconds() + 1 )
+	current_time.setMilliseconds( this.start_time.getMilliseconds())
+
+	this.step(current_time)
 }
 
 World.prototype.show_boids = function(){
@@ -242,89 +246,95 @@ World.prototype.check_level = function() {
     }
     //if(this.level == 2 && this.points == 10)
     //  call function that paints happy ending
+
 }
+
+/*
+* Updates the processor time, checks the level and it is finished, stops drawing the canvas background
+*/
 
 World.prototype.running_steady = function(processors_time){
 
-    //this.show_boids()
-    var that = this
-    this.now = processors_time || new Date()
-    //this.eventDispatcher.shift()
+	//this.show_boids()
+	this.now = processors_time || new Date()
+	//this.eventDispatcher.shift()
 
-    this.x1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(0)
-    this.y1 = this.mouse_coordinates.get_mouse_coordinates().get_coord(1)
+    score_number.style.float = "right"
+    score_number.style.fontSize = "24pt"
+    score_number.style.marginTop = "5px"
+    score_number.style.fontWeight = "bold"
+    score_number.innerHTML = ":" + this.points
 
-    this.draw_boid_on_cursor()
-
-    this.draw()
-    //setTimeout(this.run.bind(this), 100)
+    this.check_level()
+    if(this.is_finished == false)
+        this.draw()
+	//setTimeout(this.run.bind(this), 100)
 }
 
 World.prototype.visible_for = function(position, heading, vision_object){
-    var that = this
-    var radius = vision_object.radius
-    var vision =  radius * radius
-    var visible = []
-    var x1 = position.get_coord(0)
-    var y1 = position.get_coord(1)
-    this.each_boid(function (boid){
-        var dx = boid.geo_data.position.get_coord(0) - x1
-        var dy = boid.geo_data.position.get_coord(1) - y1
-        if ( dx * dx + dy * dy < vision &&
-            heading.angle(new Vector(dx, dy) < vision_object.angle ) )
-            visible.push(boid)
-    })
-    return visible
+	var that = this
+	var radius = vision_object.radius
+	var vision =  radius * radius
+	var visible = []
+	var x1 = position.get_coord(0)
+	var y1 = position.get_coord(1)
+	this.each_boid(function (boid){
+		var dx = boid.geo_data.position.get_coord(0) - x1
+		var dy = boid.geo_data.position.get_coord(1) - y1
+		if ( dx * dx + dy * dy < vision &&
+		    heading.angle(new Vector(dx, dy)) < vision_object.angle )
+			visible.push(boid)
+	})
+	return visible
 }
 
-World.prototype.new_boid = function(color, geo_data){
-    color = color || "blue"
-    if (typeof(geo_data) === "undefined")
-        geo_data = {
-            position: new Vector(Math.floor(Math.random()*400), Math.floor(Math.random()*400)),
-            velocity: new Vector(Math.floor(Math.random()*40), Math.floor(Math.random()*40)),
-            acceleration: new Vector(0,0)
-        }
-        var b = new Boid( geo_data, color)
-        this.boids++
-            b.id = this.boids
-        this.has_born(b)
-        return b
+World.prototype.new_boid = function(config, block){
+
+	var b = typeof(block) === "undefined" ? new Boid(config) : new Boid(config, block)
+
+	this.boids++
+		b.id = this.boids
+	this.has_born(b)
+	return b
 }
 
+/*
+* Creates a new boid with a seek behavior defined
+*
+*/
 World.prototype.new_seeker = function(target, color){
-    var b = this.new_boid(color)
-    b.brain.activate('seek')
-    b.brain.get_behavior('seek').set_target(target)
-    return b
+	var b = this.new_boid(color)
+	b.brain.activate('seek')
+	b.brain.get_behavior('seek').set_target(target)
+	return b
 }
 
 World.prototype.start_and_run = function(){
-    this.start()
-    this.run()
+	this.start()
+	this.run()
 }
 
 World.prototype.attend_focus_boid = function(date, mssg) {
-    mssg.current++;
+	mssg.current++;
 }
 
 World.prototype.new_boid_of = function(class_name, config){
-    var b = new class_name(config)
-    if (this[class_name])
-        this[class_name]++
-        else
-    this[class_name] = 1
+	var b = new class_name(config)
+	if (this[class_name])
+		this[class_name]++
+	else
+	    this[class_name] = 1
     this.boids.total++
-        this.has_born(b)
-    return b
+	this.has_born(b)
+	return b
 }
 
 World.prototype.method_missing = function(method, obj, params){
 
-    if ( /new_boid_as_/.test(method) ){
-        var subtype = method.match(/new_boid_as_(\w*)/ )[1].capitalize()
-        return this.new_boid_of(eval("" + subtype), params[0])
-        //todo: This is dependant of bad ll_Exception params analysis
-    }
-    return this.super.method_missing.apply(this, arguments)
+	if ( /new_boid_as_/.test(method) ){
+		var subtype = method.match(/new_boid_as_(\w*)/ )[1].capitalize()
+		return this.new_boid_of(eval("" + subtype), params[0])
+		//todo: This is dependant of bad ll_Exception params analysis
+	}
+	return this.super.method_missing.apply(this, arguments)
 }

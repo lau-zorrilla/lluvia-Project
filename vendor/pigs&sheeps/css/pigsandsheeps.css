@@ -237,21 +237,23 @@ body{
     padding-left: 20px;
 }
 
-#footer p{
+ #footer p{
+   width: 365px;
+   text-align: right;
    width: 550px;
    font-size: 14pt;
-}
+ }
 
 #copyright{
    text-align: left;
 }
 
-#year{
-   float: right;
-   text-align: right;
-   margin-top: -42px;
-   margin-right: 20px;
-}
+ #year{
+    float: right;
+    text-align: right;
+    margin-top: -42px;
+    margin-right: 20px;
+ }
 
 /*#ll_logger{
 	display: none;
