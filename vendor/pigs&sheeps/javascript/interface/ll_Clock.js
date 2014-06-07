@@ -57,7 +57,7 @@ Clock.prototype.resume = function() { //continua la cuenta atras
 	this.working = true	
 	this.start_time=get_now()
 	this.total_time = this.remaining_time 
-	this.paused = true
+	this.paused = false
 	//this.remaining_time = this.remaining_time - (this.start_time - this.before) //lo q queda=lo q quedaba - lo q ha pasado
 }
 

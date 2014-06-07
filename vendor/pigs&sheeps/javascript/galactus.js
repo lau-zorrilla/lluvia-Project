@@ -121,11 +121,11 @@ Galactus.prototype.playSound = function(){
 
 	function finishedLoading(bufferList) {
 	  // Create sources and play them both together.
-	  that.source1 = context.createBufferSource();
-	  that.source1.buffer = bufferList[0];
-	  that.source1.connect(context.destination);	 
-	  that.source1.loop=true //Reinicia musica si termina
-	  that.source1.start(0); //Inicia musica
+	  that.world.source1 = context.createBufferSource();
+	  that.world.source1.buffer = bufferList[0];
+	  that.world.source1.connect(context.destination);	 
+	  that.world.source1.loop=true //Reinicia musica si termina
+	  that.world.source1.start(0); //Inicia musica
 	 //Si hubiese mas sources, hacer lo mismo con cada uno 
 	//  return source1	 
 	}
@@ -143,7 +143,7 @@ Galactus.prototype.countdown = function(){
 	if(!this.world.clock)
 		this.world.clock = new Clock(this.world, 120) // reloj de 2 minutos
 	
-    timer_interval = setInterval( // cada segundo se ejecuta la funcion
+    this.world.timer_interval = setInterval( // cada segundo se ejecuta la funcion
 	
 	function(){
 		if(that.world.clock.remaining_time <= 10)

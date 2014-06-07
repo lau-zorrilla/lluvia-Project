@@ -227,19 +227,21 @@ World.prototype.show_boids = function(){
 */
 
 World.prototype.check_level = function() {
-    if(this.level == 1 && this.points == 5){
+    if(this.level == 1 && this.points >= 5){
         this.is_finished = true
         this.currentState.requested = this.state.killed
-        this.clock.pause()
         this.winner_pig()
+        this.clock.pause()       
     }
     else {
         if (this.clock.working == false && this.clock.paused == false){
             this.is_finished = true
             this.currentState.requested = this.state.killed
-            clearInterval(timer_interval) // detiene setInterval
-            source1.stop()//Para musica
+            clearInterval(this.timer_interval) // detiene setInterval
             this.gameover_pig()
+            this.source1.stop()//Para musica
+            
+
         }
     }
     //if(this.level == 2 && this.points == 10)
