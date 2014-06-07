@@ -205,17 +205,43 @@ World.prototype.is_one_second_from_begining = function(){
 
 World.prototype.show_boids = function(){
 
-    var logger = document.getElementById("logger")
-    logger.innerHTML = ""
-    var boids = 0
-    this.each_boid(function(boid){
-        boids++
-        logger.innerHTML += "<h3>Boid " + boids + "</h3>"
-        logger.innerHTML += "Pos: " + boid.position() + "<br/>"
-        logger.innerHTML += "Vel: " + boid.velocity() + "<br/>"
-        logger.innerHTML += "Acc: " + boid.acceleration() + "<br/>"
-        logger.innerHTML += "<br/>"
-    })
+	var logger = document.getElementById("logger")
+	logger.innerHTML = ""
+	var boids = 0
+	this.each_boid(function(boid){
+		boids++
+		logger.innerHTML += "<h3>Boid " + boids + "</h3>"
+		logger.innerHTML += "Pos: " + boid.position() + "<br/>"
+		logger.innerHTML += "Vel: " + boid.velocity() + "<br/>"
+		logger.innerHTML += "Acc: " + boid.acceleration() + "<br/>"
+		logger.innerHTML += "<br/>"
+	})
+}
+
+/* 
+* Checks if the level is finished and if so, stops the world and the clock, and calls a function that changes the background of the canvas
+*/
+
+World.prototype.check_level = function() {
+    if(this.level == 1 && this.points >= 5){
+        this.is_finished = true
+        this.currentState.requested = this.state.killed
+        this.winner_pig()
+        this.clock.pause()       
+    }
+    else {
+        if (this.clock.working == false && this.clock.paused == false){
+            this.is_finished = true
+            this.currentState.requested = this.state.killed
+            clearInterval(this.timer_interval) // detiene setInterval
+            this.gameover_pig()
+            this.source1.stop()//Para musica
+            
+
+        }
+    }
+    //if(this.level == 2 && this.points == 10)
+    //  call function that paints happy ending
 }
 
 World.prototype.running_steady = function(processors_time){
