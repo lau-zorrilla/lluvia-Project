@@ -157,9 +157,9 @@ Devuelve la información del target.
 \subsubsection{Clase Brain}
 \label{subsubsection:brain}
 
-Es la clase que crea un cerebro para el Boid. En ella, se guardan los comportamientos disponibles para ser activados. Todos estos 
-comportamientos conocidos se guardan en la variable \textit{catalog}. El cerebro, además, se encarga de discriminar entre aquellos que pueden ser activados por 
-un Boid concreto y los que no.\\
+Es la clase que crea un cerebro para el Boid. En ella, se guardan los comportamientos disponibles para ser activados. Estos 
+comportamientos conocidos se almacenan en la variable \textit{catalog}. El cerebro, además, se encarga de discriminar entre aquellos que 
+pueden ser activados por un Boid concreto y los que no.\\
 
 Guarda las aceleraciones que posee el Boid para cada uno de sus comportamientos activos. De esta manera, se puede calcular la aceleración que 
 el Boid necesita para cambiar su posición en función del objetivo.\\
@@ -208,9 +208,9 @@ Métodos:
 \item sheep\_limits(): Define los límites entre los que los Boids oveja se pueden mover. Esta función es necesaria para que éstos no se 
 salgan de los límites impuestos por el canvas. Ver código \ref{lst:code4231} (página \pageref{lst:code4231})
 
-\item  update\_physics(): Calcula la nueva posición, velocidad y aceleración en función del tiempo que ha pasado. Esta función ha sido 
-necesaria redefinirla para poder llamar a la función sheep\_limits(). Además, se comprueba si el Boid oveja ha entrado en el corral y, en 
-caso afirmativo, se suma un punto al contador. Ver código \ref{lst:code4232} (página \pageref{lst:code4232})
+\item  update\_physics(): Calcula la nueva posición, velocidad y aceleración en función del tiempo que ha pasado. Una de las razones para 
+redefinirla es poder llamar a la función sheep\_limits(). Esta función, además, comprueba si el Boid oveja ha entrado en el corral y, en 
+caso afirmativo, suma un punto al contador. Ver código \ref{lst:code4232} (página \pageref{lst:code4232})
 
 \item  first\_draw():  Pinta el Boid y lo guarda como imagen, lo que ahorra tiempo de cálculo. Se redefine para evitar que los Boids se 
 pinten como círculos, ya que en el constructor se determina una imagen para representar a las ovejas. Ver código \ref{lst:code4233} (página \pageref{lst:code4233})
@@ -230,7 +230,7 @@ La característica principal de esta clase es su capacidad para responder a las 
 onClick(). Éstas son capturadas por el objeto MouseCoordinates, el cual deriva de la clase Gate. A través de su método do\_onclick(), 
 transforma las coordenadas globales de la pantalla en locales del canvas y las guarda en sendas variables de clase. Estas variables se 
 pasan a la clase World como parámetros de su función move\_shepherd() y se usan para definir el objetivo del Boid, el cual tiene programado un 
-comportamiento de persecución. Ver figura \ref{fig:lock} (página \pageref{fig:lock})\\
+comportamiento de persecución. Ver figura \ref{fig:lock} (página \pageref{fig:lock})\\ 
 
 Métodos:\\
 
@@ -382,7 +382,7 @@ Ver código \ref{lst:code4341} (página \pageref{lst:code4341})\\
 
 La clase World deriva de la clase Device y es la que genera el mundo en el que viven los Boids. Necesita un objeto canvas para poder 
 existir, aunque, en principio, sus límites son infinitos. Esto quiere decir que el usuario verá en pantalla tan sólo una parte del mundo, 
-mientras que los Boids podrán 'viajar' a cualquier parte de él, llegando a desaparecer del canvas.\\
+mientras que los Boids pueden representarse en cualquier parte de él, saliendo del canvas en muchas ocasiones.\\
 
 Las funciones principales del mundo son gestionar el canvas y los boids existentes. A través de diferentes funciones, se puede modificar 
 el tamaño del mundo o del canvas, guardar los Boids creados en una lista y acceder a ésta o actualizar los datos que reciben estos Boids 
@@ -471,7 +471,6 @@ Crea un nuevo Boid de una subclase de Boid.
 Provee el método dinámico new\_boid\_as\_(ClassName)
 \end{itemize}
 
-\pagebreak
 
 \subsection{Clase Galactus}
 \label{subsection:galactus}

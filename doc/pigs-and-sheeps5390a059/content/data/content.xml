@@ -1,0 +1,974 @@
+<zuiprezi>
+  <version>7</version>
+  <zui-table>
+    <settings>
+      
+      <autoplay>
+        
+        <delay>4000</delay>
+        
+      </autoplay>
+      
+      <bounds x="-66885.25193927922" y="-43928.16566617735" width="133770.50387855843" height="87856.3313323547"/>
+      <aspectratio>off</aspectratio>
+      <languages>
+        <language>es</language>
+      </languages>
+      <mode type="normal"/>
+    </settings>
+    <object id="52" type="button" x="-23.01168424434601" y="2.273715364717345e-12" r="0" s="88.96843679225793" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1076.3087059222803</w>
+        <h>990.4293844695608</h>
+      </size>
+    </object>
+    <object id="54" type="button" x="5.877177367658304e-12" y="-250.19196800027024" r="0" s="52.85282650278879" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>2530.954833488152</w>
+        <h>1609.473577355102</h>
+      </size>
+    </object>
+    <object id="0_24309637" type="button" x="-317.2815088880102" y="-14752.539589069806" r="0" s="51.28734130194295" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>blank-quick</parentTemplate>
+      </meta>
+      <layout>
+        <frametype value="SECTION"/>
+      </layout>
+    </object>
+    <object id="2" type="image" x="423.684594023287" y="1900.1569211466667" r="0" s="65.66455100635423">
+      <source w="1069" h="1017">1820791306<url>1820791306.png</url></source>
+      <sourceUrl>pigs_sheep_presentation.png.png</sourceUrl>
+    <resource><id>1820791306</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/f/2/d/86bbf59167e6a189f752b2a73797c16fb4f18.png</url></resource></object>
+    <object id="53" type="button" x="422.34085666434027" y="22488.947609473587" r="0" s="46.51922848024477" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1202.6905829596412</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="24" type="button" x="-17760.376121416357" y="19076.48508021855" r="-44.47513620724127" s="7.2801126128626334" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1363.2916181193732</w>
+        <h>132.49212645022658</h>
+      </size>
+    </object>
+    <object id="27" type="button" x="-8671.413712850277" y="14167.313582817762" r="-5.773335984206658" s="4.52504108732714" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1337.9518607205237</w>
+        <h>1196.6305110234016</h>
+      </size>
+    </object>
+    <object id="25" type="text" x="-17889.058195204638" y="19173.21392450025" r="-44.47513620724127" s="41.77208872805107" class="body">
+      <height>27.59765625</height>
+      <width>-217.40625</width>
+      <p>
+        <text color="8856395"><![CDATA[PIGS AND SHEEPS]]></text>
+      </p>
+    </object>
+    <object id="26" type="text" x="-15103.696291398128" y="20740.964385114854" r="0" s="10.285576453993881" class="body">
+      <height>27.59765625</height>
+      <width>-86.73046875</width>
+      <p>
+        <text><![CDATA[El juego]]></text>
+      </p>
+    </object>
+    <object id="28" type="text" x="-8556.133024912782" y="12097.647081170597" r="-5.773335984206658" s="23.603583157359076" class="body">
+      <height>27.59765625</height>
+      <width>-200.0625</width>
+      <p>
+        <text color="8856395"><![CDATA[LLUVIA PROJECT]]></text>
+      </p>
+    </object>
+    <object id="29" type="text" x="-8640.429984542476" y="13495.164907978791" r="-5.773335984206657" s="6.21556115894522" class="body">
+      <height>27.59765625</height>
+      <width>725.25</width>
+      <p>
+        <text><![CDATA[Es una API de Javascript que incorpora funciones nativas de Ruby]]></text>
+      </p>
+    </object>
+    <object id="31" type="button" x="-7667.720301541364" y="22274.047792516092" r="-8.374488813674287" s="3.573581261903655" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1488.8210683640195</w>
+        <h>921.4716384325732</h>
+      </size>
+    </object>
+    <object id="32" type="text" x="-7855.001268619153" y="21152.23623328415" r="-8.374488813674287" s="27.291651206447433" class="body">
+      <height>27.59765625</height>
+      <width>-191.14453125</width>
+      <p>
+        <text color="8856395"><![CDATA[PARTE GRÁFICA]]></text>
+      </p>
+    </object>
+    <object id="33" type="text" x="-8583.46701059366" y="21901.862251823015" r="-8.374488813674287" s="4.908643360615963" class="body">
+      <height>27.59765625</height>
+      <width>-104.05078125</width>
+      <p>
+        <text><![CDATA[Front-end]]></text>
+      </p>
+    </object>
+    <object id="35" type="button" x="-1304.299150168989" y="10744.120597578705" r="0" s="2.0656024752512603" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>961.5562760537284</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="36" type="text" x="-1245.6700828609733" y="10296.77769541466" r="0" s="9.795113429253046" class="body">
+      <height>27.59765625</height>
+      <width>-150.66796875</width>
+      <p>
+        <text color="8856395"><![CDATA[INTERMEDIO]]></text>
+      </p>
+    </object>
+    <object id="37" type="text" x="-1311.387594620141" y="10629.024307194319" r="0" s="2.8372954559350823" class="body">
+      <height>27.59765625</height>
+      <width>-394.86328125</width>
+      <p>
+        <text><![CDATA[Por qué el cerdito cruzo la carretera?]]></text>
+      </p>
+    </object>
+    <object id="38" type="button" x="2521.186870831295" y="14625.507591758229" r="-8.374488813674287" s="5.120224752648653" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>2475.523912409667</w>
+        <h>674.0684054195881</h>
+      </size>
+    </object>
+    <object id="39" type="text" x="1481.0988265546914" y="13778.589186238163" r="-8.37448881367429" s="50.59637673201943" class="body">
+      <height>27.59765625</height>
+      <width>-94.7109375</width>
+      <p>
+        <text color="8856395"><![CDATA[CLASES]]></text>
+      </p>
+    </object>
+    <object id="40" type="text" x="-1397.3320518133007" y="15201.313379457613" r="-8.374488813674315" s="7.033100801396553" class="body">
+      <height>27.59765625</height>
+      <width>-73.3828125</width>
+      <p>
+        <text><![CDATA[Mundo]]></text>
+      </p>
+    </object>
+    <object id="41" type="button" x="3228.0493915626266" y="24858.799095567694" r="-8.37448881367429" s="3.6669032892286233" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>2987.5617343807344</w>
+        <h>1673.1549582629082</h>
+      </size>
+    </object>
+    <object id="42" type="text" x="2466.674995748433" y="22326.701295131992" r="-8.374488813674299" s="30.020816327092167" class="body">
+      <height>27.59765625</height>
+      <width>-213.41015625</width>
+      <p>
+        <text color="8856395"><![CDATA[GATES Y DEVICES]]></text>
+      </p>
+    </object>
+    <object id="43" type="text" x="-881.6135130106996" y="23869.618942738543" r="-8.3744888136743" s="5.036829769782406" class="body">
+      <height>27.59765625</height>
+      <width>-60.03515625</width>
+      <p>
+        <text><![CDATA[Menu]]></text>
+      </p>
+    </object>
+    <object id="44" type="button" x="3007.5779314975734" y="19158.17036749401" r="-12.563269827012483" s="4.833825826956481" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1932.9571477804236</w>
+        <h>449.3672799196633</h>
+      </size>
+    </object>
+    <object id="45" type="text" x="2532.711288006806" y="18688.115671194988" r="-12.563269827012489" s="30.020816327092174" class="body">
+      <height>27.59765625</height>
+      <width>-94.67578125</width>
+      <p>
+        <text color="8856395"><![CDATA[SONIDO]]></text>
+      </p>
+    </object>
+    <object id="46" type="text" x="2672.925577168871" y="19485.614919646774" r="-12.563269827012485" s="6.639705469919607" class="body">
+      <height>27.59765625</height>
+      <width>-180.10546875</width>
+      <p>
+        <text><![CDATA[Música del juego]]></text>
+      </p>
+    </object>
+    <object id="48" type="button" x="15147.406886234427" y="18373.703036407143" r="78.9986572913362" s="9.668130364833855" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>961.5562760537284</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="49" type="text" x="17348.082781104244" y="18277.234831198188" r="78.9986572913362" s="37.889585276884446" class="body">
+      <height>27.59765625</height>
+      <width>-192.03515625</width>
+      <p>
+        <text color="8856395"><![CDATA[CONCLUSIONES]]></text>
+      </p>
+    </object>
+    <object id="50" type="text" x="15581.868467759796" y="16668.63119232387" r="78.9986572913362" s="13.280068493427967" class="body">
+      <height>27.59765625</height>
+      <width>-125.4140625</width>
+      <p>
+        <text><![CDATA[Blablabla....]]></text>
+      </p>
+    </object>
+    <object id="0_83895854" type="text" x="-15103.75699170939" y="22198.078909523098" r="0" s="10.285576453993881" class="body">
+      <height>27.59765625</height>
+      <width>-165.43359375</width>
+      <p>
+        <text><![CDATA[Investigaciones]]></text>
+      </p>
+    </object>
+    <object id="1_83895854" type="text" x="-14797.054253626573" y="21224.16038345386" r="0" s="6.986070448418163" class="body">
+      <height>27.59765625</height>
+      <width>875.05</width>
+      <p>
+        <text color="0"><![CDATA[El objetivo es llevar el comportamiento real de las ovejas al mundo del videojuego]]></text>
+      </p>
+    </object>
+    <object id="2_83895854" type="text" x="-15103.895015377022" y="21544.758653993624" r="0" s="6.3865337402399724" class="body">
+      <height>27.59765625</height>
+      <width>-94.69921875</width>
+      <p>
+        <text><![CDATA[(imagen)]]></text>
+      </p>
+    </object>
+    <object id="3_83895854" type="text" x="-14789.139077755406" y="22688.78452665451" r="0" s="6.986070448418163" class="body">
+      <height>27.59765625</height>
+      <width>750.55</width>
+      <p>
+        <text color="0"><![CDATA[Tan importante es el comportamiento de las ovejas como el del pastor]]></text>
+      </p>
+    </object>
+    <object id="10_83895854" type="persistentgroup" x="-14797.054253626573" y="21692.10979775051" r="0" s="6.686754381500996">
+      <m o="26"/>
+      <m o="0_83895854"/>
+      <m o="1_83895854"/>
+      <m o="2_83895854"/>
+      <m o="3_83895854"/>
+    </object>
+    <object id="7_83895854" type="image" x="-11346.19968716863" y="12376.482251234182" r="-5.773335984206658" s="1.612350010403366">
+      <source w="339" h="335">1826126314<url>1826126314.png</url></source>
+      <sourceUrl>redRoundedLogo.png</sourceUrl>
+    <resource><id>1826126314</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/b/9/1/e32e35f3e5c4865dc2c1f0368850225f72a66.png</url></resource></object>
+    <object id="8_83895854" type="text" x="-10171.449333462073" y="14495.222508681398" r="-5.773335984206657" s="6.21556115894522" class="body">
+      <height>27.59765625</height>
+      <width>202.65</width>
+      <p>
+        <text><![CDATA[Soporta multihilo]]></text>
+      </p>
+    </object>
+    <object id="9_83895854" type="text" x="-9237.977446081719" y="15199.4898037413" r="-5.773335984206657" s="6.21556115894522" class="body">
+      <height>27.59765625</height>
+      <width>478.7000000000001</width>
+      <p>
+        <text><![CDATA[Existe un sistema de paso de mensajes]]></text>
+      </p>
+    </object>
+    <object id="11_83895854" type="text" x="-8544.53403326188" y="22548.50486059953" r="-8.374488813674287" s="4.908643360615963" class="body">
+      <height>27.59765625</height>
+      <width>-81.375</width>
+      <p>
+        <text><![CDATA[Canvas]]></text>
+      </p>
+    </object>
+    <object id="12_83895854" type="text" x="-8285.228732846188" y="23163.702804200275" r="-8.374488813674287" s="4.908643360615963" class="body">
+      <height>27.59765625</height>
+      <width>-149.37890625</width>
+      <p>
+        <text><![CDATA[Otros gráficos]]></text>
+      </p>
+    </object>
+    <object id="14_83895854" type="text" x="2210.368814868319" y="15084.240448753444" r="-8.374488813674326" s="7.033100801396552" class="body">
+      <height>27.59765625</height>
+      <width>-60.03515625</width>
+      <p>
+        <text><![CDATA[Boids]]></text>
+      </p>
+    </object>
+    <object id="15_83895854" type="text" x="3927.0666010889568" y="15415.133249566425" r="-8.374488813674326" s="7.033100801396552" class="body">
+      <height>27.59765625</height>
+      <width>-69.3984375</width>
+      <p>
+        <text><![CDATA[Sheep]]></text>
+      </p>
+    </object>
+    <object id="16_83895854" type="text" x="5148.485190243167" y="14216.520794345099" r="-8.374488813674324" s="7.033100801396551" class="body">
+      <height>27.59765625</height>
+      <width>-34.6875</width>
+      <p>
+        <text><![CDATA[Pig]]></text>
+      </p>
+    </object>
+    <object id="17_83895854" type="text" x="-180.8949900223156" y="16068.320606627522" r="-8.374488813674326" s="7.033100801396552" class="body">
+      <height>27.59765625</height>
+      <width>-94.7109375</width>
+      <p>
+        <text><![CDATA[Galactus]]></text>
+      </p>
+    </object>
+    <object id="18_83895854" type="text" x="6426.63732857045" y="25755.892000940465" r="-8.374488813674303" s="5.036829769782405" class="body">
+      <height>27.59765625</height>
+      <width>-54.69140625</width>
+      <p>
+        <text><![CDATA[Reloj]]></text>
+      </p>
+    </object>
+    <object id="19_83895854" type="text" x="2874.748800840187" y="24971.281564688292" r="-8.374488813674299" s="5.036829769782404" class="body">
+      <height>27.59765625</height>
+      <width>-102.73828125</width>
+      <p>
+        <text><![CDATA[Submenu]]></text>
+      </p>
+    </object>
+    <object id="20_83895854" type="image" x="1832.7526821053457" y="19668.367139389644" r="-12.56326982701248" s="0.30996211829800524">
+      <source w="922" h="1119" bt="946.2" bl="1597.6">750593349<url>750593349.swf</url></source>
+      <sourceUrl>speaker.swf</sourceUrl>
+    <resource><id>750593349</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/b/5/5/19d9db31ffe5b44b1042f6289e7e23c6849d0.swf</url></resource></object>
+    <object id="22_83895854" type="image" x="-63.9948696250807" y="19829.706934314272" r="-12.563269827012483" s="13.097090395100771">
+      <source w="78" h="87">1826292955<url>1826292955.png</url></source>
+      <sourceUrl>sheep.png</sourceUrl>
+    <resource><id>1826292955</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/f/a/a/cc0792cc43ed41342fc9d57dcbb0e1b75c218.png</url></resource></object>
+    <object id="21_83895854" type="image" x="-27.58491523103131" y="19402.637517557057" r="-22.616161298215985" s="4.62786281212935">
+      <source w="146" h="132">750591457<url>750591457.swf</url></source>
+      <sourceUrl>headphones.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>750591457</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/b/1/d/cb615350999fb5734327a3592cbc21f63f3f7.swf</url></resource></object>
+    <object id="23_83895854" type="persistentgroup" x="-63.994869625079865" y="19743.253796796722" r="-12.563269827012489" s="6.35965634837222">
+      <m o="22_83895854"/>
+      <m o="21_83895854"/>
+    </object>
+    <object id="24_83895854" type="image" x="-8964.514010460467" y="21956.920781365483" r="-7.369889193568617" s="0.4179595113346649">
+      <source w="84" h="298" bt="1.7" bl="2">750592751<url>750592751.swf</url></source>
+      <sourceUrl>etched_pencil.swf</sourceUrl>
+    <resource><id>750592751</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/2/8/1/305a9fed5a137adc02c13462d211afafb8b01.swf</url></resource></object>
+    <object id="25_83895854" type="image" x="-8901.845989518415" y="21948.810570265745" r="-7.369889193568619" s="0.7984098357546798">
+      <source w="35" h="156" bt="-0.5" bl="0">750590979<url>750590979.swf</url></source>
+      <sourceUrl>etched_brush.swf</sourceUrl>
+    <resource><id>750590979</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/f/1/b/c4b8f7a3f8bc507f21690ec1e3d896ab65806.swf</url></resource></object>
+    <object id="27_83895854" type="image" x="-8762.324432798841" y="23222.21066993346" r="-7.369889193568617" s="0.4179595113346649">
+      <source w="84" h="298" bt="1.7" bl="2">750592751<url>750592751.swf</url></source>
+      <sourceUrl>etched_pencil.swf</sourceUrl>
+    <resource><id>750592751</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/2/8/1/305a9fed5a137adc02c13462d211afafb8b01.swf</url></resource></object>
+    <object id="28_83895854" type="image" x="-8699.656411856786" y="23214.100458833724" r="-7.369889193568619" s="0.7984098357546797">
+      <source w="35" h="156" bt="-0.5" bl="0">750590979<url>750590979.swf</url></source>
+      <sourceUrl>etched_brush.swf</sourceUrl>
+    <resource><id>750590979</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/f/1/b/c4b8f7a3f8bc507f21690ec1e3d896ab65806.swf</url></resource></object>
+    <object id="30_83895854" type="image" x="-8861.836180134262" y="22598.36040062389" r="-7.369889193568617" s="0.4179595113346649">
+      <source w="84" h="298" bt="1.7" bl="2">750592751<url>750592751.swf</url></source>
+      <sourceUrl>etched_pencil.swf</sourceUrl>
+    <resource><id>750592751</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/2/8/1/305a9fed5a137adc02c13462d211afafb8b01.swf</url></resource></object>
+    <object id="31_83895854" type="image" x="-8799.168159192206" y="22590.250189524148" r="-7.369889193568619" s="0.7984098357546797">
+      <source w="35" h="156" bt="-0.5" bl="0">750590979<url>750590979.swf</url></source>
+      <sourceUrl>etched_brush.swf</sourceUrl>
+    <resource><id>750590979</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/f/1/b/c4b8f7a3f8bc507f21690ec1e3d896ab65806.swf</url></resource></object>
+    <object id="33_83895854" type="persistentgroup" x="-8451.289638814102" y="22541.972530437662" r="-8.374488813674287" s="3.8861110314358207">
+      <m o="33"/>
+      <m o="11_83895854"/>
+      <m o="12_83895854"/>
+      <m o="24_83895854"/>
+      <m o="25_83895854"/>
+      <m o="27_83895854"/>
+      <m o="28_83895854"/>
+      <m o="30_83895854"/>
+      <m o="31_83895854"/>
+    </object>
+    <object id="34_83895854" type="text" x="-1384.9406199616535" y="15368.621409498279" r="-8.374488813674326" s="2.7115648178599017" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="35_83895854" type="text" x="-1368.4650352040444" y="15480.606756826115" r="-8.37448881367433" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="36_83895854" type="text" x="-1351.3154190039497" y="15597.092226862143" r="-8.37448881367433" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="37_83895854" type="persistentgroup" x="-1368.1280194828018" y="15482.856818180211" r="-8.374488813674326" s="0.8424220593173677">
+      <m o="34_83895854"/>
+      <m o="35_83895854"/>
+      <m o="36_83895854"/>
+    </object>
+    <object id="38_83895854" type="text" x="-145.93203828941768" y="16275.21305999944" r="-8.374488813674326" s="2.7115648178599017" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="39_83895854" type="text" x="-129.45645353180885" y="16387.198407327276" r="-8.374488813674326" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="40_83895854" type="text" x="-112.30683733171338" y="16503.683877363303" r="-8.374488813674326" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="41_83895854" type="persistentgroup" x="-129.11943781056556" y="16389.44846868137" r="-8.374488813674326" s="0.8424220593173677">
+      <m o="38_83895854"/>
+      <m o="39_83895854"/>
+      <m o="40_83895854"/>
+    </object>
+    <object id="45_83895854" type="text" x="2224.8924679364336" y="15246.76376849224" r="-8.374488813674326" s="2.7115648178599048" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="46_83895854" type="text" x="2241.3680526940425" y="15358.749115820094" r="-8.374488813674326" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="47_83895854" type="text" x="2258.5176688941383" y="15475.234585856115" r="-8.374488813674326" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="48_83895854" type="persistentgroup" x="2241.7050684152855" y="15360.999177174177" r="-8.374488813674326" s="0.8424220593173677">
+      <m o="45_83895854"/>
+      <m o="46_83895854"/>
+      <m o="47_83895854"/>
+    </object>
+    <object id="52_83895854" type="text" x="3951.990739410542" y="15578.235068277652" r="-8.374488813674326" s="2.711564817859906" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="53_83895854" type="text" x="3968.4663241681524" y="15690.220415605509" r="-8.374488813674326" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="54_83895854" type="text" x="3985.615940368247" y="15806.705885641531" r="-8.374488813674326" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="55_83895854" type="persistentgroup" x="3968.8033398893945" y="15692.470476959592" r="-8.374488813674326" s="0.8424220593173677">
+      <m o="52_83895854"/>
+      <m o="53_83895854"/>
+      <m o="54_83895854"/>
+    </object>
+    <object id="56_83895854" type="text" x="5194.722286669168" y="14391.56957398087" r="-8.374488813674326" s="2.7115648178599066" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="57_83895854" type="text" x="5211.197871426779" y="14503.55492130873" r="-8.374488813674326" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="58_83895854" type="text" x="5228.347487626872" y="14620.040391344746" r="-8.374488813674326" s="2.7115648178599" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="59_83895854" type="persistentgroup" x="5211.53488714802" y="14505.804982662808" r="-8.374488813674326" s="0.8424220593173677">
+      <m o="56_83895854"/>
+      <m o="57_83895854"/>
+      <m o="58_83895854"/>
+    </object>
+    <object id="60_83895854" type="text" x="-844.6423141106778" y="24036.89248855511" r="-8.374488813674326" s="2.7115648178599034" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="61_83895854" type="text" x="-828.1667293530702" y="24148.877835882944" r="-8.374488813674326" s="2.7115648178598994" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="62_83895854" type="text" x="-811.0171131529735" y="24265.363305918978" r="-8.374488813674326" s="2.7115648178598994" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="64_83895854" type="text" x="2933.872275742776" y="25126.871356747717" r="-8.374488813674326" s="2.7115648178599034" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="65_83895854" type="text" x="2950.3478605003834" y="25238.85670407556" r="-8.374488813674326" s="2.7115648178598994" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="66_83895854" type="text" x="2967.497476700482" y="25355.342174111593" r="-8.374488813674326" s="2.7115648178598994" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="68_83895854" type="text" x="6474.3741463408305" y="25911.37314625644" r="-8.374488813674326" s="2.7115648178599043" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="69_83895854" type="text" x="6490.849731098441" y="26023.35849358427" r="-8.374488813674331" s="2.7115648178599003" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="70_83895854" type="text" x="6507.999347298536" y="26139.843963620315" r="-8.374488813674331" s="2.7115648178599003" class="body">
+      <height>27.59765625</height>
+      <width>-98.7421875</width>
+      <p>
+        <text><![CDATA[Blablabla]]></text>
+      </p>
+    </object>
+    <object id="72_83895854" type="image" x="6173.083352995372" y="25793.03337524017" r="-8.374488813674315" s="0.9510715596211764">
+      <source w="157" h="98">606327871<url>606327871.swf</url></source>
+      <sourceUrl>envelope.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>606327871</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/0/b/5/fa15ffb48ba91b55dd64bafb2d3a6679d3579.swf</url></resource></object>
+    <object id="76_83895854" type="persistentgroup" x="6369.002060529767" y="25931.714789288177" r="-8.374488813674324" s="2.4794065082812597">
+      <m o="18_83895854"/>
+      <m o="68_83895854"/>
+      <m o="69_83895854"/>
+      <m o="70_83895854"/>
+      <m o="72_83895854"/>
+    </object>
+    <object id="73_83895854" type="image" x="2452.1587252973486" y="25031.089927040815" r="-8.374488813674308" s="0.9510715596211766">
+      <source w="157" h="98">606327871<url>606327871.swf</url></source>
+      <sourceUrl>envelope.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>606327871</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/0/b/5/fa15ffb48ba91b55dd64bafb2d3a6679d3579.swf</url></resource></object>
+    <object id="75_83895854" type="persistentgroup" x="2756.0176609186256" y="25138.347159846897" r="-8.374488813674313" s="6.650931941153066">
+      <m o="19_83895854"/>
+      <m o="64_83895854"/>
+      <m o="65_83895854"/>
+      <m o="66_83895854"/>
+      <m o="73_83895854"/>
+    </object>
+    <object id="74_83895854" type="image" x="-1158.7733329187731" y="23911.47300418444" r="-8.374488813674317" s="0.9510715596211766">
+      <source w="157" h="98">606327871<url>606327871.swf</url></source>
+      <sourceUrl>envelope.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>606327871</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/0/b/5/fa15ffb48ba91b55dd64bafb2d3a6679d3579.swf</url></resource></object>
+    <object id="77_83895854" type="persistentgroup" x="-956.4345126530608" y="24050.357918762955" r="-8.374488813674322" s="2.019486130792898">
+      <m o="43"/>
+      <m o="60_83895854"/>
+      <m o="61_83895854"/>
+      <m o="62_83895854"/>
+      <m o="74_83895854"/>
+    </object>
+    <object id="78_83895854" type="image" x="15425.390656791109" y="15700.841478523565" r="78.9986572913362" s="3.6066630825398462">
+      <source w="40" h="97" bt="-0.5" bl="-0.25">750591005<url>750591005.swf</url></source>
+      <sourceUrl>etched_bulb.swf</sourceUrl>
+    <resource><id>750591005</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/c/6/9906312a21ad1e030553145aab39d8280a0b0.swf</url></resource></object>
+    <object id="80_83895854" type="text" x="14777.827470830787" y="16836.157897888137" r="78.9986572913362" s="13.280068493427967" class="body">
+      <height>27.59765625</height>
+      <width>-125.4140625</width>
+      <p>
+        <text><![CDATA[Blablabla....]]></text>
+      </p>
+    </object>
+    <object id="81_83895854" type="image" x="14621.34965986215" y="15868.36818408776" r="78.9986572913362" s="3.6066630825398462">
+      <source w="40" h="97" bt="-0.5" bl="-0.25">750591005<url>750591005.swf</url></source>
+      <sourceUrl>etched_bulb.swf</sourceUrl>
+    <resource><id>750591005</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/c/6/9906312a21ad1e030553145aab39d8280a0b0.swf</url></resource></object>
+    <object id="83_83895854" type="text" x="13938.375744523622" y="17007.34624626497" r="78.9986572913362" s="13.280068493427967" class="body">
+      <height>27.59765625</height>
+      <width>-125.4140625</width>
+      <p>
+        <text><![CDATA[Blablabla....]]></text>
+      </p>
+    </object>
+    <object id="84_83895854" type="image" x="13781.897933554954" y="16039.556532464605" r="78.9986572913362" s="3.6066630825398462">
+      <source w="40" h="97" bt="-0.5" bl="-0.25">750591005<url>750591005.swf</url></source>
+      <sourceUrl>etched_bulb.swf</sourceUrl>
+    <resource><id>750591005</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/c/6/9906312a21ad1e030553145aab39d8280a0b0.swf</url></resource></object>
+    <object id="86_83895854" type="persistentgroup" x="14757.62689136869" y="16727.647694822204" r="78.9986572913362" s="6.853503063355598">
+      <m o="50"/>
+      <m o="78_83895854"/>
+      <m o="80_83895854"/>
+      <m o="81_83895854"/>
+      <m o="83_83895854"/>
+      <m o="84_83895854"/>
+    </object>
+    <object id="87_83895854" type="image" x="13500.823864151016" y="23015.796328148557" r="78.9986572913362" s="3.588964621934737">
+      <source w="169" h="169" bt="0" bl="-0.05">750593377<url>750593377.swf</url></source>
+      <sourceUrl>star.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>750593377</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/5/3/f/961c04fdef0acb0d7ac27ac94db47257a8823.swf</url></resource></object>
+  </zui-table>
+  <path>
+    <s>
+      <eagle o="52"/>
+    </s>
+    <s>
+      <eagle o="24"/>
+    </s>
+    <s>
+      <eagle o="10_83895854"/>
+    </s>
+    <s>
+      <eagle o="27"/>
+    </s>
+    <s>
+      <eagle o="31"/>
+    </s>
+    <s>
+      <eagle o="35"/>
+    </s>
+    <s>
+      <eagle o="53"/>
+    </s>
+    <s>
+      <eagle o="38"/>
+    </s>
+    <s>
+      <eagle o="40"/>
+    </s>
+    <s>
+      <eagle o="17_83895854"/>
+    </s>
+    <s>
+      <eagle o="14_83895854"/>
+    </s>
+    <s>
+      <eagle o="15_83895854"/>
+    </s>
+    <s>
+      <eagle o="16_83895854"/>
+    </s>
+    <s>
+      <eagle o="41"/>
+    </s>
+    <s>
+      <eagle o="43"/>
+    </s>
+    <s>
+      <eagle o="19_83895854"/>
+    </s>
+    <s>
+      <eagle o="18_83895854"/>
+    </s>
+    <s>
+      <eagle o="44"/>
+    </s>
+    <s>
+      <eagle o="48"/>
+    </s>
+    <s>
+      <eagle o="0_24309637"/>
+    </s>
+  </path>
+  <style type="text/css"><![CDATA[
+@font-face
+{
+	src: url('Arimo-Regular.keg');
+	fontFamily: body;
+	font-class: body;
+	font-style: normal;
+	font-weight: normal;
+	font-family: Arimo;
+}
+
+@font-face
+{
+	src: url('Arimo-Bold.keg');
+	fontFamily: head;
+	font-class: head;
+	font-style: normal;
+	font-weight: bold;
+	font-family: Arimo;
+}
+
+@font-face
+{
+	src: url('Arimo-BoldItalic.keg');
+	fontFamily: strong;
+	font-class: strong;
+	font-style: italic;
+	font-weight: bold;
+	font-family: Arimo;
+}
+
+@font-face
+{
+	src: url('Arimo-Italic.keg');
+	font-style: italic;
+	font-weight: normal;
+	font-family: Arimo;
+}
+
+.line1
+{
+	color: #000;
+	gradEndColor: #ccc;
+	gradStartColor: #ccc;
+}
+
+.line2
+{
+	color: #e6e6e6;
+	gradEndColor: #e6e6e6;
+	gradStartColor: #e6e6e6;
+}
+
+.line3
+{
+	color: #9bc4f7;
+	gradEndColor: #9bc4f7;
+	gradStartColor: #9bc4f7;
+}
+
+.line4
+{
+	color: #f2f2f2;
+	gradEndColor: #f2f2f2;
+	gradStartColor: #f2f2f2;
+}
+
+.line5
+{
+	color: #d9d9d9;
+	gradEndColor: #d9d9d9;
+	gradStartColor: #d9d9d9;
+}
+
+.poly1
+{
+	gradEndColor: #ccc;
+	gradStartColor: #ccc;
+}
+
+.poly2
+{
+	gradEndColor: #e6e6e6;
+	gradStartColor: #e6e6e6;
+}
+
+.poly3
+{
+	gradEndColor: #9bc4f7;
+	gradStartColor: #9bc4f7;
+}
+
+.poly4
+{
+	gradEndColor: #f2f2f2;
+	gradStartColor: #f2f2f2;
+}
+
+.poly5
+{
+	gradEndColor: #d9d9d9;
+	gradStartColor: #d9d9d9;
+}
+
+Background
+{
+	gradEnd: #fff;
+	gradStart: #fff;
+}
+
+Grid
+{
+	color: #b8b8b8;
+}
+
+ZArrow
+{
+	borderColor: #333;
+	borderThickness: 1;
+	gradEndColor: #333;
+	gradStartColor: #333;
+	lockTintAlpha: 0;
+	thickness: 7;
+}
+
+ZCircle
+{
+	borderColor: #333;
+	borderThickness: 1;
+	gradEndAlpha: 1;
+	gradStartAlpha: 1;
+	lockTintAlpha: 0;
+	radius: 0;
+	thickness: 100;
+}
+
+ZCurveLine
+{
+	color: #333;
+}
+
+ZFrame.bracket
+{
+	color: #ef1e1e;
+}
+
+ZFrame.circle
+{
+	color: #ac1419;
+}
+
+ZFrame.roundrect
+{
+	color: #ef1e1e;
+}
+
+ZLabel
+{
+	lockTintAlpha: 0.15;
+	padding: 1.2;
+}
+
+ZLabel.body
+{
+	color: #333;
+	fontFamily: body;
+}
+
+ZLabel.body-background
+{
+	background-alpha: 0.9;
+	background-color: #f2f2f2;
+	background-padding: 5;
+}
+
+ZLabel.head
+{
+	color: #333;
+	fontFamily: head;
+}
+
+ZLabel.head-background
+{
+	background-alpha: 0.9;
+	background-color: #f2f2f2;
+	background-padding: 5;
+}
+
+ZLabel.strong
+{
+	color: #333;
+	fontFamily: strong;
+}
+
+ZLabel.strong-background
+{
+	background-alpha: 0.9;
+	background-color: #f2f2f2;
+	background-padding: 5;
+}
+
+ZLine
+{
+	color: #333;
+	lockTintAlpha: 0;
+}
+
+ZMarker
+{
+	color: #ef7bc8;
+}
+
+ZPath
+{
+	alpha: 1;
+	color: #40abe6;
+	textColor: #fff;
+	thickness: 3;
+}
+
+ZPath Ball.base
+{
+	alpha: 1;
+	fillColor: #40abe6;
+	radius: 12;
+}
+
+ZPath Ball.mid
+{
+	alpha: .5;
+	fillColor: #40abe6;
+	radius: 8;
+}
+
+ZPoly
+{
+	borderColor: #333;
+	borderThickness: 1;
+	gradEndAlpha: 1;
+	gradStartAlpha: 1;
+	lockTintAlpha: 0;
+	radius: 30;
+}
+
+]]></style>
+  <hash>14ecb67f</hash>
+<sync><oid>vc6y88shkglo</oid><title>pigs-and-sheeps</title><hash>14ecb67f</hash></sync><config>RPHhrx2HYk10MIVaN+RVDg+rsDMLtJG/w0iTwrhz/YNdzAnSKe4Oob1NNMlYBPeInjGkBP3PE1Iyu/uwhDczN0rfJvtWGAC8sztLB3qc70UTNoIlIjJ2HB91/ChzVcHJapsPvihrrukvUSEEtfv0TuqvoJW/5I2Tiq1J1YF6aOYaLby9ZETkE0S0nA5gCOF9+k6hP5pZdXl9nup2UDXW2UpgTzmLx4pFmf+4ljujZLkkYCTQGBqNGMknT2EN77BtpO4ZXqg4sKkDjrcACfCZEZ601JKHYBsdUkum5hXOJG9Q5HLv2MpxND72ybCBLkYS/wNDM+vfVuo34mgdBKma6w==</config></zuiprezi>
