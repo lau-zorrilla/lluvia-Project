@@ -36,13 +36,13 @@ function Behavior( brain, body, before_modifier, after_modifier,target ){
         if (before_modifier && ( before_modifier instanceof Array) )
             before_modifier.each( function(el){
                 var m = eval("new " + el.class_name().capitalize() + "BehaviorModifier(that)")
-                m.unfreeze()
+                m.freeze()
                 that.before.push( m )
             })
             if ( after_modifier && (after_modifier instanceof Array))
                 after_modifier.each( function(el){
                     var m = eval("new " + el.class_name().capitalize() + "BehaviorModifier(that)")
-                    m.unfreeze()
+                    m.freeze()
                     that.after.push( m )
                 })
     }
@@ -99,10 +99,10 @@ Behavior.decompose_name = function(behavior){
 Behavior.catalog = (function(){
 
     var initial_list = [
-        "flee", "seek>arrival" , "wander", "wander around", "pursue", "seek mouse",
+        "seek>arrival" , "flee", "wander","wander around","pursue",
         "alignment", "wall following", "path following",
         "separation", "cohesion",
-        "obstacle avoidance", "containment", "sheep>arrival"
+        "obstacle avoidance", "containment"
     ]
 
     return initial_list.inject({}, function(elem, acum){

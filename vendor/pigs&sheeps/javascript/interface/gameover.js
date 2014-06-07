@@ -2,7 +2,9 @@ World.prototype.gameover_pig = function() {
 	var canvas = document.getElementById('screener');
 	var contexto = canvas.getContext('2d');
 	canvas.width=canvas.width;
-	
+	contexto.font = "bold 48px courier";
+	contexto.fillStyle = '#ff33ff';
+	contexto.fillText("Game Over",250,80);
 	//pata 1
 	contexto.beginPath();
 	contexto.moveTo(285,230);
@@ -327,8 +329,4 @@ World.prototype.gameover_pig = function() {
 	contexto.strokeStyle="#F69D9A";
 	contexto.fill();
 	contexto.stroke();
-
-	contexto.font = "bold 48px courier";
-	contexto.fillStyle = '#ff33ff';
-	contexto.fillText("Game Over",250,380);
 }
