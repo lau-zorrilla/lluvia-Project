@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.23)  7 JUN 2014 13:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.23)  7 JUN 2014 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1314,144 +1314,39 @@ Overfull \hbox (0.59924pt too wide) in paragraph at lines 136--137
  []
 
 [43] [44]
-Overfull \hbox (38.39917pt too wide) in paragraph at lines 210--211
+Overfull \hbox (0.59924pt too wide) in paragraph at lines 210--211
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][] 
+][][][][][] 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 216.
+(Font)              <7> on input line 217.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 216.
+(Font)              <5> on input line 217.
 
-Overfull \hbox (0.59924pt too wide) in paragraph at lines 220--221
+Overfull \hbox (0.59924pt too wide) in paragraph at lines 221--222
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [45] [46] [47]
-Overfull \hbox (0.59924pt too wide) in paragraph at lines 381--382
+Overfull \hbox (0.59924pt too wide) in paragraph at lines 382--383
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [48]
-
-! Package inputenc Error: Unicode char \u8:�\lst@FillFixed@\lst@EC� not set up 
-for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.397 ...ts = [ "restart_game", “pause_clock”,
-                                                   “resume_clock” ]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `utf8'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.397 ...ts = [ "restart_game", “pause_clock”,
-                                                   “resume_clock” ]
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-! Package inputenc Error: Unicode char \u8:�\lst@EC�\lst@EC� not set up for use
- with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.397 ...ts = [ "restart_game", “pause_clock”,
-                                                   “resume_clock” ]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:�\lst@FillFixed@\lst@EC� not set up 
-for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.397 ...", “pause_clock”, “resume_clock” 
-                                                  ]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `utf8'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.397 ...", “pause_clock”, “resume_clock” 
-                                                  ]
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-! Package inputenc Error: Unicode char \u8:�\lst@EC�\lst@EC� not set up for use
- with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.397 ...", “pause_clock”, “resume_clock” 
-                                                  ]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Overfull \hbox (88.79907pt too wide) in paragraph at lines 397--398
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+Overfull \hbox (0.59924pt too wide) in paragraph at lines 398--400
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][] 
  []
 
 
-Overfull \hbox (0.59924pt too wide) in paragraph at lines 400--401
+Overfull \hbox (0.59924pt too wide) in paragraph at lines 401--402
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (69.89911pt too wide) in paragraph at lines 407--408
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][] 
- []
-
-
-Overfull \hbox (132.89899pt too wide) in paragraph at lines 408--409
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (107.69904pt too wide) in paragraph at lines 415--416
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (82.49908pt too wide) in paragraph at lines 421--422
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (101.39905pt too wide) in paragraph at lines 423--424
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][] 
+Overfull \hbox (0.59924pt too wide) in paragraph at lines 411--412
+[][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 ) [49] (./proyecto.lof
@@ -1485,10 +1380,10 @@ LaTeX Info: Redefining \% on input line 7.
 (./capitulos/imagenes.aux) (./capitulos/cuadros.aux) (./capitulos/listings.aux)
 ) ) 
 Here is how much of TeX's memory you used:
- 14442 strings out of 493304
- 259029 string characters out of 6139871
- 327439 words of memory out of 5000000
- 17540 multiletter control sequences out of 15000+600000
+ 14437 strings out of 493304
+ 258923 string characters out of 6139871
+ 325439 words of memory out of 5000000
+ 17535 multiletter control sequences out of 15000+600000
  9043 words of font info for 33 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,14n,55p,421b,1630s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1501,7 +1396,7 @@ t/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/latxfont/lasy10.pfb>
-Output written on proyecto.pdf (51 pages, 1309698 bytes).
+Output written on proyecto.pdf (51 pages, 1309999 bytes).
 PDF statistics:
  242 PDF objects out of 1000 (max. 8388607)
  146 compressed objects within 2 object streams
