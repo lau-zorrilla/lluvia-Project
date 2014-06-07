@@ -23,8 +23,8 @@ function Clock(view, countdown_seconds) {
 	this.total_time = countdown_seconds //segundos para jugar
 	this.remaining_time = this.total_time //segundos q quedan (igual q en reset, se inicializa)
 	this.before = this.start_time
-	this.running = true
-	this.resumed = false;
+	this.working = true
+	this.paused = false
 
 	if (arguments.length)
     	initialize()  
@@ -41,31 +41,29 @@ Clock.prototype.get_count = function() { //devuelve segundos que quedan
 }
 
 Clock.prototype.run = function() { //recalcula el tiempo que queda 					
-		if(this.resumed==true){			
-			this.total_time = this.remaining_time 
-			this.start_time=get_now()
-			this.resumed=false
-		}
 		now = get_now()				
 		this.remaining_time = this.total_time - (now - this.start_time)// calcula tiempo que queda en funcion del ahora(tiempo q queda= tiempo q quedaba - tiempo q ha pasado)	
 		
 		if (this.remaining_time <= 0)
-			this.running = false
+			this.working = false
 }
 
 Clock.prototype.pause = function() { // pausa el tiempo
-	this.running = false
+	this.working = false
+	this.paused = true
 }
 
 Clock.prototype.resume = function() { //continua la cuenta atras 
-	this.running = true	
-	this.resumed = true	
+	this.working = true	
+	this.start_time=get_now()
+	this.total_time = this.remaining_time 
+	this.paused = true
 	//this.remaining_time = this.remaining_time - (this.start_time - this.before) //lo q queda=lo q quedaba - lo q ha pasado
 }
 
 Clock.prototype.get_string = function() { //devuelve una cadena con los segundos restantes
 
-	if(this.running == true){
+	if(this.working == true){
 		this.run()
 		min = Math.floor(this.remaining_time / 60)
 		sec = Math.round(this.remaining_time - (min * 60))
@@ -76,7 +74,7 @@ Clock.prototype.get_string = function() { //devuelve una cadena con los segundos
 			return '0' + min + ':' + '0' + sec
 
 	}
-	else{
+	else{ 
 		min = Math.floor(this.remaining_time / 60)
 		sec = Math.round(this.remaining_time - (min * 60))
 

@@ -22,6 +22,7 @@ function Galactus(handler, view){
 	this.handler = args.shift()
 	this.view = args[0]
 	this.audio_on = true;
+	
 
 	
 	this.self_events = [ "restart_game"]
@@ -147,7 +148,8 @@ Galactus.prototype.countdown = function(){
 	function(){
 		if(that.world.clock.remaining_time <= 10)
 			timer.style.color = "red" //cambia color de fuente
-
+		//if(that.world.clock.working == false)
+		//	clearInterval(timer_interval)	
 		timer.innerHTML = that.world.clock.get_string() //escribe en el div "timer"
 	}	
 	,1000);
@@ -167,7 +169,9 @@ Galactus.prototype.attend_restart_game = function(date, mssg) {
 
 Galactus.prototype.attend_pause_clock = function(date, mssg) {
 	this.world.clock.pause()
-	this.world.clock.get_string()
+	//this.world.clock.get_string()
+	//clearInterval(this.timer_interval)
+	//alert(this.world.clock.running)
 }
 
 Galactus.prototype.attend_resume_clock = function(date, mssg) {

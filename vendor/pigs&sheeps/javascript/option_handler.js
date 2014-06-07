@@ -10,7 +10,6 @@ function OptionHandler(view) {
 		Device.call(that, view)
 		
 		that.newGate("level_option_container", Levels)
-
 	}
 
 	if (arguments.length)
