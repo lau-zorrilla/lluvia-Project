@@ -3,7 +3,7 @@ MenuHandler.prototype.contructor = MenuHandler
 
 function MenuHandler(view) {
 	var that = this
-	this.self_events = [ "get_panel_out", "restart_game", "keep_menu_out", "get_menu_in", "pause_clock", "resume_clock" ]
+	this.self_events = [ "restart_game", "pause_clock", "resume_clock" ]
 	this.view = view
 
 	function initialize() {

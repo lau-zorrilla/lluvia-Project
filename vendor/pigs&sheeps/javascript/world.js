@@ -234,7 +234,7 @@ World.prototype.check_level = function() {
         this.winner_pig()
     }
     else {
-        if (this.clock.running == false){
+        if (this.clock.working == false && this.clock.paused == false){
             this.is_finished = true
             this.currentState.requested = this.state.killed
             clearInterval(timer_interval) // detiene setInterval
