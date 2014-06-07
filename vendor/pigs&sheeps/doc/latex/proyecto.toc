@@ -27,17 +27,17 @@
 \contentsline {subsection}{\numberline {5.1}Introducci\IeC {\'o}n}{21}
 \contentsline {subsubsection}{\numberline {5.1.1}Clase Device}{21}
 \contentsline {subsubsection}{\numberline {5.1.2}Clase Gate}{22}
-\contentsline {subsection}{\numberline {5.2}Men\IeC {\'u} y Submen\IeC {\'u}}{22}
-\contentsline {subsubsection}{\numberline {5.2.1}Clase MenuAutomata}{22}
-\contentsline {subsubsection}{\numberline {5.2.2}Clase Animation}{23}
-\contentsline {subsubsection}{\numberline {5.2.3}Clase MenuHandler}{23}
-\contentsline {subsubsection}{\numberline {5.2.4}Clase OptionHandler}{24}
-\contentsline {subsubsection}{\numberline {5.2.5}Clase Levels}{24}
-\contentsline {subsection}{\numberline {5.3}Clase Clock}{24}
-\contentsline {section}{\numberline {6}M\IeC {\'u}sica}{27}
-\contentsline {subsection}{\numberline {6.1}Introducci\IeC {\'o}n}{27}
-\contentsline {subsection}{\numberline {6.2}Clase BufferLoader}{27}
-\contentsline {section}{\numberline {7}Conclusiones}{28}
-\contentsline {section}{\numberline {8}Figuras}{30}
-\contentsline {section}{\numberline {9}Cuadros}{39}
-\contentsline {section}{\numberline {10}C\IeC {\'o}digo}{40}
+\contentsline {subsection}{\numberline {5.2}Men\IeC {\'u} y Submen\IeC {\'u}}{23}
+\contentsline {subsubsection}{\numberline {5.2.1}Clase MenuAutomata}{23}
+\contentsline {subsubsection}{\numberline {5.2.2}Clase Animation}{24}
+\contentsline {subsubsection}{\numberline {5.2.3}Clase MenuHandler}{24}
+\contentsline {subsubsection}{\numberline {5.2.4}Clase OptionHandler}{25}
+\contentsline {subsubsection}{\numberline {5.2.5}Clase Levels}{26}
+\contentsline {subsection}{\numberline {5.3}Clase Clock}{26}
+\contentsline {section}{\numberline {6}M\IeC {\'u}sica}{28}
+\contentsline {subsection}{\numberline {6.1}Introducci\IeC {\'o}n}{28}
+\contentsline {subsection}{\numberline {6.2}Clase BufferLoader}{28}
+\contentsline {section}{\numberline {7}Conclusiones}{29}
+\contentsline {section}{\numberline {8}Figuras}{31}
+\contentsline {section}{\numberline {9}Cuadros}{40}
+\contentsline {section}{\numberline {10}C\IeC {\'o}digo}{41}

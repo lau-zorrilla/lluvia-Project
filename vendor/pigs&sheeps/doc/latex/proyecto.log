@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.23)  5 JUN 2014 22:22
-=======
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.5.26)  6 JUN 2014 15:54
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.23)  7 JUN 2014 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -534,7 +530,6 @@ File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
-<<<<<<< HEAD
 ))) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 
@@ -557,75 +552,36 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \c@subfigure=\count111
 \c@subtable=\count112
 )
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count113
-\lst@gtempboxa=\box35
-\lst@token=\toks27
-\lst@length=\count114
-\lst@currlwidth=\dimen156
-\lst@column=\count115
-\lst@pos=\count116
-\lst@lostspace=\dimen157
-\lst@width=\dimen158
-\lst@newlines=\count117
-\lst@lineno=\count118
-\lst@maxwidth=\dimen159
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
-\c@lstnumber=\count119
-\lst@skipnumbers=\count120
-\lst@framebox=\box36
-=======
-))) (/usr/share/texmf-texlive/tex/latex/caption/subcaption.sty
-Package: subcaption 2008/08/31 v1.0b Adding subcaptions (AR)
-
-
-! Package subcaption Error: `caption' package not loaded
-(subcaption)                (which is needed by this package)
-
-See the subcaption package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.38   \endinput}{}
-                   
-If you do not understand this error, please take a closer look
-at the documentation of the `subcaption' package.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-) (/usr/share/texmf-texlive/tex/latex/float/float.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count110
+\c@float@type=\count113
 \float@exts=\toks27
 \float@box=\box35
 \@float@everytoks=\toks28
 \@floatcapt=\box36
 )
-(/usr/share/texmf-texlive/tex/latex/universa/uni.sty
+(/usr/share/texlive/texmf-dist/tex/latex/universa/uni.sty
 Package: uni 98/08/01 v2.0 universal package.
 )
-(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
-\lst@mode=\count111
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count114
 \lst@gtempboxa=\box37
 \lst@token=\toks29
-\lst@length=\count112
-\lst@currlwidth=\dimen149
-\lst@column=\count113
-\lst@pos=\count114
-\lst@lostspace=\dimen150
-\lst@width=\dimen151
-\lst@newlines=\count115
-\lst@lineno=\count116
-\lst@maxwidth=\dimen152
+\lst@length=\count115
+\lst@currlwidth=\dimen156
+\lst@column=\count116
+\lst@pos=\count117
+\lst@lostspace=\dimen157
+\lst@width=\dimen158
+\lst@newlines=\count118
+\lst@lineno=\count119
+\lst@maxwidth=\dimen159
 
-(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count117
-\lst@skipnumbers=\count118
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+\c@lstnumber=\count120
+\lst@skipnumbers=\count121
 \lst@framebox=\box38
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2013/08/26 1.5b listings configuration
@@ -635,25 +591,14 @@ Package: listings 2013/08/26 1.5b (Carsten Heinz)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
 ations.code.tex
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-<<<<<<< HEAD
 \pgfdecoratedcompleteddistance=\dimen160
 \pgfdecoratedremainingdistance=\dimen161
 \pgfdecoratedinputsegmentcompleteddistance=\dimen162
 \pgfdecoratedinputsegmentremainingdistance=\dimen163
 \pgf@decorate@distancetomove=\dimen164
-\pgf@decorate@repeatstate=\count121
+\pgf@decorate@repeatstate=\count122
 \pgfdecorationsegmentamplitude=\dimen165
 \pgfdecorationsegmentlength=\dimen166
-=======
-\pgfdecoratedcompleteddistance=\dimen153
-\pgfdecoratedremainingdistance=\dimen154
-\pgfdecoratedinputsegmentcompleteddistance=\dimen155
-\pgfdecoratedinputsegmentremainingdistance=\dimen156
-\pgf@decorate@distancetomove=\dimen157
-\pgf@decorate@repeatstate=\count119
-\pgfdecorationsegmentamplitude=\dimen158
-\pgfdecorationsegmentlength=\dimen159
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
 )
 \tikz@lib@dec@box=\box39
 )
@@ -668,34 +613,33 @@ LaTeX Info: Redefining \% on input line 7.
 )
 \openout1 = `proyecto.aux'.
 
-<<<<<<< HEAD
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Info: Redefining \. on input line 60.
-LaTeX Info: Redefining \% on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count122
+\scratchcounter=\count123
 \scratchdimen=\dimen167
-\scratchbox=\box38
-\nofMPsegments=\count123
-\nofMParguments=\count124
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count125
+\scratchbox=\box40
+\nofMPsegments=\count124
+\nofMParguments=\count125
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count126
 \MPscratchDim=\dimen168
-\MPnumerator=\count126
-\makeMPintoPDFobject=\count127
-\everyMPtoPDFconversion=\toks29
+\MPnumerator=\count127
+\makeMPintoPDFobject=\count128
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -745,41 +689,14 @@ e
 ))
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count128
-=======
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
- (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
-\scratchdimen=\dimen160
-\scratchbox=\box40
-\nofMPsegments=\count121
-\nofMParguments=\count122
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count123
-\MPscratchDim=\dimen161
-\MPnumerator=\count124
-\everyMPtoPDFconversion=\toks31
-) ABD: EveryShipout initializing macros
-\c@lstlisting=\count125
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
+\c@lstlisting=\count129
 \openout2 = `./capitulos/prologo.aux'.
 
  (./capitulos/prologo.tex)
-Overfull \hbox (8.67366pt too wide) in paragraph at lines 4--74
+Overfull \hbox (8.67366pt too wide) in paragraph at lines 4--76
 []\OT1/cmr/m/n/12 Este pro-yec-to no podr^^S^^Pa ha-ber-se com-ple-ta-do sin la
  co-la-bo-ra-ci^^Son de Jos^^Se Luis
  []
@@ -852,7 +769,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--27
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 28--79
+Underfull \hbox (badness 10000) in paragraph at lines 28--81
 
  []
 
@@ -971,70 +888,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 203--205
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--234
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
+LaTeX Font Info:    Try loading font information for U+lasy on input line 233.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+) [13]
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--252
+Underfull \hbox (badness 10000) in paragraph at lines 253--256
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--270
+Underfull \hbox (badness 10000) in paragraph at lines 270--274
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 271--274
+Underfull \hbox (badness 10000) in paragraph at lines 275--278
 
  []
 
 
-Overfull \hbox (8.51697pt too wide) in paragraph at lines 296--298
+Overfull \hbox (8.51697pt too wide) in paragraph at lines 300--302
 []\OT1/cmr/m/n/12 is[]premodified[]by$U(): De-vuel-ve true si el nom-bre del mo
 -di-fi-ca-dor est^^Sa en
  []
 
 
-Overfull \hbox (1.33649pt too wide) in paragraph at lines 302--304
+Overfull \hbox (1.33649pt too wide) in paragraph at lines 306--308
 []\OT1/cmr/m/n/12 is[]modified[]by$U(): De-vuel-ve true si el nom-bre del mo-di
 -fi-ca-dor est^^Sa tan-
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 325--328
+Underfull \hbox (badness 10000) in paragraph at lines 329--332
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--331
+Underfull \hbox (badness 10000) in paragraph at lines 333--335
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--359
+Underfull \hbox (badness 10000) in paragraph at lines 361--363
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 369--372
+Underfull \hbox (badness 10000) in paragraph at lines 373--376
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--377
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 383--386
+Underfull \hbox (badness 10000) in paragraph at lines 377--381
 
  []
 
@@ -1048,19 +958,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 391--394
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--398
+
+ []
+
 [17] [18]
-Overfull \hbox (5.03116pt too wide) in paragraph at lines 470--472
+Overfull \hbox (5.03116pt too wide) in paragraph at lines 474--476
 []\OT1/cmr/m/n/12 method[]missing(): Pro-vee el m^^Seto-do din^^Sami-co new[]bo
 id[]as[](ClassName) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--482
+Underfull \hbox (badness 10000) in paragraph at lines 482--486
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 483--488
+Underfull \hbox (badness 10000) in paragraph at lines 487--492
 
  []
 
@@ -1068,24 +983,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 483--488
 \openout2 = `./capitulos/gates_y_devices.aux'.
 
  (./capitulos/gates_y_devices.tex
-Underfull \hbox (badness 10000) in paragraph at lines 14--17
+Underfull \hbox (badness 10000) in paragraph at lines 14--18
 
  []
 
 
-Overfull \hbox (17.5502pt too wide) in paragraph at lines 31--31
+Overfull \hbox (5.2002pt too wide) in paragraph at lines 34--34
+[]            \OT1/cmtt/m/n/12 this.device.fireEvent(this.device.newMessage("sy
+nc",[] 
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 44--44
 []\OT1/cmtt/m/n/12 MenuHandler.prototype.attend_keep_menu_out = function(date, 
 msg) {[] 
  []
 
 
-Overfull \hbox (36.07521pt too wide) in paragraph at lines 31--31
+Overfull \hbox (36.07521pt too wide) in paragraph at lines 44--44
 []\OT1/cmtt/m/n/12 //Respuesta al mensaje recibido keep_menu_out de la cola de 
 mensajes.[] 
  []
 
 
-Overfull \hbox (36.07521pt too wide) in paragraph at lines 31--31
+Overfull \hbox (36.07521pt too wide) in paragraph at lines 44--44
 []                              \OT1/cmtt/m/n/12 this[this.view].menu_automata.
 state.out[] 
  []
@@ -1093,56 +1014,50 @@ state.out[]
 [21
 
 
-]
-Overfull \hbox (66.95023pt too wide) in paragraph at lines 66--66
-[]            \OT1/cmtt/m/n/12 alert("Move the little pig to place sheeps into 
-the barnyard")[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--83
-
- []
-
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 99--102
+] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 114--118
 
  []
 
 
-Overfull \hbox (20.72379pt too wide) in paragraph at lines 103--104
+Underfull \hbox (badness 10000) in paragraph at lines 136--141
+
+ []
+
+[23]
+Overfull \hbox (20.72379pt too wide) in paragraph at lines 142--143
 []\OT1/cmr/m/n/12 La cla-se Ani-ma-tion cuen-ta con los m^^Seto-dos do[]onmouse
 over y do[]onmouseout: 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 154--157
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--120
+Underfull \hbox (badness 10000) in paragraph at lines 158--160
 
  []
 
-[23]
-Overfull \hbox (67.20995pt too wide) in paragraph at lines 133--134
+[24]
+Overfull \hbox (67.20995pt too wide) in paragraph at lines 181--182
 []\OT1/cmr/m/n/12 La cla-se Me-nuHand-ler tie-ne dos m^^Seto-dos, at-tend[]keep
 []menu[]out, at-tend[]keep[]menu[]in. 
  []
 
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
 
-Overfull \hbox (16.028pt too wide) in paragraph at lines 190--191
+Overfull \hbox (16.028pt too wide) in paragraph at lines 254--255
 []\OT1/cmr/m/n/12 get[]count(): De-vuel-ve los se-gun-dos que que-dan por ju-ga
-r (re-mai-ning[]time). 
+r (re-mai-ning[]time).
  []
 
-[25]) [26]
+[26]) [27]
 \openout2 = `./capitulos/musica.aux'.
 
  (./capitulos/musica.tex
@@ -1155,7 +1070,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--30
 
  []
 
-) [27
+) [28
 
 
 ]
@@ -1187,75 +1102,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--25
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--32
+Underfull \hbox (badness 10000) in paragraph at lines 26--31
 
  []
 
-[28
+[29
 
 
-]) [29]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 32--35
+
+ []
+
+) [30]
 \openout2 = `./capitulos/imagenes.aux'.
 
  (./capitulos/imagenes.tex
-<<<<<<< HEAD
-<images/figura111.png, id=99, 301.125pt x 346.29375pt>
+<images/figura111.png, id=106, 301.125pt x 346.29375pt>
 File: images/figura111.png Graphic file (type png)
 
 <use images/figura111.png>
 Package pdftex.def Info: images/figura111.png used on input line 6.
 (pdftex.def)             Requested size: 240.90031pt x 277.03537pt.
 
-<images/figura112.png, id=101, 333.245pt x 250.9375pt>
+<images/figura112.png, id=108, 333.245pt x 250.9375pt>
 File: images/figura112.png Graphic file (type png)
 
 <use images/figura112.png>
 Package pdftex.def Info: images/figura112.png used on input line 14.
 (pdftex.def)             Requested size: 299.91771pt x 225.84164pt.
 
-<images/figura113.png, id=102, 474.77374pt x 456.70625pt>
+<images/figura113.png, id=109, 474.77374pt x 456.70625pt>
 File: images/figura113.png Graphic file (type png)
 
 <use images/figura113.png>
 Package pdftex.def Info: images/figura113.png used on input line 22.
 (pdftex.def)             Requested size: 237.38629pt x 228.35255pt.
 
-<images/figura114.png, id=103, 537.00626pt x 527.9725pt>
+<images/figura114.png, id=110, 537.00626pt x 527.9725pt>
 File: images/figura114.png Graphic file (type png)
 
 <use images/figura114.png>
 Package pdftex.def Info: images/figura114.png used on input line 30.
 (pdftex.def)             Requested size: 268.50247pt x 263.9856pt.
- <images/figura311.png, id=104, 1204.5pt x 803.0pt>
+ <images/figura311.png, id=111, 1204.5pt x 803.0pt>
 File: images/figura311.png Graphic file (type png)
 
 <use images/figura311.png>
 Package pdftex.def Info: images/figura311.png used on input line 38.
 (pdftex.def)             Requested size: 385.44788pt x 256.96526pt.
 
-<images/figura312.png, id=105, 1346.02875pt x 653.44125pt>
-=======
-<images/figura111.png, id=101, 301.125pt x 346.29375pt>
-File: images/figura111.png Graphic file (type png)
-
-<use images/figura111.png>
-<images/figura112.png, id=103, 333.245pt x 250.9375pt>
-File: images/figura112.png Graphic file (type png)
-
-<use images/figura112.png>
-<images/figura113.png, id=104, 474.77374pt x 456.70625pt>
-File: images/figura113.png Graphic file (type png)
-
-<use images/figura113.png>
-<images/figura114.png, id=105, 537.00626pt x 527.9725pt>
-File: images/figura114.png Graphic file (type png)
-
-<use images/figura114.png> <images/figura311.png, id=106, 1204.5pt x 803.0pt>
-File: images/figura311.png Graphic file (type png)
-
-<use images/figura311.png>
-<images/figura312.png, id=107, 1346.02875pt x 653.44125pt>
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
+<images/figura312.png, id=112, 1346.02875pt x 653.44125pt>
 File: images/figura312.png Graphic file (type png)
 
 <use images/figura312.png>
@@ -1266,11 +1163,7 @@ Overfull \hbox (54.19086pt too wide) in paragraph at lines 46--48
  [][]  
  []
 
-<<<<<<< HEAD
-<images/figura313.png, id=106, 1279.78125pt x 669.50125pt>
-=======
-<images/figura313.png, id=108, 1279.78125pt x 669.50125pt>
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
+<images/figura313.png, id=113, 1279.78125pt x 669.50125pt>
 File: images/figura313.png Graphic file (type png)
 
 <use images/figura313.png>
@@ -1281,55 +1174,35 @@ Overfull \hbox (32.32912pt too wide) in paragraph at lines 54--56
  [][]  
  []
 
-<<<<<<< HEAD
-<images/figura321.png, id=107, 251.94125pt x 191.71625pt>
+<images/figura321.png, id=114, 251.94125pt x 191.71625pt>
 File: images/figura321.png Graphic file (type png)
 
 <use images/figura321.png>
 Package pdftex.def Info: images/figura321.png used on input line 62.
 (pdftex.def)             Requested size: 251.94063pt x 191.71577pt.
 
-<images/figura322.png, id=108, 78.2925pt x 87.32625pt>
+<images/figura322.png, id=115, 78.2925pt x 87.32625pt>
 File: images/figura322.png Graphic file (type png)
 
 <use images/figura322.png>
 Package pdftex.def Info: images/figura322.png used on input line 70.
 (pdftex.def)             Requested size: 78.2923pt x 87.32603pt.
 
-<images/figura323.png, id=109, 274.02374pt x 198.7425pt>
+<images/figura323.png, id=116, 274.02374pt x 198.7425pt>
 File: images/figura323.png Graphic file (type png)
 
 <use images/figura323.png>
 Package pdftex.def Info: images/figura323.png used on input line 78.
 (pdftex.def)             Requested size: 274.02307pt x 198.742pt.
 
-<images/figura324.png, id=110, 161.60374pt x 129.48375pt>
+<images/figura324.png, id=117, 161.60374pt x 129.48375pt>
 File: images/figura324.png Graphic file (type png)
 
 <use images/figura324.png>
 Package pdftex.def Info: images/figura324.png used on input line 86.
 (pdftex.def)             Requested size: 161.60335pt x 129.48341pt.
 
-<images/figura325.png, id=111, 852.18375pt x 426.59375pt>
-=======
-<images/figura321.png, id=109, 251.94125pt x 191.71625pt>
-File: images/figura321.png Graphic file (type png)
-
-<use images/figura321.png>
-<images/figura322.png, id=110, 78.2925pt x 87.32625pt>
-File: images/figura322.png Graphic file (type png)
-
-<use images/figura322.png>
-<images/figura323.png, id=111, 274.02374pt x 198.7425pt>
-File: images/figura323.png Graphic file (type png)
-
-<use images/figura323.png>
-<images/figura324.png, id=112, 161.60374pt x 129.48375pt>
-File: images/figura324.png Graphic file (type png)
-
-<use images/figura324.png>
-<images/figura325.png, id=113, 852.18375pt x 426.59375pt>
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
+<images/figura325.png, id=118, 852.18375pt x 426.59375pt>
 File: images/figura325.png Graphic file (type png)
 
 <use images/figura325.png>
@@ -1340,42 +1213,28 @@ Overfull \hbox (36.09082pt too wide) in paragraph at lines 94--96
  [][] 
  []
 
-<<<<<<< HEAD
-<images/figura413.png, id=112, 380.42125pt x 253.94875pt>
+<images/figura413.png, id=119, 380.42125pt x 253.94875pt>
 File: images/figura413.png Graphic file (type png)
 
 <use images/figura413.png>
 Package pdftex.def Info: images/figura413.png used on input line 102.
 (pdftex.def)             Requested size: 266.29305pt x 177.76291pt.
 
-<images/figura4212.png, id=113, 183.68625pt x 158.5925pt>
+<images/figura4212.png, id=120, 183.68625pt x 158.5925pt>
 File: images/figura4212.png Graphic file (type png)
 
 <use images/figura4212.png>
 Package pdftex.def Info: images/figura4212.png used on input line 110.
-(pdftex.def)             Requested size: 146.94917pt x 126.87415pt.
- <images/lock.png, id=114, 128.48pt x 128.48pt>
-File: images/lock.png Graphic file (type png)
+(pdftex.def)             Requested size: 165.31607pt x 142.7319pt.
 
-<use images/lock.png>
-Package pdftex.def Info: images/lock.png used on input line 117.
-(pdftex.def)             Requested size: 128.47968pt x 128.47968pt.
- <images/figura511.png, id=115, 740.7675pt x 554.07pt>
-=======
-<images/figura413.png, id=114, 380.42125pt x 253.94875pt>
-File: images/figura413.png Graphic file (type png)
-
-<use images/figura413.png>
-<images/figura4212.png, id=115, 183.68625pt x 158.5925pt>
-File: images/figura4212.png Graphic file (type png)
-
-<use images/figura4212.png>
-<images/figura4331.png, id=116, 826.08624pt x 691.58376pt>
+<images/figura4331.png, id=121, 826.08624pt x 691.58376pt>
 File: images/figura4331.png Graphic file (type png)
 
 <use images/figura4331.png>
-<images/figura511.png, id=117, 740.7675pt x 554.07pt>
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
+Package pdftex.def Info: images/figura4331.png used on input line 117.
+(pdftex.def)             Requested size: 289.1345pt x 242.05794pt.
+
+<images/figura511.png, id=122, 740.7675pt x 554.07pt>
 File: images/figura511.png Graphic file (type png)
 
 <use images/figura511.png>
@@ -1386,15 +1245,15 @@ Overfull \hbox (54.46393pt too wide) in paragraph at lines 126--128
  [][]  
  []
 
-) [30
+) [31
 
 
- <./images/figura111.png>] [31 <./images/figura112.png> <./images/figura113.png
->] [32 <./images/figura114.png>] [33 <./images/figura311.png> <./images/figura3
-12.png>] [34 <./images/figura313.png> <./images/figura321.png>] [35 <./images/f
-igura322.png> <./images/figura323.png> <./images/figura324.png>] [36 <./images/
-figura325.png> <./images/figura413.png>] [37 <./images/figura4212.png> <./image
-s/figura4331.png>] [38 <./images/figura511.png>]
+ <./images/figura111.png>] [32 <./images/figura112.png> <./images/figura113.png
+>] [33 <./images/figura114.png>] [34 <./images/figura311.png> <./images/figura3
+12.png>] [35 <./images/figura313.png> <./images/figura321.png>] [36 <./images/f
+igura322.png> <./images/figura323.png> <./images/figura324.png>] [37 <./images/
+figura325.png> <./images/figura413.png>] [38 <./images/figura4212.png> <./image
+s/figura4331.png>] [39 <./images/figura511.png>]
 \openout2 = `./capitulos/cuadros.aux'.
 
  (./capitulos/cuadros.tex
@@ -1417,7 +1276,7 @@ Overfull \hbox (72.79132pt too wide) in paragraph at lines 7--25
  [][] 
  []
 
-) [39
+) [40
 
 
 ]
@@ -1431,10 +1290,10 @@ Overfull \hbox (6.89923pt too wide) in paragraph at lines 17--18
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 38.
-[40
+[41
 
 
-] [41]
+] [42]
 Overfull \hbox (0.59924pt too wide) in paragraph at lines 126--127
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1454,7 +1313,7 @@ Overfull \hbox (0.59924pt too wide) in paragraph at lines 136--137
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[42] [43]
+[43] [44]
 Overfull \hbox (38.39917pt too wide) in paragraph at lines 210--211
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][] 
@@ -1464,41 +1323,141 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 216.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 216.
-<<<<<<< HEAD
- [43] [44] [45]) [46]
-(./proyecto.lof
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-)
-=======
 
 Overfull \hbox (0.59924pt too wide) in paragraph at lines 220--221
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[44] [45]
-Overfull \hbox (0.59924pt too wide) in paragraph at lines 323--324
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[46]
-Overfull \hbox (0.59924pt too wide) in paragraph at lines 359--360
+[45] [46] [47]
+Overfull \hbox (0.59924pt too wide) in paragraph at lines 381--382
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
+[48]
 
-Overfull \hbox (69.89911pt too wide) in paragraph at lines 374--375
+! Package inputenc Error: Unicode char \u8:�\lst@FillFixed@\lst@EC� not set up 
+for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.397 ...ts = [ "restart_game", “pause_clock”,
+                                                   “resume_clock” ]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.397 ...ts = [ "restart_game", “pause_clock”,
+                                                   “resume_clock” ]
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:�\lst@EC�\lst@EC� not set up for use
+ with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.397 ...ts = [ "restart_game", “pause_clock”,
+                                                   “resume_clock” ]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:�\lst@FillFixed@\lst@EC� not set up 
+for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.397 ...", “pause_clock”, “resume_clock” 
+                                                  ]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.397 ...", “pause_clock”, “resume_clock” 
+                                                  ]
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:�\lst@EC�\lst@EC� not set up for use
+ with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.397 ...", “pause_clock”, “resume_clock” 
+                                                  ]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (88.79907pt too wide) in paragraph at lines 397--398
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (0.59924pt too wide) in paragraph at lines 400--401
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.89911pt too wide) in paragraph at lines 407--408
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][] 
  []
 
 
-Overfull \hbox (132.89899pt too wide) in paragraph at lines 375--376
+Overfull \hbox (132.89899pt too wide) in paragraph at lines 408--409
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [47] (./proyecto.lof)
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
+
+Overfull \hbox (107.69904pt too wide) in paragraph at lines 415--416
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (82.49908pt too wide) in paragraph at lines 421--422
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (101.39905pt too wide) in paragraph at lines 423--424
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][] 
+ []
+
+) [49] (./proyecto.lof
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
 \tf@lof=\write5
 \openout5 = `proyecto.lof'.
 
@@ -1509,67 +1468,43 @@ LaTeX Info: Redefining \% on input line 1.
 \tf@lot=\write6
 \openout6 = `proyecto.lot'.
 
- (./proyecto.lol [48
+ (./proyecto.lol [50
 
 ])
 \tf@lol=\write7
 \openout7 = `proyecto.lol'.
 
-<<<<<<< HEAD
- [48] (./proyecto.aux
-(./capitulos/prologo.aux)
+ [51]
+(./proyecto.aux (./capitulos/prologo.aux)
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
  (./capitulos/introduccion.aux)
-=======
- [49]
-(./proyecto.aux (./capitulos/prologo.aux) (./capitulos/introduccion.aux)
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
 (./capitulos/por_que_lluviaProject.aux) (./capitulos/parte_grafica.aux)
 (./capitulos/clases.aux) (./capitulos/gates_y_devices.aux)
 (./capitulos/musica.aux) (./capitulos/conclusiones.aux)
 (./capitulos/imagenes.aux) (./capitulos/cuadros.aux) (./capitulos/listings.aux)
 ) ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 14199 strings out of 493304
- 255789 string characters out of 6139871
- 397321 words of memory out of 5000000
- 17309 multiletter control sequences out of 15000+600000
- 8937 words of font info for 32 fonts, out of 8000000 for 9000
+ 14442 strings out of 493304
+ 259029 string characters out of 6139871
+ 327439 words of memory out of 5000000
+ 17540 multiletter control sequences out of 15000+600000
+ 9043 words of font info for 33 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,14n,55p,421b,1646s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmtt12.pfb>
-Output written on proyecto.pdf (48 pages, 1244171 bytes).
+ 56i,14n,55p,421b,1630s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/latxfont/lasy10.pfb>
+Output written on proyecto.pdf (51 pages, 1309698 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
-=======
- 12648 strings out of 493848
- 227363 string characters out of 1152823
- 289465 words of memory out of 3000000
- 15612 multiletter control sequences out of 15000+50000
- 8937 words of font info for 32 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
- 56i,14n,55p,421b,1632s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf
--texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
-cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on proyecto.pdf (49 pages, 1317363 bytes).
-PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
->>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab
+ 242 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

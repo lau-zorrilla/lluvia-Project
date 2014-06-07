@@ -305,24 +305,46 @@ Galactus.prototype.start_world = function() {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[caption=Clase Button, label={lst:code512}]
-     Button.prototype = new Gate
-     Button.prototype.constructor = Button
 
-     function Button(element){
+\begin{lstlisting}[caption=Constructor Animation, label={lst:code5121}]
+function Animation(element) {
+    var that = this
+    function initialize(){
         try {
-            if (arguments.length)
-                Gate.call(this, element)
+            if (element) {
+                that.element = element
+                that[element] = {}
+                Gate.call(that, element)                      
+                }
         } catch (e) {
-            if (\$K_debug_level >= \$KC_dl.DEVELOPER)
-                alert("No event handlers were found.
-                      \nException: " + e.toSource())
+            if ($K_debug_level >= $KC_dl.DEVELOPER)
+               alert("No event handlers were 
+               found.\nException: " + e.toSource())
         }
-     }
+    }
+    if (arguments.length)
+        initialize()
+}
+\end{lstlisting}
 
-     Button.prototype.do_onclick   = function(event, element){
-        alert("You have made click.")
-     }
+
+\begin{lstlisting}[caption=Clase Button, label={lst:code5122}]
+Animation.prototype.do_onmouseover = 
+   function(ev, el){
+      this[this.element].menu_automata.currentState.requested 
+         = this[this.element].menu_automata.state.getting_out
+
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption=Clase Button, label={lst:code5123}]
+Animation.prototype.do_onmouseout = 
+   function(ev, el){
+      this[this.element].menu_automata.currentState.requested 
+          = this[this.element].menu_automata.state.getting_in
+
+}
 \end{lstlisting}
 
 
@@ -370,6 +392,17 @@ that.newGate("instructions_option", Gate, {do_onclick:
         } })
 \end{lstlisting}
 
+
+\begin{lstlisting}[caption=variable self\_events, label={lst:code5231}]
+this.self_events = [ "restart_game", “pause_clock”, “resume_clock” ]
+Gaclactus:
+
+Galactus.prototype.attend_pause_clock = function(date, mssg) {
+    this.world.clock.pause()
+    this.world.clock.get_string()
+    }
+\end{lstlisting}
+
 \begin{lstlisting}[caption=level\_option, label={lst:code5241}]
 that.newGate("level_option", Gate, {do_onclick: function(event, element){
             var levels_container= document.getElementById('level_option_container')
@@ -377,3 +410,16 @@ that.newGate("level_option", Gate, {do_onclick: function(event, element){
         } })
 \end{lstlisting}
 
+\begin{lstlisting}[caption=do\_onmouseover, label={lst:code5251}]
+Levels.prototype.do_onmouseover = function(ev, el){
+   this.device.fireEvent(this.device.newMessage("sync", "keep_menu_out", this))
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=do\_onmouseout, label={lst:code5252}]
+Levels.prototype.do_onmouseout = function(ev, el){
+    var levels_container= document.getElementById('level_option_container')
+    levels_container.style.display='none'
+    this.device.fireEvent(this.device.newMessage("sync", "get_menu_in", this))
+}
+\end{lstlisting}

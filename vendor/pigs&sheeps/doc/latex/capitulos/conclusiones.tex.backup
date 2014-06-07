@@ -4,32 +4,35 @@
 Este proyecto nos ha permitido comprobar la importancia y las ventajas de los lenguajes orientados a objetos, que permiten una programación más 
 ágil y eficiente que los lenguajes estructurados. Esto permite expresar aspectos de la vida cotidiana de forma más realista.\\
 
-Como \lluvia{} es un framework multihilo gestionado por señales, permite añadir a Javascript funciones nuevas, fundamentales para el desarrollo del proyecto. 
-Esto permite enviar y recibir mensajes entre distintos componentes de la aplicación, mejorando la respuesta a los diferentes eventos. Además, la utilización de caracteres 
-personales autónomos (Boids), nos ha permitido comprobar que se puede modelar artificialmente el comportamiento de un animal a partir de 
-operaciones sencillas con vectores.\\
+Como \lluvia{} es un framework multihilo gestionado por señales, permite añadir a Javascript funciones nuevas, fundamentales para el desarrollo 
+del proyecto. Esto permite enviar y recibir mensajes entre distintos componentes de la aplicación, mejorando la respuesta a los diferentes 
+eventos. Además, la utilización de caracteres personales autónomos (Boids), nos ha permitido comprobar que se puede modelar artificialmente el 
+comportamiento de un animal a partir de operaciones sencillas con vectores.\\
 
-Modificando la aceleración en función de un estímulo se pueden generar comportamientos de huida, en los que se aumenta la aceleración hasta su 
-máximo durante un espacio para ir reduciéndose de manera gradual a medida que se aleja del estímulo.
+Modificando la aceleración en función de un estímulo se pueden generar comportamientos de huida, en los que se aumenta la aceleración hasta 
+su máximo durante un espacio para ir reduciéndose de manera gradual a medida que se aleja del estímulo.
 Si, además, se le añade un radio de visión, compuesto de radio y ángulo, también se pueden generar otro tipo de comportamientos.\\
 
 Según el ángulo de visión, se generan comportamientos, los cuales pueden variar en función de los hábitos alimenticios de 
-una determinada especie de Boid, por ejemplo. Es decir, si un Boid es carnívoro, tendrán los ojos ubicados en la parte delantera de la cabeza, mientras 
-que si es herbívoro, éstos estarán situados en los lados. Esta variación del ángulo de visión permite ajustar lo observado en la vida real a la 
-simulación artificial.\\
+una determinada especie de Boid, por ejemplo. Es decir, si un Boid es carnívoro, tendrán los ojos ubicados en la parte delantera de la cabeza,
+mientras que si es herbívoro, éstos estarán situados en los lados. Esta variación del ángulo de visión permite ajustar lo observado en la vida 
+real a la simulación artificial.\\
 
 El radio de visión permite determinar la distancia que ve el Boid. Éste, por ejemplo, puede variar en función de la edad, siendo mayor cuando
-más joven es el Boids. También permite determinar si una especie tiene comportamientos de manada o no, en función de cuánto se acerquen o alejen de 
-otros animales similares dentro de su radio de visión. De la misma manera, un Boid solo con un comportamiento de manada programado tenderá a 
-acercarse a otros miembros cercanos de la manada.\\
+más joven es el Boids. También permite determinar si una especie tiene comportamientos de manada o no, en función de cuánto se acerquen o 
+alejen de otros animales similares dentro de su radio de visión. De la misma manera, un Boid solo con un comportamiento de manada programado 
+tenderá a acercarse a otros miembros cercanos de la manada.\\
 
-- Pequeños cambios en las variables que componen los Boid pueden generar comportamientos completamente distintos. 
-Tanto para la visión como para los otros atributos del Boid, se ha comprobado que cambios de valor demasiado grandes generan comportamientos que no son naturales, mientras que 
-pequeñas variaciones 
+Tanto para la visión como para los otros atributos del Boid, se ha comprobado que cambios de valor demasiado grandes en las variables 
+generan comportamientos que no son naturales, demasiado ordenados en comparación con aquellos que existen en la naturaleza. Son las variaciones
+pequeñas entre valores de un atributo las que devuelven comportamientos reales. Por ejemplo, variando levemente el valor del redio de separacion 
+y el alineamiento se obtiene un comportamiento de bandada de pájaros o de grupo de peces. 
+
+Se ha observado también que los Boid oveja responden alejandose en grupo y en línea recta cuando el Boid cerdito se acerca a ellos
+por la parte trasera moviéndose en zig-zag. Y si el Boid cerdito se sitúa en el punto de equilibrio (cuartos delanteros) del Boid oveja, 
+los Boid oveja retroceden.\\
+
+Los resultados obtenidos en este proyecto pueden proporcionar una herramienta para la simulación de comportamientos. Lo que en este
+proyecto se basa en animales puede ser extendido a personas o partículas, generando una plataforma de experimentación.
 
 
-- responden a la técnica de zig-zag
-
-
-Los resultados obtenidos en este proyecto pueden proporcionar una herramienta para la simulación de comportamientos. Lo que en este proyecto 
-se basa en animales puede ser extendido a personas o partículas, generando una plataforma de experimentación.

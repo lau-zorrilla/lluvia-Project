@@ -177,7 +177,7 @@ dog = new (Animal("Tim", 4))("meat")
 \end{lstlisting}
 
 
-\begin{lstlisting}[caption=Función do\_onclick, label={lst:code4234}]
+\begin{lstlisting}[caption=Función do\_onclick, label={lst:code4235}]
  MouseCoordinates.prototype.do_onclick = function (ev, el) {
    this.X = ev.pageX - screener.offsetLeft
    this.Y = ev.pageY - screener.offsetTop
@@ -354,15 +354,19 @@ Galactus.prototype.start_world = function() {
 
 \begin{lstlisting}[caption=Instructions\_option Gate, label={lst:code5221}]
 that.newGate("instructions_option", Gate, {do_onclick: 
-                             function(event, element) {
-                                      alert("Move the little pig to
-                                      place sheeps into the barnyard")
+                     function(event, element) {
+                        alert("Move the little pig to
+                              place sheeps into the barnyard")
         } })
 \end{lstlisting}
 
 \begin{lstlisting}[caption=restart\_option, label={lst:code5222}]
- that.newGate("restart_option", Gate, { do_onclick: function(event, element) {
-            this.device.fireEvent(this.device.newMessage("sync", "restart_game", this))
+ that.newGate("restart_option", Gate, { do_onclick: 
+                     function(event, element) {
+            this.device.fireEvent(
+                      this.device.newMessage("sync", 
+                               "restart_game", this)
+                      )
         } })
 \end{lstlisting}
 
