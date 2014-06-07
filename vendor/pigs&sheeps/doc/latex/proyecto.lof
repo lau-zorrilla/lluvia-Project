@@ -1,4 +1,5 @@
 \select@language {spanish}
+<<<<<<< HEAD
 \contentsline {figure}{\numberline {1}{\ignorespaces T\IeC {\'e}cnica limpiaparabrisas\relax }}{29}
 \contentsline {figure}{\numberline {2}{\ignorespaces Zona de fuga\relax }}{30}
 \contentsline {figure}{\numberline {3}{\ignorespaces Sacar al ganado: Un controlador\relax }}{30}
@@ -15,3 +16,21 @@
 \contentsline {figure}{\numberline {14}{\ignorespaces Radio de un Boid\relax }}{36}
 \contentsline {figure}{\numberline {15}{\ignorespaces gr\IeC {\'a}fico de velocidades y aceleraciones\relax }}{36}
 \contentsline {figure}{\numberline {16}{\ignorespaces Diagrama Gate y Device\relax }}{37}
+=======
+\contentsline {figure}{\numberline {1}{\ignorespaces T\IeC {\'e}cnica limpiaparabrisas}}{30}
+\contentsline {figure}{\numberline {2}{\ignorespaces Zona de fuga}}{31}
+\contentsline {figure}{\numberline {3}{\ignorespaces Sacar al ganado: Un controlador}}{31}
+\contentsline {figure}{\numberline {4}{\ignorespaces Sacar al ganado: Dos controladores}}{32}
+\contentsline {figure}{\numberline {5}{\ignorespaces Primer dise\IeC {\~n}o}}{33}
+\contentsline {figure}{\numberline {6}{\ignorespaces Segundo dise\IeC {\~n}o}}{33}
+\contentsline {figure}{\numberline {7}{\ignorespaces Dise\IeC {\~n}o final}}{34}
+\contentsline {figure}{\numberline {8}{\ignorespaces Primer cerdito}}{34}
+\contentsline {figure}{\numberline {9}{\ignorespaces Oveja - s\IeC {\'o}lo cabeza}}{35}
+\contentsline {figure}{\numberline {10}{\ignorespaces Cerdito definitivo}}{35}
+\contentsline {figure}{\numberline {11}{\ignorespaces Oveja definitiva}}{35}
+\contentsline {figure}{\numberline {12}{\ignorespaces Primer canvas}}{36}
+\contentsline {figure}{\numberline {13}{\ignorespaces Herencia protot\IeC {\'\i }pica}}{36}
+\contentsline {figure}{\numberline {14}{\ignorespaces Radio de un Boid}}{37}
+\contentsline {figure}{\numberline {15}{\ignorespaces gr\IeC {\'a}fico de velocidades y aceleraciones}}{37}
+\contentsline {figure}{\numberline {16}{\ignorespaces Diagrama Gate y Device}}{38}
+>>>>>>> 4492f9f5f200a04154461b5f0fcea00593c642ab

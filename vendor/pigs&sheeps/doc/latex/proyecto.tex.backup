@@ -6,6 +6,10 @@
 \graphicspath{ {images/} }
 \DeclareGraphicsExtensions{.jpeg,.png,.jpg}  
 \usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{uni}
+
 
 % Taken from Lena Herrmann at 
 % http://lenaherrmann.net/2010/05/20/javascript-syntax-highlighting-in-the-latex-listings-package
@@ -43,9 +47,11 @@
    tabsize=2,
    breaklines=false,
    showtabs=false,
-   captionpos=b
+   captionpos=b,
+%   aboveskip=15pt,
+   belowskip=22pt
 }
-
+% end 
 
 %\usetikzlibrary{snakes}
 \usetikzlibrary{decorations}
@@ -55,7 +61,7 @@
 \date{09/JUNIO/2014}
 
 \begin{document}
-\newcommand{\lluvia}{\textbf{\textit{lluviaProject}}}
+\newcommand{\lluvia}{\textbf{\textit{lluviaProject} {\familydefault {uni}} }}
 
 \include{./capitulos/prologo}
 
@@ -69,6 +75,8 @@
 \include{./capitulos/musica}
 \include{./capitulos/conclusiones}
 \include{./capitulos/imagenes}
+\include{./capitulos/cuadros}
+\include{./capitulos/listings}
 
 \appendix
 %\include{./capitulos/manual}

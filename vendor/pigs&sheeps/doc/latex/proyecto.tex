@@ -7,6 +7,9 @@
 \DeclareGraphicsExtensions{.jpeg,.png,.jpg}  
 \usepackage{tikz}
 \usepackage{subcaption}
+\usepackage{float}
+\usepackage{uni}
+
 
 % Taken from Lena Herrmann at 
 % http://lenaherrmann.net/2010/05/20/javascript-syntax-highlighting-in-the-latex-listings-package
@@ -42,13 +45,13 @@
    numberstyle=\footnotesize,
    numbersep=9pt,
    tabsize=2,
-   breaklines=true,
+   breaklines=false,
    showtabs=false,
    captionpos=b,
 %   aboveskip=15pt,
    belowskip=22pt
 }
-
+% end 
 
 %\usetikzlibrary{snakes}
 \usetikzlibrary{decorations}
@@ -58,7 +61,17 @@
 \date{09/JUNIO/2014}
 
 \begin{document}
-\newcommand{\lluvia}{\textbf{\textit{lluviaProject}, \color{red}}}
+
+\newenvironment{editLater}{%
+    %\def\rmdefault{ptm}\rmfamily
+    \def\familydefault{uni}
+}{}
+
+\newcommand{\lluvia}{
+\begin{editLater}
+\textbf{\textit{lluviaProject} }
+\end{editLater}
+}
 
 \include{./capitulos/prologo}
 
