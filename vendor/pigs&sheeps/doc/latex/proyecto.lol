@@ -14,17 +14,17 @@
 \contentsline {lstlisting}{\numberline {14}Funci\IeC {\'o}n running\_steady}{48}
 \contentsline {lstlisting}{\numberline {15}Funci\IeC {\'o}n start\_world}{48}
 \contentsline {lstlisting}{\numberline {16}Constructor Animation}{49}
-\contentsline {lstlisting}{\numberline {17}Clase Button}{49}
+\contentsline {lstlisting}{\numberline {17}Clase Button}{50}
 \contentsline {lstlisting}{\numberline {18}Clase Button}{50}
 \contentsline {lstlisting}{\numberline {19}Estado out}{50}
 \contentsline {lstlisting}{\numberline {20}Estado getting\_out}{50}
 \contentsline {lstlisting}{\numberline {21}Estado getting\_in}{50}
 \contentsline {lstlisting}{\numberline {22}Instructions\_option Gate}{50}
-\contentsline {lstlisting}{\numberline {23}restart\_option}{50}
+\contentsline {lstlisting}{\numberline {23}restart\_option}{51}
 \contentsline {lstlisting}{\numberline {24}Variable self\_events}{51}
 \contentsline {lstlisting}{\numberline {25}newGate desplegable}{51}
 \contentsline {lstlisting}{\numberline {26}newGate button\_ok}{51}
-\contentsline {lstlisting}{\numberline {27}level\_option}{51}
-\contentsline {lstlisting}{\numberline {28}do\_onmouseover}{51}
+\contentsline {lstlisting}{\numberline {27}level\_option}{52}
+\contentsline {lstlisting}{\numberline {28}do\_onmouseover}{52}
 \contentsline {lstlisting}{\numberline {29}do\_onmouseout}{52}
 \contentsline {lstlisting}{\numberline {30}do\_onmouseout}{52}
